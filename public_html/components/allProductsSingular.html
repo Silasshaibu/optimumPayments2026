@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="products">
+  <div class="products-grid">
+    <article class="product-card">
+      <h2>Valor VP550</h2>
+      <a href="#" class="learn-more">Learn more <span class="icon"></span></a>
+      <img src="https://placehold.co/268x187" alt="Valor VP550">
+      <p>The innovative countertop solution. Accept payments and run your business ..</p>
+    </article>
+
+    <article class="product-card">
+      <h2>Valor VP800</h2>
+      <a href="#" class="learn-more">Learn more <span class="icon"></span></a>
+      <img src="https://placehold.co/268x187" alt="Valor VP800">
+      <p>The innovative countertop solution. Accept payments and run your business ..</p>
+    </article>
+
+    <article class="product-card">
+      <h2>Valor VL110</h2>
+      <a href="#" class="learn-more">Learn more <span class="icon"></span></a>
+      <img src="https://placehold.co/268x187" alt="Valor VL110">
+      <p>The innovative countertop solution. Accept payments and run your business ..</p>
+    </article>
+
+    <article class="product-card">
+      <h2>OCTOPUS</h2>
+      <a href="#" class="learn-more">Learn more <span class="icon"></span></a>
+      <img src="https://placehold.co/268x187" alt="OCTOPUS">
+      <p>The innovative countertop solution. Accept payments and run your business ..</p>
+    </article>
+
+    <!-- Add remaining products in the same format -->
+  </div>
+</section>
+
+</body>
+
+<style>
+.products {
+  padding: 48px 16px;
+  background-color: #fff;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.product-card {
+  background-color: #F3F4F6;
+  border-radius: 8px;
+  padding-top: 48px;
+  padding-bottom: 16px;
+  width: 100%;
+  max-width: 346px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.product-card h2 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #111827;
+  margin: 0;
+}
+
+.product-card img {
+  width: 268px;
+  height: 187px;
+  object-fit: cover;
+}
+
+.product-card p {
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #6B7280;
+}
+
+.learn-more {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #63A0CF;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.learn-more .icon {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 12px;
+}
+
+</style>
+</html>
