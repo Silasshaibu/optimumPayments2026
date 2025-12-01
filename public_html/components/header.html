@@ -9,22 +9,133 @@
 <body>
     <header class="site-header" role="banner">
         <div class="container">
-            <a class="site-logo" href="/index.html">
-                <img src="/assets/images/logo/logo.png" alt="Optimum Payments" />
-            </a>
+            <div>
+                <button style="width: 32px; padding:0px; margin:0px;" class="menu-toggle" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>                
 
-            <nav class="main-nav" role="navigation" aria-label="Primary">
-                <ul>
-                    <li><a href="../pages/home.html">Home</a></li>
-					<li><a href="../pages/promo.html">Promo</a></li>
-					<li><a href="../pages/processing-solutions.html">Processing Solutions</a></li>
-					<li><a href="../pages/digital-services.html">Digital Services</a></li>
-					<li><a href="../pages/business-financing.html">Business Financing</a></li>
-					<li><a href="../pages/about.html">About Us</a></li>
-					<li><a href="../pages/contact-us.html">Contact Us</a></li>
-                </ul>
-            </nav>
+                <button style="width: 32px; padding:0px; margin:0px;" class="search-toggle" aria-label="Toggle search">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div>            
+                <a class="site-logo" href="/index.html">
+                    <img src="/assets/images/logo/logo.png" alt="Optimum Payments" />
+                </a>
+            </div>
+
+            <div>                
+                <nav class="main-nav mobile-nav" role="navigation" aria-label="Primary">
+                    <ul>
+                        <li><a href="../pages/home.html">Home</a></li>
+                        <li><a href="../pages/promo.html">Promo</a></li>
+                        <li><a href="../pages/processing-solutions.html">Processing Solutions</a></li>
+                        <li><a href="../pages/digital-services.html">Digital Services</a></li>
+                        <li><a href="../pages/business-financing.html">Business Financing</a></li>
+                        <li><a href="../pages/about.html">About Us</a></li>
+                        <li><a href="../pages/contact-us.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+           
+            <button class="store-btn" onclick="window.location.href='../pages/shop.html'">Store</button>
         </div>
     </header>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Mobile Navigation Dropdown */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            border-top: 1px solid #e0e0e0;
+            width: 100%;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .mobile-nav li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 16px;
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .mobile-nav a:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Desktop Navigation - Hide by default */
+        @media (min-width: 1024px) {
+            .mobile-nav {
+                display: flex !important;
+                position: static;
+                border: none;
+                width: auto;
+            }
+
+            .mobile-nav ul {
+                flex-direction: row;
+                display: flex;
+            }
+
+            .mobile-nav li {
+                border: none;
+                margin-right: 30px;
+            }
+
+            .menu-toggle, .search-toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .menu-toggle, .search-toggle {
+                display: block;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+
+            if (menuToggle && mobileNav) {
+                menuToggle.addEventListener('click', function() {
+                    mobileNav.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
