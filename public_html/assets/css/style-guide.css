@@ -3,17 +3,283 @@
    =================================== */
 
 /* 1. COLORS */
+
+/* =========================================
+   BRAND COLOR STYLE GUIDE
+   5 Colors:
+   1. Primary Blue
+   2. Grey
+   3. Tertiary Grey
+   4. Dark Overlay
+   5. Light Overlay
+   ========================================= */
+
 :root {
+  /* ---------- PRIMARY BLUE ---------- */
+  --blue-50:   #EBF3F9;
+  --blue-100:  #D8E7F3;
+  --blue-200:  #B1D0E7;
+  --blue-300:  #8AB8DB;
+  --blue-400:  #63A0CF;
+  --blue-500:  #3C88C3;
+  --blue-600:  #306D9C;
+  --blue-700:  #245275;
+  --blue-800:  #18374E;
+  --blue-900:  #0C1B27;
+  --blue-950:  #060D14;
+
+  --color-blue-light:  var(--blue-100);
+  --color-blue:        var(--blue-500);
+  --color-blue-dark:   var(--blue-900);
+
+  /* ---------- GREY ---------- */
+  --grey-50:   #F7F7F8;
+  --grey-100:  #E9E9EC;
+  --grey-200:  #CECED4;
+  --grey-300:  #B3B3BC;
+  --grey-400:  #9898A4;
+  --grey-500:  #7D7D8C;
+  --grey-600:  #656572;
+  --grey-700:  #4D4D57;
+  --grey-800:  #323239;
+  --grey-900:  #323239;
+  --grey-950:  #0C0C0E;
+
+  --color-grey-light:  var(--grey-100);
+  --color-grey:        var(--grey-500);
+  --color-grey-dark:   var(--grey-900);
+
+  /* ---------- TERTIARY GREY ---------- */
+  --tgrey-50:   #FCFCFC;
+  --tgrey-100:  #FAFAFA;
+  --tgrey-200:  #F5F5F5;
+  --tgrey-300:  #F0F0F0;
+  --tgrey-400:  #EBEBEB;
+  --tgrey-500:  #E6E6E6;
+  --tgrey-600:  #E0E0E0;
+  --tgrey-700:  #DBDBDB;
+  --tgrey-800:  #D6D6D6;
+  --tgrey-900:  #D1D1D1;
+  --tgrey-950:  #CFCFCF;
+
+  --color-tgrey-light:  var(--tgrey-100);
+  --color-tgrey:        var(--tgrey-500);
+  --color-tgrey-dark:   var(--tgrey-900);
+
+  /* ---------- OVERLAYS ---------- */
+  --dark-overlay:  rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
+  --light-overlay: rgba(255, 255, 255, 0.5); /* semi-transparent light overlay */
+
+  /* Legacy colors for compatibility */
   --color-primary: #2563eb;     /* Blue */
   --color-secondary: #1e293b;   /* Dark gray-blue */
   --color-accent: #facc15;      /* Gold accent */
   --color-background: #ffffff;
   --color-surface: #f8fafc;
-  --color-text: #0f172a;
   --color-muted: #64748b;
 }
 
 /* 2. TYPOGRAPHY */
+
+/* ===========================
+   FONT FAMILIES
+=========================== */
+:root {
+  --font-family: "Manrope", "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+  --color-text: #000;
+}
+
+/* ===========================
+   DISPLAY
+=========================== */
+.display-100 {
+  font-family: var(--font-family);
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.display-90 {
+  font-family: var(--font-family);
+  font-size: 56px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.display-80 {
+  font-family: var(--font-family);
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.display-70 {
+  font-family: var(--font-family);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.display-60 {
+  font-family: var(--font-family);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* ===========================
+   TITLES
+=========================== */
+.title-50 {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.title-40 {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.title-30 {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.title-20 {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.title-10 {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ===========================
+   LINKS
+=========================== */
+.link-50 {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.link-40 {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.link-30 {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.link-20 {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.link-10 {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ===========================
+   SUBTITLES
+=========================== */
+.subtitle-50 {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.subtitle-40 {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.subtitle-30 {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.subtitle-20 {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.subtitle-10 {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* ===========================
+   BODY
+=========================== */
+.body-50 {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.body-40 {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.body-30 {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.body-20 {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.body-10 {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: var(--color-text);
@@ -33,6 +299,121 @@ p {
 }
 
 /* 3. BUTTONS */
+
+/* ------------------ BUTTONS STYLE GUIDE ------------------ */
+
+/* ---------- PRIMARY BUTTON - FULL SIZE ---------- */
+.btn-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+  padding: 12px 40px;
+
+  background-color: #3C88C3;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #3674A8; /* slightly darker for hover */
+}
+
+.btn-primary span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+/* ---------- PRIMARY BUTTON - SMALL ---------- */
+.btn-primary-small {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+  padding: 8px 20px;
+
+  background-color: #3C88C3;
+  border-radius: 6px;
+
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary-small:hover {
+  background-color: #3674A8;
+}
+
+.btn-primary-small span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+/* ---------- SECONDARY BUTTON ---------- */
+.btn-secondary {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 13px 33px;
+
+  border-radius: 8px;
+  outline: 1px solid #3C88C3; /* Primary button color */
+  outline-offset: -1px;
+
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #3C88C3;
+}
+
+.btn-secondary span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  color: #3C88C3;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.btn-secondary:hover span {
+  color: white;
+}
+
+/* Legacy button styles */
 .btn {
   display: inline-block;
   padding: 0.75em 1.5em;
@@ -40,15 +421,6 @@ p {
   font-weight: 500;
   text-decoration: none;
   transition: background 0.3s ease;
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: #1d4ed8;
 }
 
 .btn-outline {
@@ -61,6 +433,50 @@ p {
   background: var(--color-primary);
   color: #fff;
 }
+
+/* =========================================
+   UTILITIES
+   Background, Text, Borders
+   ========================================= */
+
+/* ---------- BACKGROUNDS ---------- */
+.bg-blue-light    { background-color: var(--color-blue-light); }
+.bg-blue          { background-color: var(--color-blue); }
+.bg-blue-dark     { background-color: var(--color-blue-dark); }
+
+.bg-grey-light    { background-color: var(--color-grey-light); }
+.bg-grey          { background-color: var(--color-grey); }
+.bg-grey-dark     { background-color: var(--color-grey-dark); }
+
+.bg-tgrey-light   { background-color: var(--color-tgrey-light); }
+.bg-tgrey         { background-color: var(--color-tgrey); }
+.bg-tgrey-dark    { background-color: var(--color-tgrey-dark); }
+
+.bg-dark-overlay  { background-color: var(--dark-overlay); }
+.bg-light-overlay { background-color: var(--light-overlay); }
+
+/* ---------- TEXT ---------- */
+.text-blue-light    { color: var(--color-blue-light); }
+.text-blue          { color: var(--color-blue); }
+.text-blue-dark     { color: var(--color-blue-dark); }
+
+.text-grey-light    { color: var(--color-grey-light); }
+.text-grey          { color: var(--color-grey); }
+.text-grey-dark     { color: var(--color-grey-dark); }
+
+.text-tgrey-light   { color: var(--color-tgrey-light); }
+.text-tgrey         { color: var(--color-tgrey); }
+.text-tgrey-dark    { color: var(--color-tgrey-dark); }
+
+.text-dark-overlay  { color: var(--dark-overlay); }
+.text-light-overlay { color: var(--light-overlay); }
+
+/* ---------- BORDERS ---------- */
+.border-blue    { border-color: var(--color-blue); }
+.border-grey    { border-color: var(--color-grey); }
+.border-tgrey   { border-color: var(--color-tgrey); }
+.border-dark-overlay  { border-color: var(--dark-overlay); }
+.border-light-overlay { border-color: var(--light-overlay); }
 
 /* 4. UTILITY CLASSES */
 .mt-1 { margin-top: 0.5rem; }
