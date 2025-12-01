@@ -495,3 +495,28 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* =========================================
+   MEDIA QUERIES
+   Mobile First Approach
+   ========================================= */
+
+/* Mobile Devices - Base (390px width) */
+@media (max-width: 390px) {
+  /* Mobile-specific styles will go here */
+}
+
+/* Tablet Devices (769px and up) */
+@media (min-width: 769px) {
+  /* Tablet-specific styles will go here */
+}
+
+/* Desktop Devices (1024px and up) */
+@media (min-width: 1024px) {
+  /* Desktop-specific styles will go here */
+}
+
+/* Large Desktop Devices (1440px and up) */
+@media (min-width: 1440px) {
+  /* Large desktop-specific styles will go here */
+}
