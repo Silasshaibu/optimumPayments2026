@@ -32,10 +32,16 @@
             <div>                
                 <nav class="main-nav mobile-nav" role="navigation" aria-label="Primary">
                     <ul>
-                        <li><a href="../pages/home.html">Home</a></li>
-                        <li><a href="../pages/promo.html">Promo</a></li>
+                        <li><a href="../pages/home.html">Home</a>
+                        
+</li>
+                        <li><a href="../pages/promo.html">Promo</a><svg style="width:32px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg></li>
                         <li class="has-submenu">
-                            <a href="../pages/processing-solutions.html">Processing Solutions</a>
+                            <a href="../pages/processing-solutions.html">Processing Solutions<svg style="width:32px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg></a>
                             <ul class="submenu">
                                 <li>Full service Fine Dining</li>
                                 <li>QSR and Food Trucks</li>
@@ -46,10 +52,19 @@
                                 <li>Need a Basic Setup?</li>
                             </ul>
                         </li>
-                        <li><a href="../pages/digital-services.html">Digital Services</a></li>
-                        <li><a href="../pages/business-financing.html">Business Financing</a></li>
-                        <li><a href="../pages/about.html">About Us</a></li>
-                        <li><a href="../pages/contact-us.html">Contact Us</a></li>
+                        <li><a href="../pages/digital-services.html">Digital Services
+                            <svg style="width:32px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg></a></li>
+                        <li><a href="../pages/business-financing.html">Business Financing<svg style="width:32px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg></a></li>
+                        <li><a href="../pages/about.html">About Us<svg style="width:32px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg></a></li>
+                        <li><a href="../pages/contact-us.html">Contact Us<svg style="width:32px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg></a></li>
                     </ul>
                 </nav>
             </div>
@@ -69,6 +84,7 @@
         /* Mobile Navigation Dropdown */
         .mobile-nav {
             display: none;
+            display: block;
             position: absolute;
             top: 60px;
             left: 0;
@@ -125,7 +141,9 @@
             }
 
             .menu-toggle, .search-toggle {
-                display: none;
+                display: block;
+                /* display: none; change to display none later */ 
+
             }
         }
 
@@ -137,16 +155,16 @@
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const mobileNav = document.querySelector('.mobile-nav');
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const menuToggle = document.querySelector('.menu-toggle');
+        //     const mobileNav = document.querySelector('.mobile-nav');
 
-            if (menuToggle && mobileNav) {
-                menuToggle.addEventListener('click', function() {
-                    mobileNav.classList.toggle('active');
-                });
-            }
-        });
+        //     if (menuToggle && mobileNav) {
+        //         menuToggle.addEventListener('click', function() {
+        //             mobileNav.classList.toggle('active');
+        //         });
+        //     }
+        // });
     </script>
 </body>
 </html>
