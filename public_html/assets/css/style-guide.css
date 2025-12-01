@@ -1,0 +1,81 @@
+/* ===================================
+   Brand Style Guide - Base System
+   =================================== */
+
+/* 1. COLORS */
+:root {
+  --color-primary: #2563eb;     /* Blue */
+  --color-secondary: #1e293b;   /* Dark gray-blue */
+  --color-accent: #facc15;      /* Gold accent */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+}
+
+/* 2. TYPOGRAPHY */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 0.5em;
+}
+
+p {
+  color: var(--color-muted);
+}
+
+/* 3. BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-outline {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* 4. UTILITY CLASSES */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 2rem; }
+.text-center { text-align: center; }
+.shadow { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.rounded { border-radius: 8px; }
+
+/* 5. LINKS */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
