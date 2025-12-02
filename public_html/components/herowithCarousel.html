@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeroSingularWithCarousel</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text-wrapper">
+               <h1 class="hero-title promo display-70">Own a business <span class="promo display-70 special-accent">or</span> know someone that does?</h1>                     
+               <p class="hero-subtitle display-70">
+                    Save up to 100% on processing fees and get up to 100% off new equipment*
+               </p> 
+            </div>
+            
+            <div class="hero-cta-wrapper">
+                    <button class="btn-primary promo-cta-text">CLAIM OFFER NOW</button>
+                    <span class="terms-text">Terms apply. Choose the option that suits you!</span>
+            </div>
+                
+
+               
+        </div>
+    </div>
+
+
+</body>
+
+<style>
+
+.hero-content
+{
+    gap:2rem; /*default*/
+    gap:15rem;
+   
+}
+
+
+    .btn-primary.promo-cta-text{
+        width: auto;
+        font-family: Manrope;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.25rem;
+        padding:0.75rem 2.5rem;
+        border:1px solid var(--Primary-Btn, #3C88C3);
+    }
+
+
+    .hero-text-wrapper{
+        display:grid;
+        gap:1rem;
+    }
+.hero {
+    width: 100%;
+    min-height: 80vh;
+    height: 560px;
+    background: #C1D3D5;
+     background: url('../assets/images/promo/HeroBanner1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* h1.MobileH1{
+    font-family: Manrope, sans-serif;
+} */
+
+.hero-content {
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: grid;
+    place-content: center;
+    place-items: ce
+    ;
+    
+}
+
+.hero-title.promo {
+    width: 18ch;
+}
+
+.hero-title{
+    text-align: center;
+}
+
+
+H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
+    margin:0 auto;
+    color: var(--Secondary-Btn, #16394B);
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.3rem; 
+}
+
+
+.hero-subtitle {
+       max-width:33ch;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--Primary-Btn, #3C88C3);
+    font-family: Manrope, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: normal;
+    font-size: 2rem;
+    font-style: normal;
+}
+
+.hero-cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.cta-button {
+    height: 48px;
+    padding: 12px 40px;
+    background: var(--Primary-Btn, #3C88C3);
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-text {
+    color: white;
+    font-size: 16px;
+    font-family: Manrope, sans-serif;
+    font-weight: 600;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.terms-wrapper {
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.terms-text {
+    text-align: center;
+    color: var(--TypographyColors-Subtitle, #788289);
+    font-size: 12px;
+    font-family: Manrope, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+</style>
+</html>
