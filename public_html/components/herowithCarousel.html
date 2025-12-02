@@ -10,9 +10,13 @@
     <div class="hero">
         <div class="hero-content">
             <div class="hero-text-wrapper">
-               <h1 class="hero-title promo display-70">Own a business <span class="promo display-70 special-accent">or</span> know someone that does?</h1>                     
+               <h1 class="hero-title promo display-70">
+                Own a business 
+                <span class="promo display-70 special-accent">or</span>
+                know someone that does?
+            </h1>                     
                <p class="hero-subtitle display-70">
-                    Save up to 100% on processing fees and get up to 100% off new equipment*
+                <strong><span class="special-accent-promo-intro">Save up to 100%</span> on processing fees and <span class="special-accent-promo-intro">get up to 100% off</span> new equipment*
                </p> 
             </div>
             
@@ -20,9 +24,6 @@
                     <button class="btn-primary promo-cta-text">CLAIM OFFER NOW</button>
                     <span class="terms-text">Terms apply. Choose the option that suits you!</span>
             </div>
-                
-
-               
         </div>
     </div>
 
@@ -31,13 +32,10 @@
 
 <style>
 
-.hero-content
-{
-    gap:2rem; /*default*/
-    gap:15rem;
-   
-}
-
+    .hero-content{
+        gap:2rem; /*default*/
+        gap:15rem;    
+    }
 
     .btn-primary.promo-cta-text{
         width: auto;
@@ -55,21 +53,21 @@
         display:grid;
         gap:1rem;
     }
-.hero {
-    width: 100%;
-    min-height: 80vh;
-    height: 560px;
-    background: #C1D3D5;
-     background: url('../assets/images/promo/HeroBanner1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    .hero {
+        width: 100%;
+        min-height: 80vh;
+        height: 560px;
+        background: #C1D3D5;
+        background: url('../assets/images/promo/HeroBanner1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
 /* h1.MobileH1{
     font-family: Manrope, sans-serif;
@@ -82,9 +80,6 @@
     align-items: center;
     display: grid;
     place-content: center;
-    place-items: ce
-    ;
-    
 }
 
 .hero-title.promo {
@@ -94,7 +89,6 @@
 .hero-title{
     text-align: center;
 }
-
 
 H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
     margin:0 auto;
@@ -109,7 +103,7 @@ H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
 
 
 .hero-subtitle {
-       max-width:33ch;
+    max-width:33ch;
     text-align: center;
     justify-content: center;
     display: flex;
@@ -170,6 +164,51 @@ H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
     font-weight: 500;
     word-wrap: break-word;
 }
+
+span.special-accent-promo-intro{
+    font-weight: 600;
+}
+
+ p.hero-subtitle.display-70{
+    font-weight: 50;
+}
+
+/* Mobile Devices - Reset Base to 550px for Mobile when done (550px width) */
+/* Mobile Devices - Base (390px width) */
+@media (max-width: 390px) {
+  /* Mobile-specific styles will go here */
+  .hero-subtitle{
+    display: flex;
+    width: 24.375rem;
+    height: 11rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-title.promo.display-70{
+    font-size: 2.25rem;
+    line-height: 2.625rem;
+    width: 100%;
+  }
+
+  .hero-subtitle{
+    margin:0 auto;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }  
+
+
+  span.special-accent-promo-intro{
+    color: var(--Secondary-Btn, #16394B); 
+  }
+
+  .hero{
+        width: 100%;
+        height: fit-content;
+    }
+  
+}
+
 
 </style>
 </html>
