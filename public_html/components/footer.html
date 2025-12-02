@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+</head>
+<body>
+  <div class="container">
+  <!-- First Section: Footer Columns -->
+  <section class="grid-section footer-grid">
+    <div class="footer-column">
+      <h3 class="footer-title">Products</h3>
+      <ul class="footer-links">
+        <li>Clover Mini</li>
+        <li>Valor VP100 <span class="badge-new">New</span></li>
+        <li>Octopus</li>
+        <li>Union POS</li>
+        <li>Valor VP550</li>
+        <li>Clover Station Duo</li>
+        <li>Clover Flex</li>
+        <li>Clover Solo</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3 class="footer-title">Quick Menu</h3>
+      <ul class="footer-links">
+        <li>Processing Solutions</li>
+        <li>Digital Services <span class="badge-new">New</span></li>
+        <li>Shop For Supplies</li>
+        <li>Business Financing</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3 class="footer-title">Business Types</h3>
+      <ul class="footer-links">
+        <li>Table Service Restaurants</li>
+        <li>Service Business</li>
+        <li>Ecommerce</li>
+        <li>Retail Businesses</li>
+        <li>Counter Service Restaurants</li>
+        <li>Merchant Application Form</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3 class="footer-title">Legal</h3>
+      <ul class="footer-links">
+        <li>Privacy Policy</li>
+        <li>Partners</li>
+        <li>Contact Us</li>
+        <li>About Us</li>
+        <li>Customer Reviews</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Second Section: Logo + Contact -->
+  <section class="second-section footer-contact">
+    <div class="contact-info summary-logo-section">
+      <img src="../assets/images/logo/optimum-payment-logo-transparent-101x32.png" alt="Optimum Payments Logo" width="101" height="32">
+      <p>The Clover trademark and logo are owned by the Clover Network, Inc., a First Data Company. All other trademarks, service marks, and trade names are property of their respective owners.</p>
+    </div>
+    <div class="contact-info">
+      <h3 class="footer-title">Contact Us</h3>
+      <p>Serving all States with office locations in Illinois, Indiana, Ohio, and Florida.</p>
+      <div class="contact-methods">
+        <span>
+            <a href="https://example.com">
+                <img src="../assets/svgs/facebook-social.svg" alt="Facebook icon" width="24" height="24">
+            </a>
+        </span>
+        <span>
+            <a href="https://example.com">
+                <img src="../assets/svgs/tiktok-social.svg" alt="TikTok icon" width="24" height="24">
+            </a>
+        </span>
+        <span>
+            <a href="mailto:info@optimum-payments.com">
+                <img src="../assets/svgs/mail-social.svg" alt="Mail icon" width="24" height="24">
+            </a>
+        </span>
+        <span class="mail-link"> <a href="mailto:info@optimum-payments.com">info@optimum-payments.com</a> </span>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Third Section: Copyright -->
+<section class="third-section footer-copyright">
+  <p class="footer-copyright">© Copyright 2025 <strong>Optimum Payments LLC</strong> | All Rights Reserved</p>
+</section>
+
+
+</body>
+
+<style>
+ /* ---------- Variables ---------- */
+:root{
+  --bg: #ffffff;
+  --muted: #98A2B3;      /* header / muted titles */
+  --text: #667085;       /* primary link text */
+  --badge-bg: #EBF3F9;
+  --badge-fg: #306D9C;
+  --bottom-bg: #F9FAFB;
+  --container-width: 1280px;
+  --gap-lg: 48px;
+  --gap-md:32px;
+  --gap-sm: 16px;
+  --font-sans: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.mail-link a{  
+color: #667085;
+ font-size: 15px;
+ font-family: Manrope;
+ font-weight: 400;
+ line-height: 25px;
+ word-wrap: break-word
+}
+/* ---------- Footer base ---------- */
+.site-footer {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  display: block;
+  line-height: 1.5;
+}
+/* Container spacing */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 0 16px;
+}
+
+/* First Section: Footer Grid */
+.footer-grid {
+  display: grid;
+  gap: var(--gap-md);
+  grid-template-columns: 1fr; /* Mobile first */
+}
+
+/* Second Section: Contact + Logo */
+.second-section {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: flex-end;
+}
+
+.contact-methods {
+        display: flex;
+        column-gap: 10px;
+        /* max-height: 48px;
+        height: 12px;
+        background-color: red; */
+    }
+
+
+
+  .contact-info.summary-logo-section{
+    padding-top: 64px;
+  }
+
+.footer-copyright{
+color: #98A2B3;
+ font-size: 16px;
+ font-weight: 400;
+ line-height: 24px;
+ word-wrap: break-word;
+ text-align: center;
+}
+
+.container{
+    row-gap: var(--gap-md);
+}
+
+
+@media (min-width: 769px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet */
+  }
+
+  .second-section {
+    display: grid;
+    column-gap  : var(--gap-md);
+    grid-template-columns: repeat(2, 1fr); /* Tablet and up */
+    
+  }
+
+  .container{
+    padding-top:64px;
+    display: flex;
+    align-items: center;
+    width: 1280px;
+    margin: 0 auto;
+  }
+
+  .contact-info.summary-logo-section{
+    padding-top: 0px;
+  }
+
+  .second-section.footer-contact{
+    padding:32px 0px;
+    padding-bottom: 48px;
+    align-items: flex-start;
+  }
+
+    .contact-info img {
+        width: 101px;
+        height: 32px;
+        object-fit: contain;
+        }
+
+     
+ .contact-info span img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        }
+        
+    .contact-methods {
+        display: flex;
+        column-gap: 10px;
+        /* max-height: 48px;
+        height: 12px;
+        background-color: red; */
+    }
+
+/* Third Section: Copyright */
+    .third-section {
+    text-align: center;
+    padding: 24px 16px;
+    background: #F9FAFB;
+    font-size: 16px;
+    color: #98A2B3;
+    }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr); /* Desktop */
+    width: 1280px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .footer-grid {
+    gap: 40px; /* Large Desktop */
+  }
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #98A2B3;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links li {
+  font-size: 16px;
+  color: #667085;
+  font-weight: 600;
+}
+
+.badge-new {
+  font-size: 12px;
+  font-weight: 500;
+  color: #306D9C;
+  background: #EBF3F9;
+  padding: 2px 8px;
+  border-radius: 16px;
+  margin-left: 6px;
+}
+
+
+</style>
+</html>
