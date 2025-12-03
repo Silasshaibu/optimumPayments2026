@@ -21,11 +21,14 @@
 <!-- ========== TAB 1 CONTENT ========== -->
 <section id="tab1" class="promoSection tab-content active" role="tabpanel">
   <div class="form-section promo">
+    <p class="Terms-Apply-Promo">
+      *Free equipment and referral payout is based on processing amounts.
+    </p>
 
     <div class="form-section promo-info">
       <h2>Know someone who owns a business?</h2>
       <p class="subtitle display">Refer them and get paid up to $500* when they start processing!</p>
-      <p class="Terms-Apply-Promo">*Free equipment and referral payout is based on processing amounts.</p>
+      
     </div>
 
     <div>
@@ -81,11 +84,11 @@
 <!-- ========== TAB 2 CONTENT ========== -->
 <section id="tab2" class="promoSection tab-content" role="tabpanel">
   <div class="form-section promo">
+          <p class="Terms-Apply-Promo">*Free equipment and referral payout is based on processing amounts.</p>
 
     <div class="form-section promo-info">
       <h2>Are you a Business Owner?</h2>
-      <p class="subtitle display">Own a business and want to <br>save up to 100% on processing fees and <br>get up to 100% off new upgraded equipment?</p>
-      <p class="Terms-Apply-Promo">*Free equipment and referral payout is based on processing amounts.</p>
+      <p class="subtitle display">Own a business and want to <br class="ToogleBreakToPromoSubTitle">save up to 100% on processing fees and <br>get up to 100% off new upgraded equipment?</p>
     </div>
 
     <div>
@@ -138,12 +141,26 @@ body {
   margin: 20px;
 }
 
-fieldset {
-  margin-bottom: 20px;
-  border: none;
-  max-width: 626px;
+.promoSection{
+  position: relative;
+
 }
 
+fieldset {
+  width:626px;
+  margin:0 auto;
+  margin-bottom: 20px;
+  border: none;
+  
+}
+
+.ToogleBreakToPromoSubTitle{
+  display: block;
+}
+
+.form-section.promo-info{
+  padding-right:1rem;
+}
 .tab-button {
   padding: 10px 20px;
   cursor: pointer;
@@ -170,8 +187,8 @@ fieldset {
 .tabs {
   display: flex;
   border-bottom: 2px solid #ccc;
-  flex-wrap: wrap;
 }
+
 
 .tab-content {
   display: none;
@@ -221,6 +238,7 @@ fieldset {
 
 .form-section.promo {
   display: flex;
+  width: 100%;
 }
 
 .form-section.promo div {
@@ -236,7 +254,14 @@ fieldset {
   font-size: 10px;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  /* background-color: #4e4e4e; */
+  color:rgb(119, 115, 115);
+  padding:10px;
+
 }
 
  .cta-business {
@@ -252,6 +277,10 @@ fieldset {
     align-items: stretch;
   }
 
+  .ToogleBreakToPromoSubTitle{
+  display: none;
+}
+
   .tab-button {
     width: 50%;
     text-align: left;
@@ -264,8 +293,15 @@ fieldset {
   .form-section.promo {
     flex-direction: column;
     gap: 20px;
+    /* margin:0 auto; */
   }
 
+  .form-section.promo-info{
+    text-align: center;
+
+  }
+
+  
   .promo-info {
     text-align: left;
   }
@@ -287,13 +323,9 @@ fieldset {
     margin-top: 1.5rem;
   }
 
-  /* Bring terms under text instead of absolutely positioned */
-  .Terms-Apply-Promo {
-    position: static;
-    margin-top: 10px;
-  }
+  .form-section.promo-info{
+  padding-right:0rem;}
 
-}
 
 </style>
 
