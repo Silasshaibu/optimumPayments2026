@@ -1,333 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PromoPageTabbedNavForm</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromoPageTabbedNavForm</title>
 
-<link rel="stylesheet" href="../assets/css/style-guide.css">
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
 
+  <style>
+  /* ============================
+     BASE / GENERAL
+  ============================ */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
 
+  fieldset {
+    width: 626px;
+    margin: 0 auto 20px auto;
+    border: none;
+  }
+
+  .promoSection {
+    position: relative;
+  }
+
+  .form-section {
+    margin-top: 20px;
+  }
+
+  .form-section fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .form-section legend {
+    font-weight: bold;
+    padding: 0 10px;
+  }
+
+  .form-section label {
+    display: block;
+    margin: 15px 0 5px;
+  }
+
+  .form-section input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .cta-business {
+    margin-top: 2rem;
+  }
+
+  .ToogleBreakToPromoSubTitle {
+    display: block;
+  }
+
+  /* ============================
+     TABS
+  ============================ */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+  }
+
+  .tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(199, 196, 196);
+    color: rgb(41, 40, 40);
+    font-size: 16px;
+    transition: background 0.3s;
+    border-radius: 0;
+  }
+
+  .tab-button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .tab-button.active {
+    background-color: var(--color-blue);
+    color: white;
+    border: 2px solid black;
+    border-bottom: 0;
+  }
+
+  .tab-content {
+    display: none;
+    opacity: 0;
+    padding: 2rem;
+    transition: opacity 0.3s;
+  }
+
+  .tab-content.active {
+    display: block;
+    opacity: 1;
+  }
+
+  /* ============================
+     PROMO SECTIONS
+  ============================ */
+  .form-section.promo {
+    display: flex;
+    width: 100%;
+  }
+
+  .form-section.promo > div {
+    flex: 1;
+  }
+
+  .form-section.promo-info {
+    padding-right: 1rem;
+    position: relative;
+  }
+
+  .promo-info-formtype--wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .Terms-Apply-Promo {
+    font-size: 10px;
+    text-align: center;
+    width: 100%;
+    color: rgb(119, 115, 115);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ============================
+     MOBILE 768PX
+  ============================ */
+  @media (max-width: 768px) {
+
+    .tabs {
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+
+    .tab-button {
+      width: 50%;
+      text-align: center;
+      padding: 12px 16px;
+      font-size: 15px;
+    }
+
+    .ToogleBreakToPromoSubTitle {
+      display: none;
+    }
+
+    .form-section.promo {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-section.promo-info {
+      padding-right: 0;
+      text-align: center;
+    }
+
+    .promo-info-formtype--wrapper {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .tab-content {
+      padding: 1rem;
+    }
+
+    .cta-business {
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+  }
+  </style>
 </head>
 
 <body>
 
-<!-- ========== TAB BUTTONS ========== -->
-<div class="tabs" role="tablist">
-  <button class="tab-button active" data-tab="tab1" aria-selected="true">Refer A Business - Earn $500</button>
-  <button class="tab-button" data-tab="tab2" aria-selected="false">For Business Owners</button>
-</div>
+  <!-- ============================
+       TAB BUTTONS
+  ============================ -->
+  <div class="tabs" role="tablist">
+    <button class="tab-button active" data-tab="tab1" aria-selected="true">
+      Refer A Business - Earn $500
+    </button>
 
-<!-- ========== TAB 1 CONTENT ========== -->
-<section id="tab1" class="promoSection tab-content active" role="tabpanel">
-  <div class="form-section promo">
-    <p class="Terms-Apply-Promo">
-      *Free equipment and referral payout is based on processing amounts.
-    </p>
-
-    <div class="form-section promo-info">
-      <h2>Know someone who owns a business?</h2>
-      <p class="subtitle display">Refer them and get paid up to $500* when they start processing!</p>
-      
-    </div>
-
-    <div>
-      <fieldset>
-        <legend class="promo-info-formtype">REFER A BUSINESS</legend>
-
-        <div class="promo-info-formtype--wrapper">
-
-          <div>
-            <label for="referrerName">Your Name</label>
-            <input id="referrerName" name="referrerName" type="text" placeholder="Your Name" required />
-          </div>
-
-          <div>
-            <label for="referrerPhone">Phone</label>
-            <input id="referrerPhone" name="referrerPhone" type="tel" placeholder="+1 (555) 123-4567" required />
-          </div>
-
-          <div>
-            <label for="referrerEmail">Email*</label>
-            <input id="referrerEmail" name="referrerEmail" type="email" placeholder="example@email.com" required />
-          </div>
-
-          <div>
-            <label for="refBusinessName">Business Name</label>
-            <input id="refBusinessName" name="refBusinessName" type="text" placeholder="Business Name" required />
-          </div>
-
-          <div>
-            <label for="refOwnerName">Owner's Name</label>
-            <input id="refOwnerName" name="refOwnerName" type="text" placeholder="Owner's Name" required />
-          </div>
-
-          <div>
-            <label for="refOwnerPhone">Business Owner's Phone Number</label>
-            <input id="refOwnerPhone" name="refOwnerPhone" type="tel" placeholder="+1 (555) 123-4567" required />
-          </div>
-
-          <div>
-            <label for="refOwnerEmail">Business Email*</label>
-            <input id="refOwnerEmail" name="refOwnerEmail" type="email" placeholder="example@email.com" />
-          </div>
-
-        </div>
-        <button class="btn-primary cta-business" type="submit">Submit</button>
-      </fieldset>
-      
-    </div>
-
+    <button class="tab-button" data-tab="tab2" aria-selected="false">
+      For Business Owners
+    </button>
   </div>
-</section>
 
-<!-- ========== TAB 2 CONTENT ========== -->
-<section id="tab2" class="promoSection tab-content" role="tabpanel">
-  <div class="form-section promo">
-          <p class="Terms-Apply-Promo">*Free equipment and referral payout is based on processing amounts.</p>
+  <!-- ============================
+       TAB 1
+  ============================ -->
+  <section id="tab1" class="promoSection tab-content active" role="tabpanel">
+    <div class="form-section promo">
 
-    <div class="form-section promo-info">
-      <h2>Are you a Business Owner?</h2>
-      <p class="subtitle display">Own a business and want to <br class="ToogleBreakToPromoSubTitle">save up to 100% on processing fees and <br>get up to 100% off new upgraded equipment?</p>
+      <p class="Terms-Apply-Promo">
+        *Free equipment and referral payout is based on processing amounts.
+      </p>
+
+      <div class="form-section promo-info">
+        <h2>Know someone who owns a business?</h2>
+        <p class="subtitle display">
+          Refer them and get paid up to $500* when they start processing!
+        </p>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend class="promo-info-formtype">REFER A BUSINESS</legend>
+
+          <div class="promo-info-formtype--wrapper">
+
+            <div>
+              <label for="referrerName">Your Name</label>
+              <input id="referrerName" name="referrerName" type="text" placeholder="Your Name" required>
+            </div>
+
+            <div>
+              <label for="referrerPhone">Phone</label>
+              <input id="referrerPhone" name="referrerPhone" type="tel" placeholder="+1 (555) 123-4567" required>
+            </div>
+
+            <div>
+              <label for="referrerEmail">Email*</label>
+              <input id="referrerEmail" name="referrerEmail" type="email" placeholder="example@email.com" required>
+            </div>
+
+            <div>
+              <label for="refBusinessName">Business Name</label>
+              <input id="refBusinessName" name="refBusinessName" type="text" placeholder="Business Name" required>
+            </div>
+
+            <div>
+              <label for="refOwnerName">Owner's Name</label>
+              <input id="refOwnerName" name="refOwnerName" type="text" placeholder="Owner's Name" required>
+            </div>
+
+            <div>
+              <label for="refOwnerPhone">Business Owner's Phone Number</label>
+              <input id="refOwnerPhone" name="refOwnerPhone" type="tel" placeholder="+1 (555) 123-4567" required>
+            </div>
+
+            <div>
+              <label for="refOwnerEmail">Business Email*</label>
+              <input id="refOwnerEmail" name="refOwnerEmail" type="email" placeholder="example@email.com">
+            </div>
+
+          </div>
+
+          <button class="btn-primary cta-business" type="submit">Submit</button>
+
+        </fieldset>
+      </div>
     </div>
+  </section>
 
-    <div>
-      <fieldset>
-        <legend class="promo-info-formtype">FOR BUSINESS OWNERS</legend>
+  <!-- ============================
+       TAB 2
+  ============================ -->
+  <section id="tab2" class="promoSection tab-content" role="tabpanel">
+    <div class="form-section promo">
 
-        <label for="ownerName">Your Name</label>
-        <input id="ownerName" name="ownerName" type="text" placeholder="Your Name" required />
+      <p class="Terms-Apply-Promo">
+        *Free equipment and referral payout is based on processing amounts.
+      </p>
 
-        <label for="businessName">Business Name</label>
-        <input id="businessName" name="businessName" type="text" placeholder="Business Name" required />
+      <div class="form-section promo-info">
+        <h2>Are you a Business Owner?</h2>
+        <p class="subtitle display">
+          Own a business and want to <br class="ToogleBreakToPromoSubTitle">
+          save up to 100% on processing fees and <br>
+          get up to 100% off new upgraded equipment?
+        </p>
+      </div>
 
-        <label for="ownerPhone">Phone</label>
-        <input id="ownerPhone" name="ownerPhone" type="tel" placeholder="+1 (555) 123-4567" required />
+      <div>
+        <fieldset>
+          <legend class="promo-info-formtype">FOR BUSINESS OWNERS</legend>
 
-        <label for="ownerEmail">Email*</label>
-        <input id="ownerEmail" name="ownerEmail" type="email" placeholder="example@email.com" required />
+          <label for="ownerName">Your Name</label>
+          <input id="ownerName" name="ownerName" type="text" placeholder="Your Name" required>
 
-        <button class="btn-primary cta-business" type="submit">Submit</button>
-      </fieldset>
+          <label for="businessName">Business Name</label>
+          <input id="businessName" name="businessName" type="text" placeholder="Business Name" required>
+
+          <label for="ownerPhone">Phone</label>
+          <input id="ownerPhone" name="ownerPhone" type="tel" placeholder="+1 (555) 123-4567" required>
+
+          <label for="ownerEmail">Email*</label>
+          <input id="ownerEmail" name="ownerEmail" type="email" placeholder="example@email.com" required>
+
+          <button class="btn-primary cta-business" type="submit">Submit</button>
+        </fieldset>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- ============================
+       SCRIPT
+  ============================ -->
+  <script>
+  const tabs = document.querySelectorAll(".tab-button");
+  const contents = document.querySelectorAll(".tab-content");
 
-<!-- ========== SCRIPT ========== -->
-<script>
-const tabs = document.querySelectorAll(".tab-button");
-const contents = document.querySelectorAll(".tab-content");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      contents.forEach(c => c.classList.remove("active"));
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => {
-      t.classList.remove("active");
-      t.setAttribute("aria-selected", "false");
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      document.getElementById(tab.dataset.tab).classList.add("active");
     });
-    contents.forEach(c => c.classList.remove("active"));
-
-    tab.classList.add("active");
-    tab.setAttribute("aria-selected", "true");
-    document.getElementById(tab.dataset.tab).classList.add("active");
   });
-});
-</script>
-
-<style>
-/* ========== GENERAL ========== */
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
-.promoSection{
-  position: relative;
-
-}
-
-fieldset {
-  width:626px;
-  margin:0 auto;
-  margin-bottom: 20px;
-  border: none;
-  
-}
-
-.ToogleBreakToPromoSubTitle{
-  display: block;
-}
-
-.form-section.promo-info{
-  padding-right:1rem;
-}
-.tab-button {
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  background-color: rgb(199, 196, 196);
-  color: rgb(41, 40, 40);
-  font-size: 16px;
-  transition: background 0.3s, border-bottom 0.3s;
-  border-radius: 0px;
-}
-
-.tab-button:hover {
-  background-color: #f0f0f0;
-}
-
-.tab-button.active {
-  background-color: var(--color-blue);
-  color: white;
-  border: 2px solid black;
-  border-bottom: 0;
-}
-
-/* ========== TABS ========== */
-.tabs {
-  display: flex;
-  border-bottom: 2px solid #ccc;
-}
-
-
-.tab-content {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  padding: 2rem;
-}
-
-.tab-content.active {
-  display: block;
-  opacity: 1;
-}
-
-/* ========== FORM WRAPPERS ========== */
-.form-section {
-  margin-top: 20px;
-}
-
-.form-section fieldset {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.form-section legend {
-  font-weight: bold;
-  padding: 0 10px;
-}
-
-.form-section label {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-
-.form-section input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-.promo-info-formtype--wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.form-section.promo {
-  display: flex;
-  width: 100%;
-}
-
-.form-section.promo div {
-  flex: 1;
-}
-
-/* ========== CONTENT SECTIONS ========== */
-.promo-info {
-  position: relative;
-}
-
-.Terms-Apply-Promo {
-  font-size: 10px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  width: 100%;
-  /* background-color: #4e4e4e; */
-  color:rgb(119, 115, 115);
-  padding:10px;
-
-}
-
- .cta-business {
-  margin-top: 2rem;
-}
-</style>
-
-<style>
-  @media (max-width: 768px) {
-
-  /* Stack tab buttons vertically */
-  .tabs {
-    align-items: stretch;
-  }
-
-  .ToogleBreakToPromoSubTitle{
-  display: none;
-}
-
-  .tab-button {
-    width: 50%;
-    text-align: left;
-    padding: 12px 16px;
-    font-size: 15px;
-    text-align: center;
-  }
-
-  /* Stack promo sections */
-  .form-section.promo {
-    flex-direction: column;
-    gap: 20px;
-    /* margin:0 auto; */
-  }
-
-  .form-section.promo-info{
-    text-align: center;
-
-  }
-
-  
-  .promo-info {
-    text-align: left;
-  }
-
-  /* Change form grid to 1 column */
-  .promo-info-formtype--wrapper {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* Reduce padding on tab content */
-  .tab-content {
-    padding: 1rem;
-  }
-
-  /* Full width submit button */
-  .cta.business {
-    width: 100%;
-    margin-top: 1.5rem;
-  }
-
-  .form-section.promo-info{
-  padding-right:0rem;}
-
-
-</style>
+  </script>
 
 </body>
 </html>
