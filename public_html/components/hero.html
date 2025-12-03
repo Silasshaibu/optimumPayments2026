@@ -97,15 +97,20 @@
 }
 
 .carousel-wrapper {
-    width: 100%;
     overflow: hidden;
     position: relative;
+    background-color: orange;
+    border:1px solid red;
+    width: 393px;
 }
 
 .carousel {
     display: flex;
     gap: 40px;
     transition: transform 0.5s ease;
+    background-color:rgb(58, 90, 177);
+    border:1px solid white;
+    overflow: hidden;
 }
 
 .card p{
@@ -114,11 +119,11 @@
 
 .card {
     width: 390px;
-    min-width: 390px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding:0px 20px;
 }
 .card h2 {
     font-size: 44px;
@@ -133,11 +138,11 @@
     color: var(--subtitle-color);
     font-family: Manrope, sans-serif;
     line-height: 30px;
-    padding: 0 20px;
     margin-bottom: 20px;
 }
 
 .img-box img {
+    width: 100vw;
     width: 326px;
     height: 350px;
     object-fit: cover;
@@ -188,6 +193,7 @@
 
 </style>
 
+<!-- 
 <script>
     const carousel = document.getElementById("carousel");
     const next = document.getElementById("nextBtn");
@@ -207,6 +213,38 @@
         if (index < 0) index = 4;
         carousel.style.transform = `translateX(-${index * cardWidth}px)`;
     });
-</script>
+</script> -->
+
+<style>
+    
+    /*MOBILE FIRST APPROACH*/
+    /*BREAK POINT FOR TABLET AT 768PX*/
+    @media (min-width: 768px) {
+        .carousel-wrapper {
+        overflow: hidden;
+        position: relative;
+        background-color: orange;
+        border:1px solid red;
+        width: 768px;
+        }
+
+        .card{
+        width: 760px;
+        background-color: green;
+        }
+    }
+
+   /*MOBILE FIRST APPROACH*/
+    /*BREAK POINT FOR TABLET AT 1024PX*/
+    @media (max-width: 1024px) {
+        
+    }
+
+    /*MOBILE FIRST APPROACH*/
+    /*BREAK POINT FOR LAPTOP AT 1440PX*/
+    @media (max-width: 1024px) {
+        
+    }
+</style>
 
 </html>

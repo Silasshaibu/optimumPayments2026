@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeroCarousel2     
+    </title>
+</head>
+<body>
+     <div class="carousel-window">
+        <div class="carousel-wrapper">
+            <div class="slide one">
+                <div class="textInfo-wrapper">F</div>
+                <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                </div>
+            </div>
+            <div class="slide two">Slide 2</div>
+            <div class="slide three">Slide 3</div>
+            <div class="slide four">Slide 4</div>
+        </div>
+    </div>
+
+    <div class="carousel-wrapper-remote">
+        <button id="left">
+            Left
+        </button>
+
+        <button id="right">
+            Right
+        </button>
+    </div>
+
+</body>
+
+<style>
+ 
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --slide-count: 4; /* total number of slides */
+}
+
+.carousel-window {
+    position: relative;
+    width: 393px;
+    width: 100vw;
+    overflow: hidden; /* hide overflow for carousel effect */
+    border:1px solid blue;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    border:1px solid red;
+    top:0px;
+    /* padding:24rem; */
+    
+    left:0px;
+    height: 80vh;
+    position: absolute;
+    width: calc(var(--slide-count) * 100vw); /* dynamic width based on slide count */
+    display: flex; /* make slides line up horizontally */
+}
+
+.slide {
+    width: 100vw; /* each slide takes full viewport width */
+    flex-shrink: 0; /* prevent shrinking */
+    padding:12px 32px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    min-height:300px; /*Placeholder can be changed where necessary */
+    align-items: center;
+}
+
+.textInfo-wrapper, .image-wrapper{
+    border: 1px solid black;
+    flex:1;
+}
+
+    .image-wrapper img{
+        object-fit: cover;
+    }
+
+}
+
+
+
+
+
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+    
+}
+
+</style>
+
+
+</html>
