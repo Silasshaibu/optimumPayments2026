@@ -17,7 +17,7 @@
     <article class="contact-card__content">
       <form id="contactForm">
         <div class="formSections-wrapper">
-            <div class="verticalsplitter">F</div>
+            <div class="verticalsplitter"></div>
              <div class="form-section">        
         <!-- CONTACT INFORMATION -->
             <fieldset>
@@ -123,7 +123,7 @@
             <textarea id="comments" placeholder="Enter any additional information"></textarea>
             </fieldset>
 
-        <button class="btn-primary" type="submit">Submit</button>
+        <button class="btn-primary merchantApplicationForm" type="submit">Submit</button>
         </div>
         </div>
        
@@ -135,29 +135,44 @@
   <style>
     .formSections-wrapper{
         position: relative;
-        background-color: orange;
+        background-color: #EFEFEF;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width:1280px;
+        width:1440px;
         margin:0 auto;    
     }
 
+
+    button.merchantApplicationForm{
+        margin-top: 2rem;
+    }
+
+    fieldset{
+        border:none;
+    }
+
+    textarea {
+    resize: none; /* disables resizing */
+    height: 200px;
+}
+
     .verticalsplitter{
-        position: absolute;
-        left:0;
-        top:0;
-        transform: translateX(50%);
-        width:8px;
-        height: 100%;
-        background-color:rgba(56, 55, 55, 0.877);
+        position: absolute;       
+        top: 50%;                
+        left: 50%;                
+        transform: translate(-50%, -50%); 
+        width: 1px;             
+        height: 80%;            
+        background-color: #a09d9db9;  
 
     }
     
 
     .formSections-wrapper div.form-section{
         flex:1;
-        padding:32px 16px;
+        padding:50px;
+        /* background-color: red; */
     }
 
 
@@ -240,6 +255,7 @@
 
     label{
         width:auto;
+        padding-top:1rem;
     }
 
     form#contactForm {
