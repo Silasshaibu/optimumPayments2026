@@ -495,6 +495,110 @@ a:hover {
 }
 
 /* =========================================
+   6. FORMS - BASE STYLING
+   ========================================= */
+
+/* -------- FORM WRAPPER -------- */
+form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--color-background);
+}
+
+/* -------- LABEL -------- */
+label {
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* -------- INPUT, TEXTAREA, SELECT -------- */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+
+    background: var(--tgrey-100);
+    color: var(--color-text);
+
+    border: 1px solid var(--tgrey-500);
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-family: var(--font-family);
+
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--blue-600);
+    background: #fff;
+}
+
+/* -------- TEXTAREA -------- */
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* -------- CHECKBOX & RADIO -------- */
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+/* -------- FORM BUTTON -------- */
+button,
+input[type="submit"] {
+    padding: 12px 16px;
+    background: var(--blue-600);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: var(--blue-700);
+}
+
+button:disabled {
+    background: var(--grey-300);
+    cursor: not-allowed;
+}
+
+/* -------- ERROR & SUCCESS -------- */
+.form-error {
+    font-size: 13px;
+    color: #d9534f;
+}
+
+.form-success {
+    font-size: 13px;
+    color: #2ecc71;
+}
+
+
+/* =========================================
    MEDIA QUERIES
    Mobile First Approach
    ========================================= */
