@@ -312,7 +312,7 @@ p {
   color:#fff;
   width: 100%;
   padding: 12px 40px;
-  background-color: var(--color-primary);
+  background-color: #3674A8;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
@@ -528,6 +528,7 @@ select {
 
     border: 1px solid var(--tgrey-500);
     border-radius: 6px;
+    border-radius: 0px; /*RESETING BORDER RADIUS TO MATCH STYLING */
 
     font-size: 16px;
     font-family: var(--font-family);
@@ -545,8 +546,9 @@ select:focus {
 
 /* -------- TEXTAREA -------- */
 textarea {
-    resize: vertical;
+    resize: none;
     min-height: 120px;
+    height:120px;
 }
 
 /* -------- CHECKBOX & RADIO -------- */
@@ -555,6 +557,16 @@ input[type="radio"] {
     width: auto;
     margin-right: 8px;
 }
+
+/* Remove number input spinners */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
 
 /* -------- FORM BUTTON -------- */
 button,

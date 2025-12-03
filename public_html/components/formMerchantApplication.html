@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="../assets/css/style-guide.css">
 </head>
 <body>
-  <section class="contact-card">
-      <div>
-         <figure class="contact-card__image-wrapper">
-         <img src="https://placehold.co/967x100" alt="Placeholder image" />
-         </figure>
-       </div>
-
-    <article class="contact-card__content">
-      <form id="contactForm">
+  <section class="merchantApplicationForm contact-card">
+    
+        
+      <form class="merchantApplicationForm" id="contactForm">
+        <div class="contact-card__image-wrapper">
+            <h1 class="form-title">Merchant Application</h1>
+            <p class="from-subtle-message">We aim to respond to all application requests within a <strong>24 hour period Monday-Friday.</strong> <span class="merchantFormBreaker"><br></span>
+            However, if this isn't the case, please be patient as we receive a lot of email every day. 
+            </p>
+        </div>
         <div class="formSections-wrapper">
             <div class="verticalsplitter"></div>
              <div class="form-section">        
@@ -87,9 +88,9 @@
             </div>
             
             </fieldset>
-        </div>
+            </div>
 
-        <div class="form-section">
+            <div class="form-section">
         <!-- BUSINESS INFORMATION -->
             <fieldset>
             <legend>Business Information</legend>
@@ -124,15 +125,58 @@
             </fieldset>
 
         <button class="btn-primary merchantApplicationForm" type="submit">Submit</button>
-        </div>
+            </div>
         </div>
        
       </form>
-    </article>
 
   </section>
 
   <style>
+
+.merchantApplicationForm.contact-card{
+width: 100vw;
+max-width: 1440px;
+margin: 0 auto;
+}
+
+.merchantFormBreaker{
+    display:inline;
+    /* display:none; Use this code to remove the span br element on Mobile View */
+}
+    .form-title{
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+
+    }
+
+    .contact-card__image-wrapper{
+        text-align: center;
+        padding: 2rem;
+        background-color: grey;
+        background-image: url(../assets/images/promo/HeroBanner1.jpg);
+    }
+
+    .contact-card__image-wrapper p{
+        color: var(--Gray-400, #98A2B3);
+        text-align: center;
+
+        /* Body/Body 20 */
+        font-family: Manrope;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    form.merchantApplicationForm{
+        padding:0;
+       display: block;
+    }
+    
+  
     .formSections-wrapper{
         position: relative;
         background-color: #EFEFEF;
@@ -140,6 +184,7 @@
         flex-direction: row;
         justify-content: space-between;
         width:1440px;
+        width: 100%;
         margin:0 auto;    
     }
 
@@ -152,11 +197,7 @@
         border:none;
     }
 
-    textarea {
-    resize: none; /* disables resizing */
-    height: 200px;
-}
-
+  
     .verticalsplitter{
         position: absolute;       
         top: 50%;                
@@ -183,22 +224,15 @@
         
     }
 
-    .address-grid label{
+    .contact-card__image-wrapper{
+        /* border-radius: .5rem .5rem 0 0; */
+    }
+
+    .formSections-wrapper {
+        /* border-radius: 0rem 0rem .5rem .5rem; */
     }
 
     
-  </style>
-  <!-- CSS -->
-  <style>
-    /* Remove number input spinners */
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    input[type=number] {
-      -moz-appearance: textfield;
-    }
   </style>
 
   <!-- JS -->
@@ -258,12 +292,7 @@
         padding-top:1rem;
     }
 
-    form#contactForm {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      /* background: red; */
-    }
+ 
 
    
 </style>

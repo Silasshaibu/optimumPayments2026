@@ -1,141 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Business Owners</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promo-ForBusinessForm</title>
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+<style>
+  /* Container */
+  .merchantApplicationForm.contact-card {
+    width: 100vw;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .contact-card__image-wrapper {
+    text-align: center;
+    padding: 2rem;
+    background-color: grey;
+    background-image: url(../assets/images/promo/HeroBanner1.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .form-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .contact-card__image-wrapper p {
+    color: var(--Gray-400, #98A2B3);
+    font-family: Manrope, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  form.merchantApplicationForm {
+    padding: 0;
+    display: block;
+  }
+
+  .formSections-wrapper {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background-color: #EFEFEF;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .form-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  legend {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  label {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+
+  button.btn-primary {
+    margin-top: 2rem;
+  }
+
+  /* Vertical splitter */
+  .verticalsplitter {
+    width: 1px;
+    background-color: #a09d9db9;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .merchantFormBreaker {
+    display: inline;
+  }
+</style>
 </head>
 <body>
- <section class="business-owners">
-    <div class="business-owners__container">
 
-        <div class="business-owners__image"></div>
-
-        <div class="business-owners__content">
-
-            <h2 class="business-owners__title">For Business Owners</h2>
-
-            <p class="business-owners__subtitle">
-                Own a business and want to save up to 100% on processing fees and get up to
-                100% off new upgraded equipment?
-            </p>
-
-            <form class="business-owners__form">
-
-                <div class="form-group">
-                    <label>Your Name:</label>
-                    <input type="text" placeholder="Your Name">
-                </div>
-
-                <div class="form-group">
-                    <label>Business Name:</label>
-                    <input type="text" placeholder="Business Name">
-                </div>
-
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" placeholder="Email">
-                </div>
-
-                <div class="form-group">
-                    <label>Phone:</label>
-                    <input type="text" placeholder="+1 (555) 123-4567">
-                </div>
-
-            </form>
-
-            <button class="business-owners__cta">Start Saving Now</button>
-
-        </div>
+<section class="merchantApplicationForm contact-card">
+  <form class="merchantApplicationForm" id="contactForm">
+    <div class="contact-card__image-wrapper">
+      <h1 class="form-title">Merchant Application</h1>
+      <p class="from-subtle-message">
+        We aim to respond to all application requests within a <strong>24 hour period Monday-Friday.</strong> <span class="merchantFormBreaker"><br></span>
+        However, if this isn't the case, please be patient as we receive a lot of email every day. 
+      </p>
     </div>
+
+    <div class="formSections-wrapper">
+      <div class="verticalsplitter"></div>
+
+      <!-- Contact Information -->
+      <div class="form-section">
+        <fieldset>
+          <legend>FOR BUSINESS OWNERS</legend>
+
+          <label for="ownerName">Your Name</label>
+          <input id="ownerName" name="ownerName" type="text" placeholder="Your Name" required />
+
+          <label for="businessName">Business Name</label>
+          <input id="businessName" name="businessName" type="text" placeholder="Business Name" required />
+
+          <label for="ownerPhone">Phone</label>
+          <input id="ownerPhone" name="ownerPhone" type="tel" placeholder="+1 (555) 123-4567" required />
+
+          <label for="ownerEmail">Email*</label>
+          <input id="ownerEmail" name="ownerEmail" type="email" placeholder="example@email.com" required />
+        </fieldset>
+      </div>
+
+      <!-- Refer a Business -->
+      <div class="form-section">
+        <fieldset>
+          <legend>REFER A BUSINESS</legend>
+
+          <label for="referrerName">Your Name</label>
+          <input id="referrerName" name="referrerName" type="text" placeholder="Your Name" required />
+
+          <label for="referrerPhone">Phone</label>
+          <input id="referrerPhone" name="referrerPhone" type="tel" placeholder="+1 (555) 123-4567" required />
+
+          <label for="referrerEmail">Email*</label>
+          <input id="referrerEmail" name="referrerEmail" type="email" placeholder="example@email.com" required />
+
+          <label for="refBusinessName">Business Name</label>
+          <input id="refBusinessName" name="refBusinessName" type="text" placeholder="Business Name" required />
+
+          <label for="refOwnerName">Owner's Name</label>
+          <input id="refOwnerName" name="refOwnerName" type="text" placeholder="Owner's Name" required />
+
+          <label for="refOwnerPhone">Business Owner's Phone Number</label>
+          <input id="refOwnerPhone" name="refOwnerPhone" type="tel" placeholder="+1 (555) 123-4567" required />
+
+          <label for="refOwnerEmail">Business Email*</label>
+          <input id="refOwnerEmail" name="refOwnerEmail" type="email" placeholder="example@email.com" />
+        </fieldset>
+
+        <button class="btn-primary" type="submit">Start Saving Now</button>
+      </div>
+    </div>
+  </form>
 </section>
 
-<style>
-    .business-owners {
-    width: 100%;
-    padding: 70px 0 80px;
-}
-
-.business-owners__container {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.business-owners__image {
-    width: 276px;
-    background: #D9D9D9;
-    height: 100%;
-    flex-shrink: 0;
-}
-
-.business-owners__content {
-    width: 894px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.business-owners__title {
-    color: #98A2B3;
-    font-size: 24px;
-    font-family: Manrope;
-    font-weight: 700;
-    line-height: 30px;
-}
-
-.business-owners__subtitle {
-    color: #98A2B3;
-    font-size: 16px;
-    font-family: Manrope;
-    font-weight: 700;
-}
-
-.business-owners__form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group label {
-    font-size: 16px;
-    font-family: Inter;
-    color: #1E1E1E;
-    font-weight: 400;
-    line-height: 22px;
-}
-
-.form-group input {
-    padding: 12px 16px;
-    background: #fff;
-    outline: 1px solid #D9D9D9;
-    border-radius: 4px;
-    border: none;
-    font-size: 16px;
-    font-family: Inter;
-}
-
-.business-owners__cta {
-    padding: 12px 40px;
-    height: 48px;
-    background: #3C88C3;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    font-family: Inter;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-}
-
-</style>
+<script>
+  // Form submission
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!e.target.checkValidity()) {
+      e.target.reportValidity();
+      return;
+    }
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    console.log("Form submitted:", data);
+    alert("Form submitted! Check console for data.");
+  });
+</script>
 
 </body>
 </html>
