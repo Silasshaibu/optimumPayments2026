@@ -16,12 +16,7 @@
     margin: 20px;
   }
 
-  fieldset {
-    width: 626px;
-    margin: 0 auto 20px auto;
-    border: none;
-  }
-
+  
   .promoSection {
     position: relative;
   }
@@ -36,6 +31,7 @@
     border-radius: 5px;
   }
 
+  
   .form-section legend {
     font-weight: bold;
     padding: 0 10px;
@@ -168,6 +164,8 @@
       text-align: center;
     }
 
+     
+
     .promo-info-formtype--wrapper {
       grid-template-columns: 1fr;
       gap: 12px;
@@ -181,6 +179,7 @@
       width: 100%;
       margin-top: 1.5rem;
     }
+    
   }
   </style>
 </head>
@@ -218,7 +217,7 @@
       </div>
 
       <div>
-        <fieldset>
+        <fieldset class="mainContainer-formOnly">
           <legend class="promo-info-formtype">REFER A BUSINESS</legend>
 
           <div class="promo-info-formtype--wrapper">
@@ -271,7 +270,7 @@
        TAB 2
   ============================ -->
   <section id="tab2" class="promoSection tab-content" role="tabpanel">
-    <div class="form-section promo">
+    <div class="form-section promo mainContainer-formOnly">
 
       <p class="Terms-Apply-Promo">
         *Free equipment and referral payout is based on processing amounts.
@@ -287,7 +286,7 @@
       </div>
 
       <div>
-        <fieldset>
+        <fieldset class="mainContainer-form-with-infosection">
           <legend class="promo-info-formtype">FOR BUSINESS OWNERS</legend>
 
           <label for="ownerName">Your Name</label>
