@@ -20,6 +20,23 @@
     --slide-count: 5; /* total number of slides */
 }
 
+/*CAROUSEL CONTROL BUTTON STYLES*/
+.carousel-control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.carousel-control-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+/*CAROUSEL ITSELF STYLES*/
 .carousel-window {
     position: relative;
     width: 100vw;
@@ -282,8 +299,8 @@ line-height: 52.8px; /* 120% */
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
                     <div class="cta-container-hero">
-                        <button class="primary">Fill The Form</button>
-                        <button class="secondary">Learn More</button>
+                        <button class="primary">Get A Quote</button>
+                        <button class="btn-secondary">Learn More</button>
                     </div>   
                 </div>
                 
@@ -299,6 +316,11 @@ line-height: 52.8px; /* 120% */
         <button class="next">
             Right
         </button>
+    </div>
+
+    <div class="carousel-control-buttons">
+        <button id="stop-slide">Stop</button>
+        <button id="resume-slide">Resume</button>
     </div>
 
     
@@ -363,29 +385,39 @@ wrapper.addEventListener("transitionend", () => {
 });
 
 // Auto-slide
-function startAutoSlide() {
-    interval = setInterval(nextSlide, autoSlideTime);
-}
-function stopAutoSlide() {
-    clearInterval(interval);
-}
-wrapper.addEventListener("mouseenter", stopAutoSlide);
-wrapper.addEventListener("mouseleave", startAutoSlide);
+// function startAutoSlide() {
+//     interval = setInterval(nextSlide, autoSlideTime);
+// }
+// function stopAutoSlide() {
+//     clearInterval(interval);
+// }
+// wrapper.addEventListener("mouseenter", stopAutoSlide);
+// wrapper.addEventListener("mouseleave", startAutoSlide);
 
 // Remote buttons
 document.querySelector(".carousel-remote .next").addEventListener("click", () => {
-    stopAutoSlide();
+    // stopAutoSlide();
     nextSlide();
     startAutoSlide();
 });
 document.querySelector(".carousel-remote .prev").addEventListener("click", () => {
-    stopAutoSlide();
+    // stopAutoSlide();
     prevSlide();
     startAutoSlide();
 });
 
 // Start
 startAutoSlide();
+
+// // Stop and Resume functionality
+// document.getElementById("stop-slide").addEventListener("click", () => {
+//     stopAutoSlide();
+// });
+
+// document.getElementById("resume-slide").addEventListener("click", () => {
+//     startAutoSlide();
+// });
+
 </script>
 
 
