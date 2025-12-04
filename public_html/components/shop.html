@@ -10,8 +10,8 @@
 .control-bar-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 100%;
+    border:1px solid grey;
 }
 
 /* --- Search bar --- */
@@ -52,7 +52,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
     box-shadow: -1px -1px 0 #DDDDDD;
     flex-wrap: wrap;
 }
@@ -62,6 +61,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    gap:0px;
 }
 
 /* Refine button */
@@ -132,7 +132,6 @@
 /* Right section */
 .control-right {
     display: flex;
-    gap: 12px;
     align-items: center;
 }
 
@@ -154,13 +153,13 @@
     <!-- Search bar at the top -->
     <div class="search-bar">
         <input type="text" placeholder="Search for supplies" class="search-input" />
-        <button class="search-btn btn-primary">Search</button>
+        <button class="search-btn btn-store">Search</button>
     </div>
 
     <!-- Control bar -->
     <div class="control-bar">
         <div class="control-left">
-            <button class="refine-btn btn-primary store">Refine By</button>
+            <button class="refine-btn btn-store">Refine By</button>
 
             <div class="sort-box" id="sortBox">
                 <span class="sort-text">Sort</span>
@@ -180,8 +179,17 @@
         </div>
 
         <div class="control-right">
-            <div class="icon icon-disabled"></div>
-            <div class="icon icon-active"></div>
+            <div class="icon ">
+                <svg class="Icon Icon--wall-3 " role="presentation" viewBox="0 0 36 36">
+                    <path fill="currentColor" d="M21 36V21h15v15H21zm0-36h15v15H21V0zM0 21h15v15H0V21zM0 0h15v15H0V0z"></path>
+                </svg>
+            </div>
+            
+            <div class="icon icon-active">
+                <svg class="Icon Icon--wall-4 " role="presentation" viewBox="0 0 36 36">
+                    <path fill="currentColor" d="M28 36v-8h8v8h-8zm0-22h8v8h-8v-8zm0-14h8v8h-8V0zM14 28h8v8h-8v-8zm0-14h8v8h-8v-8zm0-14h8v8h-8V0zM0 28h8v8H0v-8zm0-14h8v8H0v-8zM0 0h8v8H0V0z"></path>
+                </svg>
+            </div>
         </div>
     </div>
 </div>
@@ -207,6 +215,43 @@ document.addEventListener("click", (e) => {
 </body>
 
 <style>
-    
+    .btn-store {
+        background-color: #1c6ba0;
+        color:#fff;
+        border-radius:0px;
+        margin:0;
+        align-self: stretch;
+    }
+
+    .refine-btn.btn-store{
+        background-color: rgb(20, 141, 101);
+        background-color: grey;
+    }
+
+     .refine-btn.btn-store:hover{
+        background-color: rgb(20, 141, 101);
+        background-color: rgb(65, 58, 58);
+    }
+
+    .control-right{
+        align-self: stretch;
+        min-height: 10px;
+        
+    }
+
+    .control-right{
+        padding:12px;
+        gap:12px;
+    }
+    .sort-box{
+border-radius:1px;
+    }
+
+    .btn-store:hover{
+        background-color: #043d6b;
+        color:white;
+        border-radius:0px;
+
+    }
 </style>
 </html>
