@@ -4,25 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Control Bar with Search & Sort</title>
-<link rel="stylesheet" href="../assets/css/style-guide.css">
 <style>
 /* --- Container --- */
 .control-bar-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border:1px solid grey;
+    border: 1px solid grey;
 }
 
 /* --- Search bar --- */
 .search-bar {
     display: flex;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     border: 1px solid #DDDDDD;
     overflow: hidden;
 }
-
 .search-input {
     flex: 1;
     padding: 8px 12px;
@@ -31,11 +29,9 @@
     border: none;
     outline: none;
 }
-
 .search-input::placeholder {
     color: #999999;
 }
-
 .search-btn {
     color: #ffffff;
     border: none;
@@ -43,6 +39,10 @@
     cursor: pointer;
     font-family: Manrope, sans-serif;
     font-weight: 700;
+    background-color: #1c6ba0;
+}
+.search-btn:hover {
+    background-color: #043d6b;
 }
 
 /* --- Control bar --- */
@@ -54,30 +54,27 @@
     align-items: center;
     box-shadow: -1px -1px 0 #DDDDDD;
     flex-wrap: wrap;
+    padding: 8px 0;
 }
-
-/* Left section */
 .control-left {
     display: flex;
     align-items: center;
-    gap: 15px;
-    gap:0px;
+    gap: 0px;
 }
-
-/* Refine button */
 .refine-btn {
     color: #ffffff;
     font-family: Manrope, sans-serif;
     font-weight: 800;
     font-size: 14px;
     text-transform: capitalize;
-    padding: 8px 16px;
     border: none;
-    /* border-radius: 0; */
     cursor: pointer;
+    background-color: grey;
+    padding: 8px 16px;
 }
-
-/* Sort box */
+.refine-btn:hover {
+    background-color: rgb(65, 58, 58);
+}
 .sort-box {
     display: flex;
     align-items: center;
@@ -87,21 +84,18 @@
     border-left: 1px solid #DDDDDD;
     cursor: pointer;
     position: relative;
+    border-radius: 0px;
 }
-
 .sort-text {
     font-family: Manrope, sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: #6A6A6A;
 }
-
 .sort-arrow {
     font-size: 10px;
     color: #6A6A6A;
 }
-
-/* Dropdown menu */
 .sort-dropdown {
     position: absolute;
     top: 100%;
@@ -111,46 +105,123 @@
     list-style: none;
     padding: 0;
     margin: 5px 0 0 0;
-    display: none; /* hidden by default */
+    display: none;
     width: max-content;
     min-width: 120px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 10;
 }
-
 .sort-dropdown li {
     padding: 8px 12px;
     cursor: pointer;
     font-family: Manrope, sans-serif;
     font-size: 14px;
 }
-
 .sort-dropdown li:hover {
     background-color: #f0f0f0;
 }
-
-/* Right section */
 .control-right {
     display: flex;
     align-items: center;
+    gap: 12px;
+    padding: 12px;
+    align-self: stretch;
 }
-
-/* Icons */
+.btn-store {
+    border-radius: 0px;
+}
 .icon {
     width: 18px;
     height: 18px;
     background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.icon svg {
+    width: 100%;
+    height: 100%;
 }
 
-.icon-disabled {
-    opacity: 0.2;
+/* --- Product Grid & Aside Banner --- */
+.product-section {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+}
+.advertBanner-aside {
+    width: 250px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: Manrope, sans-serif;
+    padding: 10px;
+    text-align: center;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    flex: 1;
+}
+.product-item {
+    background-color: #ffffff;
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+    font-family: Manrope, sans-serif;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-item:hover {
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.product-item .availability-badge {
+    background-color: #1c6ba0;
+    color: white;
+    padding: 4px 6px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+.product-item .product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.product-item .product-info {
+    margin-top: 8px;
+}
+.product-item .product-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.product-item .buy-now {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1c6ba0;
+    cursor: pointer;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .product-section {
+        flex-direction: column;
+    }
+    .advertBanner-aside {
+        width: 100%;
+    }
 }
 </style>
 </head>
 <body>
 
 <div class="control-bar-container">
-    <!-- Search bar at the top -->
+    <!-- Search bar -->
     <div class="search-bar">
         <input type="text" placeholder="Search for supplies" class="search-input" />
         <button class="search-btn btn-store">Search</button>
@@ -160,16 +231,13 @@
     <div class="control-bar">
         <div class="control-left">
             <button class="refine-btn btn-store">Refine By</button>
-
             <div class="sort-box" id="sortBox">
                 <span class="sort-text">Sort</span>
-                <span  style="width: 1rem;" class="sort-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                <span class="sort-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                     </svg>
-                </span> <!-- down arrow -->
-
-                <!-- Dropdown menu -->
+                </span>
                 <ul class="sort-dropdown" id="sortDropdown">
                     <li>By Price</li>
                     <li>Newest</li>
@@ -179,14 +247,13 @@
         </div>
 
         <div class="control-right">
-            <div class="icon ">
-                <svg class="Icon Icon--wall-3 " role="presentation" viewBox="0 0 36 36">
+            <div class="icon" id="grid2x3">
+                <svg class="Icon Icon--wall-3" role="presentation" viewBox="0 0 36 36">
                     <path fill="currentColor" d="M21 36V21h15v15H21zm0-36h15v15H21V0zM0 21h15v15H0V21zM0 0h15v15H0V0z"></path>
                 </svg>
             </div>
-            
-            <div class="icon icon-active">
-                <svg class="Icon Icon--wall-4 " role="presentation" viewBox="0 0 36 36">
+            <div class="icon" id="grid3x3">
+                <svg class="Icon Icon--wall-4" role="presentation" viewBox="0 0 36 36">
                     <path fill="currentColor" d="M28 36v-8h8v8h-8zm0-22h8v8h-8v-8zm0-14h8v8h-8V0zM14 28h8v8h-8v-8zm0-14h8v8h-8v-8zm0-14h8v8h-8V0zM0 28h8v8H0v-8zm0-14h8v8H0v-8zM0 0h8v8H0V0z"></path>
                 </svg>
             </div>
@@ -194,64 +261,89 @@
     </div>
 </div>
 
+<!-- Product Section with Aside Banner -->
+<div class="product-section container">
+    <div class="advertBanner-aside">Shop Banner / Advertisement</div>
+    <div class="products" id="productsGrid">
+        <!-- Product 1 -->
+        <div class="product-item">
+            <div class="availability-badge"><div class="badge-text">Available in November</div></div>
+            <div class="product-image">
+                <img src="https://placehold.co/231x231" alt="Star Micronics SP700">
+            </div>
+            <div class="product-info">
+                <div class="product-name">Star Micronics SP700</div>
+                <div class="buy-now">Buy Now</div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-item">
+            <div class="availability-badge"><div class="badge-text">Available in December</div></div>
+            <div class="product-image">
+                <img src="https://placehold.co/231x231" alt="Epson TM-T20III">
+            </div>
+            <div class="product-info">
+                <div class="product-name">Epson TM-T20III</div>
+                <div class="buy-now">Buy Now</div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-item">
+            <div class="availability-badge"><div class="badge-text">Available in January</div></div>
+            <div class="product-image">
+                <img src="https://placehold.co/231x231" alt="Star TSP100">
+            </div>
+            <div class="product-info">
+                <div class="product-name">Star TSP100</div>
+                <div class="buy-now">Buy Now</div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-item">
+            <div class="availability-badge"><div class="badge-text">Available Now</div></div>
+            <div class="product-image">
+                <img src="https://placehold.co/231x231" alt="POS Printer Model X">
+            </div>
+            <div class="product-info">
+                <div class="product-name">POS Printer Model X</div>
+                <div class="buy-now">Buy Now</div>
+            </div>
+        </div>
+
+        <!-- Additional products as needed -->
+    </div>
+</div>
 
 <script>
 // Toggle dropdown on click
 const sortBox = document.getElementById("sortBox");
 const sortDropdown = document.getElementById("sortDropdown");
 
-sortBox.addEventListener("click", () => {
+sortBox.addEventListener("click", (e) => {
+    e.stopPropagation();
     sortDropdown.style.display = sortDropdown.style.display === "block" ? "none" : "block";
 });
 
 // Hide dropdown when clicking outside
-document.addEventListener("click", (e) => {
-    if (!sortBox.contains(e.target)) {
-        sortDropdown.style.display = "none";
-    }
+document.addEventListener("click", () => {
+    sortDropdown.style.display = "none";
+});
+
+// Grid toggle
+const grid2x3 = document.getElementById("grid2x3");
+const grid3x3 = document.getElementById("grid3x3");
+const productsGrid = document.getElementById("productsGrid");
+
+grid2x3.addEventListener("click", () => {
+    productsGrid.style.gridTemplateColumns = "repeat(2, 1fr)";
+});
+grid3x3.addEventListener("click", () => {
+    productsGrid.style.gridTemplateColumns = "repeat(3, 1fr)";
 });
 </script>
 
 </body>
-
-<style>
-    .btn-store {
-        background-color: #1c6ba0;
-        color:#fff;
-        border-radius:0px;
-        margin:0;
-        align-self: stretch;
-    }
-
-    .refine-btn.btn-store{
-        background-color: rgb(20, 141, 101);
-        background-color: grey;
-    }
-
-     .refine-btn.btn-store:hover{
-        background-color: rgb(20, 141, 101);
-        background-color: rgb(65, 58, 58);
-    }
-
-    .control-right{
-        align-self: stretch;
-        min-height: 10px;
-        
-    }
-
-    .control-right{
-        padding:12px;
-        gap:12px;
-    }
-    .sort-box{
-border-radius:1px;
-    }
-
-    .btn-store:hover{
-        background-color: #043d6b;
-        color:white;
-        border-radius:0px;
-
-    }
-</style>
 </html>
