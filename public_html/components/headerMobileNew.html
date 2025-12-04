@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Dropdown Menu</title>
+<title>Responsive Nested Dropdown Menu</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
   body {
@@ -11,7 +11,6 @@
     font-family: Arial, sans-serif;
   }
 
-  /* Header */
   header {
     background-color: #4CAF50;
     display: flex;
@@ -21,16 +20,15 @@
     position: relative;
   }
 
-  /* Logo */
   .logo img {
     height: 40px;
   }
 
-  /* Menu */
   nav {
     position: relative;
   }
 
+  /* Menu */
   ul.menu {
     list-style: none;
     padding: 0;
@@ -51,10 +49,33 @@
     cursor: pointer;
     color: white;
     font-weight: bold;
+    position: relative;
   }
 
   ul.menu li:hover {
     background-color: #45a049;
+  }
+
+  /* Nested menus */
+  ul.menu li ul {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 15px;
+    background-color: #388E3C;
+  }
+
+  ul.menu li:hover > ul {
+    display: flex;
+  }
+
+  ul.menu li ul li {
+    padding: 10px 20px;
+    font-weight: normal;
+  }
+
+  ul.menu li ul li ul {
+    background-color: #2E7D32; /* 3rd level */
   }
 
   /* Hamburger button */
@@ -66,25 +87,22 @@
     cursor: pointer;
   }
 
-  /* Action buttons (store/search) */
+  /* Action buttons */
   .action-buttons {
     display: flex;
     gap: 10px;
     align-items: center;
   }
 
-  .action-buttons button {
+  .store-btn {
     padding: 8px 16px;
     border: none;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .store-btn {
     background-color: white;
     color: #4CAF50;
+    transition: all 0.3s;
   }
 
   .store-btn:hover {
@@ -96,12 +114,14 @@
     background: none;
     color: white;
     font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
   }
 
   /* Desktop */
   @media (min-width: 769px) {
     .hamburger {
-      display: none; /* hide hamburger */
+      display: none;
     }
 
     ul.menu {
@@ -118,14 +138,42 @@
       text-decoration: underline;
     }
 
+    ul.menu li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      flex-direction: column;
+      background-color: #388E3C;
+      display: none;
+      min-width: 180px;
+      border-radius: 4px;
+    }
+
+    ul.menu li:hover > ul {
+      display: flex;
+    }
+
+    ul.menu li ul li ul {
+      top: 0;
+      left: 100%;
+      position: absolute;
+      background-color: #2E7D32;
+    }
+
     nav {
       display: flex;
       align-items: center;
     }
 
-    /* show search button next to store button on desktop */
     .search-btn {
       display: inline-block;
+    }
+  }
+
+  /* Mobile small screens */
+  @media (max-width: 480px) {
+    .search-btn {
+      display: none;
     }
   }
 </style>
@@ -141,9 +189,34 @@
     <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
     <ul class="menu">
       <li>Home</li>
-      <li>About Us</li>
-      <li>Contact Us</li>
-      <li>Activities</li>
+      <li>About Us
+        <ul>
+          <li>History
+            <ul>
+              <li>Early Days</li>
+              <li>Modern Era</li>
+            </ul>
+          </li>
+          <li>Team</li>
+        </ul>
+      </li>
+      <li>Contact Us
+        <ul>
+          <li>Email</li>
+          <li>Phone</li>
+        </ul>
+      </li>
+      <li>Activities
+        <ul>
+          <li>Sports</li>
+          <li>Events
+            <ul>
+              <li>Workshops</li>
+              <li>Conferences</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
