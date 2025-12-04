@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Accordion Nested Dropdown Menu</title>
+<title>Semantic Nested Dropdown Menu</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="../assets/css/style-guide.css">
 <style>
@@ -22,8 +22,29 @@ nav.main-menu ul {
 
 nav.main-menu li {
     border: 1px solid #E5E7EB;
-    margin-bottom: 8px;
+    margin-bottom: 0; 
+    position: relative;
+    border-bottom: none;
 }
+
+nav.main-menu li:last-child {
+    border-bottom:1px solid #E5E7EB;
+   
+}
+
+ul.child-dropdowns li{
+     border:none;
+     background-color: #efefef;
+     border-bottom:1px solid rgb(188, 188, 188);
+
+}
+
+ul.child-dropdowns li:hover{
+     background-color: #d6d6d6;
+     border-bottom:1px solid rgb(188, 188, 188);
+
+}
+
 
 nav.main-menu a {
     display: flex;
@@ -36,13 +57,13 @@ nav.main-menu a {
     cursor: pointer;
 }
 
-/* Caret rotation */
+/* Caret rotation for top-level */
 .caret-icon {
     transition: transform 0.3s ease;
     font-size: 14px;
 }
 
-.open > .caret-icon {
+.open > .top-caret {
     transform: rotate(180deg);
 }
 
@@ -60,7 +81,7 @@ ul.service-cards {
 /* Show when open */
 ul.child-dropdowns.show,
 ul.service-cards.show {
-    max-height: 1000px;
+    max-height: 1000px; /* large enough to fit content */
     opacity: 1;
 }
 
@@ -123,6 +144,41 @@ ul.service-cards li .cta {
         flex: 0 0 70%;
     }
 }
+
+/* Plus/Minus icons for nested children */
+.child-toggle .plus-icon,
+.child-toggle .minus-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.child-toggle .minus-icon {
+    opacity: 0;
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.child-toggle.active .plus-icon {
+    opacity: 0;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.child-toggle.active .minus-icon {
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+}
+
+/* Keep the original caret for top-level menus */
+.top-caret {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
 </style>
 </head>
 <body>
@@ -135,33 +191,71 @@ ul.service-cards li .cta {
 
         <!-- Processing Solutions Parent -->
         <li class="dropdown">
-            <a class="parent-toggle">Processing Solutions <i class="fas fa-caret-up caret-icon"></i></a>
+            <a class="parent-toggle">Processing Solutions
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+
+
+            </a>
             <ul class="child-dropdowns">
                 <!-- Child Dropdowns -->
                 <li class="child-dropdown">
-                    <a class="child-toggle">Full Service Fine Dinning <i class="fas fa-caret-up caret-icon"></i></a>
+                    <a class="child-toggle">Full Service Fine Dinning
+                        <!-- Plus/Minus -->
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </a>
                     <ul class="service-cards">
                         <li><a href="#">Union POS</a></li>
                         <li><a href="#">Clover</a></li>
                         <li><a href="#">Tabit</a></li>
                     </ul>
                 </li>
+
                 <li class="child-dropdown">
-                    <a class="child-toggle">QSR and Food Trucks <i class="fas fa-caret-up caret-icon"></i></a>
+                    <a class="child-toggle">QSR and Food Trucks
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </a>
                     <ul class="service-cards">
                         <li><a href="#">Clover</a></li>
                         <li><a href="#">Swipe Simple</a></li>
                         <li><a href="#">Valor</a></li>
                     </ul>
                 </li>
+
                 <li class="child-dropdown">
-                    <a class="child-toggle">Bars / Night Clubs / High Volume <i class="fas fa-caret-up caret-icon"></i></a>
+                    <a class="child-toggle">Bars / Night Clubs / High Volume
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </a>
                     <ul class="service-cards">
                         <li><a href="#">Union POS</a></li>
                     </ul>
                 </li>
+
                 <li class="child-dropdown">
-                    <a class="child-toggle">Retail / Liquor / Smoke Shops <i class="fas fa-caret-up caret-icon"></i></a>
+                    <a class="child-toggle">Retail / Liquor / Smoke Shops
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </a>
                     <ul class="service-cards">
                         <li><a href="#">OctoPOS</a></li>
                         <li><a href="#">Clover</a></li>
@@ -169,14 +263,30 @@ ul.service-cards li .cta {
                         <li><a href="#">Valor</a></li>
                     </ul>
                 </li>
+
                 <li class="child-dropdown">
-                    <a class="child-toggle">Medical <i class="fas fa-caret-up caret-icon"></i></a>
+                    <a class="child-toggle">Medical
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </a>
                     <ul class="service-cards">
                         <li><a href="#">Practice Management Bridge</a></li>
                     </ul>
                 </li>
+
                 <li class="child-dropdown">
-                    <a class="child-toggle">Contractors / Online Payments / Mobile <i class="fas fa-caret-up caret-icon"></i></a>
+                    <a class="child-toggle">Contractors / Online Payments / Mobile
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </a>
                     <ul class="service-cards">
                         <li><a href="#">Hyfin</a></li>
                         <li><a href="#">NMI</a></li>
@@ -185,18 +295,31 @@ ul.service-cards li .cta {
                         <li><a href="#">Swipe Simple</a></li>
                     </ul>
                 </li>
+
                 <li class="child-dropdown">
-                    <a class="child-toggle">Need a Basic Setup? <i class="fas fa-caret-up caret-icon"></i></a>
+                    <a class="child-toggle">Need a Basic Setup?
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </a>
                     <ul class="service-cards">
                         <li><a href="#">Terminal Options</a></li>
                     </ul>
                 </li>
+
             </ul>
         </li>
 
         <!-- Digital Services -->
         <li class="dropdown">
-            <a class="parent-toggle">Digital Services <i class="fas fa-caret-up caret-icon"></i></a>
+            <a class="parent-toggle">Digital Services
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+            </a>
             <ul class="service-cards">
                 <li><a href="#">Website Design</a></li>
                 <li><a href="#">3D Printing</a></li>
@@ -206,12 +329,23 @@ ul.service-cards li .cta {
         </li>
 
         <!-- Other menus -->
-        <li class="dropdown"><a class="parent-toggle">Business Financing <i class="fas fa-caret-up caret-icon"></i></a>
+        <li class="dropdown">
+            <a class="parent-toggle">Business Financing
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+            </a>
             <ul class="service-cards">
                 <li><a href="#">ROK</a></li>
             </ul>
         </li>
-        <li class="dropdown"><a class="parent-toggle">About Us <i class="fas fa-caret-up caret-icon"></i></a>
+
+        <li class="dropdown">
+            <a class="parent-toggle">About Us
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
             <ul class="service-cards">
                 <li><a href="#">Know more about us</a></li>
             </ul>
@@ -220,46 +354,48 @@ ul.service-cards li .cta {
 </nav>
 
 <script>
-// Parent toggle
+// Accordion for parent menus
 document.querySelectorAll('.parent-toggle').forEach(parent => {
     parent.addEventListener('click', e => {
         const parentLi = parent.parentElement;
         const childUl = parentLi.querySelector('ul');
         const isOpen = childUl.classList.contains('show');
 
-        if (isOpen) {
-            // Close all nested children
-            parentLi.querySelectorAll('ul').forEach(ul => ul.classList.remove('show'));
-            parentLi.querySelectorAll('.child-toggle').forEach(c => c.classList.remove('open'));
-            parent.classList.remove('open');
-        } else {
-            childUl.classList.add('show');
-            parent.classList.add('open');
-        }
+        // Close all other parent dropdowns
+        document.querySelectorAll('.parent-toggle').forEach(p => {
+            if (p !== parent) {
+                p.parentElement.querySelector('ul').classList.remove('show');
+                p.classList.remove('open');
+                // Close nested children
+                p.parentElement.querySelectorAll('.child-toggle').forEach(c => c.classList.remove('active'));
+                p.parentElement.querySelectorAll('ul').forEach(ul => ul.classList.remove('show'));
+            }
+        });
+
+        childUl.classList.toggle('show');
+        parent.classList.toggle('open');
     });
 });
 
-// Child toggle with accordion behavior
-document.querySelectorAll('.child-dropdowns').forEach(container => {
-    container.querySelectorAll('.child-toggle').forEach(child => {
-        child.addEventListener('click', e => {
-            e.stopPropagation(); // Prevent parent toggle
+// Accordion for children inside "Processing Solutions"
+document.querySelectorAll('.child-toggle').forEach(child => {
+    child.addEventListener('click', e => {
+        e.stopPropagation();
+        const childLi = child.parentElement;
+        const childUl = childLi.querySelector('ul');
+        const isActive = child.classList.contains('active');
 
-            const childLi = child.parentElement;
-            const childUl = childLi.querySelector('ul');
-
-            // Close all sibling children
-            childLi.parentElement.querySelectorAll('.child-dropdown').forEach(sibling => {
-                if (sibling !== childLi) {
-                    sibling.querySelector('ul').classList.remove('show');
-                    sibling.querySelector('.child-toggle').classList.remove('open');
-                }
-            });
-
-            // Toggle clicked child
-            childUl.classList.toggle('show');
-            child.classList.toggle('open');
+        // Close other siblings
+        const siblings = childLi.parentElement.querySelectorAll('.child-toggle');
+        siblings.forEach(sib => {
+            if (sib !== child) {
+                sib.classList.remove('active');
+                sib.parentElement.querySelector('ul').classList.remove('show');
+            }
         });
+
+        child.classList.toggle('active', !isActive);
+        childUl.classList.toggle('show', !isActive);
     });
 });
 </script>
