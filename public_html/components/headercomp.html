@@ -326,10 +326,37 @@ ul.service-cards li .cta {
             </svg>
             </a>
             <ul class="service-cards">
-                <li><a href="#">Website Design</a></li>
-                <li><a href="#">3D Printing</a></li>
-                <li><a href="#">Branding</a></li>
-                <li><a href="#">Social Media Marketing</a></li>
+                <li>
+                    <a href="#">
+                     <div class="mobileMenu-service-card">
+                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
+                        <h3>Website Design</h3>
+                        <p class="mobileService-Description">Preimum designs at your fingertips</p>
+                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                     </div>
+                    </a>
+                </li>
+                <li><a href="#">
+                    <div class="mobileMenu-service-card">
+                        <img src="../assets/images/digitalservices/3d-printing-service.png"></img>
+                        <h3>3D Printing</h3>
+                        <p class="mobileService-Description">1-stop shopping for all your 3D-printed needs</p>
+                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                     </div></li>
+                <li><a href="#">
+                    <div class="mobileMenu-service-card">
+                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
+                        <h3>Branding</h3>
+                        <p class="mobileService-Description">We can handle all form of your branding needs</p>
+                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                     </div></li>
+                <li><a href="#">
+                    <div class="mobileMenu-service-card">
+                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
+                        <h3>Social Media Marketing</h3>
+                        <p class="mobileService-Description">Lets market your product on socials</p>
+                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                     </div></a></li>
             </ul>
         </li>
 
@@ -340,8 +367,17 @@ ul.service-cards li .cta {
             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
             </a>
-            <ul class="service-cards">
-                <li><a href="#">ROK</a></li>
+            <ul class="service-cards rok">
+                  <li>
+                    <a href="#">
+                     <div class="mobileMenu-service-card">
+                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
+                        <h3>Get Funding Today</h3>
+                        <p class="mobileService-Description">Preimum designs at your fingertips</p>
+                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                     </div>
+                    </a>
+                </li>
             </ul>
         </li>
 
@@ -351,12 +387,59 @@ ul.service-cards li .cta {
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </a>
-            <ul class="service-cards">
-                <li><a href="#">Know more about us</a></li>
+            <ul class="service-cards about-us">
+                <li><a href="#">
+                    <div>
+                        <p>We are here to help your business accept credit cards in the most secure, efficient and economical way possible.<br> Optimum Payment Solutions is a premium provider of electronic transaction processing and ATM Placementsible.
+                        </p>
+                        <p>Get To Know Us More<span class="mobileMenu--special-link"> > </span></p>
+                    </div>
+                </a>
+                </li>
             </ul>
         </li>
+
+        <!-- Socail Button links -->
+        <li class="social-icon-set">
+             <span class="mobileMenu-footer-social-icons">
+                <a href="#"><img src="../assets/svgs/mail-social.svg" alt=""></a>
+            </span>
+            <span class="mobileMenu-footer-social-icons">
+                <a href="#"><img src="../assets/svgs/facebook-social.svg" alt=""></a>
+            </span>
+           
+            <span class="mobileMenu-footer-social-icons">
+                <a href="#"><img src="../assets/svgs/tiktok-social.svg" alt=""></a>
+            </span>
+    </li>
+        <li>
+            <p class="copyright-foot-mobileMenu">(c) Copyright 2025 
+                <strong>Optimum Payments LLC </strong> All Rights Reserved</span>
+            </p>
+        </li>
+       
     </ul>
 </nav>
+
+<style>
+    .social-icon-set{
+      display: flex;
+      justify-content: center;        
+    } 
+
+    .copyright-foot-mobileMenu{
+        margin:0 auto;
+        text-align: center;
+        font-size: .7rem;
+        padding: 12px;
+        /* width: 30ch; */
+    }
+
+    .service-cards.rok, .service-cards.about-us{
+        display: grid;
+    }
+
+</style>
 
 <script>
 // Accordion for parent menus
