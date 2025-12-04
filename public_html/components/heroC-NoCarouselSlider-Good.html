@@ -169,9 +169,7 @@ h1.heading.title{
     overflow: hidden;
     }
 
-    .cta-container-hero{
-        
-    }
+    
 
     p.display{
         color: var(--TypographyColors-Subtitle, #788289);
@@ -211,7 +209,7 @@ line-height: 52.8px; /* 120% */
                     <p class="label-h1">HAND-HELD POS</p>
                      
                     <h1 class="heading title display">CLOVER FLEX</h1>
-                    <p class="display subtitle">The all‑in‑one POS for faster service at the counter.</p>
+                    <p class="display subtitle">Accepting any type of payments is a snap—from in-person swipe, chip, and tap, to online payments.</p>
                      <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                     </div>
@@ -261,7 +259,7 @@ line-height: 52.8px; /* 120% */
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">VALOR VP800</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                    <p class="display subtitle">Valor PayTech eliminates that charge to the merchant.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -276,7 +274,7 @@ line-height: 52.8px; /* 120% */
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">VALOR VL110</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                    <p class="display subtitle">Valor PayTech eliminates that charge to the merchant.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -291,7 +289,7 @@ line-height: 52.8px; /* 120% */
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">CLOVER STATION DUO</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                    <p class="display subtitle">The all‑in‑one POS for faster service at the counter.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -306,7 +304,8 @@ line-height: 52.8px; /* 120% */
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">CLOVER STATION SOLO</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                    <p class="display subtitle">
+                        Supports your operations and management and gives you more time to focus on the reason you’re in business.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -321,7 +320,7 @@ line-height: 52.8px; /* 120% */
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">OCTOPOS</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                    <p class="display subtitle">The smart Android countertop that eliminates charge to the merchant.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -336,7 +335,7 @@ line-height: 52.8px; /* 120% */
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">UNION</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                    <p class="display subtitle">The smart Android countertop that eliminates charge to the merchant.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -351,7 +350,7 @@ line-height: 52.8px; /* 120% */
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">VL100</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                    <p class="display subtitle">Valor PayTech eliminates that charge to the merchant.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -380,8 +379,8 @@ line-height: 52.8px; /* 120% */
                     <p class="label-h1">TABLE SERVICE</p>
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
-                    <h1 class="heading title display">TABIT</p>
-                    <p class="display subtitle">A fully integrated suite of products to handle all aspects of restaurant operations.</h1>
+                    <h1 class="heading title display">TABIT</h1>
+                    <p class="display subtitle">A fully integrated suite of products to handle all aspects of restaurant operations.</p>
                          <div class="image-wrapper">
                     <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                 </div>
@@ -434,6 +433,19 @@ line-height: 52.8px; /* 120% */
         </button>
     </div>
 
+    <style>
+       p.display.subtitle {
+        display: -webkit-box;        /* needed for line clamping */
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;       /* number of lines to show */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 35ch;             /* roughly 50 characters per line */
+        line-height: 1.4em;          /* adjust to match spacing */
+    }
+
+
+    </style>
     
 
 
