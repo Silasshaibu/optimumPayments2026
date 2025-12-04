@@ -17,15 +17,15 @@
                     </p>
                     <h1 class="heading title display">Optimum Payments</h1>
                     <p class="display subtitle">A full proider of payment processing and business financing.</h1>
-                    
+                        <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                        </div>
                     <div class="cta-container-hero">
-                        <button class="primary">Learn More</button>
-                        <button class="secondary">Learn More</button>
+                        <button class="btn-primary">Learn More</button>
+                        <button class="btn-secondary">Learn More</button>
                     </div>   
                 </div>
-                <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                </div>
+                
             </div>
             <div class="slide two">
                   <div class="textInfo-wrapper">
@@ -112,6 +112,10 @@
     flex:1;
 }
 
+.image-wrapper{
+    position: absolute;
+}
+
 .textInfo-wrapper{
     position: relative;
     width: 560px;
@@ -122,7 +126,8 @@
 
 .cta-container-hero{
     padding-top: 52px;
-    display:none; /*when no button is present*/
+    /* display:none;  */
+    /*when no button is present*/
     /* min-height: calc(42px + 52px); */
 }
 .slide{
