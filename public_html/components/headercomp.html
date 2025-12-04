@@ -1,179 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Services Dropdown</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="dropdown-container">
-    <!-- Header (Click to toggle) -->
-    <div class="dropdown-header" id="dropdownToggle">
-        <span class="title">Digital Services</span>
-        <i class="fas fa-caret-up caret-icon"></i>
-    </div>
-
-    <!-- Dropdown Body -->
-    <div class="dropdown-body" id="dropdownBody">
-        <div class="dropdown-grid">
-
-            <!-- Card 1 -->
-            <div class="service-card">
-                <img src="https://placehold.co/163x128" alt="">
-                <h3>Website Design</h3>
-                <p>Premium designs at<br>your fingertips</p>
-                <a href="#" class="cta">Explore <i class="fas fa-chevron-right"></i></a>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="service-card">
-                <img src="https://placehold.co/163x128" alt="">
-                <h3>3D Printing</h3>
-                <p>1-stop shopping for all<br>your 3D-printed needs</p>
-                <a href="#" class="cta">Order Now <i class="fas fa-chevron-right"></i></a>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="service-card">
-                <img src="https://placehold.co/163x128" alt="">
-                <h3>Branding</h3>
-                <p>We can handle all form<br>of your branding needs</p>
-                <a href="#" class="cta">Order Now <i class="fas fa-chevron-right"></i></a>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="service-card">
-                <img src="https://placehold.co/163x128" alt="">
-                <h3>Social Media Marketing</h3>
-                <p>Let us market your product<br>on your socials</p>
-                <a href="#" class="cta">Order Now <i class="fas fa-chevron-right"></i></a>
-            </div>
-
-             <div class="service-card">
-                <img src="https://placehold.co/163x128" alt="">
-                <h3>Social Media Marketing</h3>
-                <p>Let us market your product<br>on your socials</p>
-                <a href="#" class="cta">Order Now <i class="fas fa-chevron-right"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accordion Nested Dropdown Menu</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style-guide.css">
 <style>
-    /* Main container */
-.dropdown-container {
+/* Basic styling */
+nav.main-menu {
     width: 100%;
-    width: 300px;
-    background: white;
-    border: 1px solid #E5E7EB;
-    display: flex;
-    flex-direction: column;
+    max-width: 350px;
+    font-family: Manrope, sans-serif;
 }
 
-/* Header row */
-.dropdown-header {
-    padding: 16px;
+nav.main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.main-menu li {
+    border: 1px solid #E5E7EB;
+    margin-bottom: 8px;
+}
+
+nav.main-menu a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    border-bottom: 1px solid #E5E7EB;
-}
-
-.dropdown-header .title {
-    font-size: 18px;
-    font-family: Manrope, sans-serif;
+    text-decoration: none;
     color: black;
-}
-
-.caret-icon {
+    padding: 12px 16px;
     font-size: 16px;
-    color: #4B5563;
+    cursor: pointer;
+}
+
+/* Caret rotation */
+.caret-icon {
     transition: transform 0.3s ease;
+    font-size: 14px;
 }
 
-/* Dropdown body */
-.dropdown-body {
-    background: #F3F4F6;
-    padding: 24px;
-    display: none; /* hidden by default */
-    overflow: auto;
-    overflow-y: hidden ;
+.open > .caret-icon {
+    transform: rotate(180deg);
 }
 
-/* Grid inside dropdown */
-.dropdown-grid {
-    display: grid;
-    display: inline-grid;
-    grid-template-columns: repeat(4, 1fr);
+/* Nested dropdowns & animations */
+ul.child-dropdowns,
+ul.service-cards {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Show when open */
+ul.child-dropdowns.show,
+ul.service-cards.show {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+/* Horizontal scroll for service cards */
+ul.service-cards {
+    display: flex;
     gap: 16px;
-    /* width: 500px; */
+    padding: 12px 8px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Each service card */
-.service-card {
-    background: transparent;
+ul.service-cards::-webkit-scrollbar {
+    display: none;
+}
+
+/* Service card style */
+ul.service-cards li {
+    flex: 0 0 auto;
+}
+
+ul.service-cards li a {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    padding: 8px;
 }
 
-.service-card img {
+ul.service-cards li img {
     width: 100%;
     height: 128px;
     object-fit: cover;
     border-radius: 4px;
 }
 
-.service-card h3 {
+ul.service-cards li h3 {
     font-family: Inter, sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: #4B5563;
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
-.service-card p {
+ul.service-cards li p {
     font-size: 14px;
-    font-family: Inter, sans-serif;
     color: #4B5563;
-    margin: 8px 0 16px;
+    margin: 4px 0 8px;
     line-height: 20px;
 }
 
-.cta {
+ul.service-cards li .cta {
     font-size: 14px;
     font-weight: 600;
-    font-family: Inter, sans-serif;
     color: #63A0CF;
-    text-decoration: none;
 }
 
-.cta i {
-    margin-left: 4px;
-}
-
-/* Rotate caret when open */
-.dropdown-open .caret-icon {
-    transform: rotate(180deg);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .dropdown-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
+/* Mobile responsiveness */
 @media (max-width: 500px) {
-    .dropdown-grid {
-        grid-template-columns: 1fr;
+    ul.service-cards li {
+        flex: 0 0 70%;
     }
 }
-
 </style>
+</head>
+<body>
+
+<nav class="main-menu">
+    <ul>
+        <!-- Top links -->
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Promo</a></li>
+
+        <!-- Processing Solutions Parent -->
+        <li class="dropdown">
+            <a class="parent-toggle">Processing Solutions <i class="fas fa-caret-up caret-icon"></i></a>
+            <ul class="child-dropdowns">
+                <!-- Child Dropdowns -->
+                <li class="child-dropdown">
+                    <a class="child-toggle">Full Service Fine Dinning <i class="fas fa-caret-up caret-icon"></i></a>
+                    <ul class="service-cards">
+                        <li><a href="#">Union POS</a></li>
+                        <li><a href="#">Clover</a></li>
+                        <li><a href="#">Tabit</a></li>
+                    </ul>
+                </li>
+                <li class="child-dropdown">
+                    <a class="child-toggle">QSR and Food Trucks <i class="fas fa-caret-up caret-icon"></i></a>
+                    <ul class="service-cards">
+                        <li><a href="#">Clover</a></li>
+                        <li><a href="#">Swipe Simple</a></li>
+                        <li><a href="#">Valor</a></li>
+                    </ul>
+                </li>
+                <li class="child-dropdown">
+                    <a class="child-toggle">Bars / Night Clubs / High Volume <i class="fas fa-caret-up caret-icon"></i></a>
+                    <ul class="service-cards">
+                        <li><a href="#">Union POS</a></li>
+                    </ul>
+                </li>
+                <li class="child-dropdown">
+                    <a class="child-toggle">Retail / Liquor / Smoke Shops <i class="fas fa-caret-up caret-icon"></i></a>
+                    <ul class="service-cards">
+                        <li><a href="#">OctoPOS</a></li>
+                        <li><a href="#">Clover</a></li>
+                        <li><a href="#">Swipe Simple</a></li>
+                        <li><a href="#">Valor</a></li>
+                    </ul>
+                </li>
+                <li class="child-dropdown">
+                    <a class="child-toggle">Medical <i class="fas fa-caret-up caret-icon"></i></a>
+                    <ul class="service-cards">
+                        <li><a href="#">Practice Management Bridge</a></li>
+                    </ul>
+                </li>
+                <li class="child-dropdown">
+                    <a class="child-toggle">Contractors / Online Payments / Mobile <i class="fas fa-caret-up caret-icon"></i></a>
+                    <ul class="service-cards">
+                        <li><a href="#">Hyfin</a></li>
+                        <li><a href="#">NMI</a></li>
+                        <li><a href="#">Clover</a></li>
+                        <li><a href="#">Valor</a></li>
+                        <li><a href="#">Swipe Simple</a></li>
+                    </ul>
+                </li>
+                <li class="child-dropdown">
+                    <a class="child-toggle">Need a Basic Setup? <i class="fas fa-caret-up caret-icon"></i></a>
+                    <ul class="service-cards">
+                        <li><a href="#">Terminal Options</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Digital Services -->
+        <li class="dropdown">
+            <a class="parent-toggle">Digital Services <i class="fas fa-caret-up caret-icon"></i></a>
+            <ul class="service-cards">
+                <li><a href="#">Website Design</a></li>
+                <li><a href="#">3D Printing</a></li>
+                <li><a href="#">Branding</a></li>
+                <li><a href="#">Social Media Marketing</a></li>
+            </ul>
+        </li>
+
+        <!-- Other menus -->
+        <li class="dropdown"><a class="parent-toggle">Business Financing <i class="fas fa-caret-up caret-icon"></i></a>
+            <ul class="service-cards">
+                <li><a href="#">ROK</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a class="parent-toggle">About Us <i class="fas fa-caret-up caret-icon"></i></a>
+            <ul class="service-cards">
+                <li><a href="#">Know more about us</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<script>
+// Parent toggle
+document.querySelectorAll('.parent-toggle').forEach(parent => {
+    parent.addEventListener('click', e => {
+        const parentLi = parent.parentElement;
+        const childUl = parentLi.querySelector('ul');
+        const isOpen = childUl.classList.contains('show');
+
+        if (isOpen) {
+            // Close all nested children
+            parentLi.querySelectorAll('ul').forEach(ul => ul.classList.remove('show'));
+            parentLi.querySelectorAll('.child-toggle').forEach(c => c.classList.remove('open'));
+            parent.classList.remove('open');
+        } else {
+            childUl.classList.add('show');
+            parent.classList.add('open');
+        }
+    });
+});
+
+// Child toggle with accordion behavior
+document.querySelectorAll('.child-dropdowns').forEach(container => {
+    container.querySelectorAll('.child-toggle').forEach(child => {
+        child.addEventListener('click', e => {
+            e.stopPropagation(); // Prevent parent toggle
+
+            const childLi = child.parentElement;
+            const childUl = childLi.querySelector('ul');
+
+            // Close all sibling children
+            childLi.parentElement.querySelectorAll('.child-dropdown').forEach(sibling => {
+                if (sibling !== childLi) {
+                    sibling.querySelector('ul').classList.remove('show');
+                    sibling.querySelector('.child-toggle').classList.remove('open');
+                }
+            });
+
+            // Toggle clicked child
+            childUl.classList.toggle('show');
+            child.classList.toggle('open');
+        });
+    });
+});
+</script>
+
 </body>
 </html>
