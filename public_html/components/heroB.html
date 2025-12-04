@@ -12,14 +12,14 @@
         <div class="carousel-wrapper">
             <div class="slide one">
                 <div class="textInfo-wrapper">
-                    <p class="label-h1">2025-10-28:00 AM EDT
+                    <p class="label-h1">SMOOTH PROVIDER
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
                     </p>
                     <h1 class="heading title display">Optimum Payments</h1>
                     <p class="display subtitle">A full proider of payment processing and business financing.</h1>
-                        <div class="image-wrapper">
-                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                        </div>
+                    <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
+                    </div>
                     <div class="cta-container-hero">
                         <button class="btn-primary">Learn More</button>
                         <button class="btn-secondary">Learn More</button>
@@ -81,6 +81,7 @@
     overflow: hidden; /* hide overflow for carousel effect */
     border:1px solid blue;
     height: 90vh;
+    min-height:560px;
     overflow: hidden;
 }
 
@@ -114,6 +115,14 @@
 
 .image-wrapper{
     position: absolute;
+    /* position: relative; */
+    right:0;
+    bottom:50%;
+    transform:translateY(50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100%; */
 }
 
 .textInfo-wrapper{
@@ -126,6 +135,11 @@
 
 .cta-container-hero{
     padding-top: 52px;
+    /* width: 100%; */
+    display: flex;
+     gap:1rem;
+    /* width: 100%; */
+    /* margin:0 auto; */
     /* display:none;  */
     /*when no button is present*/
     /* min-height: calc(42px + 52px); */
@@ -174,7 +188,73 @@ h1.heading.title{
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
 @media (max-width:768px) {
-    
+    .slide{
+        /* margin:auto 0; */
+        background-color: #fff;
+        flex-direction: column;
+        padding:1rem;
+    }
+
+   
+    .textInfo-wrapper{
+        align-items: center; 
+        width: 100%;
+    }
+
+    p.display, h1.heading.title{
+        width: 100%;
+    }
+
+    p.display, h1.heading.title{
+        text-align: center;
+    }
+
+    .image-wrapper{
+    /* position: absolute; */
+    position: relative;
+    right:0;
+    bottom:0%;
+    transform:translateY(0%);
+    border:1px solid white;
+    width:100%;
+    /* height: 100%; */
+    }
+
+    .carousel-window {
+    min-height:614px;
+    height: 80vh;
+    overflow: hidden;
+    }
+
+    .cta-container-hero{
+        
+    }
+
+    p.display{
+        color: var(--TypographyColors-Subtitle, #788289);
+text-align: center;
+
+/* BBu.Mobile.P1 */
+font-family: Manrope;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 30px; /* 150% */
+    }
+
+    h1.heading.title{
+        color: var(--TypographyColors-Title, #18374E);
+text-align: center;
+
+/* Mobile.H1 */
+font-family: Inter;
+font-size: 44px;
+font-style: normal;
+font-weight: 700;
+line-height: 52.8px; /* 120% */
+    }
+
+
 }
 
 </style>

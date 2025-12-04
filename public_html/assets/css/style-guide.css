@@ -375,17 +375,14 @@ p {
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
-  
-
   height: 100%;
+  color:#3C88C3;
   padding: 13px 33px;
-
   border-radius: 8px;
   outline: 1px solid #3C88C3; /* Primary button color */
   outline-offset: -1px;
-
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-secondary:hover {
@@ -397,7 +394,6 @@ p {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-
   color: #3C88C3;
   font-size: 16px;
   font-weight: 600;
@@ -416,7 +412,7 @@ p {
   border-radius: 6px;
   font-weight: 500;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .btn-outline {
