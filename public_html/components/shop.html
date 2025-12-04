@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+</head>
+
+<style>
+    .container {
+    width: 100%;
+    height: 100%;
+    padding: 32px 15px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border:1px solid black;
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: stretch;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-self: stretch;
+    color: #333333; /* var(--color-grey-20) */
+    font-size: 34px;
+    font-family: Manrope, sans-serif;
+    font-weight: 700;
+    line-height: 40.8px;
+    word-wrap: break-word;
+}
+
+.description {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.88); /* var(--color-black--88%) */
+    font-size: 14px;
+    font-family: Manrope, sans-serif;
+    font-weight: 400;
+    line-height: 22px;
+    word-wrap: break-word;
+}
+
+.description .highlight {
+    font-weight: 700;
+}
+
+</style>
+
+
+<body>
+    <div class="container">
+    <div class="header-wrapper">
+        <div class="title"><h1 class="shop title">Shop For Supplies</h1></div>
+    </div>
+    <div class="description">
+        <p class="subtitle shop">If the supplies you need is not available at the moment, please message us via </span>
+        <span class="highlight">Facebook </span> page or <span class="highlight"> </span>Check back in 2 working days.
+        </p>
+    </div>
+    </div>
+
+    
+    <div class="shop-flex">
+        <div class="searchField-section flex">
+            <input aria-label="Search for products in this collection" class="boost-pfs-in-collection-search-input" placeholder="Search for products in this collection" type="text" value="">
+        </div>
+        <div class="searchSort-section">
+            <div class="grid--1x2 shopProductViewerIcons">
+                <button aria-label="Show two products per row" class="CollectionToolbar__LayoutType " data-action="change-layout-mode" data-grid-type="desktop" data-count="2">
+                    <svg class="Icon Icon--wall-2 " role="presentation" viewBox="0 0 36 36"><path fill="currentColor" d="M21 36V21h15v15H21zm0-36h15v15H21V0zM0 21h15v15H0V21zM0 0h15v15H0V0z"></path></svg>
+                </button>
+
+                <button aria-label="Show four products per row" class="CollectionToolbar__LayoutType is-active" data-action="change-layout-mode" data-grid-type="desktop" data-count="4"><svg class="Icon Icon--wall-4 " role="presentation" viewBox="0 0 36 36"><path fill="currentColor" d="M28 36v-8h8v8h-8zm0-22h8v8h-8v-8zm0-14h8v8h-8V0zM14 28h8v8h-8v-8zm0-14h8v8h-8v-8zm0-14h8v8h-8V0zM0 28h8v8H0v-8zm0-14h8v8H0v-8zM0 0h8v8H0V0z"></path></svg></button>
+            </div>
+            <div class="sortText--and--icon">
+                <ul>Sort <span> > </span>
+                    <li>Relevance</li>
+                    <li>Newest </li>
+                    <li>Just For You</li>
+                    <li>Price, high to low</li>
+                    <li>A - Z </li>
+            </ul> </div>
+        </div>
+    </div>
+
+</body>
+
+    
+    <style>
+        .shop-flex{
+            width: 100%;
+            /* height: 50px; */
+            border: 1px solid black;
+        }
+        .shop-flex div{
+            border:1px solid red;
+            
+        }
+
+        .searchSort-section{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between
+         }
+    </style>
+
+</html>
