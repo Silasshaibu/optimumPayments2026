@@ -6,211 +6,8 @@
     <link rel="stylesheet" href="../assets/css/style-guide.css">
     <title>HeroCarousel2     
     </title>
-</head>
-<body>
-     <div class="carousel-window">
-        <div class="carousel-wrapper">
-            <div class="slide">
-                <div class="textInfo-wrapper">
-                    <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                    <p class="label-h1">SOLUTIONS PROVIDER</p>
-                    <h1 class="heading title display">Optimum Payments</h1>
-                    <p class="display subtitle">A full proider of payment processing and business financing.</p>
-                    <div class="image-wrapper">
-                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
-                    </div>
-                    <div class="cta-container-hero">
-                        <button class="btn-primary">Learn More</button>
-                        <button class="btn-secondary">Learn More</button>
-                    </div>   
-                </div>
-                
-            </div>
-            <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">ROK</p>
-                    
-                    <h1 class="heading title display">Business Financing</h1>
-                    <p class="display subtitle">Get the funding your business deserves today.</p>
-                     <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                    </div>
-                    <div class="cta-container-hero">
-                        <button class="primary">Get Started</button>
-                        <button class="secondary">Learn More</button>
-                    </div>   
-                </div>
-               
-            </div>
-             <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">OUR SERVICE</p>
-                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                    </p>
-                    <h1 class="heading title display">Payment Processing</h1>
-                    <p class="display subtitle">Our solutions are designed to meet unique needs.</h1>
-                         <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                    </div>
-                    <div class="cta-container-hero">
-                        <button class="primary">Apply Now</button>
-                        <button class="secondary">Learn More</button>
-                    </div>   
-                </div>
-               
-            </div>
-            <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">BECOME A MERCHANT</p>
-                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                    </p>
-                    <h1 class="heading title display">Merchant Application</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</h1>
-                         <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                </div>
-                    <div class="cta-container-hero">
-                        <button class="primary">Fill The Form</button>
-                        <button class="secondary">Learn More</button>
-                    </div>   
-                </div>
-               
-            </div>
-            <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">Just For You</p>
-                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                    </p>
-                    <h1 class="heading title display">Digital Creative Services</h1>
-                    <p class="display subtitle">Let's help you realize your imagination.</h1>
-                        <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                </div>
-                    <div class="cta-container-hero">
-                        <button class="primary">Fill The Form</button>
-                        <button class="secondary">Learn More</button>
-                    </div>   
-                </div>
-                
-            </div>
-        </div>
-    </div>
 
-    <div class="carousel-wrapper-remote">
-        <button id="left">
-            Left
-        </button>
-
-        <button id="right">
-            Right
-        </button>
-    </div>
-
-    <script>
-    // -------------------------
-// Infinite Loop Carousel JS
-// -------------------------
-
-const wrapper = document.querySelector(".carousel-wrapper");
-const slides = document.querySelectorAll(".carousel-wrapper .slide");
-
-let index = 1;
-let interval = null;
-const autoSlideTime = 3000; // 3 seconds
-
-// Clone first & last slide for seamless loop
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
-
-firstClone.classList.add("clone");
-lastClone.classList.add("clone");
-
-wrapper.appendChild(firstClone);
-wrapper.insertBefore(lastClone, slides[0]);
-
-// Set slide width
-let slideWidth = slides[0].clientWidth;
-
-// Start in correct position
-wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-
-// Handle resize (optional)
-window.addEventListener("resize", () => {
-    slideWidth = slides[0].clientWidth;
-    wrapper.style.transition = "none";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-});
-
-// Move to next slide
-function nextSlide() {
-    if (index >= slides.length + 1) return;
-    index++;
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-}
-
-// Move to previous slide
-function prevSlide() {
-    if (index <= 0) return;
-    index--;
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-}
-
-// Loop correction after animation
-wrapper.addEventListener("transitionend", () => {
-    const allSlides = document.querySelectorAll(".carousel-wrapper .slide");
-
-    if (allSlides[index].classList.contains("clone")) {
-        wrapper.style.transition = "none";
-
-        // if we moved to the cloned last -> jump to real last
-        if (index === allSlides.length - 1) {
-            index = allSlides.length - 2;
-        }
-        // if we moved to cloned first -> jump to real first
-        if (index === 0) {
-            index = 1;
-        }
-
-        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-    }
-});
-
-// Auto-slide
-function startAutoSlide() {
-    interval = setInterval(nextSlide, autoSlideTime);
-}
-
-function stopAutoSlide() {
-    clearInterval(interval);
-}
-
-// Hover pause (optional but recommended)
-wrapper.addEventListener("mouseenter", stopAutoSlide);
-wrapper.addEventListener("mouseleave", startAutoSlide);
-
-// Remote buttons
-document.querySelector(".carousel-remote .next").addEventListener("click", () => {
-    stopAutoSlide();
-    nextSlide();
-    startAutoSlide();
-});
-
-document.querySelector(".carousel-remote .prev").addEventListener("click", () => {
-    stopAutoSlide();
-    prevSlide();
-    startAutoSlide();
-});
-
-// Start auto sliding
-startAutoSlide();
-
-</script>
-
-</body>
-
-<style>
+    <style>
  
 
 *{
@@ -402,7 +199,201 @@ line-height: 52.8px; /* 120% */
 
 }
 
-</style>
+    </style>
+
+</head>
+<body>
+     <div class="carousel-window">
+        <div class="carousel-wrapper">
+            <div class="slide">
+                <div class="textInfo-wrapper">
+                    <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    <p class="label-h1">SOLUTIONS PROVIDER</p>
+                    <h1 class="heading title display">Optimum Payments</h1>
+                    <p class="display subtitle">A full proider of payment processing and business financing.</p>
+                    <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Learn More</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+                
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">ROK</p>
+                    
+                    <h1 class="heading title display">Business Financing</h1>
+                    <p class="display subtitle">Get the funding your business deserves today.</p>
+                     <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="primary">Get Started</button>
+                        <button class="secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+             <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">OUR SERVICE</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                   
+                    <h1 class="heading title display">Payment Processing</h1>
+                    <p class="display subtitle">Our solutions are designed to meet unique needs.</h1>
+                         <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="primary">Apply Now</button>
+                        <button class="secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">BECOME A MERCHANT</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    </p>
+                    <h1 class="heading title display">Merchant Application</h1>
+                    <p class="display subtitle">Start accepting payments with confidence.</h1>
+                         <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                </div>
+                    <div class="cta-container-hero">
+                        <button class="primary">Fill The Form</button>
+                        <button class="secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">Just For You</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    </p>
+                    <h1 class="heading title display">Digital Creative Services</h1>
+                    <p class="display subtitle">Let's help you realize your imagination.</h1>
+                        <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                </div>
+                    <div class="cta-container-hero">
+                        <button class="primary">Fill The Form</button>
+                        <button class="secondary">Learn More</button>
+                    </div>   
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-wrapper-remote carousel-remote">
+        <button class="prev">
+            Left
+        </button>
+
+        <button class="next">
+            Right
+        </button>
+    </div>
+
+    
+     <script>
+const wrapper = document.querySelector(".carousel-wrapper");
+let slides = document.querySelectorAll(".carousel-wrapper .slide");
+
+let index = 1;
+let interval = null;
+const autoSlideTime = 3000;
+
+// Clone first & last
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+firstClone.classList.add("clone");
+lastClone.classList.add("clone");
+
+wrapper.appendChild(firstClone);
+wrapper.insertBefore(lastClone, slides[0]);
+
+// Re-query slides after cloning
+slides = document.querySelectorAll(".carousel-wrapper .slide");
+let slideWidth = slides[0].clientWidth;
+
+// Start position
+wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+
+// Resize handling
+window.addEventListener("resize", () => {
+    slideWidth = slides[0].clientWidth;
+    wrapper.style.transition = "none";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+});
+
+// Move to next
+function nextSlide() {
+    if (index >= slides.length - 1) return;
+    index++;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+// Move to prev
+function prevSlide() {
+    if (index <= 0) return;
+    index--;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+// Loop correction
+wrapper.addEventListener("transitionend", () => {
+    if (slides[index].classList.contains("clone")) {
+        wrapper.style.transition = "none";
+        if (index === 0) {
+            index = slides.length - 2;
+        } else if (index === slides.length - 1) {
+            index = 1;
+        }
+        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    }
+});
+
+// Auto-slide
+function startAutoSlide() {
+    interval = setInterval(nextSlide, autoSlideTime);
+}
+function stopAutoSlide() {
+    clearInterval(interval);
+}
+wrapper.addEventListener("mouseenter", stopAutoSlide);
+wrapper.addEventListener("mouseleave", startAutoSlide);
+
+// Remote buttons
+document.querySelector(".carousel-remote .next").addEventListener("click", () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+});
+document.querySelector(".carousel-remote .prev").addEventListener("click", () => {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+});
+
+// Start
+startAutoSlide();
+</script>
+
+
+    </script>
+
+</body>
+
+
 
 
 
