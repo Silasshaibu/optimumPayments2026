@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <title>HeroCarousel2     
+    </title>
+
+    <style>
+ 
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --slide-count: 5; /* total number of slides */
+}
+
+.carousel-window {
+    position: relative;
+    width: 100vw;
+    overflow: hidden; /* hide overflow for carousel effect */
+    height: 90vh;
+    min-height:560px;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    top:0px;
+    /* padding:24rem; */
+    
+    left:0px;
+    height: 80vh;
+    position: absolute;
+    width: calc(var(--slide-count) * 100vw); /* dynamic width based on slide count */
+    display: flex; /* make slides line up horizontally */
+}
+
+.slide {
+    width: 100vw; /* each slide takes full viewport width */
+    flex-shrink: 0; /* prevent shrinking */
+    padding:12px 32px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    min-height:300px; /*Placeholder can be changed where necessary */
+    align-items: center;
+}
+
+.textInfo-wrapper, .image-wrapper{
+    flex:1;
+    /* border:1px solid black; */
+}
+
+.image-wrapper{
+    position: absolute;
+    right:0;
+    bottom:50%;
+    transform:translate(0%, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 50vw; /*Image container width to cover in d esktop version*/
+    height: 400px; /*Image container height to cover in d esktop version*/
+}
+
+.textInfo-wrapper{
+    position: relative;
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:64px;
+}
+
+.cta-container-hero{
+    padding-top: 52px;
+    display: flex;
+     gap:1rem;
+}
+.slide{
+    padding:158px 45px;
+    background-color: grey;    
+}
+
+p.label-h1{
+        color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px; /* 120% */
+    min-height:16.8px;
+    
+}
+
+p.display{
+    color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
+
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--line-height-18, 18px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-23_4, 23.4px); /* 130% */
+    width: 340px;
+    max-width: 28ch;
+}
+h1.heading.title{
+    width:14ch;
+    color: var(--us-store-bambulab-com-white, var(--color-white-solid, #FFF));
+
+    /* us.store.bambulab.com/Semantic/Heading 1 */
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--font-size-40, 40px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-48, 48px); /* 120% */
+    text-transform: capitalize;
+;
+}
+
+
+
+/*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+    .slide{
+        /* margin:auto 0; */
+        background-color: #fff;
+        flex-direction: column;
+        padding:1rem;
+    }
+
+   
+    .textInfo-wrapper{
+        align-items: center; 
+        width: 100%;
+        padding:.5rem;
+    }
+
+    p.display, h1.heading.title{
+        width: 100%;
+    }
+
+    p.display, h1.heading.title{
+        text-align: center;
+    }
+
+    .image-wrapper{
+    /* position: absolute; */
+    position: relative;
+    right:0;
+    bottom:0%;
+    transform:translate(0%, 0%);
+    border:1px solid white;
+   width: 500px; /*Image container width to cover in d esktop version*/
+    height: 400px;
+    /* height: 100%; */
+    }
+
+    .carousel-window {
+    min-height:614px;
+    height: 80vh;
+    overflow: hidden;
+    }
+
+    .cta-container-hero{
+        
+    }
+
+    p.display{
+        color: var(--TypographyColors-Subtitle, #788289);
+text-align: center;
+
+/* BBu.Mobile.P1 */
+font-family: Manrope;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 30px; /* 150% */
+    }
+
+    h1.heading.title{
+        color: var(--TypographyColors-Title, #18374E);
+text-align: center;
+
+/* Mobile.H1 */
+font-family: Inter;
+font-size: 44px;
+font-style: normal;
+font-weight: 700;
+line-height: 52.8px; /* 120% */
+    }
+
+
+}
+
+    </style>
+
+</head>
+<body>
+     <div class="carousel-window">
+        <div class="carousel-wrapper">
+            <div class="slide">
+                <div class="textInfo-wrapper">
+                    <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    <p class="label-h1">SOLUTIONS PROVIDER</p>
+                    <h1 class="heading title display">Optimum Payments</h1>
+                    <p class="display subtitle">A full proider of payment processing and business financing.</p>
+                    <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Learn More</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+                
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">ROK</p>
+                    
+                    <h1 class="heading title display">Business Financing</h1>
+                    <p class="display subtitle">Get the funding your business deserves today.</p>
+                     <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Get Started</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+             <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">OUR SERVICE</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                   
+                    <h1 class="heading title display">Payment Processing</h1>
+                    <p class="display subtitle">Our solutions are designed to meet unique needs.</h1>
+                         <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Apply Now</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">BECOME A MERCHANT</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    </p>
+                    <h1 class="heading title display">Merchant Application</h1>
+                    <p class="display subtitle">Start accepting payments with confidence.</h1>
+                         <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Fill The Form</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">Just For You</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    </p>
+                    <h1 class="heading title display">Digital Creative Services</h1>
+                    <p class="display subtitle">Let's help you realize your imagination.</h1>
+                        <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Fill The Form</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-wrapper-remote carousel-remote">
+        <button class="prev">
+            Left
+        </button>
+
+        <button class="next">
+            Right
+        </button>
+    </div>
+
+    
+
+
+
+    
+
+</body>
+
+
+
+
+
+
+</html>
