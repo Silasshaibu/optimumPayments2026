@@ -3,246 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Nested Dropdown Menu</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<!-- <link rel="stylesheet" href="../assets/css/style-guide.css"> -->
+<title>1x3 Responsive Header</title>
+<link rel="stylesheet" href="../assets/css/style-guide.css">
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+/* ================== RESET ================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: sans-serif; }
+a { text-decoration: none; color: inherit; }
 
-  header {
-    background-color: #4CAF50;
+/* ================== HEADER ================== */
+.header-container {
+  width: 100%;
+  background: grey;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.left-col { display: flex; gap: 10px; align-items: center; }
+.logo { justify-self: center; }
+.nav-wrapper { display: none; } /* hidden on mobile */
+
+button { background: none; border: none; cursor: pointer; }
+.store-btn {
+  padding: 6px 16px;
+  background: #000;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* ================== MOBILE NAV ================== */
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  z-index: 1000;
+}
+.mobile-nav.active { display: block; }
+
+.mobile-nav ul { list-style: none; }
+.mobile-nav li { border-bottom: 1px solid #f0f0f0; }
+.mobile-nav li a {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  color: #000;
+}
+.mobile-nav .submenu { display: none; padding-left: 15px; background: #fafafa; }
+.mobile-nav .submenu.active { display: block; }
+
+/* ================== DESKTOP ================== */
+@media (min-width: 1024px) {
+  .header-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0px 15px;
-    position: relative;
-    height: auto;
+    padding: 0 32px;
   }
+  .nav-wrapper { display: flex; flex: 1; justify-content: center; }
+  .menu-toggle, .search-toggle { display: none; }
 
-  .logo img {
-    height: 40px;
-  }
-
-  nav {
-    position: relative;
-  }
-
-  /* Menu */
-  ul.menu {
+  nav.main-nav ul {
+    display: flex;
+    gap: 30px;
     list-style: none;
-    padding: 0;
-    margin: 0;
-    display: none; /* hidden on mobile */
-    flex-direction: column;
-    background-color: #4CAF50;
+  }
+  nav.main-nav li { position: relative; }
+
+  /* Top-level links with hover underline */
+  nav.main-nav li a {
+    position: relative;
+    padding: 12px 0;
+    display: block;
+  }
+  nav.main-nav li a::after {
+    content: "";
     position: absolute;
-    top: 60px;
     left: 0;
-    right: 0;
-    border-top: 1px solid #45a049;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: blue;
+    transition: width 0.3s ease;
+  }
+  nav.main-nav li a:hover::after { width: 100%; }
+
+  /* Submenus */
+  nav.main-nav .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    min-width: 200px;
     z-index: 1000;
   }
+  nav.main-nav li.has-submenu:hover > .submenu { display: block; }
 
-  ul.menu li {
-    padding: 12px 20px;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    position: relative;
-  }
-
-  ul.menu li:hover {
-    background-color: #45a049;
-  }
-
-  /* Nested menus */
-  ul.menu li ul {
+  /* Second-level submenu */
+  nav.main-nav .submenu .submenu {
     display: none;
-    flex-direction: column;
-    list-style: none;
-    padding-left: 15px;
-    background-color: #388E3C;
-  }
-
-  ul.menu li:hover > ul {
-    display: flex;
-  }
-
-  ul.menu li ul li {
-    padding: 10px 20px;
-    font-weight: normal;
-  }
-
-  ul.menu li ul li ul {
-    background-color: #2E7D32; /* 3rd level */
-  }
-
-  /* Hamburger button */
-  .hamburger {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  /* Action buttons */
-  .action-buttons {
-    display: flex;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 200px;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    align-items: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    z-index: 1001;
   }
-
-  .store-btn {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: white;
-    color: #4CAF50;
-    transition: all 0.3s;
+  nav.main-nav .submenu li.has-submenu:hover > .submenu {
+    display: grid;
   }
-
-  .store-btn:hover {
-    background-color: #45a049;
-    color: white;
-  }
-
-  .search-btn {
-    background: none;
-    color: white;
-    font-size: 1.5rem;
-    border: none;
-    cursor: pointer;
-  }
-
-
-  /* Desktop */
-  @media (min-width: 769px) {
-    .hamburger {
-      display: none;
-    }
-
-    ul.menu {
-      display: flex !important;
-      position: static;
-      flex-direction: row;
-      gap: 20px;
-      background: none;
-      border: none;
-    }
-
-    ul.menu li:hover {
-      background: none;
-      text-decoration: underline;
-    }
-
-    ul.menu li ul {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      flex-direction: column;
-      background-color: #388E3C;
-      display: none;
-      min-width: 180px;
-      border-radius: 4px;
-    }
-
-    ul.menu li:hover > ul {
-      display: flex;
-    }
-
-    ul.menu li ul li ul {
-      top: 0;
-      left: 100%;
-      position: absolute;
-      background-color: #2E7D32;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    .search-btn {
-      display: inline-block;
-    }
-
-   
-
-  }
-
-  /* Mobile small screens */
-  @media (max-width: 480px) {
-    .search-btn {
-      display: none;
-    }
-  }
+}
 </style>
 </head>
 <body>
 
-<header>
+<header class="header-container">
+  <!-- Left column (mobile) -->
+  <div class="left-col">
+    <button class="menu-toggle">&#9776;</button>
+    <button class="search-toggle">🔍</button>
+  </div>
+
+  <!-- Center column -->
   <div class="logo">
-    <img src="https://via.placeholder.com/100x40?text=Logo" alt="Logo">
+    <a href="#"><img src="/assets/images/logo/logo.png" alt="Logo" style="height:40px"></a>
   </div>
 
-  <style>
-
-    
-
-
-  </style>
-  <nav style="position: relative;">
-    <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
-    <ul class="menu">
-      <li>Home</li>
-      <li >About Us
-        <ul style="position: absolute; left:-100%; top:30px; width: 500%">
-          <li class="onDesktop-Dropdown-ParentMenu">History
-            <ul>
-              <li>Early Days</li>
-              <li>Modern Era</li>
-            </ul>
-          </li>
-          <li>Team</li>
-        </ul>
-      </li>
-      <li>Contact Us
-        <ul>
-          <li>Email</li>
-          <li>Phone</li>
-        </ul>
-      </li>
-      <li>Activities
-        <ul>
-          <li>Sports</li>
-          <li>Events
-            <ul>
-              <li>Workshops</li>
-              <li>Conferences</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="action-buttons">
-    <button class="store-btn">Store</button>
-    <button class="search-btn"><i class="fas fa-search"></i></button>
+  <!-- Right column -->
+  <div class="nav-wrapper">
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="has-submenu">
+          <a href="#">Processing Solutions ▼</a>
+          <ul class="submenu">
+            <li class="has-submenu">
+              <a href="#">Full service Fine Dining</a>
+              <ul class="submenu">
+                <li><a href="#">Luxury Restaurants</a></li>
+                <li><a href="#">Boutique Cafes</a></li>
+                <li><a href="#">Hotel Dining</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">QSR and Food Trucks</a>
+              <ul class="submenu">
+                <li><a href="#">Burger Chains</a></li>
+                <li><a href="#">Pizza Trucks</a></li>
+                <li><a href="#">Coffee Kiosks</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">Business Financing</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
   </div>
+
+  <div class="store-btn" onclick="window.location.href='../pages/shop.html'">Store</div>
 </header>
 
+<!-- Mobile nav -->
+<nav class="mobile-nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li class="has-submenu">
+      <a href="javascript:void(0)" class="submenu-toggle">Processing Solutions ▼</a>
+      <ul class="submenu">
+        <li><a href="#">Full service Fine Dining</a></li>
+        <li><a href="#">QSR and Food Trucks</a></li>
+        <li><a href="#">Bars / Night Clubs / High Volume</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Business Financing</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+</nav>
+
 <script>
-  function toggleMenu() {
-    const menu = document.querySelector('.menu');
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-  }
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.querySelector(".mobile-nav");
+
+  // Mobile main nav toggle
+  menuToggle.addEventListener("click", () => mobileNav.classList.toggle("active"));
+
+  // Mobile submenu toggle
+  const mobileSubmenuLinks = document.querySelectorAll(".mobile-nav .submenu-toggle");
+  mobileSubmenuLinks.forEach(toggle => {
+    toggle.addEventListener("click", function(e){
+      e.preventDefault();
+      const submenu = this.parentElement.querySelector(".submenu");
+      submenu.classList.toggle("active");
+    });
+  });
+});
 </script>
 
 </body>

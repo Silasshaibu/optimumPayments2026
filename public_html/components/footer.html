@@ -1,294 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer</title>
-    <link rel="stylesheet" href="../assets/css/style-guide.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer</title>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+  <style>
+    /* ---------- Variables ---------- */
+    :root {
+      --bg: #ffffff;
+      --muted: #98A2B3;      
+      --text: #667085;       
+      --badge-bg: #EBF3F9;
+      --badge-fg: #306D9C;
+      --bottom-bg: #F9FAFB;
+      --footer-container-width: 1280px;
+      --gap-lg: 48px;
+      --gap-md: 32px;
+      --gap-sm: 16px;
+      --font-sans: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ---------- Footer Base ---------- */
+    footer {
+      width: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-lg);
+      padding: 0 var(--gap-sm);
+      max-width: var(--footer-container-width);
+      margin: 0 auto;
+    }
+
+    /* ---------- Footer Grid (First Section) ---------- */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* Mobile first */
+      gap: var(--gap-md);
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links li {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .badge-new {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--badge-fg);
+      background: var(--badge-bg);
+      padding: 2px 8px;
+      border-radius: 16px;
+      margin-left: 6px;
+    }
+    
+    /* Prevent underline on badge when hovering link */
+  .footer-links li a .badge-new {
+    text-decoration: none !important;
+    display: inline-block; /* ensures underline does not pass under it */
+  }
+
+
+    /* ---------- Contact + Logo (Second Section) ---------- */
+    .second-section {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: var(--gap-md);
+    }
+    .contact-methods {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact-methods{
+      padding-top:1rem;
+    }
+    .mail-link a {
+      color: var(--text);
+      font-size: 15px;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 25px;
+      word-wrap: break-word;
+    }
+
+    .second-section p {
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ---------- Third Section: Copyright ---------- */
+    .third-section {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--bottom-bg);
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .footer-container{
+      padding:2rem;
+    }
+
+    /* ---------- Responsive Breakpoints ---------- */
+    @media (min-width: 769px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .second-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--gap-md);
+        align-items: flex-start;
+        padding: 32px 0 48px 0;
+      }
+
+      .contact-info.summary-logo-section {
+        padding-top: 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 1440px) {
+      .footer-grid {
+        gap: 40px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-  <!-- First Section: Footer Columns -->
-  <section class="grid-section footer-grid">
-    <div class="footer-column">
-      <h3 class="footer-title">Products</h3>
-      <ul class="footer-links">
-        <li>Clover Mini</li>
-        <li>Valor VP100 <span class="badge-new">New</span></li>
-        <li>Octopus</li>
-        <li>Union POS</li>
-        <li>Valor VP550</li>
-        <li>Clover Station Duo</li>
-        <li>Clover Flex</li>
-        <li>Clover Solo</li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <h3 class="footer-title">Quick Menu</h3>
-      <ul class="footer-links">
-        <li>Processing Solutions</li>
-        <li>Digital Services <span class="badge-new">New</span></li>
-        <li>Shop For Supplies</li>
-        <li>Business Financing</li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <h3 class="footer-title">Business Types</h3>
-      <ul class="footer-links">
-        <li>Table Service Restaurants</li>
-        <li>Service Business</li>
-        <li>Ecommerce</li>
-        <li>Retail Businesses</li>
-        <li>Counter Service Restaurants</li>
-        <li>Merchant Application Form</li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <h3 class="footer-title">Legal</h3>
-      <ul class="footer-links">
-        <li>Privacy Policy</li>
-        <li>Partners</li>
-        <li>Contact Us</li>
-        <li>About Us</li>
-        <li>Customer Reviews</li>
-      </ul>
-    </div>
-  </section>
 
-  <!-- Second Section: Logo + Contact -->
-  <section class="second-section footer-contact">
-    <div class="contact-info summary-logo-section">
-      <img src="../assets/images/logo/optimum-payment-logo-transparent-101x32.png" alt="Optimum Payments Logo" width="101" height="32">
-      <p>The Clover trademark and logo are owned by the Clover Network, Inc., a First Data Company. All other trademarks, service marks, and trade names are property of their respective owners.</p>
-    </div>
-    <div class="contact-info">
-      <h3 class="footer-title">Contact Us</h3>
-      <p>Serving all States with office locations in Illinois, Indiana, Ohio, and Florida.</p>
-      <div class="contact-methods">
-        <span>
-            <a href="https://example.com">
-                <img src="../assets/svgs/facebook-social.svg" alt="Facebook icon" width="24" height="24">
-            </a>
-        </span>
-        <span>
-            <a href="https://example.com">
-                <img src="../assets/svgs/tiktok-social.svg" alt="TikTok icon" width="24" height="24">
-            </a>
-        </span>
-        <span>
-            <a href="mailto:info@optimum-payments.com">
-                <img src="../assets/svgs/mail-social.svg" alt="Mail icon" width="24" height="24">
-            </a>
-        </span>
-        <span class="mail-link"> <a href="mailto:info@optimum-payments.com">info@optimum-payments.com</a> </span>
-
+  <footer>
+    <div class="footer-container">
+    
+    <!-- First Section: Footer Columns -->
+    <section class="footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-title">Products</h3>
+        <ul class="footer-links">
+          <li><a href="#">Clover Mini</a></li>
+          <li><a href="#">Valor VP100 <span class="badge-new">New</span></a></li>
+          <li><a href="#">Octopus</a></li>
+          <li><a href="#">Union POS</a></li>
+          <li><a href="#">Valor VP550</a></li>
+          <li><a href="#">Clover Station Duo</a></li>
+          <li><a href="#">Clover Flex</a></li>
+          <li><a href="#">Clover Solo</a></li>
+        </ul>
       </div>
+      <div class="footer-column">
+        <h3 class="footer-title">Quick Menu</h3>
+        <ul class="footer-links">
+          <li><a href="#">Processing Solutions</a></li>
+          <li><a href="#">Digital Services <span class="badge-new">New</span></a></li>
+          <li><a href="#">Shop For Supplies</a></li>
+          <li><a href="#">Business Financing</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">Business Types</h3>
+        <ul class="footer-links">
+          <li><a href="#">Table Service Restaurants</a></li>
+          <li><a href="#">Service Business</a></li>
+          <li><a href="#">Ecommerce</a></li>
+          <li><a href="#">Retail Businesses</a></li>
+          <li><a href="#">Counter Service Restaurants</a></li>
+          <li><a href="#">Merchant Application Form</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Customer Reviews</a></li>
+        </ul>
+      </div>
+    </section>
+      
+
+    <!-- Second Section: Logo + Contact -->
+    <section class="second-section">
+          <div class="contact-info summary-logo-section">
+            <img src="../assets/images/logo/optimum-payment-logo-transparent-101x32.png" alt="Optimum Payments Logo">
+            <p>The Clover trademark and logo are owned by the Clover Network, Inc., a First Data Company. All other trademarks, service marks, and trade names are property of their respective owners.</p>
+          </div>
+          <div class="contact-info">
+            <h3 class="footer-title">Contact Us</h3>
+            <p>Serving all States with office locations in Illinois, Indiana, Ohio, and Florida.</p>
+            <div class="contact-methods">
+              <a href="https://example.com"><img src="../assets/svgs/facebook-social.svg" alt="Facebook icon"></a>
+              <a href="https://example.com"><img src="../assets/svgs/tiktok-social.svg" alt="TikTok icon"></a>
+              <a href="mailto:info@optimum-payments.com"><img src="../assets/svgs/mail-social.svg" alt="Mail icon"></a>
+              <span class="mail-link"><a href="mailto:info@optimum-payments.com">info@optimum-payments.com</a></span>
+            </div>
+          </div>
+    </section>
+
+      <!-- Third Section: Copyright -->
+      
+
     </div>
-  </section>
-</div>
-
-<!-- Third Section: Copyright -->
-<section class="third-section footer-copyright">
-  <p class="footer-copyright">© Copyright 2025 <strong>Optimum Payments LLC</strong> | All Rights Reserved</p>
-</section>
-
+  </footer>
+  <section style="width: 1440px; max-width: 100%;" class="third-section">
+        <p>© Copyright 2025 <strong>Optimum Payments LLC</strong> | All Rights Reserved</p>
+      </section>
 
 </body>
 
 <style>
- /* ---------- Variables ---------- */
-:root{
-  --bg: #ffffff;
-  --muted: #98A2B3;      /* header / muted titles */
-  --text: #667085;       /* primary link text */
-  --badge-bg: #EBF3F9;
-  --badge-fg: #306D9C;
-  --bottom-bg: #F9FAFB;
-  --container-width: 1280px;
-  --gap-lg: 48px;
-  --gap-md:32px;
-  --gap-sm: 16px;
-  --font-sans: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-
-.mail-link a{  
-color: #667085;
- font-size: 15px;
- font-family: Manrope;
- font-weight: 400;
- line-height: 25px;
- word-wrap: break-word
-}
-/* ---------- Footer base ---------- */
-.site-footer {
-  width: 100%;
-  background: var(--bg);
+ 
+  .footer-links li a {
   color: var(--text);
-  font-family: var(--font-sans);
-  display: block;
-  line-height: 1.5;
-}
-/* Container spacing */
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  padding: 0 16px;
-}
-
-/* First Section: Footer Grid */
-.footer-grid {
-  display: grid;
-  gap: var(--gap-md);
-  grid-template-columns: 1fr; /* Mobile first */
-}
-
-/* Second Section: Contact + Logo */
-.second-section {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  align-items: flex-end;
-}
-
-.contact-methods {
-        display: flex;
-        column-gap: 10px;
-        /* max-height: 48px;
-        height: 12px;
-        background-color: red; */
-    }
-
-
-
-  .contact-info.summary-logo-section{
-    padding-top: 64px;
-  }
-
-.footer-copyright{
-color: #98A2B3;
- font-size: 16px;
- font-weight: 400;
- line-height: 24px;
- word-wrap: break-word;
- text-align: center;
-}
-
-.container{
-    row-gap: var(--gap-md);
-}
-
-
-@media (min-width: 769px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr); /* Tablet */
-  }
-
-  .second-section {
-    display: grid;
-    column-gap  : var(--gap-md);
-    grid-template-columns: repeat(2, 1fr); /* Tablet and up */
-    
-  }
-
-  .container{
-    padding-top:64px;
-    display: flex;
-    align-items: center;
-    width: 1280px;
-    margin: 0 auto;
-  }
-
-  .contact-info.summary-logo-section{
-    padding-top: 0px;
-  }
-
-  .second-section.footer-contact{
-    padding:32px 0px;
-    padding-bottom: 48px;
-    align-items: flex-start;
-  }
-
-    .contact-info img {
-        width: 101px;
-        height: 32px;
-        object-fit: contain;
-        }
-
-     
- .contact-info span img {
-        width: 24px;
-        height: 24px;
-        object-fit: contain;
-        }
-        
-    .contact-methods {
-        display: flex;
-        column-gap: 10px;
-        /* max-height: 48px;
-        height: 12px;
-        background-color: red; */
-    }
-
-/* Third Section: Copyright */
-    .third-section {
-    text-align: center;
-    padding: 24px 16px;
-    background: #F9FAFB;
-    font-size: 16px;
-    color: #98A2B3;
-    }
-}
-
-@media (min-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: repeat(4, 1fr); /* Desktop */
-    width: 1280px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .footer-grid {
-    gap: 40px; /* Large Desktop */
-  }
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #98A2B3;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.footer-links li {
   font-size: 16px;
-  color: #667085;
   font-weight: 600;
+  text-decoration: none;
 }
 
-.badge-new {
-  font-size: 12px;
-  font-weight: 500;
-  color: #306D9C;
-  background: #EBF3F9;
-  padding: 2px 8px;
-  border-radius: 16px;
-  margin-left: 6px;
+.footer-links li a:hover {
+  text-decoration: underline; /* Optional hover effect */
 }
 
-
+  
 </style>
 </html>
