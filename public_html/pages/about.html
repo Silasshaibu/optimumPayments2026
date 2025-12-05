@@ -1,29 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-</head>
-<body>
-    <header class="site-header" role="banner">
-        <div class="container">
-            <a class="site-logo" href="/index.html">
-                <img src="/assets/images/logo/logo.png" alt="Optimum Payments" />
-            </a>
 
-            <nav class="main-nav" role="navigation" aria-label="Primary">
-                <ul>
-                    <li><a href="../pages/home.html">Home</a></li>
-					<li><a href="../pages/promo.html">Promo</a></li>
-					<li><a href="../pages/processing-solutions.html">Processing Solutions</a></li>
-					<li><a href="../pages/digital-services.html">Digital Services</a></li>
-					<li><a href="../pages/business-financing.html">Business Financing</a></li>
-					<li><a href="../pages/about.html">About Us</a></li>
-					<li><a href="../pages/contact-us.html">Contact Us</a></li>
-                </ul>
-            </nav>
+
+    <style>
+        /* ============================
+           BASE / MOBILE-FIRST STYLES
+        ============================= */
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #F3F4F6;
+            font-family: Manrope, sans-serif;
+            color: #18374E;
+        }
+
+        .about-section {
+            width: 100%;
+            padding: 2rem 1rem; /* mobile padding */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-title {
+            text-align: center;
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; /* spacing between paragraphs */
+            text-align: center;
+            color: #788289;
+            max-width: 90%;
+            
+        }
+
+        .about-content p {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        /* ============================
+               DESKTOP STYLES
+        ============================= */
+        @media (min-width: 1024px) {
+            .about-section {
+                padding: 5rem 1rem 8rem;
+            }
+
+            .about-title {
+                font-size: 3rem; /* 48px */
+            }
+
+            .about-content {
+                gap: 2.5rem;
+                max-width: 70%;
+                /* background-color: red; */
+            }
+
+            .about-content p {
+                font-size: 1.25rem; /* 20px */
+                line-height: 1.8;
+            }
+        }
+    </style>
+
+
+<body>
+
+    <section class="about-section">
+        <h1 class="about-title">About Us</h1>
+
+        <div class="about-content">
+            <p>
+                Optimum Payment Solutions is a premium provider of electronic transaction
+                processing and ATM Placement. We are here to help your business accept credit
+                cards in the most secure, efficient and economical way possible.
+            </p>
+
+            <p>
+                Optimum Payments was founded by Paul Ventimiglia and has over 16 years of
+                merchant processing experience with a support team of a combined 100+ years of
+                experience. Optimum Payments will remain committed to providing the best
+                possible payments experience for merchants and customers.
+            </p>
         </div>
-    </header>
+    </section>
+
 </body>
 </html>
