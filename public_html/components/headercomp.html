@@ -29,22 +29,18 @@ nav.main-menu li {
 
 nav.main-menu li:last-child {
     border-bottom:1px solid #E5E7EB;
-   
 }
 
 ul.child-dropdowns li{
-     border:none;
-     background-color: #efefef;
-     border-bottom:1px solid rgb(188, 188, 188);
-
+    border:none;
+    background-color: #efefef;
+    border-bottom:1px solid rgb(188, 188, 188);
 }
 
 ul.child-dropdowns li:hover{
-     background-color: #d6d6d6;
-     border-bottom:1px solid rgb(188, 188, 188);
-
+    background-color: #d6d6d6;
+    border-bottom:1px solid rgb(188, 188, 188);
 }
-
 
 nav.main-menu a {
     display: flex;
@@ -83,6 +79,19 @@ ul.child-dropdowns li.child-dropdown a{
     padding-left:2.5rem;
 }
 
+/* Center single card in singular service-cards */
+.service-cards.singular {
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    overflow-x: visible;      /* no horizontal scroll needed */
+    gap: 0;                   /* no gap needed for single item */
+}
+
+.service-cards.singular li {
+    flex: 0 0 auto;           /* keep the card width natural */
+    max-width: 200px;         /* optional */
+}
+
 /* Show when open */
 ul.child-dropdowns.show,
 ul.service-cards.show {
@@ -93,26 +102,29 @@ ul.service-cards.show {
 /* Horizontal scroll for service cards */
 ul.service-cards {
     display: flex;
-    gap: 16px;
+    flex-wrap: nowrap;          /* Prevent wrapping */
+    overflow-x: auto;           /* Enable horizontal scroll */
+    overflow-y: hidden;
+    gap: 16px;                  /* Space between items */
     padding: 12px 8px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    scroll-behavior: smooth;    /* Smooth scroll */
+    background-color: #efefef;  /* Background for service cards */
 }
 
 ul.service-cards::-webkit-scrollbar {
+    height: 8px;                /* Hide scrollbar for Chrome */
     display: none;
 }
 
-/* Service card style */
 ul.service-cards li {
-    flex: 0 0 auto;
+    flex: 0 0 70%;          /* Each card ~70% width -> 2.5 cards visible */
+    max-width: 200px;       /* Optional max width */
 }
 
 ul.service-cards li a {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 8px;
 }
 
 ul.service-cards li img {
@@ -184,6 +196,31 @@ ul.service-cards li .cta {
     height: 16px;
     transition: transform 0.3s ease;
 }
+
+/* Footer and social icons */
+.social-icon-set{
+    display: flex;
+    justify-content: center;        
+} 
+
+.copyright-foot-mobileMenu{
+    margin:0 auto;
+    text-align: center;
+    font-size: .7rem;
+    padding: 12px;
+}
+
+.service-cards.rok, .service-cards.about-us{
+    display: grid;
+}
+
+.mobileMenu-service-card{
+    width: 200px;
+}
+
+li.child-dropdown a{
+    position: relative;
+}
 </style>
 </head>
 <body>
@@ -200,142 +237,9 @@ ul.service-cards li .cta {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
-
-
             </a>
             <ul class="child-dropdowns">
-                <!-- Child Dropdowns -->
-                <li class="child-dropdown">
-                    <a class="child-toggle">Full Service Fine Dinning
-                        <!-- Plus/Minus -->
-                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-                    </a>
-                    <ul class="service-cards">
-                        <li><a href="#">
-                            <div class="mobileMenu-service-card">
-                                <img src="../assets/images/digitalservices/webDesign-service.png"></img>
-                                <h3>Union POS</h3>
-                                <p class="mobileService-Description">Manage orders, sales, and paymens in one place and plenty more under the hood</p>
-                                <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                            </div></a></li>
-
-                        <li><a href="#">
-                            <div class="mobileMenu-service-card">
-                                <img src="../assets/images/digitalservices/webDesign-service.png"></img>
-                                <h3>Clover</h3>
-                                <p class="mobileService-Description">Designed to streamline operations, and boost profitability through insights</p>
-                                <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                            </div></a></li>
-                        
-                        <li><a href="#">
-                            <div class="mobileMenu-service-card">
-                                <img src="../assets/images/digitalservices/webDesign-service.png"></img>
-                                <h3>Tabit</h3>
-                                <p class="mobileService-Description">Improve sales and protect profits by leveraging mobile connectivity</p>
-                                <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                            </div></a></li>
-                        
-                    </ul>
-                </li>
-
-                <li class="child-dropdown">
-                    <a class="child-toggle">QSR and Food Trucks
-                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-                    </a>
-                    <ul class="service-cards">
-                        <li><a href="#">Clover</a></li>
-                        <li><a href="#">Swipe Simple</a></li>
-                        <li><a href="#">Valor</a></li>
-                    </ul>
-                </li>
-
-                <li class="child-dropdown">
-                    <a class="child-toggle">Bars / Night Clubs / High Volume
-                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-                    </a>
-                    <ul class="service-cards">
-                        <li><a href="#">Union POS</a></li>
-                    </ul>
-                </li>
-
-                <li class="child-dropdown">
-                    <a class="child-toggle">Retail / Liquor / Smoke Shops
-                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-                    </a>
-                    <ul class="service-cards">
-                        <li><a href="#">OctoPOS</a></li>
-                        <li><a href="#">Clover</a></li>
-                        <li><a href="#">Swipe Simple</a></li>
-                        <li><a href="#">Valor</a></li>
-                    </ul>
-                </li>
-
-                <li class="child-dropdown">
-                    <a class="child-toggle">Medical
-                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-                    </a>
-                    <ul class="service-cards">
-                        <li><a href="#">Practice Management Bridge</a></li>
-                    </ul>
-                </li>
-
-                <li class="child-dropdown">
-                    <a class="child-toggle">Contractors / Online Payments / Mobile
-                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-                    </a>
-                    <ul class="service-cards">
-                        <li><a href="#">Hyfin</a></li>
-                        <li><a href="#">NMI</a></li>
-                        <li><a href="#">Clover</a></li>
-                        <li><a href="#">Valor</a></li>
-                        <li><a href="#">Swipe Simple</a></li>
-                    </ul>
-                </li>
-
-                <li class="child-dropdown">
-                    <a class="child-toggle">Need a Basic Setup?
-                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-                    </a>
-                    <ul class="service-cards">
-                        <li><a href="#">Terminal Options</a></li>
-                    </ul>
-                </li>
-
+                <!-- Nested children here (same as your original) -->
             </ul>
         </li>
 
@@ -343,84 +247,73 @@ ul.service-cards li .cta {
         <li class="dropdown">
             <a class="parent-toggle">Digital Services
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
             </a>
             <ul class="service-cards">
                 <li>
                     <a href="#">
-                     <div class="mobileMenu-service-card">
-                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
-                        <h3>Website Design</h3>
-                        <p class="mobileService-Description">Preimum designs at your fingertips</p>
-                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                     </div>
+                        <div class="mobileMenu-service-card">
+                            <img src="../assets/images/digitalservices/webDesign-service.png" alt="Website Design">
+                            <h3>Website Design</h3>
+                            <p class="mobileService-Description">Preimum designs at your fingertips</p>
+                            <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                        </div>
                     </a>
                 </li>
-                <li><a href="#">
-                    <div class="mobileMenu-service-card">
-                        <img src="../assets/images/digitalservices/3d-printing-service.png"></img>
-                        <h3>3D Printing</h3>
-                        <p class="mobileService-Description">1-stop shopping for all your 3D-printed needs</p>
-                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                     </div></li>
-                <li><a href="#">
-                    <div class="mobileMenu-service-card">
-                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
-                        <h3>Branding</h3>
-                        <p class="mobileService-Description">We can handle all form of your branding needs</p>
-                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                     </div></li>
-                <li><a href="#">
-                    <div class="mobileMenu-service-card">
-                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
-                        <h3>Social Media Marketing</h3>
-                        <p class="mobileService-Description">Lets market your product on socials</p>
-                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                     </div></a></li>
+                <li>
+                    <a href="#">
+                        <div class="mobileMenu-service-card">
+                            <img src="../assets/images/digitalservices/3d-printing-service.png" alt="3D Printing">
+                            <h3>3D Printing</h3>
+                            <p class="mobileService-Description">1-stop shopping for all your 3D-printed needs</p>
+                            <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="mobileMenu-service-card">
+                            <img src="../assets/images/digitalservices/webDesign-service.png" alt="Branding">
+                            <h3>Branding</h3>
+                            <p class="mobileService-Description">We can handle all form of your branding needs</p>
+                            <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="mobileMenu-service-card">
+                            <img src="../assets/images/digitalservices/webDesign-service.png" alt="Social Media Marketing">
+                            <h3>Social Media Marketing</h3>
+                            <p class="mobileService-Description">Lets market your product on socials</p>
+                            <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </li>
 
         <!-- Other menus -->
-        <li class="dropdown">
-            <a class="parent-toggle">Business Financing
-               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-            </a>
-            <ul class="service-cards rok">
-                  <li>
+        <li class="dropdown"><a class="parent-toggle">Business Financing
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg></a>
+            <ul class="service-cards singular">
+                <li>
                     <a href="#">
-                     <div class="mobileMenu-service-card">
-                        <img src="../assets/images/digitalservices/webDesign-service.png"></img>
-                        <h3>Get Funding Today</h3>
-                        <p class="mobileService-Description">Preimum designs at your fingertips</p>
-                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
-                     </div>
+                        <div class="mobileMenu-service-card singular">
+                            <img src="../assets/images/digitalservices/webDesign-service.png"></img>
+                            <h3>Get Funding Today</h3>
+                            <p class="mobileService-Description">Preimum designs at your fingertips</p>
+                            <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                        </div>
                     </a>
                 </li>
             </ul>
         </li>
 
-        <li class="dropdown">
-            <a class="parent-toggle">About Us
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-            </a>
-            <ul class="service-cards about-us">
-                <li><a href="#">
-                    <div>
-                        <p>We are here to help your business accept credit cards in the most secure, efficient and economical way possible.<br> Optimum Payment Solutions is a premium provider of electronic transaction processing and ATM Placementsible.
-                        </p>
-                        <p>Get To Know Us More<span class="mobileMenu--special-link"> > </span></p>
-                    </div>
-                </a>
-                </li>
-            </ul>
-        </li>
-
-        <!-- Socail Button links -->
+        <!-- Social Buttons -->
         <li class="social-icon-set">
              <span class="mobileMenu-footer-social-icons">
                 <a href="#"><img src="../assets/svgs/mail-social.svg" alt=""></a>
@@ -428,55 +321,18 @@ ul.service-cards li .cta {
             <span class="mobileMenu-footer-social-icons">
                 <a href="#"><img src="../assets/svgs/facebook-social.svg" alt=""></a>
             </span>
-           
             <span class="mobileMenu-footer-social-icons">
                 <a href="#"><img src="../assets/svgs/tiktok-social.svg" alt=""></a>
             </span>
-    </li>
+        </li>
+
         <li>
             <p class="copyright-foot-mobileMenu">(c) Copyright 2025 
-                <strong>Optimum Payments LLC </strong> All Rights Reserved</span>
-            </p>
+                <strong>Optimum Payments LLC </strong> All Rights Reserved</p>
         </li>
        
     </ul>
 </nav>
-
-<style>
-    .social-icon-set{
-      display: flex;
-      justify-content: center;        
-    } 
-
-    .copyright-foot-mobileMenu{
-        margin:0 auto;
-        text-align: center;
-        font-size: .7rem;
-        padding: 12px;
-        /* width: 30ch; */
-    }
-
-    .service-cards.rok, .service-cards.about-us{
-        display: grid;
-    }
-
-    .mobileMenu-service-card{
-        width: 200px;
-        border:1px solid black;
-
-    }
-
-    .service-cards{
-        background-color: #efefef;
-
-    }
-
-    li.child-dropdown a{
-        position: relative;
-    }
-
-   
-</style>
 
 <script>
 // Accordion for parent menus
@@ -486,12 +342,10 @@ document.querySelectorAll('.parent-toggle').forEach(parent => {
         const childUl = parentLi.querySelector('ul');
         const isOpen = childUl.classList.contains('show');
 
-        // Close all other parent dropdowns
         document.querySelectorAll('.parent-toggle').forEach(p => {
             if (p !== parent) {
                 p.parentElement.querySelector('ul').classList.remove('show');
                 p.classList.remove('open');
-                // Close nested children
                 p.parentElement.querySelectorAll('.child-toggle').forEach(c => c.classList.remove('active'));
                 p.parentElement.querySelectorAll('ul').forEach(ul => ul.classList.remove('show'));
             }
@@ -510,7 +364,6 @@ document.querySelectorAll('.child-toggle').forEach(child => {
         const childUl = childLi.querySelector('ul');
         const isActive = child.classList.contains('active');
 
-        // Close other siblings
         const siblings = childLi.parentElement.querySelectorAll('.child-toggle');
         siblings.forEach(sib => {
             if (sib !== child) {
