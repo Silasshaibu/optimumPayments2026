@@ -7,174 +7,251 @@
     <title>Banner Carousel</title>
 
     <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        /* ============================================================
+           GLOBAL RESET + VARIABLES
+        ============================================================ */
+        * { margin:0; padding:0; box-sizing:border-box; }
 
-:root {
-    --slide-count: 2;
+        :root {
+            --slide-count: 2;
 
-    /* Height variables */
-    --carousel-window-height: 150px;
-    --carousel-window-height-mobile: 150px;
-}
+            /* Carousel Heights */
+            --carousel-window-height: 120px;
+            --carousel-window-height-mobile: 150px;
+        }
 
-.carousel-window {
-    position: relative;
-    width:100vw;
-    overflow:hidden;
-    height: var(--carousel-window-height);
-    min-height: var(--carousel-window-height);
-}
+        /* ============================================================
+           CAROUSEL WINDOW
+        ============================================================ */
+        .carousel-window {
+            position: relative;
+            width:100vw;
+            overflow:hidden;
+            height: var(--carousel-window-height);
+            min-height: var(--carousel-window-height);
+        }
 
-#banner-carousel {
-    position: relative;
-    overflow:hidden;
-    height: var(--carousel-window-height);
-    min-height: var(--carousel-window-height);
-}
+        #banner-carousel {
+            position: relative;
+            overflow:hidden;
+            height: var(--carousel-window-height);
+            min-height: var(--carousel-window-height);
+        }
 
-/* Wrapper */
-#banner-wrapper {
-    top:0;
-    left:0;
-    position:absolute;
-    display:flex;
-    width: calc(var(--slide-count) * 100vw);
-    transition: transform .45s ease-in-out;
-}
+        /* ============================================================
+           SLIDES WRAPPER
+        ============================================================ */
+        #banner-wrapper {
+            position:absolute;
+            top:0; left:0;
+            display:flex;
+            width: calc(var(--slide-count) * 100vw);
+            transition: transform .45s ease-in-out;
+        }
 
-/* Slide */
-.slide {
-    width:100vw;
-    flex-shrink:0;
-    padding:0px 45px;
-    background-color: orange;
-    min-height: var(--carousel-window-height);
-    display:flex;
-    align-items:center;
-    flex-direction:row;
-}
+        /* ============================================================
+           INDIVIDUAL SLIDE
+        ============================================================ */
+        .slide {
+            width:100vw;
+            flex-shrink:0;
+            padding:0 45px;
 
-/* Content */
-.textInfo-wrapper, .image-wrapper { flex:1; }
+            display:flex;
+            align-items:center;
+            flex-direction:row;
 
-.textInfo-wrapper {
-    position: relative;
-    width:100%;
-    padding:0px 64px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
+            min-height: var(--carousel-window-height);
+            background:#efefef;
+            background-image: url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
 
-/* Arrow buttons */
-#banner-carousel .banner-btn {
-    position:absolute;
-    top:50%;
-    transform: translateY(-50%);
-    z-index:50;
+        /* ============================================================
+           CONTENT AREAS
+        ============================================================ */
+        .textInfo-wrapper,
+        .image-wrapper {
+            flex:1;
+        }
 
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    border:none;
+        .textInfo-wrapper {
+            position: relative;
+            width:100%;
+            padding:0 64px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+        }
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+        /* ============================================================
+           ARROW BUTTONS
+        ============================================================ */
+        #banner-carousel .banner-btn {
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            z-index:50;
 
-    font-size:32px;
-    font-weight:700;
-    color:white;
+            width:48px;
+            height:48px;
+            border-radius:50%;
+            border:none;
 
-    background: transparent;
-    cursor:pointer;
-    backdrop-filter: blur(4px);
-}
+            display:flex;
+            align-items:center;
+            justify-content:center;
 
-#banner-prev { left:12px; }
-#banner-next { right:12px; }
+            font-size:32px;
+            font-weight:700;
+            color:white;
 
-#banner-carousel .banner-btn:hover {
-    background: rgba(0,0,0,0.7);
-}
+            background:transparent;
+            cursor:pointer;
+            backdrop-filter:blur(4px);
+        }
 
-/* Hide arrow class */
-.hidden { opacity:0; pointer-events:none; }
+        #banner-prev { left:12px; }
+        #banner-next { right:12px; }
 
-.btn-banner-promo{
-    /* width: 50px; */
-    width: fit-content;
+        #banner-carousel .banner-btn:hover {
+            background:rgba(0,0,0,0.7);
+        }
 
-}
+        .hidden {
+            opacity:0;
+            pointer-events:none;
+        }
 
-.textInfo-wrapper{
-    position: relative;
-    flex-direction: row;
-    align-items: center;
-}
+        /* ============================================================
+           INNER CUSTOM LAYOUT
+        ============================================================ */
+        .container {
+            display:flex;
+            width:100%;
+            flex-direction:row;
+            align-items:center;
+            justify-content:center;
+        }
 
-.bannerMobileAd-Img{
-        display:none;
-    }
+        .media {
+            display:flex;
+            flex-direction:column;
+        }
 
-/* Responsive */
-@media (max-width:768px) {
+        .advert {
+            width:100px;
+            height:auto;
+            padding:1rem 0;
+        }
 
-    .carousel-window,
-    #banner-carousel {
-        height: var(--carousel-window-height-mobile);
-        min-height: var(--carousel-window-height-mobile);
-    }
+        .text-description {
+            width:100%;
+            flex:1;
+            text-align:center;
+        }
 
-    .slide {
-        flex-direction:column;
-        padding:1rem;
-        background-color:#fff;
-        min-height: var(--carousel-window-height-mobile);
-    }
+        /* ============================================================
+           RESPONSIVE (MOBILE)
+        ============================================================ */
+        @media (max-width:768px) {
 
-    .textInfo-wrapper {
-        align-items:center;
-        width:100%;
-        padding:.5rem;
-    }
+            .carousel-window,
+            #banner-carousel {
+                height: var(--carousel-window-height-mobile);
+                min-height: var(--carousel-window-height-mobile);
+            }
 
-    .image-wrapper { width:100%; height:auto; }
+            /*MOBILE SLIDE BACKGROUND*/
+            .slide {
+                flex-direction:column;
+                padding:1rem;
+                background:#fff;
+                min-height: var(--carousel-window-height-mobile);
+                background-image:url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
+                background-size: contain;
+                background-position: center;
+                background-repeat:no-repeat;
+            }
 
-    .bannerMobileAd-Img{
-        display: block;
-    }
-}
+            .textInfo-wrapper {
+                align-items:center;
+                width:100%;
+                padding:.5rem;
+            }
+
+            .image-wrapper {
+                width:100%;
+                height:auto;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE (DESKTOP)
+        ============================================================ */
+        @media (min-width:768px) {
+
+            .container {
+                flex-direction:column;
+                padding:1rem 0;
+            }
+
+            .media {
+                order:1;
+            }
+
+            .advert {
+                display:none; /* Desktop hides advert image */
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<!-- ================= BANNER CAROUSEL ================= -->
+<!-- ============================================================
+     BANNER CAROUSEL
+============================================================ -->
 <div id="banner-carousel" class="carousel-window promo-banner">
 
-    <!-- Arrows -->
+    <!-- Navigation Arrows -->
     <button id="banner-prev" class="banner-btn prev">‹</button>
     <button id="banner-next" class="banner-btn next">›</button>
 
+    <!-- Slides Wrapper -->
     <div id="banner-wrapper">
 
+        <!-- SLIDE 1 -->
         <div class="slide">
-            <div class="textInfo-wrapper">
-                <img class="bannerMobileAd-Img" src="../assets/images/logo/optimum-payment-logo-transparent-101x32.png" alt="">                
-                <button class="btn-banner-promo cta-freeProcessing" onclick="window.location.href='#';">  Get Offer Now</button>
-                <p class="banner-display default">Want to eliminate up to 100% of your processin fees. Click Here </p>
+            <div class="container">
+
+                <div class="media">
+                    <img class="advert" src="../assets/images/hero/2021-02-03-station-solo-Merchant_Facing-Left_Parallel-Register-np-removebg-preview.webp" width="50px" alt="Advert"/>
+                    <button>GET ACCESS NOW</button>
+                </div>
+
+                <div class="text-description">
+                    <p>Hello, this is advert</p>
+                </div>
+
             </div>
         </div>
 
+        <!-- SLIDE 2 -->
         <div class="slide">
-            <div class="textInfo-wrapper">
-                <img src="" alt="">
-                <button class="btn-banner-promo cta-promo-offer" onclick="window.location.href='#';">Claim Offer Now </button>
-                <p class="banner-display default">Own a business or know someone that does? Earn $500 when you refer them.</p>
+            <div class="container">
+
+                <div class="media">
+                    <img class="advert" src="." alt="Advert"/>
+                    <button>CLAIM OFFER NOW</button>
+                </div>
+
+                <div class="text-description">
+                    <p>Hello, this is advert</p>
+                </div>
+
             </div>
         </div>
 
@@ -182,49 +259,54 @@
 </div>
 
 
-<!-- =============== MANUAL CAROUSEL JS (NO AUTOPLAY) =============== -->
+<!-- ============================================================
+     MANUAL CAROUSEL SCRIPT
+============================================================ -->
 <script>
-
 (function initBannerCarousel() {
 
+    /* Select core elements */
     const wrapper = document.querySelector("#banner-wrapper");
-    const slides  = wrapper.querySelectorAll(".slide");
-
+    const slides  = wrapper?.querySelectorAll(".slide") ?? [];
     const btnPrev = document.querySelector("#banner-prev");
     const btnNext = document.querySelector("#banner-next");
 
-    let index = 0;  // start at first slide
+    if (!wrapper || slides.length === 0) return;
+
+    /* Carousel Logic */
+    let index = 0;
     const maxIndex = slides.length - 1;
 
     function updateButtons() {
-        btnPrev.classList.toggle("hidden", index === 0);
-        btnNext.classList.toggle("hidden", index === maxIndex);
+        btnPrev?.classList.toggle("hidden", index === 0);
+        btnNext?.classList.toggle("hidden", index === maxIndex);
     }
 
     function goToSlide() {
         const width = slides[0].clientWidth;
-        wrapper.style.transform = `translateX(-${width * index}px)`;
+        wrapper.style.transform = `translateX(-${index * width}px)`;
         updateButtons();
     }
 
-    btnNext.addEventListener("click", () => {
+    /* Bind events safely */
+    btnNext?.addEventListener("click", () => {
         if (index < maxIndex) {
             index++;
             goToSlide();
         }
     });
 
-    btnPrev.addEventListener("click", () => {
+    btnPrev?.addEventListener("click", () => {
         if (index > 0) {
             index--;
             goToSlide();
         }
     });
 
-    // Recalculate on resize
+    /* Recalculate on window resize */
     window.addEventListener("resize", goToSlide);
 
-    // Initialize
+    /* Initialize */
     goToSlide();
 
 })();
