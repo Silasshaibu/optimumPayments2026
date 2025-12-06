@@ -3,9 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banner</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <title>Banner Carousel</title>
+
+    <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root {
+    --slide-count: 2;
+
+    /* Height variables */
+    --carousel-window-height: 150px;
+    --carousel-window-height-mobile: 150px;
+}
+
+.carousel-window {
+    position: relative;
+    width:100vw;
+    overflow:hidden;
+    height: var(--carousel-window-height);
+    min-height: var(--carousel-window-height);
+}
+
+#banner-carousel {
+    position: relative;
+    overflow:hidden;
+    height: var(--carousel-window-height);
+    min-height: var(--carousel-window-height);
+}
+
+/* Wrapper */
+#banner-wrapper {
+    top:0;
+    left:0;
+    position:absolute;
+    display:flex;
+    width: calc(var(--slide-count) * 100vw);
+    transition: transform .45s ease-in-out;
+}
+
+/* Slide */
+.slide {
+    width:100vw;
+    flex-shrink:0;
+    padding:0px 45px;
+    background-color: orange;
+    min-height: var(--carousel-window-height);
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+}
+
+/* Content */
+.textInfo-wrapper, .image-wrapper { flex:1; }
+
+.textInfo-wrapper {
+    position: relative;
+    width:100%;
+    padding:0px 64px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* Arrow buttons */
+#banner-carousel .banner-btn {
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    z-index:50;
+
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:32px;
+    font-weight:700;
+    color:white;
+
+    background: transparent;
+    cursor:pointer;
+    backdrop-filter: blur(4px);
+}
+
+#banner-prev { left:12px; }
+#banner-next { right:12px; }
+
+#banner-carousel .banner-btn:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+/* Hide arrow class */
+.hidden { opacity:0; pointer-events:none; }
+
+.btn-banner-promo{
+    /* width: 50px; */
+    width: fit-content;
+
+}
+
+.textInfo-wrapper{
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bannerMobileAd-Img{
+        display:none;
+    }
+
+/* Responsive */
+@media (max-width:768px) {
+
+    .carousel-window,
+    #banner-carousel {
+        height: var(--carousel-window-height-mobile);
+        min-height: var(--carousel-window-height-mobile);
+    }
+
+    .slide {
+        flex-direction:column;
+        padding:1rem;
+        background-color:#fff;
+        min-height: var(--carousel-window-height-mobile);
+    }
+
+    .textInfo-wrapper {
+        align-items:center;
+        width:100%;
+        padding:.5rem;
+    }
+
+    .image-wrapper { width:100%; height:auto; }
+
+    .bannerMobileAd-Img{
+        display: block;
+    }
+}
+    </style>
 </head>
 <body>
-    
+
+<!-- ================= BANNER CAROUSEL ================= -->
+<div id="banner-carousel" class="carousel-window promo-banner">
+
+    <!-- Arrows -->
+    <button id="banner-prev" class="banner-btn prev">‹</button>
+    <button id="banner-next" class="banner-btn next">›</button>
+
+    <div id="banner-wrapper">
+
+        <div class="slide">
+            <div class="textInfo-wrapper">
+                <img class="bannerMobileAd-Img" src="../assets/images/logo/optimum-payment-logo-transparent-101x32.png" alt="">                
+                <button class="btn-banner-promo cta-freeProcessing" onclick="window.location.href='#';">  Get Offer Now</button>
+                <p class="banner-display default">Want to eliminate up to 100% of your processin fees. Click Here </p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="textInfo-wrapper">
+                <img src="" alt="">
+                <button class="btn-banner-promo cta-promo-offer" onclick="window.location.href='#';">Claim Offer Now </button>
+                <p class="banner-display default">Own a business or know someone that does? Earn $500 when you refer them.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =============== MANUAL CAROUSEL JS (NO AUTOPLAY) =============== -->
+<script>
+
+(function initBannerCarousel() {
+
+    const wrapper = document.querySelector("#banner-wrapper");
+    const slides  = wrapper.querySelectorAll(".slide");
+
+    const btnPrev = document.querySelector("#banner-prev");
+    const btnNext = document.querySelector("#banner-next");
+
+    let index = 0;  // start at first slide
+    const maxIndex = slides.length - 1;
+
+    function updateButtons() {
+        btnPrev.classList.toggle("hidden", index === 0);
+        btnNext.classList.toggle("hidden", index === maxIndex);
+    }
+
+    function goToSlide() {
+        const width = slides[0].clientWidth;
+        wrapper.style.transform = `translateX(-${width * index}px)`;
+        updateButtons();
+    }
+
+    btnNext.addEventListener("click", () => {
+        if (index < maxIndex) {
+            index++;
+            goToSlide();
+        }
+    });
+
+    btnPrev.addEventListener("click", () => {
+        if (index > 0) {
+            index--;
+            goToSlide();
+        }
+    });
+
+    // Recalculate on resize
+    window.addEventListener("resize", goToSlide);
+
+    // Initialize
+    goToSlide();
+
+})();
+</script>
+
 </body>
 </html>
