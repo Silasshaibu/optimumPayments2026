@@ -17,7 +17,7 @@
 
             /* Carousel Heights */
             --carousel-window-height: 120px;
-            --carousel-window-height-mobile: 150px;
+            --carousel-window-height-mobile: 50px;
         }
 
         /* ============================================================
@@ -26,9 +26,8 @@
         .carousel-window {
             position: relative;
             width:100vw;
-            overflow:hidden;
-            height: var(--carousel-window-height);
-            min-height: var(--carousel-window-height);
+            overflow:hidden;            
+            max-height: var(--carousel-window-height);
         }
 
         #banner-carousel {
@@ -55,13 +54,14 @@
         .slide {
             width:100vw;
             flex-shrink:0;
-            padding:0 45px;
+            padding:0 1.5rem;
 
             display:flex;
             align-items:center;
             flex-direction:row;
 
             min-height: var(--carousel-window-height);
+            height: fit-content;
             background:#efefef;
             background-image: url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
             background-repeat: no-repeat;
@@ -142,8 +142,8 @@
         }
 
         .advert {
-            width:100px;
-            height:auto;
+            width:fit-content;
+            height:50px;
             padding:1rem 0;
         }
 
@@ -159,17 +159,15 @@
         @media (max-width:768px) {
 
             .carousel-window,
-            #banner-carousel {
-                height: var(--carousel-window-height-mobile);
-                min-height: var(--carousel-window-height-mobile);
+            #banner-carousel {              
+                max-height: var(--carousel-window-height-mobile);
             }
 
             /*MOBILE SLIDE BACKGROUND*/
             .slide {
                 flex-direction:column;
-                padding:1rem;
                 background:#fff;
-                min-height: var(--carousel-window-height-mobile);
+                max-height: var(--carousel-window-height-mobile);
                 background-image:url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
                 background-size: contain;
                 background-position: center;
@@ -233,7 +231,7 @@
                 </div>
 
                 <div class="text-description">
-                    <p>Hello, this is advert</p>
+                    <!-- <p>Want to eliminate up to 100% of your proecssing fees?</p> -->
                 </div>
 
             </div>
@@ -249,7 +247,7 @@
                 </div>
 
                 <div class="text-description">
-                    <p>Hello, this is advert</p>
+                    <!-- <p>Own a business or know someone who does? Get up to 100% off new equipment*</p> -->
                 </div>
 
             </div>
@@ -257,6 +255,7 @@
 
     </div>
 </div>
+
 
 
 <!-- ============================================================
