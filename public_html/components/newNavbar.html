@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar header">
+        
+        <ul class="">
+               <li>Logo</li> 
+        </ul>
+        
+
+        <ul class="one"> 
+            
+            <li>Promo</li>
+            <li>Processing Solutions
+                <ul class="firstLevelChild">
+                    <li>Cheese</li>
+                     <li>Burger</li>
+                      <li>Melon</li>
+                       <li>Help</li>
+                        <li>Help</li>
+                </ul>
+            </li>
+            <li>Business Financing
+                <ul class="firstLevelChild">
+                    <div class="trayservinghorizontal">
+                     <li>Burger</li>
+                     <li>Fish</li>
+                     <li>Meat</li>
+                     <li>Sardine</li>
+                     <li>Aid</li>
+                    </div>
+                </ul>
+            </li>
+            <li>Digital Services</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+        </ul>
+
+        <ul class="">
+            <li><button>Store</button></li>
+        </ul>
+    </nav>
+</body>
+
+<style>
+
+    
+    *{
+        padding:0;
+        margin:0;
+        box-sizing: content-box;
+    }
+
+    :root{
+        --navHeight-Desktop:80px;
+         --navListLineHeight:16px;
+        --navListPadding:20px;
+        --trayHeightwithVerticalScroll:200px;
+    }
+
+    .one{       
+        border: 1px solid yellow;
+        padding:0px;
+        display: flex;
+        flex-direction: row;
+        gap:24px;
+        justify-content: space-around;
+    }
+
+    .one li{
+        border:1px solid yellow;
+        padding:18px 0px;
+    }
+
+    .navbar.header ul {
+        border:1px solid blue;
+        padding:0;
+    }
+
+    .navbar.header ul  li{
+        list-style: none;
+        list-style-type: none;
+    }
+
+    .firstLevelChild{
+        position: absolute;
+        top:calc(var(--navListLineHeight) + var(--navListPadding) + 30px); /*Find a way to make that 30px a variable*/
+        left:0px;
+        background-color: grey;
+        border:1px solid green;
+        width: 100%;
+        height: var(--trayHeightwithVerticalScroll);    /*trayHeight*/
+    }
+
+    .firstLevelChild div.trayservinghorizontal{
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        overflow-y: scroll;
+        background-color: red;
+        height: var(--trayHeightwithVerticalScroll);   /*trayHeight*/
+        padding:0px 50px;
+        /*make the vertical scroll bar visible*/       
+    }
+
+    .firstLevelChild div.trayservinghorizontal li{
+        border:1px solid white;        
+        height:100px;
+    }
+
+    .firsLevelChild li{
+        list-style: none;      
+    }
+
+    body{
+        padding:0px;
+        margin:0px;
+    }
+
+    .navbar.header{        
+        max-width: 100%;
+        min-width: 1200px;
+        display: flex;
+        flex-direction: row;
+        padding:0px 120px;
+        justify-content: space-between;
+        align-items: center;        
+        align-content: center;
+        background-color:grey;
+        border:1px solid black;
+        height: calc(var(--navListLineHeight)+ var(--navListPadding));
+       
+    }
+
+
+</style>
+</html>
