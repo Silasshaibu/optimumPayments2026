@@ -1,310 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desktop Menu with Images</title>
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+<style>
+*{
+    padding:0;
+    margin:0;
+    box-sizing: content-box;
+    border:0;
+}
+
+li{
+    list-style: none;
+}
+
+:root{
+    --navHeight-Desktop:80px;
+    --navListLineHeight:16px;
+    --navListPadding:20px;
+    --trayHeightwithVerticalScroll:240px;
+}
+
+.one{       
+    border: 1px solid yellow;
+    padding:0px;
+    display: flex;
+    flex-direction: row;
+    gap:24px;
+    justify-content: space-around;
+}
+
+.presentation{
+    padding:1rem 6rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:1rem;
+}
+
+.one li{
+    border:1px solid yellow;
+    padding:18px 0px;
+}
+
+.navbar.header ul {
+    padding:0;
+}
+
+.navbar.header ul li{
+    list-style: none;
+}
+
+/* First-level trays hidden by default */
+.firstLevelChild{
+    position: absolute;
+    top:calc(var(--navListLineHeight) + var(--navListPadding) + 30px);
+    left:0px;
+    background-color: grey;  
+    height: fit-content;
+    max-height: 0; /* hidden initially */
+    overflow: hidden;
+    transition: max-height .4s ease;
+}
+
+/* Show tray when active */
+.firstLevelChild.active {
+    max-height: 300px; /* adjust as needed */
+}
+
+.firstLevelChild div.trayservinghorizontal{
+    position: relative;
+    background-color: red;
+    height: fit-content;
+    padding-bottom: 2rem;
+    border:none;     
+    width: 100vw;
+}
+
+.presentation.typeB{
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.presentation.typeB li{
+    /* height: 10px; */
+}
+
+.presentationA{
+    width: 200px;
+    position: relative;
+}
+
+.presentationA li{
+    padding: 0.5rem;
+}
+
+/* Nested tray hidden by default */
+.presentationA-Tray{
+    position: absolute;
+    background-color: grey;
+    top:0;
+    left:200px;
+    width: calc(100vw - 200px - 1rem);
+    gap:1rem;
+    display: flex; /* hidden by default */
+    z-index: 0;
+    flex-direction: row;
+    flex-wrap: wrap;        
+}
+
+.presentationA-Tray li{
+    flex:1;
+    text-align: center;
+}
+
+.firstLevelChild.typeA div.trayservinghorizontal{
+    padding-bottom:0rem;
+}
+
+.presentationA li.active > .presentationA-Tray {
+    display: flex;
+    display: grid;
+    z-index: 1000;
+}
+
+/* Active li color */
+.presentationA li.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Hover for typeB tray items */
+.presentation.typeB li:hover {
+    background-color: #5050ff;
+    color: white;
+    cursor: pointer;
+}
+
+body{
+    padding:0px;
+    margin:0px;
+}
+
+.navbar.header{ 
+    margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding:0rem 2rem;
+    justify-content: space-between;
+    align-items: center;   
+    border:none;     
+    align-content: center;
+    background-color:grey;
+    height: calc(var(--navListLineHeight)+ var(--navListPadding));
+}
+
+.presentationA-Tray.withScroll{
+    overflow-y: scroll;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    padding:8px !important;
+    gap:.5rem;
+}
+
+.presentationA-Tray.withScroll li{
+    height: fit-content;
+    width:100%;
+    align-items: center;
+}
+
+.presentationA-Tray{
+    justify-items:center;
+}
+
+.mobileMenu-service-card img{
+    width: 100%;
+    height: auto;
+} 
+
+.mobileMenu-service-card{
+    width: 200px;
+}
+</style>
 </head>
 <body>
-    <nav class="navbar header">
-        
-        <ul class="">
-               <li>Logo</li> 
-        </ul>
-        
+<nav class="navbar header">
+    <ul class="">
+        <li>Logo</li> 
+    </ul>
 
-        <ul class="one"> 
-            
-            <li>Promo</li>
-            <li>Processing Solutions
-                <!-- Traystyle-A-MultiLevel-TypeOfPresentation -->
-                    
-                <ul class="firstLevelChild typeA">
-                    <div class="trayservinghorizontal">
-                        <div class="presentationA">
-                            <li>Burger
-                                <!-- <ul class="presentationA-Tray" style="background: grey;">
-                                    <li>Bingo</li>
-                                    <li>Cheese</li>
-                                    <li>Oil</li>
-                                    <li>Bread</li>
-                                </ul> -->
+    <ul class="one"> 
+        <li>Promo</li>
+
+        <!-- Processing Solutions -->
+   <!-- Inside <ul class="one">, under Processing Solutions -->
+    <li id="processing-btn"><a href="#">Processing Solutions <span></span></a>
+        <ul class="firstLevelChild typeA" id="processing-tray">
+            <div class="trayservinghorizontal">
+                <div class="presentationA">
+                    <!-- Full Service Fine Dining -->
+                    <li class="active">Full Service Fine Dining
+                        <ul class="presentationA-Tray withScroll">
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Union POS">
+                                        <h3>Union POS</h3>
+                                        <p class="mobileService-Description">Manage orders, sales, and payments in one place and plenty more under the hood</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
                             </li>
-                            <li>Fish
-                                <!-- <ul class="presentationA-Tray" style="background: grey;">
-                                    <li>Fish-Item-1</li>
-                                    <li>Fish-Item-2</li>
-                                    <li>Fish-Item-3</li>
-                                    <li>Fish-Item-4</li>
-                                </ul> -->
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Clover">
+                                        <h3>Clover</h3>
+                                        <p class="mobileService-Description">Designed to streamline operations, and boost profitability through insights</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
                             </li>
-                            <li>Meat
-                                <!-- <ul class="presentationA-Tray" style="background: grey;">
-                                    <li>Meat-Item-1</li>
-                                    <li>Meat-Item-2</li>
-                                    <li>Meat-Item-3</li>
-                                    <li>Meat-Item-4</li>
-                                </ul> -->
-                            </li>  
-                            <li>Grills
-                                <!-- <ul class="presentationA-Tray" style="background: grey;">
-                                    <li>Grills-Item-1</li>
-                                    <li>Grills-Item-2</li>
-                                    <li>Grills-Item-3</li>
-                                    <li>Grills-Item-4</li>
-                                </ul> -->
-                            </li>                          
-                        </div>
-                    </div>
-                </ul>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Tabit">
+                                        <h3>Tabit</h3>
+                                        <p class="mobileService-Description">Improve sales and protect profits by leveraging mobile connectivity</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
+                    <!-- QSR and Food Trucks -->
+                    <li>QSR and Food Trucks
+                        <ul class="presentationA-Tray withScroll">
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Clover">
+                                        <h3>Clover</h3>
+                                        <p class="mobileService-Description">Improve sales and protect profits by leveraging mobile connectivity</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Swipe Simple">
+                                        <h3>Swipe Simple</h3>
+                                        <p class="mobileService-Description">Improve sales and protect profits by leveraging mobile connectivity</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Valor">
+                                        <h3>Valor</h3>
+                                        <p class="mobileService-Description">Improve sales and protect profits by leveraging mobile connectivity</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-            </li>
-            <li>Business Financing
-                <!-- Traystyle-B-TypeOfPresentation -->
-                <!-- <ul class="firstLevelChild">
-                    <div class="trayservinghorizontal">
-                        <div class="presentation">
-                            <li>Burger</li>
-                            <li>Fish</li>
-                            <li>Meat</li>                           
-                        </div>
-                    </div>
-                </ul> -->
-            </li>
-            <li>Digital Services</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+                    <!-- Bars / Night Clubs / High Volume -->
+                    <li>Bars / Night Clubs / High Volume
+                        <ul class="presentationA-Tray withScroll">
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card singular">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Union POS">
+                                        <h3>Union POS</h3>
+                                        <p class="mobileService-Description">Improve sales and protect profits by leveraging mobile connectivity</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Retail / Liquor / Smoke Shops -->
+                    <li>Retail / Liquor / Smoke Shops
+                        <ul class="presentationA-Tray withScroll">
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="OctoPOS">
+                                        <h3>OctoPOS</h3>
+                                        <p class="mobileService-Description">Reliable POS for retail, liquor, and smoke shops</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Clover">
+                                        <h3>Clover</h3>
+                                        <p class="mobileService-Description">Designed for retail sales and inventory management</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Swipe Simple">
+                                        <h3>Swipe Simple</h3>
+                                        <p class="mobileService-Description">Simple and reliable POS for smoke and liquor stores</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Valor">
+                                        <h3>Valor</h3>
+                                        <p class="mobileService-Description">Fast, high-volume POS for retail stores</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Medical -->
+                    <li>Medical
+                        <ul class="presentationA-Tray withScroll">
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card singular">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Practice Management Bridge">
+                                        <h3>Practice Management Bridge</h3>
+                                        <p class="mobileService-Description">All-in-one medical practice management</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Contractors / Online Payments / Mobile -->
+                    <li>Contractors / Online Payments / Mobile
+                        <ul class="presentationA-Tray withScroll">
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Hyfin">
+                                        <h3>Hyfin</h3>
+                                        <p class="mobileService-Description">Seamless online payment solutions</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="NMI">
+                                        <h3>NMI</h3>
+                                        <p class="mobileService-Description">Mobile and contractor payment solutions</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Clover">
+                                        <h3>Clover</h3>
+                                        <p class="mobileService-Description">POS for mobile businesses and contractors</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Valor">
+                                        <h3>Valor</h3>
+                                        <p class="mobileService-Description">High-volume mobile payments</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Swipe Simple">
+                                        <h3>Swipe Simple</h3>
+                                        <p class="mobileService-Description">Simple POS solution for contractors</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Need a Basic Setup? -->
+                    <li>Need a Basic Setup?
+                        <ul class="presentationA-Tray withScroll">
+                            <li>
+                                <a href="#">
+                                    <div class="mobileMenu-service-card singular">
+                                        <img src="../assets/images/digitalservices/webDesign-service.png" alt="Terminal Options">
+                                        <h3>Terminal Options</h3>
+                                        <p class="mobileService-Description">Quick, simple setup for terminals</p>
+                                        <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
         </ul>
+    </li>
 
-        <ul class="">
-            <li><button>Store</button></li>
-        </ul>
-    </nav>
+
+        <!-- Digital services -->
+        <li id="financing-btn"><a href="#">Digital Services <span></span></a>
+            <ul class="firstLevelChild typeB" id="financing-tray">
+                <div class="trayservinghorizontal typeB">
+                    <div class="presentation typeB">
+                        <li>
+                            <a href="#">
+                                <div class="mobileMenu-service-card">
+                                    <img src="../assets/images/digitalservices/webDesign-service.png" alt="Website Design">
+                                    <h3>Website Design</h3>
+                                    <p class="mobileService-Description">Preimum designs at your fingertips</p>
+                                    <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <div class="mobileMenu-service-card">
+                                    <img src="../assets/images/digitalservices/webDesign-service.png" alt="Website Design">
+                                    <h3>Website Design</h3>
+                                    <p class="mobileService-Description">Preimum designs at your fingertips</p>
+                                    <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                </div>
+                            </a>
+                        </li>
+
+                         <li>
+                            <a href="#">
+                                <div class="mobileMenu-service-card">
+                                    <img src="../assets/images/digitalservices/webDesign-service.png" alt="Website Design">
+                                    <h3>Website Design</h3>
+                                    <p class="mobileService-Description">Preimum designs at your fingertips</p>
+                                    <p class="mobileMenu--special-link">Explore <span class="service-card-link"> > </span></p>
+                                </div>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </li>
+
+        <!-- Business Financing -->
+        <li>Business Financing</li>
+
+        <!-- About Us -->
+        <li>About Us</li>
+
+        <!-- Contact Us -->
+        <li>Contact Us</li>
+    </ul>
+
+    <ul class="">
+        <li><button>Store</button></li>
+    </ul>
+</nav>
+
+<script>
+const trays = document.querySelectorAll('.firstLevelChild');
+const buttons = [
+    document.getElementById("processing-btn"),
+    document.getElementById("financing-btn")
+];
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const tray = document.getElementById(btn.id.replace('-btn','-tray'));
+
+        trays.forEach(t => {
+            if(t !== tray) t.classList.remove('active');
+        });
+
+        tray.classList.toggle('active');
+    });
+});
+
+const nestedItems = document.querySelectorAll('.firstLevelChild li');
+
+nestedItems.forEach(item => {
+    item.addEventListener('click', e => {
+        e.stopPropagation();
+        const parentTray = item.closest('.firstLevelChild');
+        parentTray.querySelectorAll('li').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+    });
+});
+
+document.addEventListener('click', () => {
+    trays.forEach(t => t.classList.remove('active'));
+    nestedItems.forEach(i => i.classList.remove('active'));
+    const burger = document.querySelector('#processing-tray .presentationA li:first-child');
+    if(burger) burger.classList.add('active');
+});
+</script>
 </body>
-
-<style>
-
-    
-    *{
-        padding:0;
-        margin:0;
-        box-sizing: content-box;
-        border:0;
-    }
-
-    .presentation.typeB{
-    }
-
-    li{
-        list-style: none;
-    }
-
-    :root{
-        --navHeight-Desktop:80px;
-         --navListLineHeight:16px;
-        --navListPadding:20px;
-        --trayHeightwithVerticalScroll:240px;
-    }
-
-    .one{       
-        border: 1px solid yellow;
-        padding:0px;
-        display: flex;
-        flex-direction: row;
-        gap:24px;
-        justify-content: space-around;
-    }
-
-    .presentation{
-        padding:1rem 6rem;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap:1rem;
-    }
-
-    .one li{
-        border:1px solid yellow;
-        padding:18px 0px;
-    }
-
-    .navbar.header ul {
-        padding:0;
-    }
-
-    .navbar.header ul  li{
-        list-style: none;
-        list-style-type: none;
-    }
-
-    .firstLevelChild{
-        position: absolute;
-        top:calc(var(--navListLineHeight) + var(--navListPadding) + 20px); /*Find a way to make that 30px a variable*/
-        left:0px;
-        background-color: grey;  
-        height: fit-content;
-        max-height: var(--trayHeightwithVerticalScroll);    /*trayHeight*/
-    }
-
-    .firstLevelChild div.trayservinghorizontal{
-        position: relative;
-        overflow-y: scroll;
-        background-color: red;
-        height: fit-content;
-        max-height: var(--trayHeightwithVerticalScroll);     
-        padding-bottom: 2rem;
-        border:none;     
-        width: 100vw;
-    }
-
-    .presentation.typeB{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .presentation.typeB ul{
-        background-color: green;
-        padding:.5rem .5rem;
-    }
-
-   
-    :root{
-        --numberOfListItems:6;
-        --heightOfOneListItem:1rem;
-    }
-    .firstLevelChild div.trayservinghorizontal.typeB{
-        background-color: rgb(81, 81, 196);
-        padding:0rem;
-        
-    }
-
-    .first.level.child{
-        width: 200px; /*same as the absolute left for the nested child elements*/
-        outline: 2px solid red;
-        /* position: relative; */
-    }
-
-    
-
-    .first.level.child div:first-child{
-        position: absolute; 
-        left:100px;
-        padding: 0px;
-        margin:0px;
-        background-color: red;
-        /*same as width of the parent element*/
-        top:0;
-        display: flex;
-        gap:10px;
-        display: grid;
-        /* width: 100%; */
-        grid-template-columns: repeat(4, auto);
-    }
-
-
-   .presentationA{
-    width: 200px;
-    height: fit-content;
-    position: relative;
-    }
-
-    .presentationA li{
-        height: 1rem;
-    }
-
-    .presentationA-Tray{
-        background-color: green;
-        position: absolute;
-        top:0;
-        left:200px;
-        width: calc(100vw - 200px - 1rem);
-        gap:1rem;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;        
-    }
-
-    .presentationA-Tray li{
-        width: 100px;
-        flex:1;
-        margin:1rem;
-        margin-right:0rem;
-        margin-bottom: 0rem;
-        min-height: 150px;
-        height: auto;
-        max-height: fit-content;
-    }
-
-    .presentationA-Tray li:last-child{
-        margin-right:1rem;
-    }
-
-    .firstLevelChild.typeA div.trayservinghorizontal{
-        padding-bottom:0rem;
-    }
-
-    .firstLevelChild div.trayservinghorizontal .presentationA li{
-        height: auto;
-        padding:1rem;
-    }
-
-    .presentation-side-tray li{
-        width:200px;
-
-    }
-
-    .firstLevelChild div.trayservinghorizontal.typeB .presentation{
-        padding:0rem;
-    }
-
-    .firstLevelChild div.trayservinghorizontal.typeB .presentation li{
-        height: auto;
-
-    }
-
-    .second.level.child{
-        display: flex;
-        flex-wrap: wrap;
-        width: 2000px;
-        gap:50px;
-        flex-direction: row;
-
-    }
-
-    .presentation.typeB li{
-        height: 10px;
-    }
-
-    .firstLevelChild div.trayservinghorizontal li{
-        border:1px solid white;   
-        height:150px;
-    }
-
-    .firsLevelChild li{
-        list-style: none;      
-    }
-
-    body{
-        padding:0px;
-        margin:0px;
-    }
-
-    .navbar.header{ 
-        margin: 0 auto;
-        max-width: 100%;
-        display: flex;
-        flex-direction: row;
-        padding:0rem 2rem;
-        justify-content: space-between;
-        align-items: center;   
-        border:none;     
-        align-content: center;
-        background-color:grey;
-        height: calc(var(--navListLineHeight)+ var(--navListPadding));
-       
-    }
-
-
-</style>
 </html>
