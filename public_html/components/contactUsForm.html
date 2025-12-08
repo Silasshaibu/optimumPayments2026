@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Love Work</title>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    .digitalMarketing.contact-card {
+      width: 100%;
+      padding:0 10%;
+    }
+
+    p.from-subtle-message {
+      text-align: center;
+      padding:2rem 0rem;      
+      line-height: 1.6;
+    }
+
+    .form-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .contact-card__image-wrapper {
+      text-align: center;
+      padding: 2rem;
+      background-color: grey;
+      background-image: url("../assets/images/promo/HeroBanner1.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    form.digitalMarketingForm {
+      width: 100%;
+      padding:0;
+    }
+
+    .formSections-wrapper {
+      /* background-color: #EFEFEF; */
+      width: 100%;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    fieldset {
+      border: none;
+      padding: 1rem;
+      padding-bottom: 4rem;
+
+      border-top:1px solid #ccc;
+    }
+
+    legend {
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      font-size: 1.4rem;
+      margin:0 auto;
+      padding:0px 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1.2rem;
+      font-weight: 600;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 0.4rem;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: none;
+    }
+
+    .btn-primary {
+      margin-top: 2rem;
+      padding: 14px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .fun-form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .formSections-wrapper {
+        padding: 20px;
+      }
+
+      p.from-subtle-message {
+      text-align: left;
+      margin: 1rem auto;
+      padding:0rem 1rem;      
+      line-height: 1.6;
+    }
+
+      .form-title {
+        font-size: 2.2rem;
+      }
+
+      .fun-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =============================
+       SERVICES CHECKBOX STYLING
+    ============================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .digitalMarketing.contact-card{
+        padding:0 1rem;
+      }
+
+      legend {
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        font-size: 1.4rem;
+        margin:auto 0;
+        padding:0px 1rem;
+      }   
+
+      fieldset{
+        padding:0rem;
+        padding-bottom: 4rem;
+      }
+    }
+
+    .service-option {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
+    }
+
+    .service-option:hover {
+      background: #f5f5f5;
+      border-color: #999;
+    }
+
+    .service-option input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 0; /* square */
+      margin-top: 3px;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      background-color: #fff;
+      
+      
+      /* background-color: red; */
+    }
+
+    .service-option input[type="checkbox"]:checked::after {
+      content: "✓";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .service-option input[type="checkbox"]:checked {
+      background-color: #007BFF; /* blue background when checked */
+      border-color: #007BFF;
+    }
+
+    .service-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-title {
+      font-weight: bold;
+    }
+
+    .service-description {
+      font-weight: normal;
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="contact-card__image-wrapper">
+    <h1 class="form-title">Love to hear from you. Get in touch.</h1>
+</div>  
+
+
+<section class="digitalMarketing contact-card">
+  <p class="from-subtle-message">
+    Whether you have a question, want to start a project or simply want to connect.
+  Feel free to send us a message in the contact form.
+  </p>
+
+  <form class="digitalMarketingForm" id="contactForm">
+    <div class="formSections-wrapper">
+
+      <fieldset>
+        <legend>Tell Us About Yourself</legend>
+        <div class="fun-form-grid">
+          <div>
+            <label for="yourFirstName">First Name</label>
+            <input id="yourFirstName" name="yourName" type="text" placeholder="Your First Name" required />
+          </div>
+
+          <div>
+            <label for="yourLastName">Last Name</label>
+            <input id="yourLastName" name="yourName" type="text" placeholder="Your Last Name" required />
+          </div>
+
+          <div>
+            <label for="email">Email*</label>
+            <input id="email" name="email" type="email" placeholder="example@email.com" required />
+          </div>
+
+          <div>
+            <label for="yourphone">Phone Number</label>
+            <input id="yourphone" name="yourphone" type="tel" placeholder="+1 (555) 123-4567" />
+          </div>
+
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="compnay" type="text" placeholder="Your Company Name" />
+          </div>         
+
+          <div>
+            <label for="howDidYouHearAboutUs">How Did You Hear About Us?</label>
+            <select id="howDidYouHearAboutUs" name="howDidYouHearAboutUs" required>
+              <option value="" disabled selected>From Facebook</option>
+              <option value="facebook">From Facebook</option>
+              <option value="tiktok">From TikTok</option>
+              <option value="friend">From A Friend</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="comments">Tell Us More</label>
+          <textarea id="comments" name="comments" placeholder="Let us know how we may assist you. We are fun to talk to."></textarea>
+        </div>
+
+        <label style="font-size: .8rem; font-weight: 400; color:#6e6b6b">
+        <input  type="checkbox" name="submitFormPolicyChecked"> By submitting this form, I acknowledge receipt of the <a href="#">Optimum-payments Policy</a>.
+        </label>
+        <button class="btn-primary btn-fullwidth" type="submit">Submit</button>
+      </fieldset>
+
+    </div>
+  </form>
+</section>
+
+<!--style for price slider-->
+<style>
+  /*Price range slider css*/
+  .price-range {
+  width: 330px;
+  width: 100%;
+  font-family: sans-serif;
+  }
+
+  .price-range input{
+    border:none;
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .slider-container {
+    position: relative;
+    height: 40px;
+  }
+
+  input[type="range"] {
+    position: absolute;
+    left: 0; 
+    top: 10px; /*Former*/
+    top:-7px;
+    width: 100%;
+    appearance: none;
+    background: none;
+    z-index: 2;
+    pointer-events: none; /* Allows clicking through */
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    pointer-events: auto;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
+  .track {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    
+    background: #e5e7eb;
+    border-radius: 4px;
+  }
+
+  .range-fill {
+    position: absolute;
+    top: 18px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--color-primary);
+  }
+
+</style>
+
+<!--script for slider-->
+<script>
+  const minInput = document.getElementById("min-range");
+const maxInput = document.getElementById("max-range");
+
+const minLabel = document.getElementById("price-min-label");
+const maxLabel = document.getElementById("price-max-label");
+
+const fill = document.getElementById("range-fill");
+
+const minGap = 1;
+const min = +minInput.min;
+const max = +maxInput.max;
+
+function updateSlider() {
+  let minVal = +minInput.value;
+  let maxVal = +maxInput.value;
+
+  // Prevent crossing
+  if (maxVal - minVal <= minGap) {
+    if (event.target === minInput) {
+      minInput.value = maxVal - minGap;
+    } else {
+      maxInput.value = minVal + minGap;
+    }
+  }
+
+  minVal = +minInput.value;
+  maxVal = +maxInput.value;
+
+  const minPercent = ((minVal - min) / (max - min)) * 100;
+  const maxPercent = ((maxVal - min) / (max - min)) * 100;
+
+  fill.style.left = minPercent + "%";
+  fill.style.width = (maxPercent - minPercent) + "%";
+
+  minLabel.textContent = "$" + minVal;
+  maxLabel.textContent = "$" + maxVal;
+}
+
+minInput.addEventListener("input", updateSlider);
+maxInput.addEventListener("input", updateSlider);
+
+updateSlider(); // initial render
+
+</script>
+
+<!--script for form-->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!e.target.checkValidity()) {
+      e.target.reportValidity();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    console.log("Form submitted:", data);
+    alert("Form submitted! Check console for details.");
+  });
+</script>
+
+
+
+</body>
+</html>
