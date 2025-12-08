@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>We Love Work</title>
+  <title>Contact Us</title>
   <link rel="stylesheet" href="../assets/css/style-guide.css">
 
   <style>
@@ -103,6 +103,21 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      align-items: end;
+    }
+
+    @media (max-width: 1024px) {
+      .digitalMarketing.contact-card{
+        padding:0 5%;
+      }
+
+      p.from-subtle-message{
+        padding:2rem 4rem;
+      }
+
+      fieldset{
+        padding:0rem;
+      }
     }
 
     @media (max-width: 768px) {
@@ -234,7 +249,7 @@
 
 <section class="digitalMarketing contact-card">
   <p class="from-subtle-message">
-    Whether you have a question, want to start a project or simply want to connect.
+    Whether you have a question, want to start a project or simply want to connect. <br class="breakLine">
   Feel free to send us a message in the contact form.
   </p>
 
@@ -314,7 +329,7 @@
     justify-content: space-between;
     margin-bottom: 8px;
     color: #555;
-    font-size: 14px;
+    font-size: .8rem;
   }
 
   .slider-container {
@@ -367,52 +382,7 @@
 
 </style>
 
-<!--script for slider-->
-<script>
-  const minInput = document.getElementById("min-range");
-const maxInput = document.getElementById("max-range");
 
-const minLabel = document.getElementById("price-min-label");
-const maxLabel = document.getElementById("price-max-label");
-
-const fill = document.getElementById("range-fill");
-
-const minGap = 1;
-const min = +minInput.min;
-const max = +maxInput.max;
-
-function updateSlider() {
-  let minVal = +minInput.value;
-  let maxVal = +maxInput.value;
-
-  // Prevent crossing
-  if (maxVal - minVal <= minGap) {
-    if (event.target === minInput) {
-      minInput.value = maxVal - minGap;
-    } else {
-      maxInput.value = minVal + minGap;
-    }
-  }
-
-  minVal = +minInput.value;
-  maxVal = +maxInput.value;
-
-  const minPercent = ((minVal - min) / (max - min)) * 100;
-  const maxPercent = ((maxVal - min) / (max - min)) * 100;
-
-  fill.style.left = minPercent + "%";
-  fill.style.width = (maxPercent - minPercent) + "%";
-
-  minLabel.textContent = "$" + minVal;
-  maxLabel.textContent = "$" + maxVal;
-}
-
-minInput.addEventListener("input", updateSlider);
-maxInput.addEventListener("input", updateSlider);
-
-updateSlider(); // initial render
-
-</script>
 
 <!--script for form-->
 <script>
