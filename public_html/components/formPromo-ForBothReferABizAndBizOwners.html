@@ -29,6 +29,7 @@
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
+    min-width: 500px;
   }
 
   
@@ -61,8 +62,22 @@
   ============================ */
   .tabs {
     display: flex;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;      
+    border-bottom: 2px solid var(--color-primary);    
+    justify-content: center;
+    padding:0 0%;
+    width: 80%;
+    margin:0 auto;
+    align-items: flex-end;
+    /* align-items: stretch; */
+    /* background-color: grey; */
   }
+
+  .tab-button{
+    width: 50%;
+  }
+  
+  
 
   .tab-button {
     padding: 10px 20px;
@@ -72,7 +87,7 @@
     color: rgb(41, 40, 40);
     font-size: 16px;
     transition: background 0.3s;
-    border-radius: 0;
+    border-radius: 0px;
   }
 
   .tab-button:hover {
@@ -80,16 +95,16 @@
   }
 
   .tab-button.active {
-    background-color: var(--color-blue);
+    background-color: var(--color-primary);
     color: white;
-    border: 2px solid black;
-    border-bottom: 0;
+    border: 2px solid var(--color-blue);
+    border-bottom: 0;    
   }
 
   .tab-content {
     display: none;
     opacity: 0;
-    padding: 2rem;
+    padding:2rem 10%;
     transition: opacity 0.3s;
   }
 
@@ -133,14 +148,31 @@
     transform: translateX(-50%);
   }
 
+
+
+  /* ============================
+     TABLET 1024PX
+  ============================ */
+  @media (max-width: 1024px) {
+      .tab-content{
+        padding:2rem 5%;        
+      }   
+
+      .tabs{
+        width: 90%;
+        padding:0;
+      }
+    }
+
+
   /* ============================
      MOBILE 768PX
   ============================ */
   @media (max-width: 768px) {
 
     .tabs {
-      flex-wrap: wrap;
-      align-items: stretch;
+      /* flex-wrap: wrap; */
+      /* align-items: stretch; */
     }
 
     .tab-button {
@@ -259,7 +291,7 @@
 
           </div>
 
-          <button class="btn-primary cta-business" type="submit">Submit</button>
+          <button class="btn-primary cta-business btn-fullwidth" type="submit">Submit</button>
 
         </fieldset>
       </div>
@@ -301,7 +333,7 @@
           <label for="ownerEmail">Email*</label>
           <input id="ownerEmail" name="ownerEmail" type="email" placeholder="example@email.com" required>
 
-          <button class="btn-primary cta-business" type="submit">Submit</button>
+          <button class="btn-primary cta-business btn-fullwidth" type="submit">Submit</button>
         </fieldset>
       </div>
 
