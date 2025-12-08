@@ -13,6 +13,15 @@
     border:0;
 }
 
+ button{
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+ }
+
 li{
     list-style: none;
 }
@@ -183,7 +192,7 @@ body{
     align-items: center;   
     border:none;     
     align-content: center;
-    background-color:grey;
+    background-color:rgb(243, 243, 243);
     height: calc(var(--navListLineHeight)+ var(--navListPadding));
 }
 
@@ -219,11 +228,14 @@ body{
 <body>
 <nav class="navbar header">
     <ul class="LogoSection">
-        <li><img src="../assets/partners/"  title="Optimum Payment Solutions" alt="Optimum-Payments"  width="150px" height="fit-content"></li> 
+        <li class="Logo-Action"><a href="#"><img src="../assets/images/logo/logo-optimum-payment_optimized_sm.webp"  title="Optimum Payment Solutions" alt="Optimum-Payments"  width="150px" height="fit-content"></a></li> 
     </ul>
 
+    <style>
+        
+    </style>
     <ul class="one"> 
-        <li>Promo</li>
+        <li><a href="#">Promo</a></li>
 
         <!-- Processing Solutions -->
    <!-- Inside <ul class="one">, under Processing Solutions -->
@@ -323,6 +335,13 @@ body{
 
                     <style>
                         /* Keep the original caret for top-level menus */
+
+                        .icon, .Logo-Action img{
+                            transform: translateY(3px); 
+                            /*aligning global icon position correctly*/
+                        }
+
+
                         .top-caret, .icon {
                             display: inline-block;
                             width: 16px;
@@ -332,8 +351,10 @@ body{
 
                         /*icons width and height*/
                         .icon{
-                            width: 24px;
-                            height: 24px;
+                            width: 16px;
+                            height: 16px;
+                            /* 16, 20, 24*/
+                            gap:12px;
                         }
 
                     </style>
@@ -522,13 +543,14 @@ body{
         </li>
 
         <!-- Business Financing -->
-        <li>Business Financing</li>
+        <li><a href="#">Business Financing</a></li>
 
         <!-- About Us -->
-        <li>About Us</li>
+        <li><a href="#">About Us</a></li>
+
 
         <!-- Contact Us -->
-        <li>Contact Us</li>
+        <li><a href="#">Contact Us</a></li>
     </ul>
 
     <ul class="searchAndstore-NavSection">
@@ -538,35 +560,54 @@ body{
                 <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
             </span>
-            <ul class="searchFieldBoxAndResults">
-                
-                <div >
+            <ul class="searchFieldBoxAndResults">                
+                <div>
                     <input class="searchFieldInput" type="text" placeholder="Search for soemthing...">
                     <button class="searchButton Main">Search</button>
                 </div>
                 <div class="searchResult">
-                    <p>Search Result</p></li>
+                    <p>Search Result - No Data Found Yet! - No DataBase</p></li>
                 </div>
-                <style>
-                    .searchButton.Main{
-                        /* border-radius:0px; */
-                        border-top-left-radius: 0px;
-                        border-bottom-left-radius: 0px;
-                        width: 150px;                                           
-                    }
-
-                    .searchFieldInput{
-                        border-top-left-radius: 6px;
-                        border-bottom-left-radius: 6px;
-                    }   
-                </style>
+                
             </ul>
         </li>
-        <li><button>Store</button></li>
+        <li><button class="btn-primary">Shop for Supplies</button></li>
     </ul>
 </nav>
-
 <style>
+li{
+    color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
+
+    /* us.store.bambulab.com/Manrope/Bold */
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--font-size-14, 14px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-20, 20px); /* 142.857% */
+    }
+                        .searchFieldBoxAndResults{
+                            display: block;  
+                            /*on active set to display block, on inactive set to display none*/
+                            /*on mobile set to display none*/
+                        }
+                    
+                        .searchButton.Main{
+                            /* border-radius:0px; */
+                            border-top-left-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                            width: 150px;                                           
+                        }
+
+                        .searchFieldInput{
+                            border-top-left-radius: 6px;
+                            border-bottom-left-radius: 6px;
+                        }   
+
+                        .searchFieldBoxAndResults div.searchResult{
+                            padding-bottom: 4rem;
+                        }
+
+              
     .searchAndstore-NavSection{
         display: flex;
         align-items: center;
@@ -581,18 +622,20 @@ body{
 
         background-color: rgb(80, 76, 76);
             width: 100%;
-
+            padding-bottom:4rem;
     }
 
     .searchFieldBoxAndResults div{
-        padding:1rem;
-        
+        padding:1rem;        
         display: flex;
         flex:1;
         padding:.5rem;
-        /* width: 80%; */
         margin:0 auto;
     }
+
+    
+
+    
 </style>
 
 <script>
