@@ -607,6 +607,16 @@ button:disabled {
     color: #2ecc71;
 }
 
+
+.icon{
+  width:16px;
+  height: 16px;
+}
+
+
+
+
+
 /* =========================================
    MEDIA QUERIES
    Mobile First Approach
