@@ -546,11 +546,11 @@ body{
         <li><a href="#">Business Financing</a></li>
 
         <!-- About Us -->
-        <li><a href="#">About Us</a></li>
+        <li class="about-us"><a href="#">About Us</a></li>
 
 
         <!-- Contact Us -->
-        <li><a href="#">Contact Us</a></li>
+        <li class="contact-us"><a href="#">Contact Us</a></li>
     </ul>
 
     <ul class="searchAndstore-NavSection">
@@ -634,69 +634,90 @@ li{
     }
 
     
-
-    
 </style>
 
 <script>
-const trays = document.querySelectorAll('.firstLevelChild');
-const buttons = [
-    document.getElementById("processing-btn"),
-    document.getElementById("financing-btn")
-];
+    const trays = document.querySelectorAll('.firstLevelChild');
+    const buttons = [
+        document.getElementById("processing-btn"),
+        document.getElementById("financing-btn")
+    ];
 
-buttons.forEach(btn => {
-    btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const tray = document.getElementById(btn.id.replace('-btn','-tray'));
+    buttons.forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            const tray = document.getElementById(btn.id.replace('-btn','-tray'));
 
-        trays.forEach(t => {
-            if(t !== tray) t.classList.remove('active');
-        });
+            trays.forEach(t => {
+                if(t !== tray) t.classList.remove('active');
+            });
 
-        tray.classList.toggle('active');
-    });
-});
-
-const nestedItems = document.querySelectorAll('.firstLevelChild li');
-
-nestedItems.forEach(item => {
-    item.addEventListener('click', e => {
-        e.stopPropagation();
-        const parentTray = item.closest('.firstLevelChild');
-        parentTray.querySelectorAll('li').forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-    });
-});
-
-document.addEventListener('click', () => {
-    trays.forEach(t => t.classList.remove('active'));
-    nestedItems.forEach(i => i.classList.remove('active'));
-    const burger = document.querySelector('#processing-tray .presentationA li:first-child');
-    if(burger) burger.classList.add('active');
-});
-</script>
-
-
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    // All top-level nav items
-    const navItems = document.querySelectorAll(".one > li");
-
-    navItems.forEach(item => {
-        item.addEventListener("click", function (e) {
-
-            // Remove active from all nav items
-            navItems.forEach(i => i.classList.remove("active"));
-
-            // Add active to clicked one
-            this.classList.add("active");
+            tray.classList.toggle('active');
         });
     });
 
-});
+    const nestedItems = document.querySelectorAll('.firstLevelChild li');
 
+    nestedItems.forEach(item => {
+        item.addEventListener('click', e => {
+            e.stopPropagation();
+            const parentTray = item.closest('.firstLevelChild');
+            parentTray.querySelectorAll('li').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        trays.forEach(t => t.classList.remove('active'));
+        nestedItems.forEach(i => i.classList.remove('active'));
+        const burger = document.querySelector('#processing-tray .presentationA li:first-child');
+        if(burger) burger.classList.add('active');
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // All top-level nav items
+        const navItems = document.querySelectorAll(".one > li");
+
+        navItems.forEach(item => {
+            item.addEventListener("click", function (e) {
+
+                // Remove active from all nav items
+                navItems.forEach(i => i.classList.remove("active"));
+
+                // Add active to clicked one
+                this.classList.add("active");
+            });
+        });
+
+    });
 </script>
+
+<style>
+    /* ==========================
+    Media Queries
+    ========================== */
+    @media (max-width: 1200px) {
+        /* Tablet styles go here */
+        /* At 1200px, we change reduce the amount of nav menus on the nav bar by 2*/
+        .about-us, .contact-us{
+            display: none;
+        }
+        .navbar.header{
+            padding:0rem .5rem;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        /* Mobile styles go here */
+        /*Logo Comes to Middle*/
+        /*Hamburger Shows At Left and Desktop Menu Displays Block*/
+        /*SearchIcon that stays with Shop for supplies Disappears*/
+        /*SearchIcon that stays with Shop for supplies gets added using the innerHTML with javascript to the area that has the harmburger**/
+        /*Shop for supplies text changes to "Store" */
+    }
+</style>
+   
 </body>
 </html>
