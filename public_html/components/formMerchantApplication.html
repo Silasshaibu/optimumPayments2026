@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="../assets/css/style-guide.css">
 </head>
 <body>
-  <section class="merchantApplicationForm contact-card">
-    
-        
-      <form class="merchantApplicationForm" id="contactForm">
-        <div class="contact-card__image-wrapper">
+
+  <div class="contact-card__image-wrapper">
             <h1 class="form-title">Merchant Application</h1>
-            <p class="from-subtle-message">We aim to respond to all application requests within a <strong>24 hour period Monday-Friday.</strong> <span class="merchantFormBreaker"><br></span>
+             <p class="from-subtle-message">We aim to respond to all application requests within a <strong>24 hour period Monday-Friday.</strong> <span class="merchantFormBreaker"><br></span>
             However, if this isn't the case, please be patient as we receive a lot of email every day. 
             </p>
-        </div>
+  </div>
+
+  <section class="merchantApplicationForm contact-card">          
+      <form class="merchantApplicationForm" id="contactForm">         
         <div class="formSections-wrapper">
             <div class="verticalsplitter"></div>
              <div class="form-section">        
@@ -135,8 +135,7 @@
   <style>
 
 .merchantApplicationForm.contact-card{
-width: 100vw;
-max-width: 1440px;
+width: 100%;
 margin: 0 auto;
 }
 
@@ -183,9 +182,10 @@ margin: 0 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width:1440px;
         width: 100%;
         margin:0 auto;    
+        padding:0rem 10%;
+        padding-bottom:2rem;
     }
 
 
@@ -212,9 +212,11 @@ margin: 0 auto;
 
     .formSections-wrapper div.form-section{
         flex:1;
-        padding:50px;
+        padding:3rem;
         /* background-color: red; */
+        
     }
+
 
 
     .address-grid{
@@ -292,8 +294,50 @@ margin: 0 auto;
         padding-top:1rem;
     }
 
+    .btn-primary.merchantApplicationForm{
+            width: 100%;
+        }
  
 
    
+</style>
+
+<style>
+    @media (max-width:1200px){
+        .formSections-wrapper div.form-section{
+            padding:2rem;
+        }
+
+        .formSections-wrapper{
+            padding:0rem 5%;
+            padding-bottom: 2rem;
+        }
+    }
+
+    @media (max-width:768px){
+        .formSections-wrapper{
+            flex-direction: column;
+
+        }
+
+        .verticalsplitter{
+            display:none;
+        }
+
+       .formSections-wrapper{
+            padding:0rem;
+        }
+
+        .formSections-wrapper div.form-section{
+            padding:1.5rem 1rem;
+        }
+
+        .formSections-wrapper div.form-section:last-child{
+            padding-bottom: 3rem;
+        }
+       
+    }
+
+    
 </style>
 </html>

@@ -15,14 +15,13 @@
     }
 
     .digitalMarketing.contact-card {
-      max-width: 1440px;
-      margin: 0 auto;
+      width: 100%;
+      padding:0 10%;
     }
 
     p.from-subtle-message {
       text-align: center;
-      margin: 1rem auto;
-      padding:0rem 0rem;      
+      padding:2rem 0rem;      
       line-height: 1.6;
     }
 
@@ -58,6 +57,7 @@
     fieldset {
       border: none;
       padding: 1rem;
+      padding-bottom: 4rem;
 
       border-top:1px solid #ccc;
     }
@@ -67,7 +67,7 @@
       margin-bottom: 1.25rem;
       font-size: 1.4rem;
       margin:0 auto;
-      padding:0px 20px;
+      padding:0px 1.5rem;
     }
 
     label {
@@ -140,18 +140,22 @@
         grid-template-columns: 1fr;
       }
 
-      
-    legend {
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      font-size: 1.4rem;
-      margin:auto 0;
-      padding:0px 0px;
-    }
+      .digitalMarketing.contact-card{
+        padding:0 1rem;
+      }
 
+      legend {
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        font-size: 1.4rem;
+        margin:auto 0;
+        padding:0px 1rem;
+      }   
 
-
-      
+      fieldset{
+        padding:0rem;
+        padding-bottom: 4rem;
+      }
     }
 
     .service-option {
@@ -160,7 +164,6 @@
       align-items: flex-start;
       padding: 10px;
       border: 1px solid #ccc;
-      /* border-radius: 6px; */
       cursor: pointer;
       transition: background 0.2s, border-color 0.2s;
       position: relative;
@@ -224,12 +227,12 @@
 
 <body>
 
-<section class="digitalMarketing contact-card">
-
-  <div class="contact-card__image-wrapper">
+<div class="contact-card__image-wrapper">
     <h1 class="form-title">We love working with fun clients</h1>
-  </div>
+</div>  
 
+
+<section class="digitalMarketing contact-card">
   <p class="from-subtle-message">
     Fill out our form below detailing your project and we will get back to you as soon as possible. <br>
     The more specific, the better to start out — 
@@ -264,13 +267,21 @@
 
           <div>
             <label for="budget">Your Budget</label>
-            <select id="budget" name="budget" required>
-              <option value="" disabled selected>Select your budget</option>
-              <option value="under5000">Under $5,000</option>
-              <option value="5000-29000">$5,000 - $29,999</option>
-              <option value="30000-65000">$30,000 - $99,999</option>
-              <option value="over100000">Over $100,000</option>
-            </select>
+            <div class="price-range">
+            <!--Price Range slider--> 
+              <div class="labels">
+                <span id="price-min-label">$2,000</span>
+                <span id="price-max-label">$50,000</span>
+              </div>
+
+              <div class="slider-container">
+                <input type="range" id="min-range" min="2000" max="50000" value="2000" step="500">
+                <input type="range" id="max-range" min="2000" max="50000" value="50000" step="500">
+
+                <div class="track"></div>
+                <div class="range-fill" id="range-fill"></div>
+              </div>
+            </div>
           </div>
 
           <div>
@@ -336,13 +347,132 @@
           </div>
         </div>
 
-        <button class="btn-primary" type="submit">Submit</button>
+        <button class="btn-primary btn-fullwidth" type="submit">Submit</button>
       </fieldset>
 
     </div>
   </form>
 </section>
 
+<!--style for price slider-->
+<style>
+  /*Price range slider css*/
+  .price-range {
+  width: 330px;
+  width: 100%;
+  font-family: sans-serif;
+  }
+
+  .price-range input{
+    border:none;
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .slider-container {
+    position: relative;
+    height: 40px;
+  }
+
+  input[type="range"] {
+    position: absolute;
+    left: 0; 
+    top: 10px; /*Former*/
+    top:-7px;
+    width: 100%;
+    appearance: none;
+    background: none;
+    z-index: 2;
+    pointer-events: none; /* Allows clicking through */
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    pointer-events: auto;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
+  .track {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    
+    background: #e5e7eb;
+    border-radius: 4px;
+  }
+
+  .range-fill {
+    position: absolute;
+    top: 18px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--color-primary);
+  }
+
+</style>
+
+<!--script for slider-->
+<script>
+  const minInput = document.getElementById("min-range");
+const maxInput = document.getElementById("max-range");
+
+const minLabel = document.getElementById("price-min-label");
+const maxLabel = document.getElementById("price-max-label");
+
+const fill = document.getElementById("range-fill");
+
+const minGap = 1;
+const min = +minInput.min;
+const max = +maxInput.max;
+
+function updateSlider() {
+  let minVal = +minInput.value;
+  let maxVal = +maxInput.value;
+
+  // Prevent crossing
+  if (maxVal - minVal <= minGap) {
+    if (event.target === minInput) {
+      minInput.value = maxVal - minGap;
+    } else {
+      maxInput.value = minVal + minGap;
+    }
+  }
+
+  minVal = +minInput.value;
+  maxVal = +maxInput.value;
+
+  const minPercent = ((minVal - min) / (max - min)) * 100;
+  const maxPercent = ((maxVal - min) / (max - min)) * 100;
+
+  fill.style.left = minPercent + "%";
+  fill.style.width = (maxPercent - minPercent) + "%";
+
+  minLabel.textContent = "$" + minVal;
+  maxLabel.textContent = "$" + maxVal;
+}
+
+minInput.addEventListener("input", updateSlider);
+maxInput.addEventListener("input", updateSlider);
+
+updateSlider(); // initial render
+
+</script>
+
+<!--script for form-->
 <script>
   document.getElementById('contactForm').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -357,6 +487,8 @@
     alert("Form submitted! Check console for details.");
   });
 </script>
+
+
 
 </body>
 </html>

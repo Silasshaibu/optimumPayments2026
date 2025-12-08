@@ -312,10 +312,14 @@ p {
   color:#fff;
   width:auto;
   padding: 12px 40px;
-  background-color: #3674A8;
+  background-color: var(--color-primary);
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
+}
+
+.btn-fullwidth{
+  width: 100%;
 }
 
 .btn-primary:hover {
