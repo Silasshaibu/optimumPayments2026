@@ -79,15 +79,42 @@ li{
     width: 100vw;
 }
 
+
+/* Default state for all top-level items */
+.one > li {
+    border-bottom: 3px solid transparent;
+    transition: border-bottom .25s ease;
+}
+
+/* Active state */
+.one > li.active {
+    border-bottom: 3px solid blue;
+}
+
+
+/* Optional if you want hover to  */
+/* 
+.one > li:hover {
+    border-bottom: 3px solid blue;
+} */
+
 .presentation.typeB{
     display: flex;
     flex-direction: column;
     flex-direction: row;
     justify-content: center;
+    background-color: beige;
 }
 
-.presentation.typeB li{
-    /* height: 10px; */
+/* Default */
+.one > li {
+    border-bottom: 3px solid transparent;
+    transition: border-bottom .25s ease;
+}
+
+/* Active state */
+.one > li.active {
+    border-bottom: 3px solid blue; /* your active border */
 }
 
 .presentationA{
@@ -191,8 +218,8 @@ body{
 </head>
 <body>
 <nav class="navbar header">
-    <ul class="">
-        <li>Logo</li> 
+    <ul class="LogoSection">
+        <li><img src="../assets/partners/"  title="Optimum Payment Solutions" alt="Optimum-Payments"  width="150px" height="fit-content"></li> 
     </ul>
 
     <ul class="one"> 
@@ -200,7 +227,9 @@ body{
 
         <!-- Processing Solutions -->
    <!-- Inside <ul class="one">, under Processing Solutions -->
-    <li id="processing-btn"><a href="#">Processing Solutions <span></span></a>
+    <li id="processing-btn"><a href="#">Processing Solutions <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+            </svg></span></a>
         <ul class="firstLevelChild typeA" id="processing-tray">
             <div class="trayservinghorizontal">
                 <div class="presentationA">
@@ -291,6 +320,23 @@ body{
                             </li>
                         </ul>
                     </li>
+
+                    <style>
+                        /* Keep the original caret for top-level menus */
+                        .top-caret, .icon {
+                            display: inline-block;
+                            width: 16px;
+                            height: 16px;
+                            transition: transform 0.3s ease;
+                        }
+
+                        /*icons width and height*/
+                        .icon{
+                            width: 24px;
+                            height: 24px;
+                        }
+
+                    </style>
 
                     <!-- Retail / Liquor / Smoke Shops -->
                     <li>Retail / Liquor / Smoke Shops
@@ -432,7 +478,9 @@ body{
 
 
         <!-- Digital services -->
-        <li id="financing-btn"><a href="#">Digital Services <span></span></a>
+        <li id="financing-btn"><a href="#">Digital Services <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="top-caret">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+            </svg></span></a>
             <ul class="firstLevelChild typeB" id="financing-tray">
                 <div class="trayservinghorizontal typeB">
                     <div class="presentation typeB">
@@ -483,10 +531,69 @@ body{
         <li>Contact Us</li>
     </ul>
 
-    <ul class="">
+    <ul class="searchAndstore-NavSection">
+        <li>
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </span>
+            <ul class="searchFieldBoxAndResults">
+                
+                <div >
+                    <input class="searchFieldInput" type="text" placeholder="Search for soemthing...">
+                    <button class="searchButton Main">Search</button>
+                </div>
+                <div class="searchResult">
+                    <p>Search Result</p></li>
+                </div>
+                <style>
+                    .searchButton.Main{
+                        /* border-radius:0px; */
+                        border-top-left-radius: 0px;
+                        border-bottom-left-radius: 0px;
+                        width: 150px;                                           
+                    }
+
+                    .searchFieldInput{
+                        border-top-left-radius: 6px;
+                        border-bottom-left-radius: 6px;
+                    }   
+                </style>
+            </ul>
+        </li>
         <li><button>Store</button></li>
     </ul>
 </nav>
+
+<style>
+    .searchAndstore-NavSection{
+        display: flex;
+        align-items: center;
+        gap:10px;
+        
+    }
+
+    .searchFieldBoxAndResults{
+        position: absolute;
+        top: calc(var(--navListLineHeight) + var(--navListPadding) + 30px); /* main nav height*/
+        right:0;
+
+        background-color: rgb(80, 76, 76);
+            width: 100%;
+
+    }
+
+    .searchFieldBoxAndResults div{
+        padding:1rem;
+        
+        display: flex;
+        flex:1;
+        padding:.5rem;
+        /* width: 80%; */
+        margin:0 auto;
+    }
+</style>
 
 <script>
 const trays = document.querySelectorAll('.firstLevelChild');
@@ -525,6 +632,28 @@ document.addEventListener('click', () => {
     const burger = document.querySelector('#processing-tray .presentationA li:first-child');
     if(burger) burger.classList.add('active');
 });
+</script>
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // All top-level nav items
+    const navItems = document.querySelectorAll(".one > li");
+
+    navItems.forEach(item => {
+        item.addEventListener("click", function (e) {
+
+            // Remove active from all nav items
+            navItems.forEach(i => i.classList.remove("active"));
+
+            // Add active to clicked one
+            this.classList.add("active");
+        });
+    });
+
+});
+
 </script>
 </body>
 </html>
