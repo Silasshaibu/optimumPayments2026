@@ -20,6 +20,28 @@
       
     }
 
+    h1.Headtitle{
+      color: var(--us-store-bambulab-com-black, var(--color-black-solid, #000));
+
+/* go.mypartner.io/Semantic/Heading 1 */
+
+font-size: var(--font-size-36, 36px);
+font-style: normal;
+font-weight: var(--font-weight-700, 700);
+line-height: var(--line-height-43_2, 43.2px); /* 120% */
+
+    }
+
+    p.subtitle.strong{
+      color: var(--us-store-bambulab-com-black, var(--color-black-solid, #000));
+
+
+font-size: var(--font-size-29, 29px);
+font-style: normal;
+font-weight: var(--font-weight-400, 400);
+line-height: var(--line-height-34_8, 34.8px); /* 120% */
+    }
+
     .default-section.hero-rok-financial div{
       flex:1;
     }
@@ -34,8 +56,7 @@
       width: 100%;
       display: flex;
       flex-direction: row;
-      position: relative;
-      
+      position: relative;     
     }
 
     .rok-official{
@@ -45,16 +66,24 @@
     .googelTrustReviewRok{
       display: block;
     }
+    .googelTrustReviewRok, ul.RokCustomBullets{
+      padding-bottom: 1rem; 
+    }
 
     ul.RokCustomBullets {
-      list-style: none;
-      padding:0;
+      list-style: none; 
     }
 
     ul.RokCustomBullets li{
       background: url(../assets/images/rokBusinessFinancing/checked-box.png) ;
       background-repeat: no-repeat;
-      padding-left: 1.5rem;
+      padding-left: 2rem;  
+      color: var(--us-store-bambulab-com-black, var(--color-black-solid, #000));
+font-size: var(--font-size-20, 20px);
+font-style: normal;
+font-weight: var(--font-weight-200, 200);
+line-height: var(--line-height-30, 30px); 
+
     }
 
     .TextInfo-Rok-BizFin{
@@ -229,6 +258,7 @@
       }
      
 
+      
     /* ============================
         RESPONSIVE
     ============================ */
@@ -302,6 +332,8 @@
           width: 300px;
         }
 
+      
+
   }
 
     @media (max-width: 768px) {
@@ -357,6 +389,7 @@
       .questions-text {
         font-size: 1rem;
       }
+
     }
   </style>
 </head>
@@ -370,8 +403,8 @@
     </div>
     <div class="TextInfo-Rok-BizFin"> 
       <div>
-        <h1>Small Business Loan</h1>
-        <p>Online Application</p>
+        <h1 class="Headtitle">Small Business Loan</h1>
+        <p class="subtitle strong">Online Application</p>
         <ul class="RokCustomBullets">
           <li>Same Day Funding</li>
           <li>$10,000 - $5 Million</li>
