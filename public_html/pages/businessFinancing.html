@@ -83,6 +83,35 @@
     }
 
     /* ============================
+        FEATURES SECTION
+    ============================ */
+    .default-section.features{
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      justify-content: center;
+      align-content: center;
+      width: 100%;
+      padding:0rem 10%;
+
+    }
+
+    .singleUnit-feature{
+      border:1px solid var(--gray);
+      border-right:0px solid var(--gray);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding:1rem;
+    }
+
+    .default-section.features div:last-child{
+      border-right:1px solid var(--gray);
+    }
+
+
+    /* ============================
         QUESTIONS SECTION
     ============================ */
     .questions-section {
@@ -119,23 +148,80 @@
       flex: 1;
     }
 
+    .singleUnit-feature{
+        justify-content: stretch;
+      }
+
     /* ============================
         RESPONSIVE
     ============================ */
-    @media (max-width: 1024px) {
-      .questions-container {
-        padding: 2rem 5%;
+
+    @media (max-width: 1200px) {
+      .default-section.features {
+        padding: 0rem 2%;
       }
     }
 
+
+    @media (max-width: 1024px) {
+      .questions-container {
+        padding: 2rem 6%;
+      }
+
+      .singleUnit-feature{
+        /* align-items: start; */
+        /* text-align: left; */
+        justify-content: start;
+      }
+
+      .default-section.features{
+      grid-template-columns: repeat(2,1fr);
+      padding:0rem 5%;
+      }
+      .default-section.features div.singleUnit-feature{
+        border:none;
+      }
+
+      :root{
+        --greySlimBorder:#efefef;
+      }
+
+
+      .default-section.features div:not(:last-child){
+        border-top: 1px solid var(--gray);
+         border-left: 1px solid var(--gray);;
+      }
+
+      .default-section.features div:not(:first-child){
+        border-bottom: 1px solid var(--gray);;        
+      }
+
+      .default-section.features div:nth-child(2), .default-section.features div:nth-child(3), .default-section.features div:last-child{
+        border-right:1px solid var(--gray); 
+    
+    }
+  }
+
     @media (max-width: 768px) {
+
+
+      .default-section.features {
+        padding: 0rem 0rem;
+      }
+
       /* QUALIFY */
       .qualify-section {
-        padding: 2rem 1rem;
+        padding: 2rem 0rem;
       }
 
       .qualify-body {
         flex-direction: column;
+      }
+
+      .singleUnit-feature{
+        align-items: start;
+        text-align: left;
+        justify-content: start;
       }
 
       .qualify-title {
@@ -174,6 +260,42 @@
 </head>
 
 <body>
+
+  <section class="default-section features">
+    <div class="singleUnit-feature">
+      <img src="../assets/images/rokBusinessFinancing/simple-application.png" width="150px" height="150px">
+      <h3>
+        Simple Application
+      </h3>
+      <p>Our simple <strong>15 second</strong> online application can get you matched with offers in Minutes</p>
+    </div>    
+
+    <div class="singleUnit-feature">
+      <img src="../assets/images/rokBusinessFinancing/no-minimum-fico.png" width="150px" height="150px">
+      <h3>
+        No Minimum FICO
+      </h3>
+      <p><strong>Bad Credit?</strong> No Problem! Most of our top financing options have no minimum FICO.</p>
+    </div>
+
+    <div class="singleUnit-feature">
+      <img src="../assets/images/rokBusinessFinancing/larger-amount.png" width="150px" height="150px">
+      <h3>
+        Larger Amounts
+      </h3>
+      <p>Get matched with the best financing options with the <strong>Highest Offer $</strong> Funding Amount.</p>
+    </div>
+
+    <div class="singleUnit-feature">
+      <img src="../assets/images/rokBusinessFinancing/same-day-funding.png" width="150px" height="150px">
+      <h3>
+        Same Day Funding
+      </h3>
+      <p>Our <strong>Fintech Speed</strong> can get you in and out of Underwriting in just a few hours, and same day funding!</p>
+    </div>
+  </section>
+
+
   <!-- Qualification Section -->
   <section class="default-section qualify-section">
     <div class="qualify-header">
