@@ -11,13 +11,21 @@
     .default-section.hero-rok-financial{
       margin:0 auto;
       width: 100%;
-      /* background-color: red; */
       padding:0 10%;
       margin:0 auto;
       display: flex;
       flex-direction: column;
       min-height: 500px;
-      
+      padding-top:2rem;
+    }
+
+    p.subtitle.soft{
+      color: var(--us-store-bambulab-com-black, var(--color-black-solid, #000));
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px; /* 150% */
+
     }
 
     h1.Headtitle{
@@ -94,9 +102,9 @@ line-height: var(--line-height-30, 30px);
       position: absolute;
       bottom:0;
       right:0%;
-      transform: translateX(-50%);
+      transform: translateX(-60%);
       z-index:-1;
-      width: 300px;
+      width: 280px;
     }
 
   </style>
@@ -142,8 +150,8 @@ line-height: var(--line-height-30, 30px);
         QUALIFY SECTION
     ============================ */
     .qualify-section {
-      padding: 120px 0;
-      background: var(--black) url("https://placehold.co/390x691") center/cover no-repeat;
+      padding: 7.5rem 0;
+      background: var(--black) url("../assets/images/rokBusinessFinancing/RokFinanceBackground.jpg") center/cover no-repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -273,12 +281,8 @@ line-height: var(--line-height-30, 30px);
         }
 
         .rok-official{
-          position: absolute;
-          bottom:0;
-          right:0%;
-          transform: translateX(-10%);
+          transform: translateX(-2%);
           z-index:-1;
-          width: 300px;
         }
 
     }
@@ -324,12 +328,8 @@ line-height: var(--line-height-30, 30px);
         }
 
         .rok-official{
-          position: absolute;
-          bottom:0;
-          right:0%;
           transform: translateX(15%);
           z-index:-1;
-          width: 300px;
         }
 
       
@@ -390,7 +390,18 @@ line-height: var(--line-height-30, 30px);
         font-size: 1rem;
       }
 
+
+
     }
+
+
+      @media (max-width: 600px) {
+        .rok-official{
+          width:50%;
+
+          /* transform: translateY(20px); */
+        }
+      }
   </style>
 </head>
 
@@ -398,8 +409,8 @@ line-height: var(--line-height-30, 30px);
 
   <section class="default-section hero-rok-financial">
     <div class="Intro-Both-Logos"> 
-      <img src="" alt="RokFinancial_And_OptimumPaymentsLogo">
-      <p class="subtitle strong"> Speak With A Business Financial Advisor Today!</p>      
+      <img src="../assets/images/rokBusinessFinancing/Rok-X-Optimum.jpg"  alt="RokFinancial_And_OptimumPaymentsLogo" width="280px" height="fit-content">
+      <p class="subtitle soft"> Speak With A Business Financial Advisor Today!</p>      
     </div>
     <div class="TextInfo-Rok-BizFin"> 
       <div>
@@ -415,7 +426,7 @@ line-height: var(--line-height-30, 30px);
         
        
         <button class="btn-primary">APPLY NOW</button>
-        <img class="rok-official" src="../assets/images/rokBusinessFinancing/man-img.png" width=300px height="fit-content" alt="Rok-Officials">
+        <img class="rok-official" src="../assets/images/rokBusinessFinancing/man-img.png" width="280px" height="fit-content" alt="Rok-Officials">
       </div>
 
       
