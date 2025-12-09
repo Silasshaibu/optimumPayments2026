@@ -95,8 +95,7 @@
                                 </svg>
                                 </span>
                             </button>                       
-                        </div>
-                        
+                        </div>                       
                         
                 </div>
                 </div>
@@ -145,7 +144,6 @@
             align-items: center;
             gap: 36px;
         }
-
        
         .product-title{
             font-size: var(--font-size-24, 24px);
@@ -247,9 +245,40 @@
             align-items: center;
         }
 
-        @media (max-width:1200px){
-
+                /* TOGGLE EXTRA CHANGES IN GRID VIEW */
+        .grid-view .product-summary {
+            padding-right: 0 !important;
         }
+
+        .grid-view.carouselWindow {
+            height: fit-content !important;
+        }
+
+
+
+        @media (min-width: 1200px) {
+
+            .carouselWindow.grid-view {
+                height: auto !important;
+                overflow: visible;
+            }
+
+            .carouselwithProducts-wrapper.grid-view {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                position: static !important;
+                transform: none !important;
+                height: auto !important;
+                padding-top: 2rem;
+            }
+
+            .leftArrow,
+            .rightArrow {
+                display: none !important;
+            }
+        }
+
 
         @media (max-width:768px){
             /*On mobile allow horizonatal scroll but make the bars invinsible*/
@@ -550,5 +579,54 @@
 
             });
             </script>
+
+            <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const viewAllBtn = document.getElementById("viewAllBtn");
+    const carouselWindow = document.querySelector(".carouselWindow");
+    const carouselWrapper = document.querySelector(".carouselwithProducts-wrapper");
+
+    let isGrid = false;
+
+    viewAllBtn.addEventListener("click", () => {
+
+        // Only apply grid on desktop
+        if (window.innerWidth >= 1200) {
+
+            isGrid = !isGrid; // toggle state
+
+            if (isGrid) {
+                // Add grid view
+                carouselWindow.classList.add("grid-view");
+                carouselWrapper.classList.add("grid-view");
+
+                // Change text to View Less
+                viewAllBtn.innerHTML = `View less 
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightTopCategoryMobileArrow">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </span>`;
+            } else {
+                // Remove grid view
+                carouselWindow.classList.remove("grid-view");
+                carouselWrapper.classList.remove("grid-view");
+
+                // Restore button text
+                viewAllBtn.innerHTML = `View all 
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightTopCategoryMobileArrow">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </span>`;
+            }
+        }
+
+    });
+
+});
+</script>
+
 
 </html>
