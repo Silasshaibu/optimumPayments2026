@@ -6,6 +6,50 @@
   <title>Business Financing</title>
   <link rel="stylesheet" href="../assets/css/style-guide.css">
 
+
+  <style>
+    .default-section.hero-rok-financial{
+      margin:0 auto;
+      width: 100%;
+      /* background-color: red; */
+      padding:0 10%;
+      margin:0 auto;
+      border:1px solid black;
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .default-section.hero-rok-financial div{
+      flex:1;
+      border: 1px solid black;
+    }
+
+    .Intro-Both-Logos{
+      width: 100%;
+      padding:0 10%;
+      text-align: center;
+
+    }
+
+    .TextInfo-Rok-BizFin{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+   
+    .googelTrustReviewRok{
+      display: block;
+    }
+
+  </style>
+
+
+  
+
+
+
   <style>
     :root {
       --white: #fff;
@@ -25,6 +69,11 @@
       font-size: 1.25rem;
       padding: 1rem 0;
     }
+
+     :root{
+        --greySlimBorder:#dbd6d6;
+      }
+
 
     /* ============================
         SECTIONS (GLOBAL)
@@ -96,8 +145,8 @@
     }
 
     .singleUnit-feature{
-      border:1px solid var(--gray);
-      border-right:0px solid var(--gray);
+      border:1px solid var(--greySlimBorder);
+      border-right:0px solid var(--greySlimBorder);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -107,7 +156,7 @@
     }
 
     .default-section.features div:last-child{
-      border-right:1px solid var(--gray);
+      border-right:1px solid var(--greySlimBorder);
     }
 
 
@@ -151,6 +200,7 @@
     .singleUnit-feature{
         justify-content: stretch;
       }
+     
 
     /* ============================
         RESPONSIVE
@@ -182,22 +232,19 @@
         border:none;
       }
 
-      :root{
-        --greySlimBorder:#efefef;
-      }
-
+      
 
       .default-section.features div:not(:last-child){
-        border-top: 1px solid var(--gray);
-         border-left: 1px solid var(--gray);;
+        border-top: 1px solid var(--greySlimBorder);
+         border-left: 1px solid var(--greySlimBorder);;
       }
 
       .default-section.features div:not(:first-child){
-        border-bottom: 1px solid var(--gray);;        
+        border-bottom: 1px solid var(--greySlimBorder);;        
       }
 
       .default-section.features div:nth-child(2), .default-section.features div:nth-child(3), .default-section.features div:last-child{
-        border-right:1px solid var(--gray); 
+        border-right:1px solid var(--greySlimBorder); 
     
     }
   }
@@ -260,6 +307,35 @@
 </head>
 
 <body>
+
+  <section class="default-section hero-rok-financial">
+    <div class="Intro-Both-Logos"> 
+      <img src="" alt="RokFinancial_And_OptimumPaymentsLogo">
+      <p class="subtitle strong"> Speak With A Business Financial Advisor Today!</p>
+
+      
+    </div>
+    <div class="TextInfo-Rok-BizFin"> 
+      <div>
+        <h1>Small Business Loan</h1>
+        <p>Online Application</p>
+        <ul>
+          <li>Leverage Existing Relationships</li>
+          <li>Access To 75+ Commercial Lenders</li>
+          <li>Real-Time Portal Access</li>
+        </ul>
+        <img class="googelTrustReviewRok" src="" width="100%"  height="fit-content" alt="Googel-Trust-Reviews">
+        
+       
+        <button class="btn-primary">APPLY NOW</button>
+      </div>
+
+      <div class="rok-official-img">
+        <img  src="../assets/images/rokBusinessFinancing/man-img.png" width=300px height="fit-content" alt="Rok-Officials">
+      </div>
+      
+    </div>
+  </section>
 
   <section class="default-section features">
     <div class="singleUnit-feature">
