@@ -14,33 +14,60 @@
       /* background-color: red; */
       padding:0 10%;
       margin:0 auto;
-      border:1px solid black;
       display: flex;
       flex-direction: column;
+      min-height: 500px;
       
     }
 
     .default-section.hero-rok-financial div{
       flex:1;
-      border: 1px solid black;
     }
 
     .Intro-Both-Logos{
       width: 100%;
       padding:0 10%;
       text-align: center;
-
     }
 
     .TextInfo-Rok-BizFin{
       width: 100%;
       display: flex;
       flex-direction: row;
+      position: relative;
+      
     }
 
+    .rok-official{
+      position: relative;      
+    }
    
     .googelTrustReviewRok{
       display: block;
+    }
+
+    ul.RokCustomBullets {
+      list-style: none;
+      padding:0;
+    }
+
+    ul.RokCustomBullets li{
+      background: url(../assets/images/rokBusinessFinancing/checked-box.png) ;
+      background-repeat: no-repeat;
+      padding-left: 1.5rem;
+    }
+
+    .TextInfo-Rok-BizFin{
+      padding-left:15%;
+    }
+
+    .rok-official{
+      position: absolute;
+      bottom:0;
+      right:0%;
+      transform: translateX(-50%);
+      z-index:-1;
+      width: 300px;
     }
 
   </style>
@@ -207,9 +234,23 @@
     ============================ */
 
     @media (max-width: 1200px) {
-      .default-section.features {
-        padding: 0rem 2%;
-      }
+        .default-section.features {
+          padding: 0rem 2%;
+        }
+
+          .TextInfo-Rok-BizFin{
+          padding-left:0%;
+        }
+
+        .rok-official{
+          position: absolute;
+          bottom:0;
+          right:0%;
+          transform: translateX(-10%);
+          z-index:-1;
+          width: 300px;
+        }
+
     }
 
 
@@ -247,6 +288,20 @@
         border-right:1px solid var(--greySlimBorder); 
     
     }
+
+        .TextInfo-Rok-BizFin{
+          padding-left:0%;
+        }
+
+        .rok-official{
+          position: absolute;
+          bottom:0;
+          right:0%;
+          transform: translateX(15%);
+          z-index:-1;
+          width: 300px;
+        }
+
   }
 
     @media (max-width: 768px) {
@@ -311,28 +366,26 @@
   <section class="default-section hero-rok-financial">
     <div class="Intro-Both-Logos"> 
       <img src="" alt="RokFinancial_And_OptimumPaymentsLogo">
-      <p class="subtitle strong"> Speak With A Business Financial Advisor Today!</p>
-
-      
+      <p class="subtitle strong"> Speak With A Business Financial Advisor Today!</p>      
     </div>
     <div class="TextInfo-Rok-BizFin"> 
       <div>
         <h1>Small Business Loan</h1>
         <p>Online Application</p>
-        <ul>
-          <li>Leverage Existing Relationships</li>
-          <li>Access To 75+ Commercial Lenders</li>
-          <li>Real-Time Portal Access</li>
+        <ul class="RokCustomBullets">
+          <li>Same Day Funding</li>
+          <li>$10,000 - $5 Million</li>
+          <li>6 Months to 10 Years Terms</li>
+          
         </ul>
-        <img class="googelTrustReviewRok" src="" width="100%"  height="fit-content" alt="Googel-Trust-Reviews">
+        <img class="googelTrustReviewRok" src="../assets/images/rokBusinessFinancing/trustpilot.png" width="210px"  height="fit-content" alt="Googel-TrustPilot-Reviews">
         
        
         <button class="btn-primary">APPLY NOW</button>
+        <img class="rok-official" src="../assets/images/rokBusinessFinancing/man-img.png" width=300px height="fit-content" alt="Rok-Officials">
       </div>
 
-      <div class="rok-official-img">
-        <img  src="../assets/images/rokBusinessFinancing/man-img.png" width=300px height="fit-content" alt="Rok-Officials">
-      </div>
+      
       
     </div>
   </section>
