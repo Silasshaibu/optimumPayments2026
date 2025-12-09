@@ -106,7 +106,7 @@
                     <!-- This should convert the carousel into a 1  by x grid system -->
                     <div class="bottomcontrolSection">
                         <!--Mobile Right Caret Arrow--> 
-                        <p>View all 
+                        <p id="viewAllBtn">View all 
                             <span>
                             
 
@@ -126,14 +126,6 @@
 
     <style>
 
-       
-
-    </style>
-    <style>
-
- .carouselwithProducts-wrapper {
-            will-change: transform;
-        }
         .productCategoryTitle{
             color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
             /* us.store.bambulab.com/Semantic/Heading 2 */
@@ -371,11 +363,12 @@
                 font-weight: 700;
                 line-height: 30px; /* 125% */
             }
+        }
             
 
 
-            /*MOBILE SINGLE UNIT PRODUCT VIEW*/
-            @media (max-width:550px){
+    /*MOBILE SINGLE UNIT PRODUCT VIEW*/
+    @media (max-width:550px){
               h2.productCategoryTitle{
                 text-align: center;
                 margin:0 auto;                
@@ -431,7 +424,7 @@
                 padding-right:0rem;
                 padding-left:0rem;
               }
-            }
+           
 
              /* FOR MOBILE*/
                 .bottomcontrolSection-foot{
@@ -512,5 +505,50 @@
         });
         </script>
 
+
+        <style>
+            /* DESKTOP GRID VIEW ACTIVATION */
+            @media (min-width: 769px) {
+                .grid-view .carouselwithProducts-wrapper {
+                    position: relative !important;
+                    display: grid !important;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 2rem;
+                    height: auto !important;
+                    transform: none !important;
+                }
+
+                .grid-view .featured-product {
+                    width: 100% !important;
+                    height: 320px;
+                    background-size: contain;
+                }
+
+                /* Hide the arrows in grid mode */
+                .grid-view .controlSection {
+                    display: none !important;
+                }
+            }
+
+        </style>
+
+       <script>
+            document.addEventListener("DOMContentLoaded", () => {
+
+                const viewAllBtn = document.getElementById("viewAllBtn");
+                const mainContainer = document.querySelector(".HeadAndBodyContainer");
+
+                viewAllBtn.addEventListener("click", () => {
+                    // Only apply grid on desktop (>=769px)
+                    if (window.innerWidth >= 769) {
+                        mainContainer.classList.toggle("grid-view");
+                    }
+
+                    // Scroll into view nicely
+                    mainContainer.scrollIntoView({ behavior: "smooth" });
+                });
+
+            });
+            </script>
 
 </html>
