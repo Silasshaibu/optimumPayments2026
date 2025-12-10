@@ -51,7 +51,8 @@
   
 
     .carousel-body.product-grid-handheld .product-grid-item{
-        aspect-ratio: 18/25;
+        /* aspect-ratio: 18/25; */
+        aspect-ratio: 4/5;
         /* position: absolute; */
     }
 
@@ -101,13 +102,6 @@
         margin:0 auto;
     }
 
-    /* .carousel-wrapper {
-        top:0px;
-        left:0px;
-        position: absolute;
-        width: calc(var(--slide-count) * var(--slide-and-container-width-singularUnit)); /* dynamic width based on slide count */
-        /* display: flex;  make slides line up horizontally  */
-  
 
         .carousel-wrapper {
         top:0px;
@@ -417,11 +411,11 @@
 
 </head>
 <body>
-    <!-- Top Products section -->
+    <!-- Supplies section -->
     <div class="section topProducts-carousel-header">
         <!-- Header with more Remote controls-->
          <div class="carousel-header withRemote">
-            <div class="handHeldDevice-Header"><h1 class="producCategoryheading title">Handheld Devices</h1></div>
+            <div class="handHeldDevice-Header"><h1 class="producCategoryheading title">Supplies</h1></div>
             <div class="remoteControl">
                 <button  class="carousel-prev view-toggle directionCarousel handHeldDevice" aria-pressed="false">
                     <span>
@@ -492,205 +486,109 @@
 
         <!-- Body Product Container -->
         <!-- Updated Product Grid with 6 items -->
-<div id="productsGrid" class="carousel-body product-grid-handheld">
-    <!-- 1: Valor VP800 -->
-    <div class="product-grid-item valorVP800">
-        <div class="productInfo">
-            <h3 class="productTitle">Valor VP800</h3>
-            <p class="productSummary">High‑performance portable device</p>
-            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <div id="productsGrid" class="carousel-body product-grid-handheld">
+            <!-- 1: Valor VP800 -->
+            <div class="product-grid-item valorVP800">
+                <div class="productInfo">
+                    <h3 class="productTitle">Valor VP800</h3>
+                    <p class="productSummary">High‑performance portable device</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
+
+            <!-- 2: Valor VL100 -->
+            <div class="product-grid-item valorVL100">
+                <div class="productInfo">
+                    <h3 class="productTitle">Valor VL100</h3>
+                    <p class="productSummary">Compact and reliable solution</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
+
+            <!-- 3: Valor VL110 -->
+            <div class="product-grid-item valorVL110">
+                <div class="productInfo">
+                    <h3 class="productTitle">Valor VL110</h3>
+                    <p class="productSummary">Next‑gen portable accuracy</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
+
+            <!-- 4: Clover Flex -->
+            <div class="product-grid-item cloverFlex">
+                <div class="productInfo">
+                    <h3 class="productTitle">Clover Flex</h3>
+                    <p class="productSummary">Light and flexible payment solution</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
+
+            <!-- 5: Clover Mini -->
+            <div class="product-grid-item valorVP550">
+                <div class="productInfo">
+                    <h3 class="productTitle">Valor VP550</h3>
+                    <p class="productSummary">Small footprint, big capability</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
+
+            <!-- 6: Random Product C -->
+            <div class="product-grid-item cloverGoPlus">
+                <div class="productInfo">
+                    <h3 class="productTitle">Clover Go Plus</h3>
+                    <p class="productSummary">Portable and versatile on‑the‑go system</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
+
+            <!-- 7: Random Product C -->
+            <div class="product-grid-item cloverGoPlus">
+                <div class="productInfo">
+                    <h3 class="productTitle">Clover Go Plus</h3>
+                    <p class="productSummary">Portable and versatile on‑the‑go system</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
+
+            <!-- 8: Random Product C -->
+            <div class="product-grid-item cloverGoPlus">
+                <div class="productInfo">
+                    <h3 class="productTitle">Clover Go Plus</h3>
+                    <p class="productSummary">Portable and versatile on‑the‑go system</p>
+                    <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- 2: Valor VL100 -->
-    <div class="product-grid-item valorVL100">
-        <div class="productInfo">
-            <h3 class="productTitle">Valor VL100</h3>
-            <p class="productSummary">Compact and reliable solution</p>
-            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
-        </div>
-    </div>
-
-    <!-- 3: Valor VL110 -->
-    <div class="product-grid-item valorVL110">
-        <div class="productInfo">
-            <h3 class="productTitle">Valor VL110</h3>
-            <p class="productSummary">Next‑gen portable accuracy</p>
-            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
-        </div>
-    </div>
-
-    <!-- 4: Clover Flex -->
-    <div class="product-grid-item cloverFlex">
-        <div class="productInfo">
-            <h3 class="productTitle">Clover Flex</h3>
-            <p class="productSummary">Light and flexible payment solution</p>
-            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
-        </div>
-    </div>
-
-    <!-- 5: Clover Mini -->
-    <div class="product-grid-item valorVP550">
-        <div class="productInfo">
-            <h3 class="productTitle">Valor VP550</h3>
-            <p class="productSummary">Small footprint, big capability</p>
-            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
-        </div>
-    </div>
-
-    
-
-
-    <!-- 6: Random Product C -->
-    <div class="product-grid-item cloverGoPlus">
-        <div class="productInfo">
-            <h3 class="productTitle">Clover Go Plus</h3>
-            <p class="productSummary">Portable and versatile on‑the‑go system</p>
-            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
-        </div>
-    </div>
-</div>
 
        
         <!-- Footer with Fewer Remote Controls -->
         <div class="carousel-footer withRemote">
             <div class="remoteControl">
+
+
+                <a id="toggle-view" class="view-toggle handHeldDevice" href="/supplies">
+                    <span>View all</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                        <path d="M8.25 4.5L15.75 12L8.25 19.5"
+                            stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+<!-- 
                 <button id="toggle-view" class="view-toggle handHeldDevice" aria-pressed="false">
                 <span>View all</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
                     <path d="M8.25 4.5L15.75 12L8.25 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               
-                </button>
+                </button> -->
             </div>
         </div>
     </div>
 
    
-        <!-- Add a new section Here and let its name be "Supplies" -->
-
-    <!-- Supplies section -->
-    <div class="section supplies-carousel-header">
-        <!-- Header with Remote Controls -->
-        <div class="carousel-header withRemote">
-            <div class="supplies-Header">
-                <h1 class="producCategoryheading title">Supplies</h1>
-            </div>
-            <div class="remoteControl">
-                <button class="carousel-prev view-toggle directionCarousel handHeldDevice" aria-pressed="false">
-                    <span>
-                        <!-- leftPrevArrow -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="icon leftarrow">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                        </svg>
-                    </span>
-                </button>
-
-                <button class="carousel-next view-toggle directionCarousel handHeldDevice" aria-pressed="false">
-                    <span>
-                        <!-- rightNextArrow -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="icon rightarrow">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                        </svg>
-                    </span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Supplies Carousel -->
-        <div class="carousel-window" data-carousel>
-            <div class="carousel-wrapper">
-
-                <!-- SLIDE ONE -->
-                <div class="slide">
-                    <div class="featured-product valorVP550">
-                        <h3 class="product-title">Choose Once, Choose Right</h3>
-                        <p class="product-intro">POS Paper Supplies - For Clover Station Duo, Clover Handhled, Dejavoo, and More.</p>
-                        <button class="btn-featured-products product-Btn-Desktop">
-                            Learn More <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- SLIDE TWO -->
-                <div class="slide">
-                    <div class="featured-product valorVP550">
-                        <h3 class="product-title">Ink Cartridges</h3>
-                        <p class="product-intro">Premium ink refills for POS printers</p>
-                        <button class="btn-featured-products product-Btn-Desktop">
-                            Learn More <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Supplies Grid (same style as handheld grid) -->
-        <div class="carousel-body product-grid-handheld">
-
-            <div class="product-grid-item valorVP800">
-                <div class="productInfo">
-                    <h3 class="productTitle">Thermal Paper</h3>
-                    <p class="productSummary">Durable & long-lasting rolls</p>
-                    <a class="productLink">View Product <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </span></a>
-                </div>
-            </div>
-
-            <div class="product-grid-item valorVL100">
-                <div class="productInfo">
-                    <h3 class="productTitle">Ink Refills</h3>
-                    <p class="productSummary">Compatible with major POS printers</p>
-                    <a class="productLink">View Product <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </span></a>
-                </div>
-            </div>
-
-            <div class="product-grid-item valorVL110">
-                <div class="productInfo">
-                    <h3 class="productTitle">Receipt Labels</h3>
-                    <p class="productSummary">High-quality adhesive labels</p>
-                    <a class="productLink">View Product <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </span></a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
+    
 
 
 <script>
@@ -699,59 +597,72 @@ document.querySelectorAll("[data-carousel]").forEach(setupCarousel);
 function setupCarousel(carouselEl) {
     const wrapper = carouselEl.querySelector(".carousel-wrapper");
 
-    // Get controls by looking for the closest parent ".section"
+    // Locate controls inside the same section
     const section = carouselEl.closest(".section");
     const prevBtn = section.querySelector(".carousel-prev");
     const nextBtn = section.querySelector(".carousel-next");
 
-    const slides = [...wrapper.children];
-    let currentIndex = 1;
+    const originalSlides = Array.from(wrapper.children);
 
-    // Clone for infinite loop
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
+    // Clone for looping
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
 
+    wrapper.insertBefore(lastClone, originalSlides[0]);
     wrapper.appendChild(firstClone);
-    wrapper.insertBefore(lastClone, slides[0]);
 
-    const allSlides = [...wrapper.children];
-    let slideWidth;
+    const slides = Array.from(wrapper.children);
 
+    let currentIndex = 1; // First REAL slide
+    let slideWidth = carouselEl.getBoundingClientRect().width;
+    let isMoving = false;
+
+    // Initial position
+    wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+
+    // Responsive update
     function updateSlideWidth() {
         slideWidth = carouselEl.getBoundingClientRect().width;
+        wrapper.style.transition = "none";
         wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
     }
-
-    updateSlideWidth();
     window.addEventListener("resize", updateSlideWidth);
 
     function moveTo(index) {
-        currentIndex = index;
+        if (isMoving) return; 
+        isMoving = true;
+
         wrapper.style.transition = "transform 0.4s ease";
-        wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
 
         wrapper.addEventListener(
             "transitionend",
             () => {
-                if (allSlides[currentIndex] === firstClone) {
+                // If at clone at end → jump back to actual first
+                if (slides[index] === firstClone) {
                     wrapper.style.transition = "none";
                     currentIndex = 1;
                     wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
                 }
-                if (allSlides[currentIndex] === lastClone) {
+                // If at clone at beginning → jump back to actual last
+                else if (slides[index] === lastClone) {
                     wrapper.style.transition = "none";
-                    currentIndex = slides.length;
+                    currentIndex = originalSlides.length;
                     wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                } else {
+                    currentIndex = index;
                 }
+                isMoving = false;
             },
             { once: true }
         );
     }
 
-    nextBtn.addEventListener("click", () => moveTo(currentIndex + 1));
     prevBtn.addEventListener("click", () => moveTo(currentIndex - 1));
+    nextBtn.addEventListener("click", () => moveTo(currentIndex + 1));
 }
 </script>
+
 
 
 <script>
@@ -760,45 +671,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const items = grid.querySelectorAll(".product-grid-item");
     const toggleBtn = document.getElementById("toggle-view");
 
-    let expanded = false;
-
-    function getDefaultCount() {
-        return window.innerWidth <= 1024 ? 4 : 3;
+    // ALWAYS SHOW 8 ITEMS ON LOAD
+    function showDefaultItems() {
+        items.forEach((item, index) => {
+            item.style.display = index < 8 ? "block" : "none";
+        });
     }
 
-    function updateGrid() {
-        const defaultCount = getDefaultCount();
+    showDefaultItems(); // initial load
 
-        if (expanded) {
-            // show all items
-            items.forEach(item =>
-                item.style.display = "block"
-            );
-            toggleBtn.querySelector("span").textContent = "View less";
-        } else {
-            // show only 3 or 4 depending on screen size
-            items.forEach((item, index) => {
-                item.style.display = index < defaultCount ? "block" : "none";
-            });
-            toggleBtn.querySelector("span").textContent = "View all";
-        }
-    }
-
+    // View all acts as redirect link
     toggleBtn.addEventListener("click", function () {
-        expanded = !expanded;
-        updateGrid();
+        window.location.href = "/supplies"; // <-- change to your target page
     });
-
-    // Recalculate if screen is resized
-    window.addEventListener("resize", function () {
-        if (!expanded) {
-            updateGrid();
-        }
-    });
-
-    updateGrid();
 });
 </script>
+
 
 </body>
 </html>
