@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <title>HandHeld Devices </title>
+
+    <style>
+ 
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --slide-count: 5; /* total number of slides */
+    --slide-and-container-width-singularUnit: 83vw;
+    --slide-and-container-height: 400px;
+    /* controls the slide viewer width per slide*/
+    /*We are using 1200px or 83vw or 83%*/
+}
+
+.carousel-header, .carousel-body, .carousel-footer{
+    width: var(--slide-and-container-width-singularUnit);
+    margin:0 auto;
+}
+
+.section.topProducts-carousel-header{
+    padding-top:4.375rem;
+
+}
+
+.carousel-window, .carousel-wrapper, .slide{
+    height: var(--slide-and-container-height);
+}
+
+
+/*GRID SYSTEM TEMPLATE FOR REUSE*/
+.carousel-body.product-grid-handheld{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:1rem;
+    padding-top:1rem;
+    padding-bottom: 2rem;
+}
+
+.carousel-body.product-grid-handheld.tablet{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:2rem;
+    padding-top:2rem;
+    padding-bottom: .5rem;
+}
+
+    .carousel-body.product-grid-handheld.mobile{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap:0rem;
+        padding-top:1rem;
+        padding-bottom: 1.5rem;
+    }
+
+
+    .carousel-body.product-grid-handheld div{
+        aspect-ratio: 18/25;
+        background-color: grey;
+    }
+
+    .featured-product{
+        padding:4rem 2rem;
+    }
+    .featured-product.valorVP550{
+        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:var(--slide-and-container-width-singularUnit);
+        height:var(--slide-and-container-height);
+    }
+
+
+    .carousel-window {
+        position: relative;
+        width: var(--slide-and-container-width-singularUnit);
+        overflow: hidden; /* hide overflow for carousel effect */
+        overflow: hidden;
+        margin:0 auto;
+    }
+
+    .carousel-wrapper {
+        top:0px;
+        left:0px;
+        position: absolute;
+        width: calc(var(--slide-count) * var(--slide-and-container-width-singularUnit)); /* dynamic width based on slide count */
+        display: flex; /* make slides line up horizontally */
+    }
+
+    .slide {
+        width: var(--slide-and-container-width-singularUnit) ; /* each slide takes full viewport width */
+        flex-shrink: 0; /* prevent shrinking */
+        padding:0rem;
+        /* display: flex; */
+        flex-direction: row;
+        align-self: center;
+        min-height:200px; /*Placeholder can be changed where necessary */
+        align-items: center;
+        background-color: rgb(214, 213, 213);
+    }
+
+    .textInfo-wrapper, .image-wrapper{
+        flex:1;
+        /* border:1px solid black; */
+    }
+
+
+
+    .textInfo-wrapper{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .cta-container-hero{
+        padding-top: 52px;
+        display: flex;
+        gap:1rem;
+    }
+
+
+    p.label-h1{
+            color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
+        font-family: Manrope;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16.8px; /* 120% */
+        min-height:16.8px;
+        
+    }
+
+    p.display{
+        color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
+
+        font-family: var(--font-family-Font-1, Manrope);
+        font-size: var(--line-height-18, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-23_4, 23.4px); /* 130% */
+        width: 340px;
+        max-width: 28ch;
+    }
+    
+    h1.producCategoryheading.title{
+    color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
+    /* us.store.bambulab.com/Semantic/Heading 2 */
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-44_2, 44.2px); /* 130% */
+    }
+ 
+    .carousel-header.withRemote{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 36px;
+    }
+
+    .view-toggle.handHeldDevice{
+        color: black;
+        border-radius:0px;
+        background-color: transparent;
+    }
+
+    .view-toggle.handHeldDevice svg, .btn-featured-products.product-Btn-Desktop svg{
+        transform: translateY(4px);
+    }
+     
+    .btn-featured-products.product-Btn-Desktop:hover{
+        background-color: white;
+
+    }
+
+    .btn-featured-products.product-Btn-Desktop{
+        margin-top:.8rem;
+    }
+
+   
+
+    .product-title{
+        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
+        font-size: var(--line-height-18, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-23_4, 23.4px); /* 130% */
+    }
+
+    .product-intro{
+        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-28_8, 28.8px); /* 120% */
+        padding:.75rem 0rem;
+
+    }
+
+
+
+
+
+
+/*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+    .slide{
+        /* margin:auto 0; */
+        background-color: #fff;
+        flex-direction: column;
+        padding:1rem;
+    }
+
+   
+    .textInfo-wrapper{
+        align-items: center; 
+        width: 100%;
+        padding:.5rem;
+    }
+
+    p.display, h1.heading.title{
+        width: 100%;
+    }
+        
+
+    p.display, h1.heading.title{
+        text-align: center;
+    }
+        
+
+    .image-wrapper{
+    /* position: absolute; */
+        position: relative;
+        right:0;
+        bottom:0%;
+        transform:translate(0%, 0%);
+        border:1px solid white;
+        width: 500px; /*Image container width to cover in d esktop version*/
+        height: 400px;
+        /* height: 100%; */
+    }
+
+  
+
+    p.display{
+        color: var(--TypographyColors-Subtitle, #788289);
+        text-align: center;
+
+        /* BBu.Mobile.P1 */
+        font-family: Manrope;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 150% */
+    }
+
+    h1.heading.title{
+    color: var(--TypographyColors-Title, #18374E);
+    text-align: center;
+
+    /* Mobile.H1 */
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52.8px; /* 120% */
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+    <div class="section topProducts-carousel-header">
+        <!-- Header with more Remote controls-->
+         <div class="carousel-header withRemote">
+            <div class="handHeldDevice-Header"><h1 class="producCategoryheading title">Handheld Devices</h1></div>
+            <div class="remoteControl">
+                <button id="toggle-view" class="view-toggle handHeldDevice" aria-pressed="false">
+                <span id="toggle-label">View all</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path d="M8.25 4.5L15.75 12L8.25 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                </button>
+            </div>
+         </div>    
+
+        <!-- Banner Carousel -->
+        <div class="carousel-window">
+            <div class="carousel-wrapper">
+                <div class="slide">
+                    <div class="featured-product valorVP550" >
+                        <h3 class="product-title">Valor VP 550                        
+                        </h3>
+                    
+                        <p class="product-intro">The complete portable solution</p>
+                        <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                            </span>
+                        </button>                       
+                    </div>
+                    
+                </div>
+            </div> 
+        </div>            
+
+        <!-- Body Product Container -->
+        <div class="carousel-body product-grid-handheld">
+            <div class="produc-grid-item">1</div>
+            <div class="produc-grid-item">2</div>
+            <div class="produc-grid-item">3</div>
+            <div class="produc-grid-item">4</div>
+        </div>
+        
+        <!-- Footer with Fewer Remote Controls -->
+        <div class="carousel-footer">Footer Remote Controls</div>
+    </div>
+     
+
+    <div class="carousel-wrapper-remote carousel-remote">
+        <button class="prev">
+            Left
+        </button>
+
+        <button class="next">
+            Right
+        </button>
+    </div>
+
+    
+    <script>
+const wrapper = document.querySelector(".carousel-wrapper");
+let slides = document.querySelectorAll(".carousel-wrapper .slide");
+
+let index = 1;
+let interval = null;
+// const autoSlideTime = 3000;
+
+// Clone first & last
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+firstClone.classList.add("clone");
+lastClone.classList.add("clone");
+
+wrapper.appendChild(firstClone);
+wrapper.insertBefore(lastClone, slides[0]);
+
+// Re-query slides after cloning
+slides = document.querySelectorAll(".carousel-wrapper .slide");
+let slideWidth = slides[0].clientWidth;
+
+// Start position
+wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+
+// Resize handling
+window.addEventListener("resize", () => {
+    slideWidth = slides[0].clientWidth;
+    wrapper.style.transition = "none";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+});
+
+// Move to next
+function nextSlide() {
+    if (index >= slides.length - 1) return;
+    index++;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+// Move to prev
+function prevSlide() {
+    if (index <= 0) return;
+    index--;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+// Loop correction
+wrapper.addEventListener("transitionend", () => {
+    if (slides[index].classList.contains("clone")) {
+        wrapper.style.transition = "none";
+        if (index === 0) {
+            index = slides.length - 2;
+        } else if (index === slides.length - 1) {
+            index = 1;
+        }
+        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    }
+});
+
+// Auto-slide
+function startAutoSlide() {
+    interval = setInterval(nextSlide, autoSlideTime);
+}
+function stopAutoSlide() {
+    clearInterval(interval);
+}
+wrapper.addEventListener("mouseenter", stopAutoSlide);
+wrapper.addEventListener("mouseleave", startAutoSlide);
+
+// Remote buttons
+document.querySelector(".carousel-remote .next").addEventListener("click", () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+});
+document.querySelector(".carousel-remote .prev").addEventListener("click", () => {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+});
+
+// Start
+// startAutoSlide();
+    </script>
+
+
+
+</body>
+
+
+
+
+
+
+</html>

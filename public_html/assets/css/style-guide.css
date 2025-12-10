@@ -430,6 +430,25 @@ p {
   color: #fff;
 }
 
+
+/* =========================================
+   SPECIAL PRODUCT CATEGORY BUTTONS
+   ========================================= */
+
+.btn-featured-products{         
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: var(--font-weight-400, 400);
+    line-height: var(--line-height-18, 18px); /* 150% */
+    border-radius: 8px;
+    background-color: transparent;
+    padding:.8rem 2rem;
+    border: 1px solid var(--Primary-Btn, #3C88C3);       
+    color:#3C88C3;
+}
+
+
+
 /* =========================================
    UTILITIES
    Background, Text, Borders
