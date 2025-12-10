@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <title>HandHeld Devices </title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --slide-count: 5; /* total number of slides */
+    --slide-and-container-width-singularUnit: 83vw;
+    --slide-and-container-height: 400px;
+    /* controls the slide viewer width per slide*/
+    /*We are using 1200px or 83vw or 83%*/
+}
+
+
+
+
+.carousel-header, .carousel-body, .carousel-footer{
+    width: var(--slide-and-container-width-singularUnit);
+    margin:0 auto;
+}
+
+.section.topProducts-carousel-header{
+    padding-top:4.375rem;
+
+}
+
+.carousel-window, .carousel-wrapper, .slide{
+    height: var(--slide-and-container-height);
+}
+
+
+/*GRID SYSTEM TEMPLATE FOR REUSE*/
+.carousel-body.product-grid-handheld{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:1rem;
+    padding-top:1rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+  
+
+    .carousel-body.product-grid-handheld .product-grid-item{
+        aspect-ratio: 18/25;
+        /* position: absolute; */
+    }
+
+    .product-grid-item{
+        position: relative;
+    }      
+
+    .productInfo{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        /* gap:4rem; */
+        height:200px;
+        padding: 1.5rem 2rem;
+        bottom:0;
+    }
+
+    .featured-product{
+        padding:4rem 2rem;
+    }
+
+    .featured-product.valorVP550{
+        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:var(--slide-and-container-width-singularUnit);
+        height:var(--slide-and-container-height);
+    }
+
+    .featured-product.valorVP800{
+        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP800--1200x400.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:var(--slide-and-container-width-singularUnit);
+        height:var(--slide-and-container-height);
+    }
+
+
+    .carousel-window {
+        position: relative;
+        width: var(--slide-and-container-width-singularUnit);
+        overflow: hidden; /* hide overflow for carousel effect */        
+        margin:0 auto;
+    }
+
+    /* .carousel-wrapper {
+        top:0px;
+        left:0px;
+        position: absolute;
+        width: calc(var(--slide-count) * var(--slide-and-container-width-singularUnit)); /* dynamic width based on slide count */
+        /* display: flex;  make slides line up horizontally  */
+  
+
+        .carousel-wrapper {
+        top:0px;
+        left:0px;
+        position: absolute;
+        display: flex; /* make slides line up horizontally */
+        width: max-content; /* let JS or content determine total width */
+    }
+
+
+    .slide {
+        width: var(--slide-and-container-width-singularUnit) ; /* each slide takes full viewport width */
+        flex-shrink: 0; /* prevent shrinking */
+        padding:0rem;
+        flex-direction: row;
+        align-self: center;
+        min-height:200px; /*Placeholder can be changed where necessary */
+        align-items: center;
+        background-color: rgb(214, 213, 213);
+    }
+
+    .textInfo-wrapper, .image-wrapper{
+        flex:1;
+    }
+
+    .textInfo-wrapper{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .cta-container-hero{
+        padding-top: 52px;
+        display: flex;
+        gap:1rem;
+    }
+
+
+    p.label-h1{
+            color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
+        font-family: Manrope;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16.8px; /* 120% */
+        min-height:16.8px;
+        
+    }
+
+    p.display{
+        color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
+
+        font-family: var(--font-family-Font-1, Manrope);
+        font-size: var(--line-height-18, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-23_4, 23.4px); /* 130% */
+        width: 340px;
+        max-width: 28ch;
+    }
+    
+    h1.producCategoryheading.title{
+    color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
+    /* us.store.bambulab.com/Semantic/Heading 2 */
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-44_2, 44.2px); /* 130% */
+    }
+ 
+    .carousel-header.withRemote{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 36px;
+    }
+
+
+    .view-toggle.handHeldDevice{
+        color: black;
+        border-radius:0px;
+        background-color: transparent;
+        padding:0;
+        ;        
+    }
+
+    .directionCarousel.handHeldDevice{
+        color: black;
+        border-radius:0px;
+        background-color: transparent;
+        padding:0;
+        border:1px solid #ccc;
+        border:1px solid #656572;        
+        width: var(--circle-size, 32px);
+        height: var(--circle-size, 32px);
+        background: var(--circle-color);        
+        border-radius: 50%; /* makes it a perfect circle */
+    }
+
+  
+
+
+
+
+    .view-toggle.handHeldDevice svg, .btn-featured-products.product-Btn-Desktop svg, .icon.rightArrow{
+        transform: translateY(3px);
+    }
+     
+    .btn-featured-products.product-Btn-Desktop:hover{
+        background-color: white;
+
+    }
+
+    .btn-featured-products.product-Btn-Desktop{
+        margin-top:.8rem;
+    }
+
+   
+
+    .product-title{
+        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
+        font-size: var(--line-height-18, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-23_4, 23.4px); /* 130% */
+    }
+
+    .product-intro{
+        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-28_8, 28.8px); /* 120% */
+        padding:.75rem 0rem;
+    }
+
+    a.productLink{
+        padding:1.5rem 0rem;   
+        cursor: pointer;                     
+    }
+
+   
+    .product-grid-item.valorVP800 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.valorVL100 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.valorVL110 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.cloverFlex {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.valorVP550 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.cloverGoPlus {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .remoteControl{
+        display: flex;
+        justify-content: end;
+        gap:.5rem;
+    }
+
+    .view-toggle.handHeldDevice:hover{
+        background-color: grey;
+        color:white;
+
+    }
+                    
+
+
+/*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE TABLE DEVICE*/
+@media (max-width:1024px) {
+ .carousel-body.product-grid-handheld{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:2rem;
+    padding-top:2rem;
+    padding-bottom: .5rem;
+    }
+
+}
+
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+    :root{
+        --slide-and-container-width-singularUnit:94vw;
+    }
+
+    .slide{
+        /* margin:auto 0; */
+        background-color: #fff;
+        flex-direction: column;
+        
+    }
+
+    .featured-product{
+        padding:2rem 1rem;
+    }
+
+    
+
+   
+    .textInfo-wrapper{
+        align-items: center; 
+        padding:.5rem;
+    }
+
+    p.display, h1.heading.title{
+        width: 100%;
+    }
+        
+
+    p.display, h1.heading.title{
+        text-align: center;
+    }
+
+    h1.producCategoryheading.title{
+        font-size:1.25em;
+    }
+    .remoteControl button{
+        font-size:.9rem;
+
+    }
+        
+
+    .image-wrapper{
+        position: relative;
+        right:0;
+        bottom:0%;
+        transform:translate(0%, 0%);
+        border:1px solid white;
+        width:var(--slide-and-container-width-singularUnit); /*Image container width to cover in d esktop version*/
+        height:var(var(--slide-and-container-height)) ;
+        /* height: 100%; */
+    }
+
+  
+
+    p.display{
+        color: var(--TypographyColors-Subtitle, #788289);
+        text-align: center;
+
+        /* BBu.Mobile.P1 */
+        font-family: Manrope;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 150% */
+    }
+
+    h1.heading.title{
+    color: var(--TypographyColors-Title, #18374E);
+    text-align: center;
+
+    /* Mobile.H1 */
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52.8px; /* 120% */
+    }
+
+    .carousel-body.product-grid-handheld{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        /* column-gap:0rem; */
+        gap:1rem;
+        padding-top:1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .remoteControl{
+                display: flex;
+                /* justify-content: center; */
+    }
+
+
+}
+
+</style>
+
+</head>
+<body>
+    <div class="section topProducts-carousel-header">
+        <!-- Header with more Remote controls-->
+         <div class="carousel-header withRemote">
+            <div class="handHeldDevice-Header"><h1 class="producCategoryheading title">Handheld Devices</h1></div>
+            <div class="remoteControl">
+                <button id="prevSlideBtn" class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                    <span>
+                                      
+                    <!-- leftPrevArrow -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon leftarrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+
+
+                </button>
+
+                <button id="nextSlideBtn" class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                    <span>                  
+
+                    <!-- rightNextArrow -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightarrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+
+                    </span>
+
+                </button>
+
+
+            </div>
+         </div>    
+
+        <!-- Banner Carousel -->
+        <div class="carousel-window">
+            <div class="carousel-wrapper">
+
+                <!-- SLIDE ONE -->
+                <div class="slide">
+                    <div class="featured-product valorVP550" >
+                        <h3 class="product-title">Valor VP 800                        
+                        </h3>
+                    
+                        <p class="product-intro">The complete portable solution</p>
+                        <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                            </span>
+                        </button>                       
+                    </div>
+                    
+                </div>
+
+                <!-- SLIDE TWO -->
+                <div class="slide">
+                    <div class="featured-product valorVP550" >
+                        <h3 class="product-title">Valor VP 550                        
+                        </h3>
+                    
+                        <p class="product-intro">The complete portable solution</p>
+                        <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                            </span>
+                        </button>                       
+                    </div>
+                    
+                </div>
+            </div> 
+        </div>            
+
+        <!-- Body Product Container -->
+        <!-- Updated Product Grid with 8 items -->
+<div id="productsGrid" class="carousel-body product-grid-handheld">
+    <!-- 1: Valor VP800 -->
+    <div class="product-grid-item valorVP800">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VP800</h3>
+            <p class="productSummary">High‑performance portable device</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    <!-- 2: Valor VL100 -->
+    <div class="product-grid-item valorVL100">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VL100</h3>
+            <p class="productSummary">Compact and reliable solution</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    <!-- 3: Valor VL110 -->
+    <div class="product-grid-item valorVL110">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VL110</h3>
+            <p class="productSummary">Next‑gen portable accuracy</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    <!-- 4: Clover Flex -->
+    <div class="product-grid-item cloverFlex">
+        <div class="productInfo">
+            <h3 class="productTitle">Clover Flex</h3>
+            <p class="productSummary">Light and flexible payment solution</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    <!-- 5: Clover Mini -->
+    <div class="product-grid-item valorVP550">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VP550</h3>
+            <p class="productSummary">Small footprint, big capability</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    
+
+
+    <!-- 8: Random Product C -->
+    <div class="product-grid-item cloverGoPlus">
+        <div class="productInfo">
+            <h3 class="productTitle">Clover Go Plus</h3>
+            <p class="productSummary">Portable and versatile on‑the‑go system</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+</div>
+
+       
+        <!-- Footer with Fewer Remote Controls -->
+        <div class="carousel-footer withRemote">
+            <div class="remoteControl">
+                <button id="toggle-view" class="view-toggle handHeldDevice" aria-pressed="false">
+                <span>View all</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path d="M8.25 4.5L15.75 12L8.25 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              
+                </button>
+            </div>
+        </div>
+    </div>
+     
+    <style>
+            
+    </style>
+
+
+    
+    
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const carouselWrapper = document.querySelector(".carousel-wrapper");
+  if (!carouselWrapper) return;
+
+  // initial slides (the real slides in the markup)
+  let slides = Array.from(carouselWrapper.querySelectorAll(".slide"));
+  if (slides.length === 0) return;
+
+  // CONFIG
+  const autoSlideTime = 3000; // 0 to disable
+  let currentIndex = 1; // start from 1 because we'll insert lastClone at start
+  let interval = null;
+
+  // Clone first and last (for infinite-loop effect)
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+  firstClone.dataset.clone = "first";
+  lastClone.dataset.clone = "last";
+
+  carouselWrapper.appendChild(firstClone);
+  carouselWrapper.insertBefore(lastClone, carouselWrapper.firstChild);
+
+  // Update slides list after cloning
+  slides = Array.from(carouselWrapper.querySelectorAll(".slide"));
+
+  // helper: compute single slide width and total width
+  function getSlideWidth() {
+    return slides[0].clientWidth;
+  }
+  function updateWrapperWidth() {
+    const slideWidth = getSlideWidth();
+    carouselWrapper.style.width = `${slideWidth * slides.length}px`;
+  }
+
+  // initial position (move to index 1 which is the first real slide)
+  function setInitialPosition() {
+    const slideWidth = getSlideWidth();
+    carouselWrapper.style.transition = "none";
+    carouselWrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    // force reflow then clear transition (helps with immediate positioning)
+    // eslint-disable-next-line no-unused-expressions
+    carouselWrapper.offsetHeight;
+    carouselWrapper.style.transition = "";
+  }
+
+  // Move (common)
+  function moveTo(index) {
+    currentIndex = index;
+    carouselWrapper.style.transition = "transform 0.5s ease-in-out";
+    carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentIndex}px)`;
+  }
+
+  function nextSlide() {
+    if (currentIndex >= slides.length - 1) return; // last item is firstClone
+    moveTo(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    if (currentIndex <= 0) return; // first item is lastClone
+    moveTo(currentIndex - 1);
+  }
+
+  // loop correction after transition ends
+  carouselWrapper.addEventListener("transitionend", () => {
+    const active = slides[currentIndex];
+    if (!active) return;
+
+    if (active.dataset.clone === "first") {
+      // jumped to first clone — snap to first real slide
+      carouselWrapper.style.transition = "none";
+      currentIndex = 1;
+      carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentIndex}px)`;
+      // update slides NodeList reference in case of layout changes
+      slides = Array.from(carouselWrapper.querySelectorAll(".slide"));
+      // reflow then clear transition
+      // eslint-disable-next-line no-unused-expressions
+      carouselWrapper.offsetHeight;
+      carouselWrapper.style.transition = "";
+    } else if (active.dataset.clone === "last") {
+      // jumped to last clone — snap to last real slide
+      carouselWrapper.style.transition = "none";
+      currentIndex = slides.length - 2;
+      carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentIndex}px)`;
+      slides = Array.from(carouselWrapper.querySelectorAll(".slide"));
+      // eslint-disable-next-line no-unused-expressions
+      carouselWrapper.offsetHeight;
+      carouselWrapper.style.transition = "";
+    }
+  });
+
+  // next / prev buttons
+  const nextBtn = document.getElementById("nextSlideBtn");
+  const prevBtn = document.getElementById("prevSlideBtn");
+  if (nextBtn) nextBtn.addEventListener("click", () => { stopAutoSlide(); nextSlide(); startAutoSlide(); });
+  if (prevBtn) prevBtn.addEventListener("click", () => { stopAutoSlide(); prevSlide(); startAutoSlide(); });
+
+  // auto slide controls
+  function startAutoSlide() {
+    if (autoSlideTime > 0) {
+      stopAutoSlide();
+      interval = setInterval(() => {
+        nextSlide();
+      }, autoSlideTime);
+    }
+  }
+  function stopAutoSlide() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+  }
+
+  // pause on hover
+  carouselWrapper.addEventListener("mouseenter", stopAutoSlide);
+  carouselWrapper.addEventListener("mouseleave", startAutoSlide);
+
+  // update sizes on load and on resize
+  function onResize() {
+    // Need to refresh slides NodeList (in case DOM changed)
+    slides = Array.from(carouselWrapper.querySelectorAll(".slide"));
+    updateWrapperWidth();
+    // reposition to the currentIndex (recalculate pixel value)
+    carouselWrapper.style.transition = "none";
+    carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentIndex}px)`;
+    // eslint-disable-next-line no-unused-expressions
+    carouselWrapper.offsetHeight;
+    carouselWrapper.style.transition = "";
+  }
+  window.addEventListener("resize", onResize);
+
+  // initial layout
+  updateWrapperWidth();
+  setInitialPosition();
+  startAutoSlide();
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const grid = document.getElementById("productsGrid");
+    const items = grid.querySelectorAll(".product-grid-item");
+    const toggleBtn = document.getElementById("toggle-view");
+
+    let expanded = false;
+
+    function getDefaultCount() {
+        return window.innerWidth <= 1024 ? 4 : 3;
+    }
+
+    function updateGrid() {
+        const defaultCount = getDefaultCount();
+
+        if (expanded) {
+            // show all items
+            items.forEach(item =>
+                item.style.display = "block"
+            );
+            toggleBtn.querySelector("span").textContent = "View less";
+        } else {
+            // show only 3 or 4 depending on screen size
+            items.forEach((item, index) => {
+                item.style.display = index < defaultCount ? "block" : "none";
+            });
+            toggleBtn.querySelector("span").textContent = "View all";
+        }
+    }
+
+    toggleBtn.addEventListener("click", function () {
+        expanded = !expanded;
+        updateGrid();
+    });
+
+    // Recalculate if screen is resized
+    window.addEventListener("resize", function () {
+        if (!expanded) {
+            updateGrid();
+        }
+    });
+
+    updateGrid();
+});
+</script>
+
+</body>
+
+
+
+
+
+
+</html>
