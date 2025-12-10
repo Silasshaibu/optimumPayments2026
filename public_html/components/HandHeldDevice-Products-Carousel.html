@@ -114,7 +114,6 @@
         width: var(--slide-and-container-width-singularUnit) ; /* each slide takes full viewport width */
         flex-shrink: 0; /* prevent shrinking */
         padding:0rem;
-        /* display: flex; */
         flex-direction: row;
         align-self: center;
         min-height:200px; /*Placeholder can be changed where necessary */
@@ -124,7 +123,6 @@
 
     .textInfo-wrapper, .image-wrapper{
         flex:1;
-        /* border:1px solid black; */
     }
 
     .textInfo-wrapper{
@@ -196,7 +194,8 @@
         border-radius:0px;
         background-color: transparent;
         padding:0;
-        border:1px solid black;
+        border:1px solid #ccc;
+        border:1px solid #656572;        
         width: var(--circle-size, 32px);
         height: var(--circle-size, 32px);
         background: var(--circle-color);        
@@ -288,6 +287,11 @@
         gap:.5rem;
     }
 
+    .view-toggle.handHeldDevice:hover{
+        background-color: grey;
+        color:white;
+
+    }
                     
 
 
@@ -406,7 +410,7 @@
          <div class="carousel-header withRemote">
             <div class="handHeldDevice-Header"><h1 class="producCategoryheading title">Handheld Devices</h1></div>
             <div class="remoteControl">
-                <button class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                <button id="prevSlideBtn" class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
                     <span>
                                       
                     <!-- leftPrevArrow -->
@@ -417,7 +421,7 @@
 
                 </button>
 
-                <button class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                <button id="nextSlideBtn" class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
                     <span>                  
 
                     <!-- rightNextArrow -->
@@ -436,6 +440,25 @@
         <!-- Banner Carousel -->
         <div class="carousel-window">
             <div class="carousel-wrapper">
+
+                <!-- SLIDE ONE -->
+                <div class="slide">
+                    <div class="featured-product valorVP550" >
+                        <h3 class="product-title">Valor VP 800                        
+                        </h3>
+                    
+                        <p class="product-intro">The complete portable solution</p>
+                        <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                            </span>
+                        </button>                       
+                    </div>
+                    
+                </div>
+
+                <!-- SLIDE TWO -->
                 <div class="slide">
                     <div class="featured-product valorVP550" >
                         <h3 class="product-title">Valor VP 550                        
@@ -536,92 +559,111 @@
 
 
     
-    <script>
-const wrapper = document.querySelector(".carousel-wrapper");
-let slides = document.querySelectorAll(".carousel-wrapper .slide");
+    
 
-let index = 1;
-let interval = null;
-// const autoSlideTime = 3000;
 
-// Clone first & last
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
-firstClone.classList.add("clone");
-lastClone.classList.add("clone");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-wrapper.appendChild(firstClone);
-wrapper.insertBefore(lastClone, slides[0]);
+    // SELECT ELEMENTS
+    const carouselWrapper = document.querySelector(".carousel-wrapper");
+    const slides = document.querySelectorAll(".slide");
+    const nextBtn = document.getElementById("nextSlideBtn");
+    const prevBtn = document.getElementById("prevSlideBtn");
 
-// Re-query slides after cloning
-slides = document.querySelectorAll(".carousel-wrapper .slide");
-let slideWidth = slides[0].clientWidth;
+    // CONFIG
+    const autoSlideTime = 3000; // Set to 0 if you want no auto-slide
 
-// Start position
-wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    let currentSlide = 1;
+    let interval;
 
-// Resize handling
-window.addEventListener("resize", () => {
-    slideWidth = slides[0].clientWidth;
-    wrapper.style.transition = "none";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-});
+    // DUPLICATE FIRST AND LAST SLIDES
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
 
-// Move to next
-function nextSlide() {
-    if (index >= slides.length - 1) return;
-    index++;
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-}
+    firstClone.id = "first-clone";
+    lastClone.id = "last-clone";
 
-// Move to prev
-function prevSlide() {
-    if (index <= 0) return;
-    index--;
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-}
+    carouselWrapper.appendChild(firstClone);
+    carouselWrapper.insertBefore(lastClone, carouselWrapper.firstChild);
 
-// Loop correction
-wrapper.addEventListener("transitionend", () => {
-    if (slides[index].classList.contains("clone")) {
-        wrapper.style.transition = "none";
-        if (index === 0) {
-            index = slides.length - 2;
-        } else if (index === slides.length - 1) {
-            index = 1;
-        }
-        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    // UPDATE SLIDE WIDTHS
+    function getSlideWidth() {
+        return document.querySelector(".slide").clientWidth;
     }
-});
 
-// Auto-slide
-function startAutoSlide() {
-    interval = setInterval(nextSlide, autoSlideTime);
-}
-function stopAutoSlide() {
-    clearInterval(interval);
-}
-wrapper.addEventListener("mouseenter", stopAutoSlide);
-wrapper.addEventListener("mouseleave", startAutoSlide);
+    // INITIAL POSITION
+    carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
 
-// Remote buttons
-document.querySelector(".carousel-remote .next").addEventListener("click", () => {
-    stopAutoSlide();
-    nextSlide();
+    // MOVE TO NEXT SLIDE
+    function nextSlide() {
+        if (currentSlide >= slides.length + 1) return;
+        currentSlide++;
+        moveCarousel();
+    }
+
+    // MOVE TO PREVIOUS SLIDE
+    function prevSlide() {
+        if (currentSlide <= 0) return;
+        currentSlide--;
+        moveCarousel();
+    }
+
+    // APPLY TRANSITION
+    function moveCarousel() {
+        carouselWrapper.style.transition = "transform 0.5s ease-in-out";
+        carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
+    }
+
+    // HANDLE LOOP RESET
+    carouselWrapper.addEventListener("transitionend", () => {
+        if (carouselWrapper.children[currentSlide].id === "first-clone") {
+            carouselWrapper.style.transition = "none";
+            currentSlide = 1;
+            carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
+        }
+        if (carouselWrapper.children[currentSlide].id === "last-clone") {
+            carouselWrapper.style.transition = "none";
+            currentSlide = slides.length;
+            carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
+        }
+    });
+
+    // BUTTON EVENTS
+    if (nextBtn) nextBtn.addEventListener("click", () => {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+    });
+
+    if (prevBtn) prevBtn.addEventListener("click", () => {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
+    });
+
+    // AUTO SLIDE
+    function startAutoSlide() {
+        if (autoSlideTime > 0) {
+            interval = setInterval(nextSlide, autoSlideTime);
+        }
+    }
+
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
+
     startAutoSlide();
-});
-document.querySelector(".carousel-remote .prev").addEventListener("click", () => {
-    stopAutoSlide();
-    prevSlide();
-    startAutoSlide();
+
+    // RESIZE HANDLING
+    window.addEventListener("resize", () => {
+        carouselWrapper.style.transition = "none";
+        carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
+    });
+
 });
 
-// Start
-// startAutoSlide();
-    </script>
-
+</script>
 
 
 </body>
