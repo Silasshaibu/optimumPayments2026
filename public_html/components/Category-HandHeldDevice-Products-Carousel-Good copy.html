@@ -15,7 +15,6 @@
 }
 
 :root {
-    --slide-count: 5; /* total number of slides */
     --slide-and-container-width-singularUnit: 83vw;
     --slide-and-container-height: 400px;
     /* controls the slide viewer width per slide*/
@@ -51,7 +50,7 @@
 }
   
 
-    .carousel-body.product-grid-handheld div{
+    .carousel-body.product-grid-handheld .product-grid-item{
         aspect-ratio: 18/25;
         /* position: absolute; */
     }
@@ -102,13 +101,22 @@
         margin:0 auto;
     }
 
-    .carousel-wrapper {
+    /* .carousel-wrapper {
         top:0px;
         left:0px;
         position: absolute;
         width: calc(var(--slide-count) * var(--slide-and-container-width-singularUnit)); /* dynamic width based on slide count */
+        /* display: flex;  make slides line up horizontally  */
+  
+
+        .carousel-wrapper {
+        top:0px;
+        left:0px;
+        position: absolute;
         display: flex; /* make slides line up horizontally */
+        width: max-content; /* let JS or content determine total width */
     }
+
 
     .slide {
         width: var(--slide-and-container-width-singularUnit) ; /* each slide takes full viewport width */
@@ -321,6 +329,10 @@
         
     }
 
+    .featured-product{
+        padding:2rem 1rem;
+    }
+
     
 
    
@@ -405,12 +417,13 @@
 
 </head>
 <body>
+    <!-- Top Products section -->
     <div class="section topProducts-carousel-header">
         <!-- Header with more Remote controls-->
          <div class="carousel-header withRemote">
             <div class="handHeldDevice-Header"><h1 class="producCategoryheading title">Handheld Devices</h1></div>
             <div class="remoteControl">
-                <button id="prevSlideBtn" class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                <button  class="carousel-prev view-toggle directionCarousel handHeldDevice" aria-pressed="false">
                     <span>
                                       
                     <!-- leftPrevArrow -->
@@ -421,7 +434,7 @@
 
                 </button>
 
-                <button id="nextSlideBtn" class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                <button class="carousel-next view-toggle directionCarousel handHeldDevice" aria-pressed="false">
                     <span>                  
 
                     <!-- rightNextArrow -->
@@ -438,7 +451,7 @@
          </div>    
 
         <!-- Banner Carousel -->
-        <div class="carousel-window">
+        <div class="carousel-window" data-carousel>
             <div class="carousel-wrapper">
 
                 <!-- SLIDE ONE -->
@@ -478,7 +491,7 @@
         </div>            
 
         <!-- Body Product Container -->
-        <!-- Updated Product Grid with 8 items -->
+        <!-- Updated Product Grid with 6 items -->
 <div id="productsGrid" class="carousel-body product-grid-handheld">
     <!-- 1: Valor VP800 -->
     <div class="product-grid-item valorVP800">
@@ -528,7 +541,7 @@
     
 
 
-    <!-- 8: Random Product C -->
+    <!-- 6: Random Product C -->
     <div class="product-grid-item cloverGoPlus">
         <div class="productInfo">
             <h3 class="productTitle">Clover Go Plus</h3>
@@ -552,119 +565,193 @@
             </div>
         </div>
     </div>
-     
-    <style>
-            
-    </style>
 
+   
+        <!-- Add a new section Here and let its name be "Supplies" -->
 
-    
-    
+    <!-- Supplies section -->
+    <div class="section supplies-carousel-header">
+        <!-- Header with Remote Controls -->
+        <div class="carousel-header withRemote">
+            <div class="supplies-Header">
+                <h1 class="producCategoryheading title">Supplies</h1>
+            </div>
+            <div class="remoteControl">
+                <button class="carousel-prev view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                    <span>
+                        <!-- leftPrevArrow -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="icon leftarrow">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                        </svg>
+                    </span>
+                </button>
+
+                <button class="carousel-next view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                    <span>
+                        <!-- rightNextArrow -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="icon rightarrow">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Supplies Carousel -->
+        <div class="carousel-window" data-carousel>
+            <div class="carousel-wrapper">
+
+                <!-- SLIDE ONE -->
+                <div class="slide">
+                    <div class="featured-product valorVP550">
+                        <h3 class="product-title">Choose Once, Choose Right</h3>
+                        <p class="product-intro">POS Paper Supplies - For Clover Station Duo, Clover Handhled, Dejavoo, and More.</p>
+                        <button class="btn-featured-products product-Btn-Desktop">
+                            Learn More <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SLIDE TWO -->
+                <div class="slide">
+                    <div class="featured-product valorVP550">
+                        <h3 class="product-title">Ink Cartridges</h3>
+                        <p class="product-intro">Premium ink refills for POS printers</p>
+                        <button class="btn-featured-products product-Btn-Desktop">
+                            Learn More <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Supplies Grid (same style as handheld grid) -->
+        <div class="carousel-body product-grid-handheld">
+
+            <div class="product-grid-item valorVP800">
+                <div class="productInfo">
+                    <h3 class="productTitle">Thermal Paper</h3>
+                    <p class="productSummary">Durable & long-lasting rolls</p>
+                    <a class="productLink">View Product <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </span></a>
+                </div>
+            </div>
+
+            <div class="product-grid-item valorVL100">
+                <div class="productInfo">
+                    <h3 class="productTitle">Ink Refills</h3>
+                    <p class="productSummary">Compatible with major POS printers</p>
+                    <a class="productLink">View Product <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </span></a>
+                </div>
+            </div>
+
+            <div class="product-grid-item valorVL110">
+                <div class="productInfo">
+                    <h3 class="productTitle">Receipt Labels</h3>
+                    <p class="productSummary">High-quality adhesive labels</p>
+                    <a class="productLink">View Product <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </span></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+document.querySelectorAll("[data-carousel]").forEach(setupCarousel);
 
-    // SELECT ELEMENTS
-    const carouselWrapper = document.querySelector(".carousel-wrapper");
-    const slides = document.querySelectorAll(".slide");
-    const nextBtn = document.getElementById("nextSlideBtn");
-    const prevBtn = document.getElementById("prevSlideBtn");
+function setupCarousel(carouselEl) {
+    const wrapper = carouselEl.querySelector(".carousel-wrapper");
 
-    // CONFIG
-    const autoSlideTime = 3000; // Set to 0 if you want no auto-slide
+    // Get controls by looking for the closest parent ".section"
+    const section = carouselEl.closest(".section");
+    const prevBtn = section.querySelector(".carousel-prev");
+    const nextBtn = section.querySelector(".carousel-next");
 
-    let currentSlide = 1;
-    let interval;
+    const slides = [...wrapper.children];
+    let currentIndex = 1;
 
-    // DUPLICATE FIRST AND LAST SLIDES
+    // Clone for infinite loop
     const firstClone = slides[0].cloneNode(true);
     const lastClone = slides[slides.length - 1].cloneNode(true);
 
-    firstClone.id = "first-clone";
-    lastClone.id = "last-clone";
+    wrapper.appendChild(firstClone);
+    wrapper.insertBefore(lastClone, slides[0]);
 
-    carouselWrapper.appendChild(firstClone);
-    carouselWrapper.insertBefore(lastClone, carouselWrapper.firstChild);
+    const allSlides = [...wrapper.children];
+    let slideWidth;
 
-    // UPDATE SLIDE WIDTHS
-    function getSlideWidth() {
-        return document.querySelector(".slide").clientWidth;
+    function updateSlideWidth() {
+        slideWidth = carouselEl.getBoundingClientRect().width;
+        wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
     }
 
-    // INITIAL POSITION
-    carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
+    updateSlideWidth();
+    window.addEventListener("resize", updateSlideWidth);
 
-    // MOVE TO NEXT SLIDE
-    function nextSlide() {
-        if (currentSlide >= slides.length + 1) return;
-        currentSlide++;
-        moveCarousel();
+    function moveTo(index) {
+        currentIndex = index;
+        wrapper.style.transition = "transform 0.4s ease";
+        wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+
+        wrapper.addEventListener(
+            "transitionend",
+            () => {
+                if (allSlides[currentIndex] === firstClone) {
+                    wrapper.style.transition = "none";
+                    currentIndex = 1;
+                    wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                }
+                if (allSlides[currentIndex] === lastClone) {
+                    wrapper.style.transition = "none";
+                    currentIndex = slides.length;
+                    wrapper.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                }
+            },
+            { once: true }
+        );
     }
 
-    // MOVE TO PREVIOUS SLIDE
-    function prevSlide() {
-        if (currentSlide <= 0) return;
-        currentSlide--;
-        moveCarousel();
-    }
-
-    // APPLY TRANSITION
-    function moveCarousel() {
-        carouselWrapper.style.transition = "transform 0.5s ease-in-out";
-        carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
-    }
-
-    // HANDLE LOOP RESET
-    carouselWrapper.addEventListener("transitionend", () => {
-        if (carouselWrapper.children[currentSlide].id === "first-clone") {
-            carouselWrapper.style.transition = "none";
-            currentSlide = 1;
-            carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
-        }
-        if (carouselWrapper.children[currentSlide].id === "last-clone") {
-            carouselWrapper.style.transition = "none";
-            currentSlide = slides.length;
-            carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
-        }
-    });
-
-    // BUTTON EVENTS
-    if (nextBtn) nextBtn.addEventListener("click", () => {
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide();
-    });
-
-    if (prevBtn) prevBtn.addEventListener("click", () => {
-        stopAutoSlide();
-        prevSlide();
-        startAutoSlide();
-    });
-
-    // AUTO SLIDE
-    function startAutoSlide() {
-        if (autoSlideTime > 0) {
-            interval = setInterval(nextSlide, autoSlideTime);
-        }
-    }
-
-    function stopAutoSlide() {
-        clearInterval(interval);
-    }
-
-    startAutoSlide();
-
-    // RESIZE HANDLING
-    window.addEventListener("resize", () => {
-        carouselWrapper.style.transition = "none";
-        carouselWrapper.style.transform = `translateX(-${getSlideWidth() * currentSlide}px)`;
-    });
-
-});
-
+    nextBtn.addEventListener("click", () => moveTo(currentIndex + 1));
+    prevBtn.addEventListener("click", () => moveTo(currentIndex - 1));
+}
 </script>
-
 
 
 <script>
@@ -714,10 +801,4 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </body>
-
-
-
-
-
-
 </html>
