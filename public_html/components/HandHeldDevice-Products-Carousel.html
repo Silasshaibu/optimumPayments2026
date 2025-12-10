@@ -49,9 +49,7 @@
     padding-bottom: 2rem;
     position: relative;
 }
-
-
-    
+  
 
     .carousel-body.product-grid-handheld div{
         aspect-ratio: 18/25;
@@ -184,14 +182,34 @@
         padding-bottom: 36px;
     }
 
+
     .view-toggle.handHeldDevice{
         color: black;
         border-radius:0px;
         background-color: transparent;
+        padding:0;
+        ;        
     }
 
+    .directionCarousel.handHeldDevice{
+        color: black;
+        border-radius:0px;
+        background-color: transparent;
+        padding:0;
+        border:1px solid black;
+        width: var(--circle-size, 32px);
+        height: var(--circle-size, 32px);
+        background: var(--circle-color);        
+        border-radius: 50%; /* makes it a perfect circle */
+    }
+
+  
+
+
+
+
     .view-toggle.handHeldDevice svg, .btn-featured-products.product-Btn-Desktop svg, .icon.rightArrow{
-        transform: translateY(4px);
+        transform: translateY(3px);
     }
      
     .btn-featured-products.product-Btn-Desktop:hover{
@@ -264,6 +282,11 @@
         background-position: center;
     }
 
+    .remoteControl{
+                display: flex;
+                justify-content: end;
+    }
+
                     
 
 
@@ -282,12 +305,18 @@
 
 /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
 @media (max-width:768px) {
+    :root{
+        --slide-and-container-width-singularUnit:94vw;
+    }
+
     .slide{
         /* margin:auto 0; */
         background-color: #fff;
         flex-direction: column;
         
     }
+
+    
 
    
     .textInfo-wrapper{
@@ -353,9 +382,15 @@
     .carousel-body.product-grid-handheld{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        gap:0rem;
+        /* column-gap:0rem; */
+        gap:1rem;
         padding-top:1rem;
         padding-bottom: 1.5rem;
+    }
+
+    .remoteControl{
+                display: flex;
+                /* justify-content: center; */
     }
 
 
@@ -370,11 +405,13 @@
          <div class="carousel-header withRemote">
             <div class="handHeldDevice-Header"><h1 class="producCategoryheading title">Handheld Devices</h1></div>
             <div class="remoteControl">
-                <button id="toggle-view" class="view-toggle handHeldDevice" aria-pressed="false">
-                <span id="toggle-label">View all</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-                    <path d="M8.25 4.5L15.75 12L8.25 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <button id="toggle-view" class="view-toggle directionCarousel handHeldDevice" aria-pressed="false">
+                <span id="toggle-label"></span>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightarrow">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
+
                 </button>
             </div>
          </div>    
@@ -467,19 +504,22 @@
     
   </style>
         <!-- Footer with Fewer Remote Controls -->
-        <div class="carousel-footer">Footer Remote Controls</div>
+        <div class="carousel-footer withRemote">
+            <div class="remoteControl">
+                <button id="toggle-view" class="view-toggle handHeldDevice" aria-pressed="false">
+                <span id="toggle-label">View all</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path d="M8.25 4.5L15.75 12L8.25 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                </button>
+            </div>
+        </div>
     </div>
      
+    <style>
+            
+    </style>
 
-    <div class="carousel-wrapper-remote carousel-remote">
-        <button class="prev">
-            Left
-        </button>
-
-        <button class="next">
-            Right
-        </button>
-    </div>
 
     
     <script>
