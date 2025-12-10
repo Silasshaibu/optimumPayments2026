@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="../assets/css/style-guide.css">
     <title>HandHeld Devices </title>
 
-    <style>
- 
+<style>
 
 *{
     margin:0;
@@ -51,32 +50,17 @@
     position: relative;
 }
 
-.carousel-body.product-grid-handheld.tablet{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:2rem;
-    padding-top:2rem;
-    padding-bottom: .5rem;
-}
 
-    .carousel-body.product-grid-handheld.mobile{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap:0rem;
-        padding-top:1rem;
-        padding-bottom: 1.5rem;
-    }
+    
 
     .carousel-body.product-grid-handheld div{
         aspect-ratio: 18/25;
-        border:1px solid grey;
         /* position: absolute; */
     }
 
     .product-grid-item{
         position: relative;
-    }  
-    
+    }      
 
     .productInfo{
         position: absolute;
@@ -88,7 +72,6 @@
         height:200px;
         padding: 1.5rem 2rem;
         bottom:0;
-
     }
 
     .featured-product{
@@ -112,7 +95,6 @@
         width:var(--slide-and-container-width-singularUnit);
         height:var(--slide-and-container-height);
     }
-
 
 
     .carousel-window {
@@ -146,8 +128,6 @@
         flex:1;
         /* border:1px solid black; */
     }
-
-
 
     .textInfo-wrapper{
         position: relative;
@@ -240,15 +220,14 @@
         font-weight: var(--font-weight-700, 700);
         line-height: var(--line-height-28_8, 28.8px); /* 120% */
         padding:.75rem 0rem;
-
-
-
     }
 
     a.productLink{
-        padding:1.5rem 0rem;                        
+        padding:1.5rem 0rem;   
+        cursor: pointer;                     
     }
 
+   
     .product-grid-item.valorVP800 {
         background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
         background-size: cover;
@@ -291,13 +270,15 @@
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 /*THE TABLE DEVICE*/
 @media (max-width:1024px) {
- 
+ .carousel-body.product-grid-handheld{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:2rem;
+    padding-top:2rem;
+    padding-bottom: .5rem;
+    }
+
 }
-
-
-
-
-
 
 /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
 @media (max-width:768px) {
@@ -321,6 +302,14 @@
 
     p.display, h1.heading.title{
         text-align: center;
+    }
+
+    h1.producCategoryheading.title{
+        font-size:1.25em;
+    }
+    .remoteControl button{
+        font-size:.9rem;
+
     }
         
 
@@ -360,6 +349,15 @@
     font-weight: 700;
     line-height: 52.8px; /* 120% */
     }
+
+    .carousel-body.product-grid-handheld{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap:0rem;
+        padding-top:1rem;
+        padding-bottom: 1.5rem;
+    }
+
 
 }
 
