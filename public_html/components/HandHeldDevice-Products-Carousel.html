@@ -479,7 +479,7 @@
 
         <!-- Body Product Container -->
         <!-- Updated Product Grid with 8 items -->
-<div class="carousel-body product-grid-handheld">
+<div id="productsGrid" class="carousel-body product-grid-handheld">
     <!-- 1: Valor VP800 -->
     <div class="product-grid-item valorVP800">
         <div class="productInfo">
@@ -663,6 +663,35 @@
 
 });
 
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const grid = document.getElementById("productsGrid");
+    const items = grid.querySelectorAll(".product-grid-item");
+    const toggleBtn = document.getElementById("toggle-view");
+
+    let expanded = false;
+
+    function updateGrid() {
+        if (expanded) {
+            items.forEach(item => item.style.display = "block");
+            toggleBtn.querySelector("span").textContent = "View less";
+        } else {
+            items.forEach((item, index) => {
+                item.style.display = index < 3 ? "block" : "none";
+            });
+            toggleBtn.querySelector("span").textContent = "View all";
+        }
+    }
+
+    toggleBtn.addEventListener("click", function () {
+        expanded = !expanded;
+        updateGrid();
+    });
+
+    updateGrid();
+});
 </script>
 
 
