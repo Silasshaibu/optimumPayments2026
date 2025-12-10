@@ -148,75 +148,170 @@
 /* --- Product Grid & Aside Banner --- */
 .product-section {
     display: flex;
-    gap: 20px;
-    padding: 20px 0;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
 }
 .advertBanner-aside {
-    width: 250px;
     background-color: #f5f5f5;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-self: flex-start;
     font-weight: bold;
     font-family: Manrope, sans-serif;
+    min-width: 200px;
+    min-height: 500px;
+    height: fit-content;
     padding: 10px;
     text-align: center;
 }
-.products {
+
+   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    flex: 1;
+    gap: 1rem;
+    grid-template-columns: repeat(5, 1fr); /* Default for mobile */
 }
-.product-item {
-    background-color: #ffffff;
-    border: 1px solid #DDDDDD;
-    padding: 10px;
-    font-family: Manrope, sans-serif;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.product-item:hover {
-    transform: scale(1.05);
-    z-index: 2;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.product-item .availability-badge {
-    background-color: #1c6ba0;
-    color: white;
-    padding: 4px 6px;
-    font-size: 12px;
-    margin-bottom: 8px;
-}
-.product-item .product-image img {
+
+
+    .single-product-image {
     width: 100%;
-    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     display: block;
 }
-.product-item .product-info {
-    margin-top: 8px;
+
+
+.single-product-data{
+            display: grid;
+            padding-bottom:8px;
+            justify-items: start;
+        }
+
+       
+
+        .single-product-container{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--item-spacing-20_01, 20.01px);
+        flex-shrink: 0;
+        }
+
+
+        .badge-Available{
+            color: var(--us-store-bambulab-com-dove-gray, var(--color-grey-42, #6A6A6A));
+
+            font-size: var(--font-size-11, 11px);
+            
+            font-weight: var(--font-weight-500, 500);
+            line-height: var(--line-height-17_29, 17.29px); /* 157.182% */
+        }
+
+        p.single-product-title{
+            color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-11, #1C1B1B));
+           
+            font-size: var(--font-size-14, 14px);
+            
+            font-weight: var(--font-weight-500, 500);
+            line-height: var(--line-height-22, 22px); /* 157.143% */
+        }
+
+        .cta-shop.buy-now{  
+            color: var(--us-store-bambulab-com-red, #F00);
+          
+            font-size: var(--font-size-14, 14px);
+           
+            font-weight: 600;
+            padding:0;
+            background-color: transparent;
+            border-radius:0px;
+            line-height: var(--line-height-22, 22px); /* 157.143% */
+
+        }
+
+        .cta-shop.buy-now:hover{
+            color:var(--color-primary);
+        }
+
+    .product-container{        
+        margin:0 auto;
+        padding:0px 8%;
+
+    }
+
+    .badge-Available {
+        background: #e6e6e6;
+        padding: 2px 6px;
+        /* border-radius: 4px; */
+        display: inline-block;
+    }
+
+    .refine-btn {
+    /* background: #1c6ba0; */
+    }
+    .refine-btn:hover {
+        /* background: #043d6b; */
+    }
+
+    .products{
+        padding-top:.5rem;
+        padding-left:.5rem;
+    }
+
+
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+     .product-section.container{   
+        padding:0rem 5%;
+
+   
+
+    }
+
+     .products {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
 }
-.product-item .product-name {
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 4px;
-}
-.product-item .buy-now {
-    font-weight: 700;
-    font-size: 13px;
-    color: #1c6ba0;
-    cursor: pointer;
-}
+
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
+
+    .advertBanner-aside{
+        display: none;
+    }
+
     .product-section {
         flex-direction: column;
     }
-    .advertBanner-aside {
-        width: 100%;
+
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+   
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 550px) {
+    .product-section.container{   
+        padding:0rem 1%;
+
+    }
+
+     .products {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
+
+  
+
+
+
+
 </style>
 </head>
 <body>
@@ -263,33 +358,140 @@
 </div>
 
 <!-- Product Section with Aside Banner -->
-<div class="product-section container">
+<!-- Product Section with Aside Banner -->
+<div class="product-section product-container">
     <div class="advertBanner-aside">Shop Banner / Advertisement</div>
+
     <div class="products" id="productsGrid">
-        <!-- Product examples -->
-        <div class="product-item">
-            <div class="availability-badge"><div class="badge-text">Available in November</div></div>
-            <div class="product-image"><img src="https://placehold.co/231x231" alt="Star Micronics SP700"></div>
-            <div class="product-info"><div class="product-name">Star Micronics SP700</div><div class="buy-now">Buy Now</div></div>
-        </div>
-        <div class="product-item">
-            <div class="availability-badge"><div class="badge-text">Available in December</div></div>
-            <div class="product-image"><img src="https://placehold.co/231x231" alt="Epson TM-T20III"></div>
-            <div class="product-info"><div class="product-name">Epson TM-T20III</div><div class="buy-now">Buy Now</div></div>
-        </div>
-        <div class="product-item">
-            <div class="availability-badge"><div class="badge-text">Available in January</div></div>
-            <div class="product-image"><img src="https://placehold.co/231x231" alt="Star TSP100"></div>
-            <div class="product-info"><div class="product-name">Star TSP100</div><div class="buy-now">Buy Now</div></div>
-        </div>
-        <div class="product-item">
-            <div class="availability-badge"><div class="badge-text">Available Now</div></div>
-            <div class="product-image"><img src="https://placehold.co/231x231" alt="POS Printer Model X"></div>
-            <div class="product-info"><div class="product-name">POS Printer Model X</div><div class="buy-now">Buy Now</div></div>
-        </div>
-        <!-- Add more products as needed -->
+
+        <!-- 1. Clover Barcode Scanner -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/ClvoerHandScanner-2d.jpg"
+         alt="Clover Barcode Scanner">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Barcode Scanner</p>
+        <button class="cta-shop buy-now">Buy Now</button>
     </div>
 </div>
+
+<!-- 2. Ink Ribbon Star Micronics -->
+<div class="single-product-container">
+    <span class="badge-Available">Available</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/InkRibbonStarMicronics.jpg"
+         alt="Ink Ribbon Star Micronics">
+    <div class="single-product-data">
+        <p class="single-product-title">Ink Ribbon Star Micronics</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 3. Star Micronics Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/StarMicronicsPaper.jpg"
+         alt="Star Micronics Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Star Micronics Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 4. Clover Flex Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/CloverFlexPaper.jpg"
+         alt="Clover Flex Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Flex Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 5. Dejavoo Z8 -->
+<div class="single-product-container">
+    <span class="badge-Available">Low Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/DejavooZ8.jpg"
+         alt="Dejavoo Z8">
+    <div class="single-product-data">
+        <p class="single-product-title">Dejavoo Z8</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 6. Dejavoo Z11 -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/DejavooZ11.jpg"
+         alt="Dejavoo Z11">
+    <div class="single-product-data">
+        <p class="single-product-title">Dejavoo Z11</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 7. Star Micronics SP700 -->
+<div class="single-product-container">
+    <span class="badge-Available">Available in November</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/Star_Micronics_SP700_1-1.png"
+         alt="Star Micronics SP700">
+    <div class="single-product-data">
+        <p class="single-product-title">Star Micronics SP700</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 8. Clover Station Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/CloverStationPaper.jpg"
+         alt="Clover Station Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Station Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 9. Clover Cash Drawer -->
+<div class="single-product-container">
+    <span class="badge-Available">Available</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/Clover_Cash_Drawer_1-1.png"
+         alt="Clover Cash Drawer">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Cash Drawer</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 10. Clover Mini Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/CloverMini_Paper_1-1.png"
+         alt="Clover Mini Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Mini Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+
+
 
 <script>
 // Toggle dropdown on click
@@ -319,12 +521,5 @@ grid4x4.addEventListener("click", () => {
 
 </body>
 
-<style>
-    .product-section.container{
-        
-        margin:0 auto;
-        padding:0px 64px;
 
-    }
-</style>
 </html>

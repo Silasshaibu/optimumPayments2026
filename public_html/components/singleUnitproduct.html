@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+</head>
+<body>
+
+    <div class="single-product-container">
+        <span class="badge-Available">Available in November</span>
+        <img class="single-product-image" src="../assets/images/products/storeProducts/StarMicronicsPaper.jpg" alt="" width="231px" height="231px">
+
+        <div class="single-product-data">
+             <p class="single-product-title">Star Micronics SP700</p>
+            <button class="cta-shop buy-now">Buy Now</button>
+        </div>
+       
+    </div>
+
+    <style>
+
+        .single-product-data{
+            display: grid;
+            padding-bottom:8px;
+            justify-items: start;
+        }
+
+       
+
+        .single-product-container{
+        display: flex;
+        width: 231px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--item-spacing-20_01, 20.01px);
+        flex-shrink: 0;
+        }
+
+
+        .badge-Available{
+            color: var(--us-store-bambulab-com-dove-gray, var(--color-grey-42, #6A6A6A));
+
+            font-size: var(--font-size-11, 11px);
+            
+            font-weight: var(--font-weight-500, 500);
+            line-height: var(--line-height-17_29, 17.29px); /* 157.182% */
+        }
+
+        p.single-product-title{
+            color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-11, #1C1B1B));
+           
+            font-size: var(--font-size-14, 14px);
+            
+            font-weight: var(--font-weight-500, 500);
+            line-height: var(--line-height-22, 22px); /* 157.143% */
+        }
+
+        .cta-shop.buy-now{  
+            color: var(--us-store-bambulab-com-red, #F00);
+          
+            font-size: var(--font-size-14, 14px);
+           
+            font-weight: 600;
+            padding:0;
+            background-color: transparent;
+            border-radius:0px;
+            line-height: var(--line-height-22, 22px); /* 157.143% */
+
+        }
+
+        .cta-shop.buy-now:hover{
+            color:var(--color-primary);
+        }
+
+    </style> 
+
+    
+</body>
+</html>
