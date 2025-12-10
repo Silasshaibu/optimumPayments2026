@@ -136,7 +136,7 @@
 }
 
 .supplies-product.heroSlide2 {
-    background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP800--1200x400.jpg);
+    background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -410,7 +410,7 @@ p.productSummary{
         transform:translate(0%, 0%);
         border:1px solid white;
         width:var(--slide-and-container-width-singularUnit); /*Image container width to cover in d esktop version*/
-        height:var(var(--slide-and-container-height)) ;
+        max-height:var(var(--slide-and-container-height)) ;
         /* height: 100%; */
     }
 
@@ -501,8 +501,8 @@ p.productSummary{
             <div class="carousel-wrapper">
 
                 <!-- SLIDE ONE -->
-                <div class="slide">
-                    <div class="supplies-product heroSlide1">
+                <div class="slide supplies-product heroSlide1">
+                    <div class="supplies-product">
                         <h3 class="product-title">Choose Once, Choose Right</h3>
 
                         <p class="product-intro">
@@ -524,8 +524,8 @@ p.productSummary{
                 </div>
 
                 <!-- SLIDE TWO -->
-                <div class="slide">
-                    <div class="supplies-product heroSlide2">
+                <div class="slide supplies-product heroSlide2">
+                    <div class="supplies-product">
                         <h3 class="product-title">Clover Flex Paper</h3>
 
                         <p class="product-intro">The complete portable solution</p>
@@ -554,7 +554,7 @@ p.productSummary{
             <div class="product-grid-item cloverBarcodeScanner">
                 <div class="productInfo">
                     <h3 class="productTitle">Clover Barcode Scanner</h3>
-                    <p class="productSummary">Easy-to-cut quality and easy-to-paint texture</p>
+                    <p class="productSummary">Reliable 1D/2D scanner for Clover POS checkout.</p>
                 </div>
             </div>
 
@@ -562,7 +562,7 @@ p.productSummary{
             <div class="product-grid-item inkRibbonStarMicronics">
                 <div class="productInfo">
                     <h3 class="productTitle">Ink Ribbon Star Micronics</h3>
-                    <p class="productSummary">Clear wood grain appearance</p>
+                    <p class="productSummary">Long-lasting ribbon for Star SP700 printers.</p>
                 </div>
             </div>
 
@@ -570,7 +570,7 @@ p.productSummary{
             <div class="product-grid-item starMicronicsSP700">
                 <div class="productInfo">
                     <h3 class="productTitle">Star Micronics SP700</h3>
-                    <p class="productSummary">Dark-colored aesthetics for high-end home decor</p>
+                    <p class="productSummary">Durable impact receipt printer for kitchens/POS.</p>
                 </div>
             </div>
 
@@ -578,7 +578,7 @@ p.productSummary{
             <div class="product-grid-item dejavooZ8">
                 <div class="productInfo">
                     <h3 class="productTitle">Dejavoo Z8</h3>
-                    <p class="productSummary">Add natural bamboo texture to your craft</p>
+                    <p class="productSummary">Touchscreen payment terminal with advanced features.</p>
                 </div>
             </div>
 
@@ -586,7 +586,7 @@ p.productSummary{
             <div class="product-grid-item starMicronicsPaper">
                 <div class="productInfo">
                     <h3 class="productTitle">StarMicronics Paper</h3>
-                    <p class="productSummary">Personalize keychains, accessories, and decor</p>
+                    <p class="productSummary">High-quality receipt rolls for Star printers.</p>
                 </div>
             </div>
 
@@ -594,7 +594,7 @@ p.productSummary{
             <div class="product-grid-item cloverFlexPaper">
                 <div class="productInfo">
                     <h3 class="productTitle">Clover Flex Paper</h3>
-                    <p class="productSummary">Portable and versatile on-the-go system</p>
+                    <p class="productSummary">Thermal paper rolls designed for the Clover Flex.</p>
                 </div>
             </div>
 
@@ -610,7 +610,7 @@ p.productSummary{
             <div class="product-grid-item cloverStationPaper">
                 <div class="productInfo">
                     <h3 class="productTitle">Clover Station Paper</h3>
-                    <p class="productSummary">Reliable paper rolls for Clover Station</p>
+                    <p class="productSummary">Heavy-duty, secure cash drawer for Clover POS.</p>
                 </div>
             </div>
         </div>
@@ -634,7 +634,13 @@ p.productSummary{
 
     </div>
 
-   
+   <style>
+
+    .view-toggle.handHeldDevice:hover{
+        background-color: transparent;
+        color:var(--color-primary);
+    }
+   </style>
 
 
 </body>
@@ -745,7 +751,7 @@ p.productSummary{
             summaries.forEach(p => {
                 const text = p.textContent.trim();
                 if (text.length > 25) {
-                    p.textContent = text.substring(0, 20) + "...";
+                    p.textContent = text.substring(0, 25) + "...";
                 }
             });
         });
