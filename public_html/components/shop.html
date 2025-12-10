@@ -122,7 +122,7 @@
     background-color: #f0f0f0;
 }
 .control-right {
-    display: flex;
+    display: block;
     align-items: center;
     gap: 12px;
     padding: 12px;
@@ -131,6 +131,7 @@
 .btn-store {
     border-radius: 0px;
 }
+
 .icon {
     width: 18px;
     height: 18px;
@@ -159,6 +160,7 @@
     font-weight: bold;
     font-family: Manrope, sans-serif;
     min-width: 200px;
+    background: url(../assets/images/products/banner/banner1b.png);
     min-height: 500px;
     height: fit-content;
     padding: 10px;
@@ -171,6 +173,9 @@
     grid-template-columns: repeat(5, 1fr); /* Default for mobile */
 }
 
+.products{
+    padding-bottom:4rem;
+}
 
     .single-product-image {
     width: 100%;
@@ -185,8 +190,7 @@
             padding-bottom:8px;
             justify-items: start;
         }
-
-       
+     
 
         .single-product-container{
         display: flex;
@@ -263,23 +267,18 @@
 /* --- Responsive --- */
 @media (max-width: 1024px) {
      .product-section.container{   
-        padding:0rem 5%;
-
-   
-
+        padding:0rem 5%;  
     }
 
      .products {
         grid-template-columns: repeat(4, 1fr);
     }
 
-
 }
 
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-
     .advertBanner-aside{
         display: none;
     }
@@ -291,6 +290,15 @@
     .products {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .control-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        align-self: stretch;
+    }
+
    
 }
 
@@ -299,7 +307,14 @@
 @media (max-width: 550px) {
     .product-section.container{   
         padding:0rem 1%;
+    }
 
+    .control-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        align-self: stretch;
     }
 
      .products {
@@ -360,7 +375,7 @@
 <!-- Product Section with Aside Banner -->
 <!-- Product Section with Aside Banner -->
 <div class="product-section product-container">
-    <div class="advertBanner-aside">Shop Banner / Advertisement</div>
+    <div class="advertBanner-aside"></div>
 
     <div class="products" id="productsGrid">
 
