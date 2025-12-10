@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top Selling Products — Carousel (Organized)</title>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+  <!-- Local organized CSS for this component (keeps original values; grouped & deduped) -->
+  <style>
+    /* -------------------------------
+       Base layout & typography
+       (grouped shared rules to reduce redundancy)
+       ------------------------------- */
+    :root{
+      --title-color: var(--us-store-bambulab-com-black-88, rgba(0,0,0,0.88));
+      --primary-btn: #3C88C3;
+      --font-heading: Manrope, sans-serif;
+    }
+
+    *{box-sizing: border-box}
+    body{margin:0;font-family:Arial, Helvetica, sans-serif}
+
+    .home-default-section{
+      display:flex;width:100%;flex-direction:column;justify-content:center;align-items:center;gap:36px;
+      padding:8.75rem 7.5rem 4rem 7.5rem;
+    }
+
+    .title--and-controlSection{display:flex;align-items:center;justify-content:space-between;width:85vw}
+    .productCategoryTitle{
+      color:var(--title-color);
+      font-family:var(--font-heading);
+      font-size:34px;font-weight:700;line-height:44.2px;margin:0;
+    }
+
+    /* control icons */
+    .controlSection{position:relative;display:block}
+    .controlSection span svg.icon{width:1.5rem;height:1.5rem;margin:0 0.25rem}
+
+    /* carousel container */
+    .carouselWindow{width:85vw;overflow:hidden;position:relative;height:275px}
+    .carouselwithProducts-wrapper{position:absolute;height:275px;display:flex;column-gap:1rem;will-change:transform}
+
+    /* featured product card */
+    .featured-product{
+      width:calc(42.5vw - 0.5rem);padding:4rem 2rem;position:relative;background-position:center;background-repeat:no-repeat;background-size:contain;
+    }
+
+    /* text inside cards */
+    .product-title{font-size:24px;font-weight:700;line-height:31.2px;margin:0}
+    .breakLine-productTitle{display:block}
+
+    .product-summary{font-size:12px;font-weight:400;line-height:18px;padding-right:60%;padding-bottom:2.5rem;margin:0}
+
+    .product-Link-Mobile{display:none;padding:1rem 0}
+
+    /* buttons */
+    .btn-featured-products{font-size:1rem;font-weight:400;line-height:18px;border-radius:8px;background-color:transparent;padding:.8rem 2rem;border:1px solid var(--primary-btn);color:var(--primary-btn);position:absolute;bottom:1rem}
+    .btn-featured-products:hover{background-color:var(--primary-btn);color:#fff}
+    .btn-featured-products span svg.icon{transform:translate(3px,3px)}
+
+    /* bottom area */
+    .bottomcontrolSection-foot{display:flex;padding-top:2rem;justify-content:flex-end;align-items:center;width:85vw}
+
+
+    .carouselwithProducts-wrapper.grid-3,
+.carouselwithProducts-wrapper.grid-2,
+.carouselwithProducts-wrapper.grid-1 {
+    display: grid !important;
+    position: relative !important;
+    height: auto !important;
+    transform: none !important;
+    column-gap: 20px !important;
+    row-gap: 20px !important;
+    padding-bottom: 2rem;
+}
+
+.carouselwithProducts-wrapper.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.carouselwithProducts-wrapper.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.carouselwithProducts-wrapper.grid-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+
+
+
+    /* -------------------------------
+       Responsive: grouped media queries
+       ------------------------------- */
+    @media (max-width:1200px){
+      /* placeholder for any 1200px adjustments if needed */
+    }
+
+    @media (max-width:768px){
+      .home-default-section{padding:1rem}
+      .title--and-controlSection,.carouselWindow{width:95vw}
+
+      .featured-product{width:calc(42.5vw - 0.3rem);padding:0 .5rem;display:flex;flex-direction:column;justify-content:space-between}
+      .product-summary{padding:0}
+
+      .btn-featured-products{padding:0;border:none;position:relative;left:0;order:1}
+      .btn-featured-products.product-Btn-Desktop{display:none}
+
+      .product-Link-Mobile{display:flex;padding:0;justify-content:center;color:var(--TypographyColors-Link, #63A0CF);font-weight:500;line-height:1.2rem}
+      .product-Link-Mobile .icon{transform:translateY(2.5px)}
+
+      .productCategoryTitle{font-family:Manrope;font-size:1.5rem;text-align:center}     
+
+    /* ------------ END MOBILE STYLES ------------ */
+    }
+
+     /* mobile single-unit view */
+    @media (max-width:550px){
+        .title--and-controlSection{width:95vw}
+        .carouselWindow,.featured-product{width:95vw}
+        .carouselwithProducts-wrapper{column-gap:0}
+
+        .product-summary{
+          font-size:1rem;background:white;padding:.5rem;position:absolute;bottom:0;transform:translateY(10px);height:auto;width:98%;
+        }
+
+        .controlSection{position:absolute;bottom:0;right:0;}
+        .product-title{position:absolute;top:0;left:50%;transform:translateX(-50%)}
+        .home-default-section{padding-left:0;padding-right:0}
+    }
+
+    
+    
+    /* ------------ DESKTOP ARROW FIX ------------ */
+    .controlSection span svg.icon, .leftArrow, .rightArrow {
+        z-index: 9999;
+        pointer-events: auto;
+        cursor: pointer;
+        color:black;
+    }
+
+    /* FIX: On desktop the .controlSection was hidden by mobile overrides */
+    @media (min-width: 769px) {
+        .controlSection {
+            display: block !important;
+        }
+    }
+
+    /* small tidy: icon translate for bottom control */
+    .bottomcontrolSection-foot .icon{transform:translateY(2.5px)}
+  </style>
+</head>
+<body>
+
+  <section class="home-default-section">
+    <div class="HeadAndBodyContainer">
+
+      <!-- Head -->
+      <div class="title--and-controlSection head">
+        <h2 class="productCategoryTitle">Top Selling Products</h2>
+
+        <div class="controlSection">
+          <button class="carousel-control left" aria-label="Previous" style="background:none;border:0;padding:0;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon leftArrow">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+
+          <button class="carousel-control right" aria-label="Next" style="background:none;border:0;padding:0;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="carouselWindow">
+        <div class="carouselwithProducts-wrapper body">
+
+          <!-- Product Item 1 -->
+          <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+            <h3 class="product-title">Valor VP 550<br class="breakLine-productTitle">
+              <a class="product-Link-Mobile">Learn More
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </span>
+              </a>
+            </h3>
+
+            <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
+            <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+            </button>
+          </div>
+
+          <!-- Product Item 2 -->
+          <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+            <h3 class="product-title">Clover Mini<br class="breakLine-productTitle">
+              <a class="product-Link-Mobile">Learn More
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </span>
+              </a>
+            </h3>
+
+            <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
+            <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+            </button>
+          </div>
+
+          <!-- Product Item 3 -->
+          <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+            <h3 class="product-title">Clover Flex<br class="breakLine-productTitle">
+              <a class="product-Link-Mobile">Learn More
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </span>
+              </a>
+            </h3>
+
+            <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
+            <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Foot -->
+      <div class="bottomcontrolSection-foot">
+        <div class="bottomcontrolSection">
+          <a class="viewAllBtn">View all <span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightTopCategoryMobileArrow">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </span></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- -------------------------------
+       JavaScript (kept logic as provided; organized and annotated)
+       ------------------------------- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const wrapper = document.querySelector(".carouselwithProducts-wrapper");
+      const products = document.querySelectorAll(".featured-product");
+
+      const leftArrow = document.querySelector(".leftArrow");
+      const rightArrow = document.querySelector(".rightArrow");
+
+      let index = 0;
+
+      // Width of ONE product card (including the column gap)
+      function getSlideWidth() {
+        const card = products[0];
+        const style = window.getComputedStyle(wrapper);
+        const gap = parseFloat(style.columnGap);
+        return card.offsetWidth + gap;
+      }
+
+    function updateCarousel() {
+        if (expanded) return; // <-- Prevents transform while grid is active
+
+        const offset = -(index * getSlideWidth());
+        wrapper.style.transform = `translateX(${offset}px)`;
+        wrapper.style.transition = "transform 0.5s ease";
+    }
+
+
+      function getVisibleItems() {
+        return window.innerWidth <= 550 ? 1 : 2;
+      }
+
+      rightArrow.addEventListener("click", () => {
+        if (index < products.length - getVisibleItems()) {
+          index++;
+          updateCarousel();
+        }
+      });
+
+      leftArrow.addEventListener("click", () => {
+        if (index > 0) {
+          index--;
+          updateCarousel();
+        }
+      });
+
+      window.addEventListener("resize", updateCarousel);
+    });
+  </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const controlSection = document.querySelector(".controlSection");
+
+    function updateArrowVisibility() {
+       if (expanded) {
+            controlSection.style.display = "none";
+            return;
+        }
+
+        if (window.innerWidth <= 550) {
+            controlSection.style.display = "none";
+        } else {
+            controlSection.style.display = "block";
+        }
+    }
+
+    updateArrowVisibility();
+    window.addEventListener("resize", updateArrowVisibility);
+});
+</script>
+
+
+  <!-- Truncate script (unchanged) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const maxChars = 55;
+      const summaries = document.querySelectorAll(".product-summary");
+
+      summaries.forEach(summary => {
+        const original = summary.textContent.trim();
+        if (original.length > maxChars) {
+          summary.textContent = original.substring(0, maxChars).trim() + "…";
+        }
+      });
+    });
+  </script>
+
+
+<script>
+    const viewAllBtn = document.querySelector(".viewAllBtn");
+    const carouselWrapper = document.querySelector(".carouselwithProducts-wrapper");
+    const controlSection = document.querySelector(".controlSection");
+
+
+
+
+
+const leftArrow = document.querySelector(".leftArrow");
+const rightArrow = document.querySelector(".rightArrow");
+
+let expanded = false;
+
+viewAllBtn.addEventListener("click", () => {
+    expanded = !expanded;
+
+    if (expanded) {
+        // Expand grid depending on screen width
+        if (window.innerWidth > 1024) {
+            carouselWrapper.classList.add("grid-3");
+        } else if (window.innerWidth > 769 && window.innerWidth <= 1024) {
+            carouselWrapper.classList.add("grid-2");
+        } else {
+            carouselWrapper.classList.add("grid-1");
+
+        }
+
+
+        // Hide arrows
+        controlSection.style.display = "none";
+           
+        leftArrow.style.display = "none";
+        rightArrow.style.display = "none";
+         
+
+        // Change button text
+        viewAllBtn.textContent = "View Less";
+
+    } else {
+        // Remove grid modes
+        carouselWrapper.classList.remove("grid-3", "grid-2", "grid-1");
+
+        // Show arrows again
+        leftArrow.style.display = "flex";
+        rightArrow.style.display = "flex";
+         controlSection.style.display = "flex";
+
+        // Reset button label
+        viewAllBtn.textContent = "View All";
+    }
+});
+
+</script>
+</body>
+</html>

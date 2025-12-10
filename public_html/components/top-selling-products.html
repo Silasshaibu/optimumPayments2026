@@ -7,7 +7,55 @@
         <link rel="stylesheet" href="../assets/css/style-guide.css">
     </head>
     <body>
+        <style>
+                   @media (min-width: 1440px) {
 
+            .carouselWindow.grid-view {
+                height: auto !important;
+                overflow: visible;
+            }
+
+            .carouselwithProducts-wrapper.grid-view {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                position: static !important;
+                transform: none !important;
+                height: auto !important;
+                padding-top: 2rem;
+            }
+
+            .leftArrow,
+            .rightArrow {
+                display: none !important;
+            }
+        }
+
+        
+            /* DESKTOP GRID VIEW ACTIVATION */
+            @media (min-width: 769px) {
+                .grid-view .carouselwithProducts-wrapper {
+                    position: relative !important;
+                    display: grid !important;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 2rem;
+                    height: auto !important;
+                    transform: none !important;
+                }
+
+                .grid-view .featured-product {
+                    width: 100% !important;
+                    height: 320px;
+                    background-size: contain;
+                }
+
+                /* Hide the arrows in grid mode */
+                .grid-view .controlSection {
+                    display: none !important;
+                }
+            }
+
+        </style>
     
         <section class="home-default-section">
             <div class="HeadAndBodyContainer">
@@ -95,7 +143,27 @@
                                 </svg>
                                 </span>
                             </button>                       
-                        </div>                       
+                        </div> 
+                        
+                        <!-- Product Item -->
+                        <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                            <h3 class="product-title">Valor VP800<br class="breakLine-productTitle">
+                                <a class="product-Link-Mobile">Learn More
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                        </svg>
+                                    </span>
+                                </a></h3>
+                        
+                            <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
+                            <button class="btn-featured-products product-Btn-Desktop">Learn More <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                                </span>
+                            </button>                       
+                        </div> 
                         
                 </div>
                 </div>
@@ -256,28 +324,8 @@
 
 
 
-        @media (min-width: 1200px) {
-
-            .carouselWindow.grid-view {
-                height: auto !important;
-                overflow: visible;
-            }
-
-            .carouselwithProducts-wrapper.grid-view {
-                display: grid !important;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-                position: static !important;
-                transform: none !important;
-                height: auto !important;
-                padding-top: 2rem;
-            }
-
-            .leftArrow,
-            .rightArrow {
-                display: none !important;
-            }
-        }
+ 
+        
 
 
         @media (max-width:768px){
@@ -437,10 +485,7 @@
                 bottom: 0%;
                 right: 0;
                 display: none;
-
               }
-
-
 
               .product-title{
                 position: absolute;
@@ -535,31 +580,7 @@
         </script>
 
 
-        <style>
-            /* DESKTOP GRID VIEW ACTIVATION */
-            @media (min-width: 769px) {
-                .grid-view .carouselwithProducts-wrapper {
-                    position: relative !important;
-                    display: grid !important;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 2rem;
-                    height: auto !important;
-                    transform: none !important;
-                }
-
-                .grid-view .featured-product {
-                    width: 100% !important;
-                    height: 320px;
-                    background-size: contain;
-                }
-
-                /* Hide the arrows in grid mode */
-                .grid-view .controlSection {
-                    display: none !important;
-                }
-            }
-
-        </style>
+      
 
        <script>
             document.addEventListener("DOMContentLoaded", () => {

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <title>HandHeld Devices    
+    </title>
+
+    <style>
+ 
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --slide-count: 5; /* total number of slides */
+    --slide-and-container-width-singularUnit: 83%;
+    --slide-and-container-height: 300px;
+    /* controls the slide viewer width per slide*/
+    /*We are using 1200px or 83vw or 83%*/
+}
+
+.carousel-header, .carousel-body, .carousel-footer{
+    width: var(--slide-and-container-width-singularUnit);
+    margin:0 auto;
+    border:1px solid black;
+}
+
+.carousel-window, .carousel-wrapper{
+    height: var(--slide-and-container-height);
+}
+
+
+.section.topProducts{
+    background-color: red;
+    position: relative;
+}
+
+
+.carousel-window {
+    position: relative;
+    width: var(--slide-and-container-width-singularUnit);
+    overflow: hidden; /* hide overflow for carousel effect */
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.carousel-wrapper {
+    top:0px;
+    left:0px;
+    position: absolute;
+    width: calc(var(--slide-count) * var(--slide-and-container-width-singularUnit)); /* dynamic width based on slide count */
+    display: flex; /* make slides line up horizontally */
+}
+
+.slide {
+    width: var(--slide-and-container-width-singularUnit); /* each slide takes full viewport width */
+    flex-shrink: 0; /* prevent shrinking */
+    padding:12px 32px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    min-height:200px; /*Placeholder can be changed where necessary */
+    align-items: center;
+}
+
+.textInfo-wrapper, .image-wrapper{
+    flex:1;
+    /* border:1px solid black; */
+}
+
+.image-wrapper{
+    position: absolute;
+    right:0;
+    bottom:50%;
+    transform:translate(0%, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: calc(var(--slide-and-container-width-singularUnit) / 2); /*Image container width to cover in d esktop version*/
+    height: 200px; /*Image container height to cover in d esktop version*/
+}
+
+.textInfo-wrapper{
+    position: relative;
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:64px;
+}
+
+.cta-container-hero{
+    padding-top: 52px;
+    display: flex;
+     gap:1rem;
+}
+.slide{
+    padding:158px 45px;
+    background-color: grey;    
+}
+
+p.label-h1{
+        color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px; /* 120% */
+    min-height:16.8px;
+    
+}
+
+p.display{
+    color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
+
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--line-height-18, 18px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-23_4, 23.4px); /* 130% */
+    width: 340px;
+    max-width: 28ch;
+}
+h1.heading.title{
+    width:14ch;
+    color: var(--us-store-bambulab-com-white, var(--color-white-solid, #FFF));
+
+    /* us.store.bambulab.com/Semantic/Heading 1 */
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--font-size-40, 40px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-48, 48px); /* 120% */
+    text-transform: capitalize;
+;
+}
+
+
+
+
+/*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+    .slide{
+        /* margin:auto 0; */
+        background-color: #fff;
+        flex-direction: column;
+        padding:1rem;
+    }
+
+   
+    .textInfo-wrapper{
+        align-items: center; 
+        width: 100%;
+        padding:.5rem;
+    }
+
+    p.display, h1.heading.title{
+        width: 100%;
+    }
+
+    p.display, h1.heading.title{
+        text-align: center;
+    }
+
+    .image-wrapper{
+    /* position: absolute; */
+    position: relative;
+    right:0;
+    bottom:0%;
+    transform:translate(0%, 0%);
+    border:1px solid white;
+   width: 500px; /*Image container width to cover in d esktop version*/
+    height: 400px;
+    /* height: 100%; */
+    }
+
+  
+
+    p.display{
+        color: var(--TypographyColors-Subtitle, #788289);
+text-align: center;
+
+/* BBu.Mobile.P1 */
+font-family: Manrope;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 30px; /* 150% */
+    }
+
+    h1.heading.title{
+        color: var(--TypographyColors-Title, #18374E);
+text-align: center;
+
+/* Mobile.H1 */
+font-family: Inter;
+font-size: 44px;
+font-style: normal;
+font-weight: 700;
+line-height: 52.8px; /* 120% */
+    }
+
+
+}
+
+    </style>
+
+</head>
+<body>
+
+    <div class="section topProducts-carousel-header">
+        <!-- Header with more Remote controls-->
+        <div class="carousel-header">TopCategories</div>
+
+        <!-- Banner Carousel -->
+        <div class="carousel-window">
+            <div class="carousel-wrapper">
+            <div class="slide">
+                <div class="textInfo-wrapper">
+                    <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    <p class="label-h1">SOLUTIONS PROVIDER</p>
+                    <h1 class="heading title display">Optimum Payments</h1>
+                    <p class="display subtitle">A full proider of payment processing and business financing.</p>
+                    <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Learn More</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+                
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">ROK</p>
+                    
+                    <h1 class="heading title display">Business Financing</h1>
+                    <p class="display subtitle">Get the funding your business deserves today.</p>
+                     <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Get Started</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+             <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">OUR SERVICE</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                   
+                    <h1 class="heading title display">Payment Processing</h1>
+                    <p class="display subtitle">Our solutions are designed to meet unique needs.</p>
+                         <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Apply Now</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">BECOME A MERCHANT</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    </p>
+                    <h1 class="heading title display">Merchant Application</h1>
+                    <p class="display subtitle">Start accepting payments with confidence.</p>
+                         <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Fill The Form</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+               
+            </div>
+            <div class="slide">
+                  <div class="textInfo-wrapper">
+                    <p class="label-h1">Just For You</p>
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    </p>
+                    <h1 class="heading title display">Digital Creative Services</h1>
+                    <p class="display subtitle">Let's help you realize your imagination.</p>
+                        <div class="image-wrapper">
+                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                </div>
+                    <div class="cta-container-hero">
+                        <button class="btn-primary">Fill The Form</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>   
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Body Product Container -->
+        <div class="carousel-body">Body or Products Container</div>
+        
+        <!-- Footer with Fewer Remote Controls -->
+        <div class="carousel-footer">Footer Remote Controls</div>
+    </div>
+    </div>
+     
+
+    <div class="carousel-wrapper-remote carousel-remote">
+        <button class="prev">
+            Left
+        </button>
+
+        <button class="next">
+            Right
+        </button>
+    </div>
+
+    
+    <script>
+const wrapper = document.querySelector(".carousel-wrapper");
+let slides = document.querySelectorAll(".carousel-wrapper .slide");
+
+let index = 1;
+let interval = null;
+const autoSlideTime = 3000;
+
+// Clone first & last
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+firstClone.classList.add("clone");
+lastClone.classList.add("clone");
+
+wrapper.appendChild(firstClone);
+wrapper.insertBefore(lastClone, slides[0]);
+
+// Re-query slides after cloning
+slides = document.querySelectorAll(".carousel-wrapper .slide");
+let slideWidth = slides[0].clientWidth;
+
+// Start position
+wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+
+// Resize handling
+window.addEventListener("resize", () => {
+    slideWidth = slides[0].clientWidth;
+    wrapper.style.transition = "none";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+});
+
+// Move to next
+function nextSlide() {
+    if (index >= slides.length - 1) return;
+    index++;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+// Move to prev
+function prevSlide() {
+    if (index <= 0) return;
+    index--;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+// Loop correction
+wrapper.addEventListener("transitionend", () => {
+    if (slides[index].classList.contains("clone")) {
+        wrapper.style.transition = "none";
+        if (index === 0) {
+            index = slides.length - 2;
+        } else if (index === slides.length - 1) {
+            index = 1;
+        }
+        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    }
+});
+
+// Auto-slide
+function startAutoSlide() {
+    interval = setInterval(nextSlide, autoSlideTime);
+}
+function stopAutoSlide() {
+    clearInterval(interval);
+}
+wrapper.addEventListener("mouseenter", stopAutoSlide);
+wrapper.addEventListener("mouseleave", startAutoSlide);
+
+// Remote buttons
+document.querySelector(".carousel-remote .next").addEventListener("click", () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+});
+document.querySelector(".carousel-remote .prev").addEventListener("click", () => {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+});
+
+// Start
+startAutoSlide();
+    </script>
+
+
+
+</body>
+
+
+
+
+
+
+</html>
