@@ -23,6 +23,9 @@
     /*We are using 1200px or 83vw or 83%*/
 }
 
+
+
+
 .carousel-header, .carousel-body, .carousel-footer{
     width: var(--slide-and-container-width-singularUnit);
     margin:0 auto;
@@ -45,6 +48,7 @@
     gap:1rem;
     padding-top:1rem;
     padding-bottom: 2rem;
+    position: relative;
 }
 
 .carousel-body.product-grid-handheld.tablet{
@@ -63,15 +67,34 @@
         padding-bottom: 1.5rem;
     }
 
-
     .carousel-body.product-grid-handheld div{
         aspect-ratio: 18/25;
-        background-color: grey;
+        border:1px solid grey;
+        /* position: absolute; */
+    }
+
+    .product-grid-item{
+        position: relative;
+    }  
+    
+
+    .productInfo{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        /* gap:4rem; */
+        height:200px;
+        padding: 1.5rem 2rem;
+        bottom:0;
+
     }
 
     .featured-product{
         padding:4rem 2rem;
     }
+
     .featured-product.valorVP550{
         background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
         background-size: cover;
@@ -81,12 +104,21 @@
         height:var(--slide-and-container-height);
     }
 
+    .featured-product.valorVP800{
+        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:var(--slide-and-container-width-singularUnit);
+        height:var(--slide-and-container-height);
+    }
+
+
 
     .carousel-window {
         position: relative;
         width: var(--slide-and-container-width-singularUnit);
-        overflow: hidden; /* hide overflow for carousel effect */
-        overflow: hidden;
+        overflow: hidden; /* hide overflow for carousel effect */        overflow: hidden;
         margin:0 auto;
     }
 
@@ -178,7 +210,7 @@
         background-color: transparent;
     }
 
-    .view-toggle.handHeldDevice svg, .btn-featured-products.product-Btn-Desktop svg{
+    .view-toggle.handHeldDevice svg, .btn-featured-products.product-Btn-Desktop svg, .icon.rightArrow{
         transform: translateY(4px);
     }
      
@@ -209,27 +241,76 @@
         line-height: var(--line-height-28_8, 28.8px); /* 120% */
         padding:.75rem 0rem;
 
+
+
     }
 
+    a.productLink{
+        padding:1.5rem 0rem;                        
+    }
 
+    .product-grid-item.valorVP800 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
 
+    .product-grid-item.valorVL100 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
 
+    .product-grid-item.valorVL110 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.cloverFlex {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.valorVP550 {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.cloverGoPlus {
+        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+                    
 
 
 /*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE TABLE DEVICE*/
+@media (max-width:1024px) {
+ 
+}
+
+
+
+
+
+
 /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
 @media (max-width:768px) {
     .slide{
         /* margin:auto 0; */
         background-color: #fff;
         flex-direction: column;
-        padding:1rem;
+        
     }
 
    
     .textInfo-wrapper{
         align-items: center; 
-        width: 100%;
         padding:.5rem;
     }
 
@@ -244,14 +325,13 @@
         
 
     .image-wrapper{
-    /* position: absolute; */
         position: relative;
         right:0;
         bottom:0%;
         transform:translate(0%, 0%);
         border:1px solid white;
-        width: 500px; /*Image container width to cover in d esktop version*/
-        height: 400px;
+        width:var(--slide-and-container-width-singularUnit); /*Image container width to cover in d esktop version*/
+        height:var(var(--slide-and-container-height)) ;
         /* height: 100%; */
     }
 
@@ -323,13 +403,71 @@
         </div>            
 
         <!-- Body Product Container -->
-        <div class="carousel-body product-grid-handheld">
-            <div class="produc-grid-item">1</div>
-            <div class="produc-grid-item">2</div>
-            <div class="produc-grid-item">3</div>
-            <div class="produc-grid-item">4</div>
+        <!-- Updated Product Grid with 8 items -->
+<div class="carousel-body product-grid-handheld">
+    <!-- 1: Valor VP800 -->
+    <div class="product-grid-item valorVP800">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VP800</h3>
+            <p class="productSummary">High‑performance portable device</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
         </div>
+    </div>
+
+    <!-- 2: Valor VL100 -->
+    <div class="product-grid-item valorVL100">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VL100</h3>
+            <p class="productSummary">Compact and reliable solution</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    <!-- 3: Valor VL110 -->
+    <div class="product-grid-item valorVL110">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VL110</h3>
+            <p class="productSummary">Next‑gen portable accuracy</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    <!-- 4: Clover Flex -->
+    <div class="product-grid-item cloverFlex">
+        <div class="productInfo">
+            <h3 class="productTitle">Clover Flex</h3>
+            <p class="productSummary">Light and flexible payment solution</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    <!-- 5: Clover Mini -->
+    <div class="product-grid-item valorVP550">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VP550</h3>
+            <p class="productSummary">Small footprint, big capability</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+
+    
+
+
+    <!-- 8: Random Product C -->
+    <div class="product-grid-item cloverGoPlus">
+        <div class="productInfo">
+            <h3 class="productTitle">Clover Go Plus</h3>
+            <p class="productSummary">Portable and versatile on‑the‑go system</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+</div>
+
         
+  <style>
+
+    
+  </style>
         <!-- Footer with Fewer Remote Controls -->
         <div class="carousel-footer">Footer Remote Controls</div>
     </div>
