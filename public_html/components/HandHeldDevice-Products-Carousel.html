@@ -665,6 +665,8 @@
 
 </script>
 
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const grid = document.getElementById("productsGrid");
@@ -673,13 +675,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let expanded = false;
 
+    function getDefaultCount() {
+        return window.innerWidth <= 1024 ? 4 : 3;
+    }
+
     function updateGrid() {
+        const defaultCount = getDefaultCount();
+
         if (expanded) {
-            items.forEach(item => item.style.display = "block");
+            // show all items
+            items.forEach(item =>
+                item.style.display = "block"
+            );
             toggleBtn.querySelector("span").textContent = "View less";
         } else {
+            // show only 3 or 4 depending on screen size
             items.forEach((item, index) => {
-                item.style.display = index < 3 ? "block" : "none";
+                item.style.display = index < defaultCount ? "block" : "none";
             });
             toggleBtn.querySelector("span").textContent = "View all";
         }
@@ -690,10 +702,16 @@ document.addEventListener("DOMContentLoaded", function () {
         updateGrid();
     });
 
+    // Recalculate if screen is resized
+    window.addEventListener("resize", function () {
+        if (!expanded) {
+            updateGrid();
+        }
+    });
+
     updateGrid();
 });
 </script>
-
 
 </body>
 
