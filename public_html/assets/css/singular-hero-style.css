@@ -13,7 +13,8 @@
     position: relative;
     width: 100vw;
     overflow: hidden; /* hide overflow for carousel effect */
-    height: 90vh;
+    height: 90vh;    
+    height: fit-content;
     min-height:560px;
     overflow: hidden;
 }
@@ -162,6 +163,7 @@ h1.heading.title{
     .carousel-window {
     min-height:614px;
     height: 80vh;
+    height: fit-content;
     overflow: hidden;
     }
 

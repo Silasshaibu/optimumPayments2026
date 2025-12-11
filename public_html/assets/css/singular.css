@@ -1,0 +1,128 @@
+
+  
+    /* desktop first approach */
+    .noteDefault.grid div:nth-child(odd) div.side:nth-child(even) {
+      order: -1;
+    }
+
+    .noteDefault.grid {
+      background-color: #f2f3f5;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      padding: 240px 10%;
+      row-gap: 141px;
+    }
+
+    .sub-title {
+      font-size: var(--font-size-48, 48px);
+      font-style: normal;
+      font-weight: var(--font-weight-700, 700);
+      line-height: var(--line-height-52_8, 52.8px);
+    }
+
+    .sub-title .dark {
+      color: var(--us-store-bambulab-com-wild-sand, var(--color-grey-96, #f6f6f6));
+      text-align: center;
+      font-family: var(--font-family-Font-1, Manrope);
+      font-size: var(--font-size-28, 28px);
+      font-style: normal;
+      font-weight: var(--font-weight-700, 700);
+      line-height: var(--line-height-30_8, 30.8px);
+    }
+
+    .noteDefault.grid h2 {
+      color: var(--us-store-bambulab-com-flush-orange, var(--color-orange-49, #f98101));
+    }
+
+    .noteDefault.grid.dark div h3.sub-title {
+      color: var(--us-store-bambulab-com-wild-sand, var(--color-grey-96, #f6f6f6));
+    }
+
+    .noteDefault.grid.white h2 {
+      color: var(--us-store-bambulab-com-flush-orange, var(--color-orange-49, #f98101));
+    }
+
+    .noteDefault.grid.white {
+      background-color: #efefef;
+    }
+
+    .noteDefault.grid.dark {
+      background-color: #ccc;
+      background: #121212;
+    }
+
+    .body-with-context.flex {
+      display: flex;
+      flex-direction: row;
+      gap: 126px;
+      align-items: center;
+      row-gap: 2rem;
+    }
+
+    .no-display {
+      display: none;
+    }
+
+    .has-display {
+      display: block;
+    }
+
+    .side {
+      flex: 1;
+      display: grid;
+      gap: 2rem;
+      row-gap: 1rem;
+    }
+
+    h2.content-title {
+      text-align: center;
+      font-size: var(--width-100, 100px);
+      font-style: normal;
+      font-weight: var(--font-weight-700, 700);
+      line-height: var(--line-height-110, 110px);
+    }
+
+    p.textInfo {
+      color: var(--us-store-bambulab-com-dusty-gray, var(--color-grey-58, #949494));
+      text-align: left;
+      font-size: var(--item-spacing-20, 20px);
+      font-style: normal;
+      font-weight: var(--font-weight-700, 700);
+      line-height: var(--item-spacing-24, 24px);
+    }
+
+    @media (max-width: 768px) {
+      .noteDefault.grid div:nth-child(odd) div.side:nth-child(even) {
+        order: 1;
+      }
+
+      .noteDefault .neutral .grid {
+        display: flex;
+        width: 100%;
+        padding: 4.5rem 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 4.5rem;
+      }
+
+      h2.content-title {
+        text-align: center;
+        font-size: var(--font-size-54, 54px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-59_4, 59.4px);
+      }
+
+      .body-with-context.flex {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      p.textInfo {
+        text-align: center;
+        font-size: var(--font-size-18, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-21_6, 21.6px);
+      }
+    }
