@@ -323,7 +323,9 @@ p {
 }
 
 .btn-primary:hover {
-  background-color: #3674A8; /* slightly darker for hover */
+  background-color: var(--color-primary); /* slightly darker for hover */
+  background-color: var(--blue-700);   
+  color:#fff;
 }
 
 .btn-primary span {
@@ -390,7 +392,7 @@ p {
 }
 
 .btn-secondary:hover {
-  background-color: #3C88C3;
+  background-color: var(--blue-700);   
   color:#fff;
 }
 
