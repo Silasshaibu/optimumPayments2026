@@ -3,37 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elastic Carousel</title>
+<title>Elastic Carousel with Custom Scrollbar</title>
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+
+
+
+  
+<style>
+  
+
+/* CUSTOM SCROLLBAR */
+.custom-scrollbar {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;      /* requested width */
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.custom-thumb {
+    height: 100%;
+    width: 60%;       /* initial thumb width */
+    background: #0066ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.custom-thumb:hover {
+    background: #0047b3;
+}
+
+/* Hide scroll buttons on WebKit (Chrome, Safari, Edge Chromium) */
+.carousel-wrapper::-webkit-scrollbar-button {
+    display: none;
+    display: block;
+}
+
+/* Hide any default arrows in Firefox */
+.carousel-wrapper {
+    scrollbar-width: thin;  /* optional: still keeps a thin scrollbar */
+}
+
+    /* .carousel-wrapper {
+        scrollbar-width: none; 
+        -ms-overflow-style: none; /* Fire fox is first then IE 10+ */
+        
+
+    
+.carousel-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+    display: block;
+}
+
+</style>
+
+
 
 <style>
-/* RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-/* BODY */
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
 
 /* CAROUSEL WINDOW */
-.carousel-window {
-    width: 100vw;
-    overflow-x: auto;
-    overflow-y: hidden;
+.carousel-scrollbar-container {
     position: relative;
-    border: 1px solid #ddd;
+    width: 100vw;
 }
 
 /* CAROUSEL WRAPPER */
 .carousel-wrapper {
     display: flex;
     gap: 10px;
-    min-width: 100%;
-    transition: transform 0.3s ease;
+    overflow-x: auto;
+    scroll-behavior: smooth;
 }
 
 /* CAROUSEL ITEM */
@@ -68,15 +113,19 @@ body {
     margin-top: 5px;
     text-align: center;
     font-size: 18px;
+    position: absolute;
     font-weight: 700;
     width: 90%;
-    position: absolute;
     z-index: 2;
 }
 
+
+
+
+
+
 /* RESPONSIVE: tablet / mobile */
 @media (max-width: 768px) {
-    /* Grid layout */
     .carousel-wrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -88,19 +137,14 @@ body {
         width: 100%;                 /* column width prevails */
     }
 
-    /* Banner image aspect ratio 2:1 */
     .banner-img {
-        aspect-ratio: 2 / 1;
+        aspect-ratio: 2 / 1;         /* Mobile aspect ratio */
     }
 
     .microService-title {
         font-size: 1rem;
         width: 100%;
         text-align: center;
-    }
-
-    .carousel-window {
-        overflow-x: hidden;
     }
 }
 
@@ -113,12 +157,19 @@ body {
     }
 }
 </style>
+
+
+
+
+
+
+
 </head>
 
 <body>
 
-<div class="carousel-window">
-    <div class="carousel-wrapper">
+<div class="carousel-scrollbar-container">
+    <div class="carousel-wrapper" id="carouselWrapper">
 
         <!-- ITEM 1 -->
         <div class="carousel-item">
@@ -220,7 +271,55 @@ body {
         </div>
 
     </div>
+
+    <!-- CUSTOM SCROLLBAR -->
+    <!-- <div class="custom-scrollbar">
+        <div class="custom-thumb" id="customThumb"></div>
+    </div> -->
 </div>
+
+
+<!-- 
+<script>
+  const wrapper = document.getElementById('carouselWrapper');
+const thumb = document.getElementById('customThumb');
+const track = thumb.parentElement;
+
+let isDragging = false;
+let startX, startScroll;
+
+function updateThumb() {
+    const scrollPercent = wrapper.scrollLeft / (wrapper.scrollWidth - wrapper.clientWidth);
+    const maxTranslate = track.offsetWidth - thumb.offsetWidth;
+    thumb.style.transform = `translateX(${scrollPercent * maxTranslate}px)`;
+    requestAnimationFrame(updateThumb); // continuously sync
+}
+
+requestAnimationFrame(updateThumb); // start loop
+
+thumb.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startScroll = wrapper.scrollLeft;
+    document.body.style.userSelect = 'none';
+});
+
+window.addEventListener('mouseup', () => {
+    isDragging = false;
+    document.body.style.userSelect = 'auto';
+});
+
+window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const deltaX = e.clientX - startX;
+    const scrollableWidth = wrapper.scrollWidth - wrapper.clientWidth;
+    const trackWidth = track.offsetWidth - thumb.offsetWidth;
+    const scrollDelta = (deltaX / trackWidth) * scrollableWidth;
+    wrapper.scrollLeft = startScroll + scrollDelta;
+});
+
+</script> -->
+
 
 </body>
 </html>
