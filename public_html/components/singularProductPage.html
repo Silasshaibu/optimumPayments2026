@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloverFlex</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+</head>
+<body>
+
+    <section class="noteDefault neutral grid">
+        <div class="heading">
+            <h2 class="content-title">Clover Go: the mobile POS system in your pocket</h2>
+        </div>       
+        
+        <div class="body-with-context flex">
+            <div class="side text">
+                <h3 class="sub-title">Auto-Rotate Drying</h3>
+                <p>Take your business to your customers, whether at the local farmer’s market or a client’s job site. The Go app and portable credit card reader are easy to use and give you the power of a full POS anywhere you have Wi-Fi or cellular connection.</p> 
+            </div>
+
+            <div class="side image">
+                <img src="../" alt="product-imagee">  
+            </div>            
+        </div>        
+    </section>
+    
+</body>
+
+
+<style>
+    /* desktop first approach */
+    .noteDefault.neutral.grid{
+        background-color: grey;
+        grid-template-columns: repeat(1, 1fr);
+        padding:0px 10%;
+        padding-top:240px;
+        row-gap:141px;
+    }
+
+    .body-with-context.flex{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sub-title{
+        color: var(--us-store-bambulab-com-wild-sand, var(--color-grey-96, #F6F6F6));
+        font-size: var(--font-size-48, 48px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-52_8, 52.8px); /* 110% */
+    }
+
+    .side{
+        flex:1;
+    }
+
+    h2.content-title{
+        text-align: center;
+        color: var(--us-store-bambulab-com-flush-orange, var(--color-orange-49, #F98101));
+        text-align: center;
+        font-size: var(--width-100, 100px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-110, 110px); /* 110% */
+    }
+</style>
+</html>
