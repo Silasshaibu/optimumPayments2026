@@ -34,12 +34,19 @@
 
     <!-- Overwriting the default background for each slide -->
 <style>
-  /* .slide{
+  .slide{
     background: url(../assets/images/hero/paymentProcessing_HeroDesktop.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-  } */
+  }
+
+  @media(max-width:768px){
+    .slide{
+      background: none; /*Help to remove desktop background from mobile view*/
+      background-color: #ccc;
+    }
+  }
 </style>
 
     <!-- section -->

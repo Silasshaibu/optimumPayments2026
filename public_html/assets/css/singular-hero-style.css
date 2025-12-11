@@ -54,6 +54,7 @@
     justify-content: center;
     width: 50vw; /*Image container width to cover in d esktop version*/
     height: 400px; /*Image container height to cover in d esktop version*/
+    display: none;
 }
 
 .textInfo-wrapper{
@@ -156,6 +157,7 @@ h1.heading.title{
     transform:translate(0%, 0%);
     width: 500px; /*Image container width to cover in d esktop version*/
     height: 400px;
+    display: flex;
     /* height: 100%; */
     }
 
