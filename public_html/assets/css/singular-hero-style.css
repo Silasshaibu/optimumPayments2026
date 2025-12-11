@@ -154,8 +154,7 @@ h1.heading.title{
     right:0;
     bottom:0%;
     transform:translate(0%, 0%);
-    border:1px solid white;
-   width: 500px; /*Image container width to cover in d esktop version*/
+    width: 500px; /*Image container width to cover in d esktop version*/
     height: 400px;
     /* height: 100%; */
     }
