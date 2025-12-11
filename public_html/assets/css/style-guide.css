@@ -391,6 +391,7 @@ p {
 
 .btn-secondary:hover {
   background-color: #3C88C3;
+  color:#fff;
 }
 
 .btn-secondary span {
