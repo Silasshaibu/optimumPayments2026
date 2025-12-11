@@ -14,7 +14,7 @@
 
     .carousel-window {
       width: 100vw;
-      height: 309px;
+      /* height: 309px; */
       overflow-x: auto; overflow-y: hidden;
       position: relative;
       border: 1px solid #ddd;
@@ -23,7 +23,7 @@
     .carousel-wrapper {
       display: flex;
       gap: 10px;
-      height: 309px;
+      /* height: 309px; */
       min-width: 100%;
       transition: transform 0.3s ease;
     }
@@ -31,12 +31,14 @@
     .carousel-item {
       width: 230px;
       height: 309px;
+      border:1px solid grey;
       background: #e3e3e3;
+      background-color: blue;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 1.5rem;;
       font-weight: bold;
     }    
 
@@ -62,6 +64,40 @@
             background-color: red;
             width:12ch;
         }
+       
+
+        .carousel-item {
+  width: 230px;
+  height: 309px;
+  border: 1px solid grey;
+  background: #e3e3e3;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.microService-title {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  width: 90%;
+  z-index: 2;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+}
+
+
+
+     
 
   @media (max-width: 1024px) {
       .carousel-window {
@@ -70,38 +106,80 @@
       .carousel-item {
         height: 250px;
       }
+
+     
+      
+    .carousel-item {
+      width: 220px;
+    }
+
     }
 
     @media (max-width: 768px) {
-      .carousel-window {
-        height: 150px;
-      }
-      .carousel-item {
-        height: 150px;
-      }
+     
+       .carousel-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #efefef;
+  }
+
+  .microService-title {
+    font-size: 1rem;
+    width: 100%;
+    position: static;
+    min-height: 1.5rem;;
+  }
+
+  .carousel-window {
+    height: auto;
+    overflow-x: hidden;
+  }
     }
 
-    @media (max-width: 550px) {
-      .carousel-wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        min-width: 100%;
-        height: auto;
-      }
-      .carousel-item {
-        width: 100%;
-        height: 75px;
-        /* height: 120px; */
-      }
+  @media (max-width: 550px) {
 
-      .carousel-window{
-        height: fit-content;
-      }
+  .carousel-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
 
-      
+  .carousel-item {
+    width: 100%;
+  }
 
-    }
+  .carousel-item {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #efefef;
+  }
+
+
+
+  .microService-title {
+    font-size: .8rem;
+    width: 100%;
+    position: static;
+    padding:0px;
+    margin:0px;
+    line-height: 1rem;
+    min-height: 2rem;
+  }
+
+  .carousel-window {
+    height: auto;
+    overflow-x: hidden;
+  }
+}
+
 
   </style>
 </head>
@@ -148,33 +226,7 @@
     </div>
   </div>
 
-  <style>
-
-        .microService-item{
-            display: flex;
-            width: 233px;
-            min-width: var(--width-233_88, 233.88px);
-            flex-direction: column;
-            align-items:center;
-            border:1px solid black;
-            padding: 1rem;
-            aspect-ratio: 236/309;
-            text-align: center;
-            min-height:50px;
-            background-color: red;
-            position: relative;
-        }
-
-        .microService-item img{
-            aspect-ratio: 236/309;
-            width: 233px;
-            height: 309px;
-            border: 1px solid black;
-        }
-
-     
-        
-    </style>
+ 
   
 
   
