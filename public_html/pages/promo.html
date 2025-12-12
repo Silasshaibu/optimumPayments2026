@@ -29,7 +29,30 @@
         
 
         <!--Promo Body Start-->
-  
+        <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="card ">
+            <h3 class="card-title">Mobile businesses, auto shops, medical, and much more! </h3>
+            <p class="card-description">Let our system propel your business to bigger profits,      deeper loyalty and greater operational excellence.</p>
+            <img class="mobileBusiness-UnionImage" src="../assets/images/promo/union_platform-webp.webp" width="50%" height="fit-content">
+            
+        </div>
+        <!-- Card 1 -->
+        <div class="card ">
+            <h3 class="card-title">Retail</h3>
+            <p class="card-description"> All-in-one system built for small-medium sized restaurant and retail businesses.  </p>
+             <img class="retail-CloverSetImage" src="../assets/images/promo/duo2022-printer-mini3-flex3-go3.webp" width="75%" height="fit-content" alt="">
+        </div>
+        <!-- Card 1 -->
+        <div class="card ">
+            <h3 class="card-title">Mobile businesses, auto shops, medical, and much more!                        </h3>
+            <p class="card-description">Flexible, portable terminals for a variety of business types, from mobile services to medical facilities.
+                        </p>
+                         <img class="mobileBusiness-HandHeldPOS-sets" src="../assets/images/promo/Valor_with-CloverFlex-trans.webp" width="25%" height="fit-content">
+        </div>  
+        </div>
+        <!--Promo Body End-->
+        
 
 
         <!-- ============================
@@ -360,6 +383,19 @@
         text-align: center;
         }
 
+         .form-section fieldset {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        min-width: 300px;
+        margin-bottom: 2rem;
+    }
+
+    .hero-text-wrapper{
+        max-width: 100%;
+        
+    }
+
         
 
         .promo-info-formtype--wrapper {
@@ -380,189 +416,11 @@
     </style>
 
     <!-- hero styling -->
-    <style>
-        .hero-content{
-            gap:2rem; /*default*/
-            gap:15rem;    
-        }
-
-        .btn-primary.promo-cta-text{
-            width: auto;
-            font-family: Manrope;
-            font-size: 1rem;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 1.25rem;
-            padding:0.75rem 2.5rem;
-            border:1px solid var(--Primary-Btn, #3C88C3);
-        }
-
-
-        .hero-text-wrapper{
-            display:grid;
-            gap:1rem;
-        }
-
-        .hero {
-            width: 100%;
-            min-height: 80vh;
-            height: 560px;
-            background: #C1D3D5;
-            background: url('../assets/images/promo/HeroBanner1.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            display: inline-flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-    /* h1.MobileH1{
-        font-family: Manrope, sans-serif;
-    } */
-
-    .hero-content {
-        margin:0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        display: grid;
-        place-content: center;
-    }
-
-    .hero-title.promo {
-        width: 18ch;
-    }
-
-    .hero-title{
-        text-align: center;
-    }
-
-    H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
-        margin:0 auto;
-        color: var(--Secondary-Btn, #16394B);
-        text-align: center;
-        font-family: Inter;
-        font-size: 2.75rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 3.3rem; 
-    }
-
-
-    .hero-subtitle {
-        max-width:33ch;
-        text-align: center;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        color: var(--Primary-Btn, #3C88C3);
-        font-family: Manrope, sans-serif;
-        font-weight: 500;
-        word-wrap: break-word;
-        line-height: normal;
-        font-size: 2rem;
-        font-style: normal;
-    }
-
-    .hero-cta-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .cta-button {
-        height: 48px;
-        padding: 12px 40px;
-        background: var(--Primary-Btn, #3C88C3);
-        border-radius: 8px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .cta-text {
-        color: white;
-        font-size: 16px;
-        font-family: Manrope, sans-serif;
-        font-weight: 600;
-        line-height: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .terms-wrapper {
-        width: 390px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .terms-text {
-        text-align: center;
-        color: var(--TypographyColors-Subtitle, #788289);
-        font-size: 12px;
-        font-family: Manrope, sans-serif;
-        font-weight: 500;
-        word-wrap: break-word;
-    }
-
-    span.special-accent-promo-intro{
-        font-weight: 600;
-    }
-
-    p.hero-subtitle.display-70{
-        font-weight: 50;
-    }
-
-    /* Mobile Devices - Reset Base to 550px for Mobile when done (550px width) */
-    /* Mobile Devices - Base (390px width) */
-    @media (max-width: 390px) {
-    /* Mobile-specific styles will go here */
-    .hero-subtitle{
-        display: flex;
-        width: 24.375rem;
-        height: 11rem;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .hero-title.promo.display-70{
-        font-size: 2.25rem;
-        line-height: 2.625rem;
-        width: 100%;
-    }
-
-    .hero-subtitle{
-        margin:0 auto;
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }  
-
-
-    span.special-accent-promo-intro{
-        color: var(--Secondary-Btn, #16394B); 
-    }
-
-    .hero{
-            width: 100%;
-            height: fit-content;
-        }
     
-    }
-
-
-    </style>
-
+    
     <link rel="stylesheet" href="../assets/css/style-guide.css">
     <link rel="stylesheet" href="../assets/css/promo-hero.css">
+    <link rel="stylesheet" href="../assets/css/promo-mid-section.css">
 </body>
 
 </html>

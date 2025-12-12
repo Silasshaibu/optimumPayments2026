@@ -1,37 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>promoSectionTwo</title>
-    <link rel="stylesheet" href="../assets/css/style-guide.css">
-</head>
-<body>
-    
-    <div class="cards-grid">
-        <!-- Card 1 -->
-        <div class="card ">
-            <h3 class="card-title">Mobile businesses, auto shops, medical, and much more! </h3>
-            <p class="card-description">Let our system propel your business to bigger profits,      deeper loyalty and greater operational excellence.</p>
-            <img class="mobileBusiness-UnionImage" src="../assets/images/promo/union_platform-webp.webp" width="100%" height="fit-content" alt="">
-            
-        </div>
-        <!-- Card 1 -->
-        <div class="card ">
-            <h3 class="card-title">Retail</h3>
-            <p class="card-description"> All-in-one system built for small-medium sized restaurant and retail businesses.  </p>
-             <img class="retail-CloverSetImage" src="../assets/images/promo/duo2022-printer-mini3-flex3-go3.webp" width="100%" height="fit-content" alt="">
-        </div>
-        <!-- Card 1 -->
-        <div class="card ">
-            <h3 class="card-title">Mobile businesses, auto shops, medical, and much more!                        </h3>
-            <p class="card-description">Flexible, portable terminals for a variety of business types, from mobile services to medical facilities.
-                        </p>
-                         <img class="mobileBusiness-HandHeldPOS-sets" src="../assets/images/promo/Valor_with-CloverFlex-trans.webp" width="100%" height="fit-content" alt="">
-        </div>  
-    </div>
-
-    <style>
         .cards-grid {
             width: 100%;
             display:grid;
@@ -91,22 +57,21 @@
         }
 
         .card img{
-            width: 50%;
+            height: 100%;
+            width: fit-content;
             position: absolute;
             bottom:0;
             right:0;
-            transform:translate(-20px, -12px);
+            transform: translate(3.5rem, 2rem) scale(.7);
         }
 
         .card img.retail-CloverSetImage{
-            transform: translate(4px, 12px);
+            transform: translate(4.5rem, 2rem) scale(.7);
         }
 
         .card img.mobileBusiness-HandHeldPOS-sets{
-           
-            transform: translate(0px, 30px);
-
-        }
+                transform: translate(-3rem, 2rem) scale(.7);
+            }
 
 
         @media(max-width:1024px){
@@ -137,10 +102,18 @@
                 padding-top:3rem;
             }
 
-            
+             .card img{
+            height: 80%;          
+            transform: translate(0rem, 0rem) scale(.6);
+            }
+
+            .card img.mobileBusiness-HandHeldPOS-sets{
+                transform: translate(2rem, 2rem) scale(.6);
+            }
+
+            .card img.mobileBusiness-UnionImage{
+                transform: translate(2rem, 2rem) scale(.6);
+            }
+
+           
         }
-    </style>
-</body>
-
-
-</html>
