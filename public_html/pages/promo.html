@@ -1,38 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Promo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
 </head>
 <body>
-	<!-- header include (prepended) -->
-	<header class="site-header" role="banner">
-		<div class="container">
-			<a class="site-logo" href="/index.html">
-				<img src="/assets/images/logo/logo.png" alt="Optimum Payments" />
-			</a>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text-wrapper">
+               <h1 class="hero-title promo display-70">
+                Own a business 
+                <span class="promo display-70 special-accent">or</span>
+                know someone that does?
+            </h1>                     
+               <p class="hero-subtitle display-70">
+                <strong><span class="special-accent-promo-intro">Save up to 100%</span> on processing fees and <span class="special-accent-promo-intro">get up to 100% off</span> new equipment*
+               </p> 
+            </div>
+            
+            <div class="hero-cta-wrapper">
+                    <button class="btn-primary promo-cta-text">CLAIM OFFER NOW</button>
+                    <span class="terms-text">Terms apply. Choose the option that suits you!</span>
+            </div>
+        </div>
+    </div>
 
-			<nav class="main-nav" role="navigation" aria-label="Primary">
-				<ul>
-					<li><a href="../pages/home.html">Home</a></li>
-					<li><a href="../pages/promo.html">Promo</a></li>
-					<li><a href="../pages/processing-solutions.html">Processing Solutions</a></li>
-					<li><a href="../pages/digital-services.html">Digital Services</a></li>
-					<li><a href="../pages/business-financing.html">Business Financing</a></li>
-					<li><a href="../pages/about.html">About Us</a></li>
-					<li><a href="../pages/contact-us.html">Contact Us</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-
-	<!-- Promo hero -->
-
-	<!-- Promo content -->
-
-	<!-- Promo Form -->
 
 </body>
-</html>
 
+<style>
+
+    .hero-content{
+        gap:2rem; /*default*/
+        gap:15rem;    
+    }
+
+    .btn-primary.promo-cta-text{
+        width: auto;
+        font-family: Manrope;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.25rem;
+        padding:0.75rem 2.5rem;
+        border:1px solid var(--Primary-Btn, #3C88C3);
+    }
+
+
+    .hero-text-wrapper{
+        display:grid;
+        gap:1rem;
+    }
+
+    .hero {
+        width: 100%;
+        min-height: 80vh;
+        height: 560px;
+        background: #C1D3D5;
+        background: url('../assets/images/promo/HeroBanner1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+/* h1.MobileH1{
+    font-family: Manrope, sans-serif;
+} */
+
+.hero-content {
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: grid;
+    place-content: center;
+}
+
+.hero-title.promo {
+    width: 18ch;
+}
+
+.hero-title{
+    text-align: center;
+}
+
+H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
+    margin:0 auto;
+    color: var(--Secondary-Btn, #16394B);
+    text-align: center;
+    font-family: Inter;
+    font-size: 2.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.3rem; 
+}
+
+
+.hero-subtitle {
+    max-width:33ch;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--Primary-Btn, #3C88C3);
+    font-family: Manrope, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    line-height: normal;
+    font-size: 2rem;
+    font-style: normal;
+}
+
+.hero-cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.cta-button {
+    height: 48px;
+    padding: 12px 40px;
+    background: var(--Primary-Btn, #3C88C3);
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-text {
+    color: white;
+    font-size: 16px;
+    font-family: Manrope, sans-serif;
+    font-weight: 600;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.terms-wrapper {
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.terms-text {
+    text-align: center;
+    color: var(--TypographyColors-Subtitle, #788289);
+    font-size: 12px;
+    font-family: Manrope, sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+span.special-accent-promo-intro{
+    font-weight: 600;
+}
+
+ p.hero-subtitle.display-70{
+    font-weight: 50;
+}
+
+/* Mobile Devices - Reset Base to 550px for Mobile when done (550px width) */
+/* Mobile Devices - Base (390px width) */
+@media (max-width: 390px) {
+  /* Mobile-specific styles will go here */
+  .hero-subtitle{
+    display: flex;
+    width: 24.375rem;
+    height: 11rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-title.promo.display-70{
+    font-size: 2.25rem;
+    line-height: 2.625rem;
+    width: 100%;
+  }
+
+  .hero-subtitle{
+    margin:0 auto;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }  
+
+
+  span.special-accent-promo-intro{
+    color: var(--Secondary-Btn, #16394B); 
+  }
+
+  .hero{
+        width: 100%;
+        height: fit-content;
+    }
+  
+}
+
+
+</style>
+
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+<link rel="stylesheet" href="../assets/css/promo-hero.css">
+
+
+</html>
