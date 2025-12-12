@@ -447,7 +447,7 @@ p {
     background-color: transparent;
     padding:.8rem 2rem;
     border: 1px solid var(--Primary-Btn, #3C88C3);       
-    color:#3C88C3;
+    color:var(--Primary-Btn);
 }
 
 
@@ -635,6 +635,10 @@ button:disabled {
   height: 16px;
 }
 
+a:hover {
+  cursor: pointer;
+
+}
 
 
 

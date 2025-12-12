@@ -1,0 +1,11 @@
+.icon.rightTopCategoryMobileArrow{
+
+transform:translateY(3px);
+}
+
+
+                p #viewAllBtn{
+                    cursor: pointer;
+                    background-color: red;
+
+                }
