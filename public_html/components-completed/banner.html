@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <title>Banner Carousel</title>
+
+    <style>
+        /* ============================================================
+           GLOBAL RESET + VARIABLES
+        ============================================================ */
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        :root {
+            --slide-count: 2;
+
+            /* Carousel Heights */
+            --carousel-window-height: 120px;
+            --carousel-window-height-mobile: 50px;
+        }
+
+        /* ============================================================
+           CAROUSEL WINDOW
+        ============================================================ */
+        .carousel-window {
+            position: relative;
+            width:100vw;
+            overflow:hidden;            
+            max-height: var(--carousel-window-height);
+        }
+
+        #banner-carousel {
+            position: relative;
+            overflow:hidden;
+            height: var(--carousel-window-height);
+            min-height: var(--carousel-window-height);
+        }
+
+        /* ============================================================
+           SLIDES WRAPPER
+        ============================================================ */
+        #banner-wrapper {
+            position:absolute;
+            top:0; left:0;
+            display:flex;
+            width: calc(var(--slide-count) * 100vw);
+            transition: transform .45s ease-in-out;
+        }
+
+        /* ============================================================
+           INDIVIDUAL SLIDE
+        ============================================================ */
+        .slide {
+            width:100vw;
+            flex-shrink:0;
+            padding:0 1.5rem;
+
+            display:flex;
+            align-items:center;
+            flex-direction:row;
+
+            min-height: var(--carousel-window-height);
+            height: fit-content;
+            background:#efefef;
+            background-image: url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ============================================================
+           CONTENT AREAS
+        ============================================================ */
+        .textInfo-wrapper,
+        .image-wrapper {
+            flex:1;
+        }
+
+        .textInfo-wrapper {
+            position: relative;
+            width:100%;
+            padding:0 64px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+        }
+
+        /* ============================================================
+           ARROW BUTTONS
+        ============================================================ */
+        #banner-carousel .banner-btn {
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            z-index:50;
+
+            width:48px;
+            height:48px;
+            border-radius:50%;
+            border:none;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-size:32px;
+            font-weight:700;
+            color:white;
+
+            background:transparent;
+            cursor:pointer;
+            backdrop-filter:blur(4px);
+        }
+
+        #banner-prev { left:12px; }
+        #banner-next { right:12px; }
+
+        #banner-carousel .banner-btn:hover {
+            background:rgba(0,0,0,0.7);
+        }
+
+        .hidden {
+            opacity:0;
+            pointer-events:none;
+        }
+
+        /* ============================================================
+           INNER CUSTOM LAYOUT
+        ============================================================ */
+        .container {
+            display:flex;
+            width:100%;
+            flex-direction:row;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .media {
+            display:flex;
+            flex-direction:column;
+        }
+
+        .advert {
+            width:fit-content;
+            height:50px;
+            padding:1rem 0;
+        }
+
+        .text-description {
+            width:100%;
+            flex:1;
+            text-align:center;
+        }
+
+        /* ============================================================
+           RESPONSIVE (MOBILE)
+        ============================================================ */
+        @media (max-width:768px) {
+
+            .carousel-window,
+            #banner-carousel {              
+                max-height: var(--carousel-window-height-mobile);
+            }
+
+            /*MOBILE SLIDE BACKGROUND*/
+            .slide {
+                flex-direction:column;
+                background:#fff;
+                max-height: var(--carousel-window-height-mobile);
+                background-image:url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
+                background-size: contain;
+                background-position: center;
+                background-repeat:no-repeat;
+            }
+
+            .textInfo-wrapper {
+                align-items:center;
+                width:100%;
+                padding:.5rem;
+            }
+
+            .image-wrapper {
+                width:100%;
+                height:auto;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE (DESKTOP)
+        ============================================================ */
+        @media (min-width:768px) {
+
+            .container {
+                flex-direction:column;
+                padding:1rem 0;
+            }
+
+            .media {
+                order:1;
+            }
+
+            .advert {
+                display:none; /* Desktop hides advert image */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     BANNER CAROUSEL
+============================================================ -->
+<div id="banner-carousel" class="carousel-window promo-banner">
+
+    <!-- Navigation Arrows -->
+    <button id="banner-prev" class="banner-btn prev">‹</button>
+    <button id="banner-next" class="banner-btn next">›</button>
+
+    <!-- Slides Wrapper -->
+    <div id="banner-wrapper">
+
+        <!-- SLIDE 1 -->
+        <div class="slide">
+            <div class="container">
+
+                <div class="media">
+                    <img class="advert" src="../assets/images/hero/2021-02-03-station-solo-Merchant_Facing-Left_Parallel-Register-np-removebg-preview.webp" width="50px" alt="Advert"/>
+                    <button>GET ACCESS NOW</button>
+                </div>
+
+                <div class="text-description">
+                    <!-- <p>Want to eliminate up to 100% of your proecssing fees?</p> -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide">
+            <div class="container">
+
+                <div class="media">
+                    <img class="advert" src="." alt="Advert"/>
+                    <button>CLAIM OFFER NOW</button>
+                </div>
+
+                <div class="text-description">
+                    <!-- <p>Own a business or know someone who does? Get up to 100% off new equipment*</p> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+<link rel="stylesheet" href="../assets/css/banner.css">
+
+<style>
+
+</style>
+
+<!-- ============================================================
+     MANUAL CAROUSEL SCRIPT
+============================================================ -->
+<script>
+(function initBannerCarousel() {
+
+    /* Select core elements */
+    const wrapper = document.querySelector("#banner-wrapper");
+    const slides  = wrapper?.querySelectorAll(".slide") ?? [];
+    const btnPrev = document.querySelector("#banner-prev");
+    const btnNext = document.querySelector("#banner-next");
+
+    if (!wrapper || slides.length === 0) return;
+
+    /* Carousel Logic */
+    let index = 0;
+    const maxIndex = slides.length - 1;
+
+    function updateButtons() {
+        btnPrev?.classList.toggle("hidden", index === 0);
+        btnNext?.classList.toggle("hidden", index === maxIndex);
+    }
+
+    function goToSlide() {
+        const width = slides[0].clientWidth;
+        wrapper.style.transform = `translateX(-${index * width}px)`;
+        updateButtons();
+    }
+
+    /* Bind events safely */
+    btnNext?.addEventListener("click", () => {
+        if (index < maxIndex) {
+            index++;
+            goToSlide();
+        }
+    });
+
+    btnPrev?.addEventListener("click", () => {
+        if (index > 0) {
+            index--;
+            goToSlide();
+        }
+    });
+
+    /* Recalculate on window resize */
+    window.addEventListener("resize", goToSlide);
+
+    /* Initialize */
+    goToSlide();
+
+})();
+</script>
+
+</body>
+</html>

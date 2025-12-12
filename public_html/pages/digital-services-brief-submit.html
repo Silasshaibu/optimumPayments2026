@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Love Work</title>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+
+</head>
+
+<body>
+
+<div class="contact-card__image-wrapper">
+    <h1 class="form-title">We love working with fun clients</h1>
+</div>  
+
+
+<section class="digitalMarketing contact-card">
+  <p class="from-subtle-message">
+    Fill out our form below detailing your project and we will get back to you as soon as possible. <br>
+    The more specific, the better to start out — 
+    but we can help you determine your project goals  face-to-face.
+  </p>
+
+  <form class="digitalMarketingForm" id="contactForm">
+    <div class="formSections-wrapper">
+
+      <fieldset>
+        <legend>Tell Us About Yourself</legend>
+        <div class="fun-form-grid">
+          <div>
+            <label for="yourName">Name</label>
+            <input id="yourName" name="yourName" type="text" placeholder="Your Name" required />
+          </div>
+
+          <div>
+            <label for="email">Email*</label>
+            <input id="email" name="email" type="email" placeholder="example@email.com" required />
+          </div>
+
+          <div>
+            <label for="yourphone">Phone Number</label>
+            <input id="yourphone" name="yourphone" type="tel" placeholder="+1 (555) 123-4567" />
+          </div>
+
+          <div>
+            <label for="website">Website</label>
+            <input id="website" name="website" type="url" placeholder="https://yourwebsite.com" />
+          </div>
+
+          <div>
+            <label for="budget">Your Budget</label>
+            <div class="price-range">
+            <!--Price Range slider--> 
+              <div class="labels">
+                <span id="price-min-label">$2,000</span>
+                <span id="price-max-label">$50,000</span>
+              </div>
+
+              <div class="slider-container">
+                <input type="range" id="min-range" min="2000" max="50000" value="2000" step="500">
+                <input type="range" id="max-range" min="2000" max="50000" value="50000" step="500">
+
+                <div class="track"></div>
+                <div class="range-fill" id="range-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="howDidYouHearAboutUs">How Did You Hear About Us?</label>
+            <select id="howDidYouHearAboutUs" name="howDidYouHearAboutUs" required>
+              <option value="" disabled selected>Choose one</option>
+              <option value="facebook">From Facebook</option>
+              <option value="tiktok">From TikTok</option>
+              <option value="friend">From A Friend</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="comments">Tell Us More</label>
+          <textarea id="comments" name="comments" placeholder="Enter additional information"></textarea>
+        </div>
+
+        <!-- SERVICES CHECKBOXES -->
+        <div>
+          <label>What services are you looking for?</label>
+          <div class="form-group services-grid">
+            <label class="service-option">
+              <input type="checkbox" name="services" value="website_design_development">
+              <div class="service-text">
+                <span class="service-title">Website Design + Development</span>
+                <span class="service-description">Create a modern, responsive, high-performing website tailored to your brand and business goals.</span>
+              </div>
+            </label>
+
+            <label class="service-option">
+              <input type="checkbox" name="services" value="app_design_development">
+              <div class="service-text">
+                <span class="service-title">App Design + Development</span>
+                <span class="service-description">Build a sleek and intuitive mobile or web application tailored to your needs.</span>
+              </div>
+            </label>
+
+            <label class="service-option">
+              <input type="checkbox" name="services" value="copywriting">
+              <div class="service-text">
+                <span class="service-title">Copywriting</span>
+                <span class="service-description">Craft compelling content that effectively communicates your brand’s voice.</span>
+              </div>
+            </label>
+
+            <label class="service-option">
+              <input type="checkbox" name="services" value="packaging_design">
+              <div class="service-text">
+                <span class="service-title">Packaging Design</span>
+                <span class="service-description">Design eye-catching packaging that enhances your product’s appeal and brand identity.</span>
+              </div>
+            </label>
+
+            <label class="service-option">
+              <input type="checkbox" name="services" value="branding">
+              <div class="service-text">
+                <span class="service-title">Branding</span>
+                <span class="service-description">Develop a consistent and impactful brand identity for your business.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-primary btn-fullwidth" type="submit">Submit</button>
+      </fieldset>
+
+    </div>
+  </form>
+</section>
+
+<!--style for price slider-->
+<style>
+  /*Price range slider css*/
+  .price-range {
+  width: 330px;
+  width: 100%;
+  font-family: sans-serif;
+  }
+
+  .price-range input{
+    border:none;
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .slider-container {
+    position: relative;
+    height: 40px;
+  }
+
+  input[type="range"] {
+    position: absolute;
+    left: 0; 
+    top: 10px; /*Former*/
+    top:-7px;
+    width: 100%;
+    appearance: none;
+    background: none;
+    z-index: 2;
+    pointer-events: none; /* Allows clicking through */
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    pointer-events: auto;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
+  .track {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    
+    background: #e5e7eb;
+    border-radius: 4px;
+  }
+
+  .range-fill {
+    position: absolute;
+    top: 18px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--color-primary);
+  }
+
+</style>
+
+<!--script for slider-->
+<script>
+  const minInput = document.getElementById("min-range");
+const maxInput = document.getElementById("max-range");
+
+const minLabel = document.getElementById("price-min-label");
+const maxLabel = document.getElementById("price-max-label");
+
+const fill = document.getElementById("range-fill");
+
+const minGap = 1;
+const min = +minInput.min;
+const max = +maxInput.max;
+
+function updateSlider() {
+  let minVal = +minInput.value;
+  let maxVal = +maxInput.value;
+
+  // Prevent crossing
+  if (maxVal - minVal <= minGap) {
+    if (event.target === minInput) {
+      minInput.value = maxVal - minGap;
+    } else {
+      maxInput.value = minVal + minGap;
+    }
+  }
+
+  minVal = +minInput.value;
+  maxVal = +maxInput.value;
+
+  const minPercent = ((minVal - min) / (max - min)) * 100;
+  const maxPercent = ((maxVal - min) / (max - min)) * 100;
+
+  fill.style.left = minPercent + "%";
+  fill.style.width = (maxPercent - minPercent) + "%";
+
+  minLabel.textContent = "$" + minVal;
+  maxLabel.textContent = "$" + maxVal;
+}
+
+minInput.addEventListener("input", updateSlider);
+maxInput.addEventListener("input", updateSlider);
+
+updateSlider(); // initial render
+
+</script>
+
+<!--script for form-->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!e.target.checkValidity()) {
+      e.target.reportValidity();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    console.log("Form submitted:", data);
+    alert("Form submitted! Check console for details.");
+  });
+</script>
+
+
+
+</body>
+
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+<link rel="stylesheet" href="../assets/css/digital-service-brief-form.css">
+</html>

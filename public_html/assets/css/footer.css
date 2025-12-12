@@ -1,0 +1,177 @@
+    /* ---------- Variables ---------- */
+    :root {
+      --bg: #ffffff;
+      --muted: #98A2B3;      
+      --text: #667085;       
+      --badge-bg: #EBF3F9;
+      --badge-fg: #306D9C;
+      --bottom-bg: #F9FAFB;
+      --footer-container-width: 1280px;
+      --gap-lg: 48px;
+      --gap-md: 32px;
+      --gap-sm: 16px;
+      --font-sans: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ---------- Footer Base ---------- */
+    footer {
+      width: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-lg);
+      padding: 0 var(--gap-sm);
+      max-width: var(--footer-container-width);
+      margin: 0 auto;
+    }
+
+    /* ---------- Footer Grid (First Section) ---------- */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* Mobile first */
+      gap: var(--gap-md);
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links li {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .badge-new {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--badge-fg);
+      background: var(--badge-bg);
+      padding: 2px 8px;
+      border-radius: 16px;
+      margin-left: 6px;
+    }
+    
+    /* Prevent underline on badge when hovering link */
+  .footer-links li a .badge-new {
+    text-decoration: none !important;
+    display: inline-block; /* ensures underline does not pass under it */
+  }
+
+
+    /* ---------- Contact + Logo (Second Section) ---------- */
+    .second-section {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: var(--gap-md);
+    }
+    .contact-methods {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact-methods{
+      padding-top:1rem;
+    }
+    .mail-link a {
+      color: var(--text);
+      font-size: 15px;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 25px;
+      word-wrap: break-word;
+    }
+
+    .second-section p {
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    
+    
+    .footer-links li a {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    }
+
+    .footer-links li a:hover {
+    text-decoration: underline; /* Optional hover effect */
+    }
+
+  
+
+
+
+    /* ---------- Third Section: Copyright ---------- */
+    .third-section {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--bottom-bg);
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .footer-container{
+      padding:2rem;
+    }
+
+    /* ---------- Responsive Breakpoints ---------- */
+    @media (min-width: 769px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .second-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--gap-md);
+        align-items: flex-start;
+        padding: 32px 0 48px 0;
+      }
+
+      .contact-info.summary-logo-section {
+        padding-top: 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 1440px) {
+      .footer-grid {
+        gap: 40px;
+      }
+    }
+
+
