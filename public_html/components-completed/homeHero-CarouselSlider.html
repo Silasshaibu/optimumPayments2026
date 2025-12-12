@@ -8,88 +8,109 @@
     </title>
 
 <style>
+    .homeHero-carousel .slide[data-bg="1"] {
+        background: url('../assets/images/hero/desktop-slide-1.jpg') no-repeat center/cover;
+        background: rgb(189, 189, 84);
+    }
 
+    .homeHero-carousel .slide[data-bg="2"] {
+        background: url('../assets/images/hero/desktop-slide-2.jpg') no-repeat center/cover;
+        background: rgb(189, 84, 166);
+    }
 
+    .homeHero-carousel .slide[data-bg="3"] {
+        background: url('../assets/images/hero/desktop-slide-3.jpg') no-repeat center/cover;
+        background: rgb(138, 84, 189);
+    }
 
-#home-hero .carousel-window {
+    .homeHero-carousel .slide[data-bg="4"] {
+        background: url('../assets/images/hero/desktop-slide-4.jpg') no-repeat center/cover;
+        background: rgb(84, 126, 189);
+    }
+
+    .homeHero-carousel .slide[data-bg="5"] {
+        background: url('../assets/images/hero/desktop-slide-5.jpg') no-repeat center/cover;
+        background: rgb(84, 189, 136);
+    }
+
+ 
+
+.homeHero-carousel .carousel-window {
     position: relative;
-    width: 100vw;
-    overflow: hidden; /* hide overflow for carousel effect */
-    height: 90vh;
-    min-height:560px;
+    width: 100%;
     overflow: hidden;
+    height: 90vh;
+    min-height: 560px;
 }
 
-#home-hero .carousel-wrapper {
-    top:0px;
-    left:0px;
-    height:80vh;
+.homeHero-carousel .carousel-wrapper {
+    top: 0;
+    left: 0;
+    height: 80vh;
     position: absolute;
-    width: calc(var(--slide-count, 5) * 100vw); /* dynamic width based on slide count */
-    display: flex; /* make slides line up horizontally */
+    width: calc(var(--slide-count, 5) * 100vw);
+    display: flex;
 }
 
-.slide {
-    width: 100vw; /* each slide takes full viewport width */
-    flex-shrink: 0; /* prevent shrinking */
-    padding:12px 32px;
+.homeHero-carousel .slide {
+    width: 100vw;
+    flex-shrink: 0;
+    padding: 12px 32px;
     display: flex;
+    position: relative;
     flex-direction: row;
-    align-self: center;
-    min-height:300px; /*Placeholder can be changed where necessary */
+    min-height: 300px;
     align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: rgb(70, 69, 69);
 }
 
-.textInfo-wrapper, .image-wrapper{
-    flex:1;
-    /* border:1px solid black; */
+/* Keep your layout rules but scoped */
+.homeHero-carousel .textInfo-wrapper,
+.homeHero-carousel .image-wrapper {
+    flex: 1;
 }
 
-#home-hero .image-wrapper{
+.homeHero-carousel .image-wrapper {
     position: absolute;
-    right:0;
-    bottom:50%;
-    transform:translate(0%, 50%);
+    right: 0;
+    bottom: 50%;
+    transform: translate(0, 50%);
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 50vw; /*Image container width to cover in d esktop version*/
-    height: 400px; /*Image container height to cover in d esktop version*/
+    align-items: center;
+    width: 50vw;
+    height: 400px;
 }
 
-.textInfo-wrapper{
+.homeHero-carousel .textInfo-wrapper {
     position: relative;
     width: 560px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding:64px;
+    padding: 64px;
 }
 
-.cta-container-hero{
+.homeHero-carousel .cta-container-hero{
     padding-top: 52px;
     display: flex;
      gap:1rem;
 }
-.slide{
-    padding:158px 45px;
-    background-color: grey;    
-}
 
-p.label-h1{
+
+.homeHero-carousel p.label-h1{
     color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
     font-family: Manrope;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: 16.8px; /* 120% */
-    min-height:16.8px;
-    
+    min-height:16.8px;    
 }
 
-p.display{
+.homeHero-carousel p.display{
     color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
-
     font-family: var(--font-family-Font-1, Manrope);
     font-size: var(--line-height-18, 18px);
     font-style: normal;
@@ -101,7 +122,6 @@ p.display{
 h1.heading.title{
     width:14ch;
     color: var(--us-store-bambulab-com-white, var(--color-white-solid, #FFF));
-
     /* us.store.bambulab.com/Semantic/Heading 1 */
     font-family: var(--font-family-Font-1, Manrope);
     font-size: var(--font-size-40, 40px);
@@ -109,7 +129,6 @@ h1.heading.title{
     font-weight: var(--font-weight-700, 700);
     line-height: var(--line-height-48, 48px); /* 120% */
     text-transform: capitalize;
-;
 }
 
 
@@ -117,274 +136,274 @@ h1.heading.title{
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
 @media (max-width:768px) {
-    #home-hero .slide{
-        /* margin:auto 0; */
-        background-color: #fff;
+    .homeHero-carousel .slide {
+        background: none !important;
         flex-direction: column;
-        padding:1rem;
+        padding: 1rem;
     }
 
-   
-    .textInfo-wrapper{
-        align-items: center; 
+    .homeHero-carousel .textInfo-wrapper {
         width: 100%;
-        padding:.5rem;
+        align-items: center;
+        padding: .5rem;
     }
 
-    p.display, h1.heading.title{
+    .homeHero-carousel p.display,
+    .homeHero-carousel h1.heading.title {
         width: 100%;
-    }
-
-    p.display, h1.heading.title{
         text-align: center;
     }
 
-    #home-hero .image-wrapper{
-    /* position: absolute; */
-    position: relative;
-    right:0;
-    bottom:0%;
-    transform:translate(0%, 0%);
-    border:1px solid white;
-   width: 500px; /*Image container width to cover in d esktop version*/
-    height: 400px;
-    /* height: 100%; */
+
+    .homeHero-carousel .image-wrapper {
+        position: relative;
+        width: 500px;
+        height: 400px;
+        transform: none;
+        bottom: 0;
     }
 
-    .carousel-window.home-hero {
-    min-height:614px;
-    height: fit-content;
-    height: auto;
-    overflow: hidden;
-    }
-    
-
-    p.display{
-        color: var(--TypographyColors-Subtitle, #788289);
-text-align: center;
-
-/* BBu.Mobile.P1 */
-font-family: Manrope;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 30px; /* 150% */
-    }
-
-    h1.heading.title{
-        color: var(--TypographyColors-Title, #18374E);
-text-align: center;
-
-/* Mobile.H1 */
-font-family: Inter;
-font-size: 44px;
-font-style: normal;
-font-weight: 700;
-line-height: 52.8px; /* 120% */
+      .homeHero-carousel .carousel-window.home-hero {
+        min-height: 614px;
+        height: auto;
     }
 
 
+    .homeHero-carousel p.display{
+    color: var(--TypographyColors-Subtitle, #788289);
+    text-align: center;
+
+    /* BBu.Mobile.P1 */
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    }
+
+    .homeHero-carousel h1.heading.title{
+    color: var(--TypographyColors-Title, #18374E);
+    text-align: center;
+
+    /* Mobile.H1 */
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52.8px; /* 120% */
+    }
+
+  
+    .homeHero-carousel .slide {
+        background: none !important;
+    }
+
+    .homeHero-carousel .image-wrapper {
+        display: flex;
+    }
 }
 
-    </style>
+</style>
 
 </head>
 <body>
+    
+    <!-- Home Hero Carousel End -->
+    <div class="homeHero-carousel">
+        <!-- your carousel code -->
 
-    <!-- Home Hero Carousel Start -->
-    <div id="home-hero" class="carousel-window home-hero">
-        <div class="carousel-wrapper">
-            <div class="slide">
-                <div class="textInfo-wrapper">
-                    <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                    <p class="label-h1">SOLUTIONS PROVIDER</p>
-                    <h1 class="heading title display">Optimum Payments</h1>
-                    <p class="display subtitle">A full proider of payment processing and business financing.</p>
-                    <div class="image-wrapper">
-                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
-                    </div>
-                    <div class="cta-container-hero">
-                        <button class="btn-primary">Learn More</button>
-                        <button class="btn-secondary">Learn More</button>
-                    </div>   
-                </div>
-                
-            </div>
-            <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">ROK</p>
-                    
-                    <h1 class="heading title display">Business Financing</h1>
-                    <p class="display subtitle">Get the funding your business deserves today.</p>
-                     <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                    </div>
-                    <div class="cta-container-hero">
-                        <button class="btn-primary">Get Started</button>
-                        <button class="btn-secondary">Learn More</button>
-                    </div>   
-                </div>
-               
-            </div>
-             <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">OUR SERVICE</p>
+
+        <!-- Home Hero Carousel Start -->
+        <div id="home-hero" class="carousel-window home-hero">
+            <div class="carousel-wrapper">
+                <div class="slide" data-bg="1">
+                    <div class="textInfo-wrapper">
                         <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                   
-                    <h1 class="heading title display">Payment Processing</h1>
-                    <p class="display subtitle">Our solutions are designed to meet unique needs.</p>
-                         <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                    </div>
-                    <div class="cta-container-hero">
-                        <button class="btn-primary">Apply Now</button>
-                        <button class="btn-secondary">Learn More</button>
-                    </div>   
-                </div>
-               
-            </div>
-            <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">BECOME A MERCHANT</p>
-                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                    </p>
-                    <h1 class="heading title display">Merchant Application</h1>
-                    <p class="display subtitle">Start accepting payments with confidence.</p>
-                         <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
-                </div>
-                    <div class="cta-container-hero">
-                        <button class="btn-primary">Fill The Form</button>
-                        <button class="btn-secondary">Learn More</button>
-                    </div>   
-                </div>
-               
-            </div>
-            <div class="slide">
-                  <div class="textInfo-wrapper">
-                    <p class="label-h1">Just For You</p>
-                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
-                    </p>
-                    <h1 class="heading title display">Digital Creative Services</h1>
-                    <p class="display subtitle">Let's help you realize your imagination.</p>
+                        <p class="label-h1">SOLUTIONS PROVIDER</p>
+                        <h1 class="heading title display">Optimum Payments</h1>
+                        <p class="display subtitle">A full proider of payment processing and business financing.</p>
                         <div class="image-wrapper">
-                    <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                            <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
+                        </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Learn More</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                    
                 </div>
-                    <div class="cta-container-hero">
-                        <button class="btn-primary">Fill The Form</button>
-                        <button class="btn-secondary">Learn More</button>
-                    </div>   
-                </div>
+                <div class="slide" data-bg="2">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">ROK</p>
+                        
+                        <h1 class="heading title display">Business Financing</h1>
+                        <p class="display subtitle">Get the funding your business deserves today.</p>
+                        <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                        </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Get Started</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
                 
+                </div>
+                <div class="slide" data-bg="3">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">OUR SERVICE</p>
+                            <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    
+                        <h1 class="heading title display">Payment Processing</h1>
+                        <p class="display subtitle">Our solutions are designed to meet unique needs.</p>
+                            <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                        </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Apply Now</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                
+                </div>
+                <div class="slide" data-bg="4">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">BECOME A MERCHANT</p>
+                            <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    
+                        <h1 class="heading title display">Merchant Application</h1>
+                        <p class="display subtitle">Start accepting payments with confidence.</p>
+                            <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Fill The Form</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                
+                </div>
+                <div class="slide" data-bg="5">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">Just For You</p>
+                            <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                        
+                        <h1 class="heading title display">Digital Creative Services</h1>
+                        <p class="display subtitle">Let's help you realize your imagination.</p>
+                            <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Fill The Form</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                    
+                </div>
             </div>
         </div>
+
+        <div class="carousel-wrapper-remote carousel-remote">
+            <button class="prev">
+                Left
+            </button>
+
+            <button class="next">
+                Right
+            </button>
+        </div>
     </div>
-
-    <div style="display: none;" class="carousel-wrapper-remote carousel-remote">
-        <button class="prev">
-            Left
-        </button>
-
-        <button class="next">
-            Right
-        </button>
-    </div>
-
     
     <script>
-const wrapper = document.querySelector(".carousel-wrapper");
-let slides = document.querySelectorAll(".carousel-wrapper .slide");
+        const root = document.querySelector(".homeHero-carousel");
+        const wrapper = root.querySelector(".carousel-wrapper");
+        let slides = root.querySelectorAll(".carousel-wrapper .slide");
 
-let index = 1;
-let interval = null;
-const autoSlideTime = 3000;
+        let index = 1;
+        let interval = null;
+        const autoSlideTime = 3000;
 
-// Clone first & last
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
-firstClone.classList.add("clone");
-lastClone.classList.add("clone");
+        // Clone first & last
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone = slides[slides.length - 1].cloneNode(true);
+        firstClone.classList.add("clone");
+        lastClone.classList.add("clone");
 
-wrapper.appendChild(firstClone);
-wrapper.insertBefore(lastClone, slides[0]);
+        wrapper.appendChild(firstClone);
+        wrapper.insertBefore(lastClone, slides[0]);
 
-// Re-query slides after cloning
-slides = document.querySelectorAll(".carousel-wrapper .slide");
-let slideWidth = slides[0].clientWidth;
+        // Re-query slides
+        slides = root.querySelectorAll(".carousel-wrapper .slide");
+        let slideWidth = slides[0].clientWidth;
 
-// Start position
-wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-
-// Resize handling
-window.addEventListener("resize", () => {
-    slideWidth = slides[0].clientWidth;
-    wrapper.style.transition = "none";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-});
-
-// Move to next
-function nextSlide() {
-    if (index >= slides.length - 1) return;
-    index++;
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-}
-
-// Move to prev
-function prevSlide() {
-    if (index <= 0) return;
-    index--;
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-}
-
-// Loop correction
-wrapper.addEventListener("transitionend", () => {
-    if (slides[index].classList.contains("clone")) {
-        wrapper.style.transition = "none";
-        if (index === 0) {
-            index = slides.length - 2;
-        } else if (index === slides.length - 1) {
-            index = 1;
-        }
         wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-    }
-});
 
-// Auto-slide
-function startAutoSlide() {
-    interval = setInterval(nextSlide, autoSlideTime);
-}
-function stopAutoSlide() {
-    clearInterval(interval);
-}
-wrapper.addEventListener("mouseenter", stopAutoSlide);
-wrapper.addEventListener("mouseleave", startAutoSlide);
+        // Resize
+        window.addEventListener("resize", () => {
+            slideWidth = slides[0].clientWidth;
+            wrapper.style.transition = "none";
+            wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+        });
 
-// Remote buttons
-document.querySelector(".carousel-remote .next").addEventListener("click", () => {
-    stopAutoSlide();
-    nextSlide();
-    startAutoSlide();
-});
-document.querySelector(".carousel-remote .prev").addEventListener("click", () => {
-    stopAutoSlide();
-    prevSlide();
-    startAutoSlide();
-});
+        function nextSlide() {
+            if (index >= slides.length - 1) return;
+            index++;
+            wrapper.style.transition = "transform 0.5s ease-in-out";
+            wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+        }
 
-// Start
-startAutoSlide();
+        function prevSlide() {
+            if (index <= 0) return;
+            index--;
+            wrapper.style.transition = "transform 0.5s ease-in-out";
+            wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+        }
+
+        wrapper.addEventListener("transitionend", () => {
+            if (slides[index].classList.contains("clone")) {
+                wrapper.style.transition = "none";
+                if (index === 0) {
+                    index = slides.length - 2;
+                } else if (index === slides.length - 1) {
+                    index = 1;
+                }
+                wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+            }
+        });
+
+        function startAutoSlide() {
+            interval = setInterval(nextSlide, autoSlideTime);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(interval);
+        }
+
+        wrapper.addEventListener("mouseenter", stopAutoSlide);
+        wrapper.addEventListener("mouseleave", startAutoSlide);
+
+        root.querySelector(".carousel-remote .next").addEventListener("click", () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide();
+        });
+
+        root.querySelector(".carousel-remote .prev").addEventListener("click", () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide();
+        });
+
+        // Start
+        startAutoSlide();
     </script>
 
-
-    <link rel="stylesheet" href="../assets/css/style-guide.css">
-    <link rel="stylesheet" href="../assets/css/singular-hero-style.css">
-    <link rel="stylesheet" href="../assets/css/home-hero.css">
-
+    <script>
+        document.documentElement.style.setProperty('--slide-count', slides.length);
+    </script> 
     <!-- Home Hero Carousel End -->
 
 </body>
+
 
 
 
