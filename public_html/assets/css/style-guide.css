@@ -438,7 +438,8 @@ p {
    SPECIAL PRODUCT CATEGORY BUTTONS
    ========================================= */
 
-.btn-featured-products{         
+.btn-featured-products{  
+    position: relative;       
     font-size: 1rem;
     font-style: normal;
     font-weight: var(--font-weight-400, 400);

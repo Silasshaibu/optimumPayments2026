@@ -67,7 +67,6 @@
                 align-items: center;
                 width: 85vw;
             }
-
             
             .carouselWindow{
                 width: 85vw;
@@ -81,7 +80,6 @@
                 height:1rem;
                 margin: 0rem 0.25rem;
             }
-
 
             .carouselwithProducts-wrapper{
                 position: absolute;
@@ -228,7 +226,13 @@
                 }
 
                 .btn-featured-products.product-Btn-Desktop{
+                    /* position: absolute; */
                     display: none;
+                }
+
+                .btn-featured-products.product-Btn-Desktop.topCategory{
+                    position: absolute;
+
                 }
 
 
