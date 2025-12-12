@@ -10,20 +10,24 @@
     
     <div class="cards-grid">
         <!-- Card 1 -->
-        <div class="card data-bg[1]">
+        <div class="card ">
             <h3 class="card-title">Mobile businesses, auto shops, medical, and much more! </h3>
             <p class="card-description">Let our system propel your business to bigger profits,      deeper loyalty and greater operational excellence.</p>
+            <img class="mobileBusiness-UnionImage" src="../assets/images/promo/union_platform-webp.webp" width="300px" alt="">
+            
         </div>
 
-        <div class="card data-bg[2]">
+        <div class="card ">
             <h3 class="card-title">Retail</h3>
             <p class="card-description"> All-in-one system built for small-medium sized restaurant and retail businesses.  </p>
+             <img class="mobileBusiness-UnionImage" src="../assets/images/promo/duo2022-printer-mini3-flex3-go3.webp" width="fit-content" height="80%" alt="">
         </div>
 
-        <div class="card data-bg[3]">
+        <div class="card ">
             <h3 class="card-title">Mobile businesses, auto shops, medical, and much more!                        </h3>
             <p class="card-description">Flexible, portable terminals for a variety of business types, from mobile services to medical facilities.
                         </p>
+                         <img class="mobileBusiness-UnionImage" src="../assets/images/promo/union_platform-webp.webp" width="300px" alt="">
         </div>
 
         
@@ -66,23 +70,6 @@
 
 
 
-.cards-grid .card:nth-child(1) {
-    /* background: url('../assets/images/bg1.png'); */
-    background-size: cover;
-    background-position: center;
-}
-
-.cards-grid .card:nth-child(2) {
-    background: url('../assets/images/bg2.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.cards-grid .card:nth-child(3) {
-    background: url('../assets/images/bg3.png');
-    background-size: cover;
-    background-position: center;
-}
 
 
 
@@ -119,6 +106,13 @@
     margin: 0;
 }
 
+.card img{
+    position: absolute;
+    bottom:0;
+    right:0;
+    transform:translate(-20px, 10px);
+}
+
 
 @media(max-width:1024px){
     .cards-grid {
@@ -133,7 +127,13 @@
      .cards-grid {
         grid-template-columns: repeat(1, 1fr);
         padding:5%
+
+        
     }
+
+    .card-description {
+    max-width: 232px;
+    font-size: .8rem;
 }
 
 @media(max-width:550px){
