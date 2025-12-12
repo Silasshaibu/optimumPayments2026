@@ -4,70 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>promoSectionTwo</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
 </head>
 <body>
-    <div class="cards-wrapper">
+    
     <div class="cards-grid">
-
         <!-- Card 1 -->
-        <div class="card">
-            <div class="card-bg" style="background-image: url('https://placehold.co/588x335')">
-                <div class="card-content">
-                    <div class="card-text-block">
-                        <h3 class="card-title">
-                            Mobile businesses, auto shops,
-                            medical, and much more!
-                        </h3>
-                    </div>
-                    <div class="card-description-block">
-                        <p class="card-description">
-                            Let our system propel your business to bigger profits,
-                            deeper loyalty and greater operational excellence.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="card data-bg[1]">
+            <h3 class="card-title">Mobile businesses, auto shops, medical, and much more! </h3>
+            <p class="card-description">Let our system propel your business to bigger profits,      deeper loyalty and greater operational excellence.</p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="card">
-            <div class="card-bg" style="background-image: url('https://placehold.co/588x335')">
-                <div class="card-content">
-                    <div class="card-text-block">
-                        <h3 class="card-title">
-                            Retail
-                        </h3>
-                    </div>
-                    <div class="card-description-block">
-                        <p class="card-description">
-                            All-in-one system built for small-medium sized
-                            restaurant and retail businesses.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="card data-bg[2]">
+            <h3 class="card-title">Retail</h3>
+            <p class="card-description"> All-in-one system built for small-medium sized restaurant and retail businesses.  </p>
         </div>
 
-        <!-- Card 3 (Full width) -->
-        <div class="card card-full">
-            <div class="card-bg" style="background-image: url('https://placehold.co/1192x335')">
-                <div class="card-content">
-                    <div class="card-text-block">
-                        <h3 class="card-title">
-                            Mobile businesses, auto shops,
-                            medical, and much more!
-                        </h3>
-                    </div>
-                    <div class="card-description-block">
-                        <p class="card-description">
-                            Flexible, portable terminals for a variety of
-                            business types, from mobile services to
-                            medical facilities.
+        <div class="card data-bg[3]">
+            <h3 class="card-title">Mobile businesses, auto shops, medical, and much more!                        </h3>
+            <p class="card-description">Flexible, portable terminals for a variety of business types, from mobile services to medical facilities.
                         </p>
-                    </div>
-                </div>
-            </div>
         </div>
+
+        
 
     </div>
 </div>
@@ -75,69 +34,70 @@
 </body>
 
 <style>
-    .cards-wrapper {
-    width: 100%;
-    height: 100%;
-    padding: 140px 360px 10px 360px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 36px;
-}
 
 .cards-grid {
-    width: 1200px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 16px;
+    width: 100%;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:1rem;
+    min-height:686px;   
+    padding:10%;
+    padding-top:140px;
 }
 
 .card {
-    width: 588px;
-    height: 335px;
-    background: #FAFAFA;
+    /* background-color: white; */
+    padding:2rem;
+    row-gap:0.75rem;
     display: flex;
+    align-items: baseline;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    min-height: 335px;
+    position:relative;
 }
 
-.card-full {
-    width: 1192px;
+
+/* MeshgradientBackground */
+.card {
+    background: radial-gradient(circle at 30% 30%, #ffe4d9, transparent 50%),
+                radial-gradient(circle at 70% 70%, #d9f0ff, transparent 60%),
+                #ffffff;
 }
 
-.card-bg {
-    width: 100%;
-    height: 100%;
-    position: relative;
+
+
+.cards-grid .card:nth-child(1) {
+    /* background: url('../assets/images/bg1.png'); */
     background-size: cover;
     background-position: center;
 }
 
-.card-content {
-    width: 100%;
-    height: 100%;
-    padding: 30px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+.cards-grid .card:nth-child(2) {
+    background: url('../assets/images/bg2.png');
+    background-size: cover;
+    background-position: center;
 }
 
-.card-text-block {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+.cards-grid .card:nth-child(3) {
+    background: url('../assets/images/bg3.png');
+    background-size: cover;
+    background-position: center;
 }
+
+
+
+
+
+
+.cards-grid > .card:last-child {
+    grid-column: 1 / -1;
+}
+
+
+
 
 .card-title {
+    max-width: 363px;
     font-size: 24px;
     font-family: Manrope;
     font-weight: 700;
@@ -148,16 +108,9 @@
     flex-direction: column;
 }
 
-.card-description-block {
-    width: 232px;
-    max-width: 232px;
-    padding-bottom: 42px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
 
 .card-description {
+    max-width: 232px;
     font-size: 12px;
     font-family: Manrope;
     font-weight: 400;
@@ -166,5 +119,29 @@
     margin: 0;
 }
 
+
+@media(max-width:1024px){
+    .cards-grid {
+        padding:8%;
+        padding-top:2rem;
+        padding-bottom:2rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media(max-width:768px){
+     .cards-grid {
+        grid-template-columns: repeat(1, 1fr);
+        padding:5%
+    }
+}
+
+@media(max-width:550px){
+     .cards-grid {
+        padding:2rem;
+        padding-bottom: 4rem;
+        padding-top:3rem;
+    }
+}
 </style>
 </html>
