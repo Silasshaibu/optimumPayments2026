@@ -1,0 +1,190 @@
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --slide-count: 5; /* total number of slides */
+}
+
+.carousel-window.home-hero {
+    position: relative;
+    width: 100vw;
+    overflow: hidden; /* hide overflow for carousel effect */
+    height: 90vh;
+    min-height:560px;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    top:0px;
+    /* padding:24rem; */
+    
+    left:0px;
+    height: 80vh;
+    position: absolute;
+    width: calc(var(--slide-count) * 100vw); /* dynamic width based on slide count */
+    display: flex; /* make slides line up horizontally */
+}
+
+.slide {
+    width: 100vw; /* each slide takes full viewport width */
+    flex-shrink: 0; /* prevent shrinking */
+    padding:12px 32px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    min-height:300px; /*Placeholder can be changed where necessary */
+    align-items: center;
+}
+
+.textInfo-wrapper, .image-wrapper{
+    flex:1;
+    /* border:1px solid black; */
+}
+
+.image-wrapper{
+    position: absolute;
+    right:0;
+    bottom:50%;
+    transform:translate(0%, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw; /*Image container width to cover in d esktop version*/
+    height: 400px; /*Image container height to cover in d esktop version*/
+}
+
+.textInfo-wrapper{
+    position: relative;
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:64px;
+}
+
+.cta-container-hero{
+    padding-top: 52px;
+    display: flex;
+     gap:1rem;
+}
+.slide{
+    padding:158px 45px;
+    background-color: grey;    
+}
+
+p.label-h1{
+        color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px; /* 120% */
+    min-height:16.8px;
+    
+}
+
+p.display{
+    color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
+
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--line-height-18, 18px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-23_4, 23.4px); /* 130% */
+    width: 340px;
+    max-width: 28ch;
+}
+h1.heading.title{
+    width:14ch;
+    color: var(--us-store-bambulab-com-white, var(--color-white-solid, #FFF));
+
+    /* us.store.bambulab.com/Semantic/Heading 1 */
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--font-size-40, 40px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-48, 48px); /* 120% */
+    text-transform: capitalize;
+;
+}
+
+
+
+/*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+    .slide{
+        /* margin:auto 0; */
+        background-color: #fff;
+        flex-direction: column;
+        padding:1rem;
+    }
+
+   
+    .textInfo-wrapper{
+        align-items: center; 
+        width: 100%;
+        padding:.5rem;
+    }
+
+    p.display, h1.heading.title{
+        width: 100%;
+    }
+
+    p.display, h1.heading.title{
+        text-align: center;
+    }
+
+    .image-wrapper{
+    /* position: absolute; */
+    position: relative;
+    right:0;
+    bottom:0%;
+    transform:translate(0%, 0%);
+    border:1px solid white;
+   width: 500px; /*Image container width to cover in d esktop version*/
+    height: 400px;
+    /* height: 100%; */
+    }
+
+    .carousel-window.home-hero {
+    min-height:614px;
+    height: 80vh;
+    overflow: hidden;
+    }
+
+    .cta-container-hero{
+        
+    }
+
+    p.display{
+        color: var(--TypographyColors-Subtitle, #788289);
+text-align: center;
+
+/* BBu.Mobile.P1 */
+font-family: Manrope;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 30px; /* 150% */
+    }
+
+    h1.heading.title{
+        color: var(--TypographyColors-Title, #18374E);
+text-align: center;
+
+/* Mobile.H1 */
+font-family: Inter;
+font-size: 44px;
+font-style: normal;
+font-weight: 700;
+line-height: 52.8px; /* 120% */
+    }
+
+
+}
