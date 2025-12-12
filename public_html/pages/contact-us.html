@@ -6,6 +6,8 @@
     <title>Contact Us</title>
 </head>
 <body>
+
+    <!-- Insert navbar body -->
     <header class="site-header" role="banner">
         <div class="container">
             <a class="site-logo" href="/index.html">
@@ -25,5 +27,95 @@
             </nav>
         </div>
     </header>
+
+
+    <!-- Content body -->
+     <div class="contact-card__image-wrapper">
+        <h1 class="form-title">Love to hear from you. Get in touch.</h1>
+    </div>  
+
+    <section class="digitalMarketing contact-card">
+    <p class="from-subtle-message">
+        Whether you have a question, want to start a project or simply want to connect. <br class="breakLine">
+    Feel free to send us a message in the contact form.
+    </p>
+
+    <form class="digitalMarketingForm" id="contactForm">
+        <div class="formSections-wrapper">
+
+        <fieldset>
+            <legend>Tell Us About Yourself</legend>
+            <div class="fun-form-grid">
+            <div>
+                <label for="yourFirstName">First Name</label>
+                <input id="yourFirstName" name="yourName" type="text" placeholder="Your First Name" required />
+            </div>
+
+            <div>
+                <label for="yourLastName">Last Name</label>
+                <input id="yourLastName" name="yourName" type="text" placeholder="Your Last Name" required />
+            </div>
+
+            <div>
+                <label for="email">Email*</label>
+                <input id="email" name="email" type="email" placeholder="example@email.com" required />
+            </div>
+
+            <div>
+                <label for="yourphone">Phone Number</label>
+                <input id="yourphone" name="yourphone" type="tel" placeholder="+1 (555) 123-4567" />
+            </div>
+
+            <div>
+                <label for="company">Company</label>
+                <input id="company" name="compnay" type="text" placeholder="Your Company Name" />
+            </div>         
+
+            <div>
+                <label for="howDidYouHearAboutUs">How Did You Hear About Us?</label>
+                <select id="howDidYouHearAboutUs" name="howDidYouHearAboutUs" required>
+                <option value="" disabled selected>From Facebook</option>
+                <option value="facebook">From Facebook</option>
+                <option value="tiktok">From TikTok</option>
+                <option value="friend">From A Friend</option>
+                <option value="others">Others</option>
+                </select>
+            </div>
+            </div>
+
+            <div>
+            <label for="comments">Tell Us More</label>
+            <textarea id="comments" name="comments" placeholder="Let us know how we may assist you. We are fun to talk to."></textarea>
+            </div>
+
+            <label style="font-size: .8rem; font-weight: 400; color:#6e6b6b">
+            <input  type="checkbox" name="submitFormPolicyChecked"> By submitting this form, I acknowledge receipt of the <a href="#">Optimum-payments Policy</a>.
+            </label>
+            <button class="btn-primary btn-fullwidth" type="submit">Submit</button>
+        </fieldset>
+
+        </div>
+    </form>
+    </section>
+
+    <!--style for contact us form-->
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <link rel="stylesheet" href="../assets/css/contact-us.css">
+
+    <!--script for form-->
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (!e.target.checkValidity()) {
+        e.target.reportValidity();
+        return;
+        }
+
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        console.log("Form submitted:", data);
+        alert("Form submitted! Check console for details.");
+    });
+    </script>
 </body>
 </html>
