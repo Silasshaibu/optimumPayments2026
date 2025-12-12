@@ -1,32 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Shop</title>
-</head>
-<body>
-	<!-- header include (prepended) -->
-	<header class="site-header" role="banner">
-		<div class="container">
-			<a class="site-logo" href="/index.html">
-				<img src="/assets/images/logo/logo.png" alt="Optimum Payments" />
-			</a>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Bar with Search & Sort</title>
+<link rel="stylesheet" href="../assets/css/style-guide.css">
 
-			<nav class="main-nav" role="navigation" aria-label="Primary">
-				<ul>
-					<li><a href="../pages/home.html">Home</a></li>
-					<li><a href="../pages/promo.html">Promo</a></li>
-					<li><a href="../pages/processing-solutions.html">Processing Solutions</a></li>
-					<li><a href="../pages/digital-services.html">Digital Services</a></li>
-					<li><a href="../pages/business-financing.html">Business Financing</a></li>
-					<li><a href="../pages/about.html">About Us</a></li>
-					<li><a href="../pages/contact-us.html">Contact Us</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+</head>
+
+<body>
+
+<div class="control-bar-container">
+    <!-- Search bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for supplies" class="search-input" />
+        <button class="search-btn btn-store">Search</button>
+    </div>
+
+    <!-- Control bar -->
+    <div class="control-bar">
+        <div class="control-left">
+            <button class="refine-btn btn-store">Refine By</button>
+            <div class="sort-box" id="sortBox">
+                <span class="sort-text">Sort</span>
+                <span class="sort-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                </span>
+                <ul class="sort-dropdown" id="sortDropdown">
+                    <li>By Price</li>
+                    <li>Newest</li>
+                    <li>A-Z</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="control-right">
+            <div class="icon" id="grid2x3">
+                <svg class="Icon Icon--wall-3" role="presentation" viewBox="0 0 36 36">
+                    <path fill="currentColor" d="M21 36V21h15v15H21zm0-36h15v15H21V0zM0 21h15v15H0V21zM0 0h15v15H0V0z"></path>
+                </svg>
+            </div>
+            <div class="icon" id="grid4x4">
+                <svg class="Icon Icon--wall-4" role="presentation" viewBox="0 0 36 36">
+                    <path fill="currentColor" d="M28 36v-8h8v8h-8zm0-22h8v8h-8v-8zm0-14h8v8h-8V0zM14 28h8v8h-8v-8zm0-14h8v8h-8v-8zm0-14h8v8h-8V0zM0 28h8v8H0v-8zm0-14h8v8H0v-8zM0 0h8v8H0V0z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product Section with Aside Banner -->
+<!-- Product Section with Aside Banner -->
+<div class="product-section product-container">
+    <div class="advertBanner-aside"></div>
+
+    <div class="products" id="productsGrid">
+
+        <!-- 1. Clover Barcode Scanner -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/ClvoerHandScanner-2d.jpg"
+         alt="Clover Barcode Scanner">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Barcode Scanner</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 2. Ink Ribbon Star Micronics -->
+<div class="single-product-container">
+    <span class="badge-Available">Available</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/InkRibbonStarMicronics.jpg"
+         alt="Ink Ribbon Star Micronics">
+    <div class="single-product-data">
+        <p class="single-product-title">Ink Ribbon Star Micronics</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 3. Star Micronics Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/StarMicronicsPaper.jpg"
+         alt="Star Micronics Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Star Micronics Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 4. Clover Flex Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/CloverFlexPaper.jpg"
+         alt="Clover Flex Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Flex Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 5. Dejavoo Z8 -->
+<div class="single-product-container">
+    <span class="badge-Available">Low Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/DejavooZ8.jpg"
+         alt="Dejavoo Z8">
+    <div class="single-product-data">
+        <p class="single-product-title">Dejavoo Z8</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 6. Dejavoo Z11 -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/DejavooZ11.jpg"
+         alt="Dejavoo Z11">
+    <div class="single-product-data">
+        <p class="single-product-title">Dejavoo Z11</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 7. Star Micronics SP700 -->
+<div class="single-product-container">
+    <span class="badge-Available">Available in November</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/Star_Micronics_SP700_1-1.png"
+         alt="Star Micronics SP700">
+    <div class="single-product-data">
+        <p class="single-product-title">Star Micronics SP700</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 8. Clover Station Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/CloverStationPaper.jpg"
+         alt="Clover Station Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Station Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 9. Clover Cash Drawer -->
+<div class="single-product-container">
+    <span class="badge-Available">Available</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/Clover_Cash_Drawer_1-1.png"
+         alt="Clover Cash Drawer">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Cash Drawer</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+<!-- 10. Clover Mini Paper -->
+<div class="single-product-container">
+    <span class="badge-Available">In Stock</span>
+    <img class="single-product-image"
+         src="../assets/images/products/storeProducts/CloverMini_Paper_1-1.png"
+         alt="Clover Mini Paper">
+    <div class="single-product-data">
+        <p class="single-product-title">Clover Mini Paper</p>
+        <button class="cta-shop buy-now">Buy Now</button>
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+// Toggle dropdown on click
+const sortBox = document.getElementById("sortBox");
+const sortDropdown = document.getElementById("sortDropdown");
+
+sortBox.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sortDropdown.style.display = sortDropdown.style.display === "block" ? "none" : "block";
+});
+document.addEventListener("click", () => {
+    sortDropdown.style.display = "none";
+});
+
+// Grid toggle
+const grid2x3 = document.getElementById("grid2x3");
+const grid4x4 = document.getElementById("grid4x4");
+const productsGrid = document.getElementById("productsGrid");
+
+grid2x3.addEventListener("click", () => {
+    productsGrid.style.gridTemplateColumns = "repeat(2, 1fr)";
+});
+grid4x4.addEventListener("click", () => {
+    productsGrid.style.gridTemplateColumns = "repeat(4, 1fr)";
+});
+</script>
 
 </body>
-</html>
 
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+</html>
