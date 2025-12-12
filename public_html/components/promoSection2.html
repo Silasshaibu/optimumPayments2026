@@ -20,14 +20,14 @@
         <div class="card ">
             <h3 class="card-title">Retail</h3>
             <p class="card-description"> All-in-one system built for small-medium sized restaurant and retail businesses.  </p>
-             <img class="mobileBusiness-UnionImage" src="../assets/images/promo/duo2022-printer-mini3-flex3-go3.webp" width="fit-content" height="80%" alt="">
+             <img class="retail-CloverSetImage" src="../assets/images/promo/duo2022-printer-mini3-flex3-go3.webp" width="fit-content" height="80%" alt="">
         </div>
 
         <div class="card ">
             <h3 class="card-title">Mobile businesses, auto shops, medical, and much more!                        </h3>
             <p class="card-description">Flexible, portable terminals for a variety of business types, from mobile services to medical facilities.
                         </p>
-                         <img class="mobileBusiness-UnionImage" src="../assets/images/promo/union_platform-webp.webp" width="300px" alt="">
+                         <img class="mobileBusiness-HandHeldPOS-sets" src="../assets/images/promo/union_platform-webp.webp" width="300px" alt="">
         </div>
 
         
@@ -59,6 +59,7 @@
     min-height: 335px;
     position:relative;
 }
+
 
 
 /* MeshgradientBackground */
@@ -110,8 +111,14 @@
     position: absolute;
     bottom:0;
     right:0;
-    transform:translate(-20px, 10px);
+    transform:translate(-20px, -12px);
 }
+
+.card img.retail-CloverSetImage{
+    transform: translate(4px, 12px);
+
+}
+
 
 
 @media(max-width:1024px){
@@ -126,7 +133,7 @@
 @media(max-width:768px){
      .cards-grid {
         grid-template-columns: repeat(1, 1fr);
-        padding:5%
+        padding:5%;
 
         
     }
@@ -134,6 +141,7 @@
     .card-description {
     max-width: 232px;
     font-size: .8rem;
+    }
 }
 
 @media(max-width:550px){
