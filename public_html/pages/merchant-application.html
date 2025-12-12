@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MerchantForm</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+</head>
+<body>
+
+  <div class="contact-card__image-wrapper">
+            <h1 class="form-title">Merchant Application</h1>
+             <p class="from-subtle-message">We aim to respond to all application requests within a <strong>24 hour period Monday-Friday.</strong> <span class="merchantFormBreaker"><br></span>
+            However, if this isn't the case, please be patient as we receive a lot of email every day. 
+            </p>
+  </div>
+
+  <section class="merchantApplicationForm contact-card">          
+      <form class="merchantApplicationForm" id="contactForm">         
+        <div class="formSections-wrapper">
+            <div class="verticalsplitter"></div>
+             <div class="form-section">        
+        <!-- CONTACT INFORMATION -->
+            <fieldset>
+            <legend>Contact Information</legend>
+
+            <label for="surname">Surname</label>
+            <input id="surname" type="text" placeholder="Last Name" required />
+
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text" placeholder="First Name" required />
+
+            <label for="title">Title</label>
+            <input id="title" type="text" placeholder="Mr." />
+
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="+1 (555) 123-4567" required />
+
+            <label for="company">Company Name</label>
+            <input id="company" type="text" placeholder="Company Name" required />
+
+            <label for="email">Email*</label>
+            <input id="email" type="email" placeholder="example@email.com" required />
+
+            <label for="fax">Fax</label>
+            <input id="fax" type="tel" placeholder="+1 (555) 765-4321" />
+
+            <label for="address1">Address</label>
+            <input id="address1" type="text" placeholder="123 Main Street" />
+
+            <label for="address2">Address Line 2</label>
+            <input id="address2" type="text" placeholder="Suite 204" />
+
+            <div class="address-grid">
+                <div>
+                     <label for="state">State</label>
+            <select id="state" name="state" required>
+                <option value="" disabled selected>Select a state</option>
+                <option value="CA">California</option>
+                <option value="NY">New York</option>
+                <option value="TX">Texas</option>
+            </select>
+                </div>
+               
+                <div>
+                    <label for="city">City</label>
+            <select id="city" name="city" disabled required>
+                <option value="" disabled selected>Select a city</option>
+            </select>
+
+                </div>
+            
+                <div>
+<label for="zip">Zip Code</label>
+            <input 
+                id="zip" 
+                name="zip"
+                type="number" 
+                placeholder="90001" 
+                min="0" 
+                max="99999" 
+                required
+                pattern="\d{5}" 
+                title="Please enter a 5-digit zip code"
+            />
+                </div>
+            
+            </div>
+            
+            </fieldset>
+            </div>
+
+            <div class="form-section">
+        <!-- BUSINESS INFORMATION -->
+            <fieldset>
+            <legend>Business Information</legend>
+
+            <label for="businessType">Business Type</label>
+            <input id="businessType" type="text" placeholder="e.g., Retail, Food Service" />
+
+            <label>Do you currently accept credit cards?</label>
+            <div class="form-group">
+                <input type="radio" id="acceptYes" name="acceptCreditCards" value="yes" required> Yes
+                <input type="radio" id="acceptNo" name="acceptCreditCards" value="no"> No
+            </div>
+
+            <label>Have you previously taken credit cards?</label>
+            <div class="form-group">
+                <input type="radio" id="previousYes" name="previousCreditCards" value="yes" required> Yes
+                <input type="radio" id="previousNo" name="previousCreditCards" value="no"> No
+            </div>
+
+            <label for="monthlyVolume">Estimated Monthly Volume</label>
+            <select id="monthlyVolume" name="monthlyVolume" required>
+                <option value="" disabled selected>Select estimated monthly volume</option>
+                <option value="0-4999">$0-$4,999</option>
+                <option value="5000-9999">$5,000-$9,999</option>
+                <option value="10000-24999">$10,000-$24,999</option>
+                <option value="25000-99999">$25,000-$99,999</option>
+                <option value="100000+">$100,000+</option>
+            </select>
+
+            <label for="comments">Additional Comments</label>
+            <textarea id="comments" placeholder="Enter any additional information"></textarea>
+            </fieldset>
+
+        <button class="btn-primary merchantApplicationForm" type="submit">Submit</button>
+            </div>
+        </div>
+       
+      </form>
+
+  </section>
+
+ <!--stylings for contact us form-->
+ <link rel="stylesheet" href="../assets/css/style-guide.css">
+<link rel="stylesheet" href="../assets/css/merchant-application.css">
+
+
+<!--script for form-->
+  <script>
+    // Zip code validation
+    const zipInput = document.getElementById('zip');
+    zipInput.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/\D/g,'').slice(0,5);
+    });
+
+    // State → City mapping
+    const stateCities = {
+      "CA": ["Los Angeles", "San Francisco", "San Diego"],
+      "NY": ["New York City", "Buffalo", "Rochester"],
+      "TX": ["Houston", "Dallas", "Austin"]
+    };
+
+    const stateSelect = document.getElementById('state');
+    const citySelect = document.getElementById('city');
+
+    stateSelect.addEventListener('change', (e) => {
+      const cities = stateCities[e.target.value] || [];
+      citySelect.innerHTML = '<option value="" disabled selected>Select a city</option>';
+      if (cities.length) {
+        cities.forEach(city => {
+          const opt = document.createElement('option');
+          opt.value = city;
+          opt.textContent = city;
+          citySelect.appendChild(opt);
+        });
+        citySelect.disabled = false;
+      } else {
+        citySelect.disabled = true;
+      }
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!e.target.checkValidity()) {
+        e.target.reportValidity();
+        return;
+      }
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      console.log("Form submitted:", data);
+      alert("Form submitted! Check console for data.");
+    });
+  </script>
+</body>
+
+
+</html>
