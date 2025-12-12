@@ -18,7 +18,7 @@
         .hero-title.promo.display-70{
             position: relative;
         }
-        .promo.display-70.special-accent{  
+        .promo.display-70.special-accent.mod{  
             
             width: 90px;
             height:30px;             
@@ -26,7 +26,6 @@
             left:50%;
             bottom:35%;
             transform:rotate(353deg) translate(-50%, 50px);
-            display: flex;
             display: inline-grid;
 
             /* BBu.Mobile.Title */
@@ -84,7 +83,7 @@
         text-align: center;
     }
 
-    H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
+    H1.promo.display-70, span.promo.display-70.special-accent.mod, .Mobile.H1{
         margin:0 auto;
         color: var(--Secondary-Btn, #16394B);
         text-align: center;
@@ -175,7 +174,7 @@
          .hero-content{
              }
 
-        H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
+        H1.promo.display-70, span.promo.display-70.special-accent.mod, .Mobile.H1{
         margin:0 auto;
         
         
@@ -205,7 +204,6 @@
     }
     
      .hero-content{
-        border:1px solid red;
     }
 
     .hero-title.promo.display-70{
@@ -220,10 +218,11 @@
         line-height: 2rem;
     }  
 
-
-    span.special-accent-promo-intro{
-        color: var(--Secondary-Btn, #16394B); 
+        .tab-button{
+        min-height: 100px;
     }
+
+   
 
     .hero{
         width: 100%;
@@ -240,19 +239,12 @@
         padding:0rem 2%;
     }
 
-    H1.promo.display-70, span.promo.display-70.special-accent, .Mobile.H1{
+    H1.promo.display-70, span.promo.display-70.special-accent.mod, .Mobile.H1{
         font-size:2rem;
     }
     
     }
 
-    @media (max-width: 400px){
-        h1 span.promo-middleTitleMobile{           
-            
-            line-height: 1rem;
-        }
-        .promo.display-70.special-accent{
-            transform:rotate(353deg) translate(-50%, -63px);
-        }
+    @media (max-width: 300px){
     }
 
