@@ -582,7 +582,8 @@
                 <div class="topCategory-wrapper">      
                     
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
+
                         <h3 class="topCategory-productTitle">Valor VP 550<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -603,7 +604,7 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
                         <h3 class="topCategory-productTitle">Clover Mini<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -624,7 +625,7 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
                         <h3 class="topCategory-productTitle">Clover Flex<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -645,7 +646,7 @@
                     </div> 
                     
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
                         <h3 class="topCategory-productTitle">Valor VP800<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -701,9 +702,9 @@
 
 
 
-<!-- NEW -->
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+
     /* ===============================
        ELEMENTS
     =============================== */
@@ -711,14 +712,27 @@
     const topCategorySection = document.querySelector(".topCategory-section");
     if (!topCategorySection) return;
 
-    const topCategoryWrapper = topCategorySection.querySelector(".topCategory-wrapper");
-    const topCategoryProducts = topCategorySection.querySelectorAll(".topCategory-product");
-    const topCategoryLeftArrow = topCategorySection.querySelector(".topCategory-leftArrow");
-    const topCategoryRightArrow = topCategorySection.querySelector(".topCategory-rightArrow");
-    const topCategoryHeader = topCategorySection.querySelector(".topCategory-header");
-    const topCategoryViewAllBtn = document.getElementById("topCategoryViewAll");
+    const topCategoryWrapper =
+        topCategorySection.querySelector(".topCategory-wrapper");
 
-    if (!topCategoryWrapper || !topCategoryProducts.length) return;
+    const topCategoryProducts =
+        topCategorySection.querySelectorAll(".topCategory-product");
+
+    const topCategoryLeftArrow =
+        topCategorySection.querySelector(".topCategory-leftArrow");
+
+    const topCategoryRightArrow =
+        topCategorySection.querySelector(".topCategory-rightArrow");
+
+    const topCategoryViewAllBtn =
+        document.getElementById("topCategoryViewAll");
+
+    if (!topCategoryWrapper || !topCategoryProducts.length || !topCategoryViewAllBtn) {
+        return;
+    }
+
+    const topCategoryViewAllLabel =
+        topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
 
     let currentIndex = 0;
 
@@ -728,7 +742,9 @@
 
     function getSlideWidth() {
         const firstCard = topCategoryProducts[0];
-        const gap = parseFloat(getComputedStyle(topCategoryWrapper).columnGap) || 16;
+        const gap =
+            parseFloat(getComputedStyle(topCategoryWrapper).columnGap) || 16;
+
         return firstCard.offsetWidth + gap;
     }
 
@@ -737,13 +753,17 @@
     }
 
     function updateTopCategoryCarousel() {
+        // 🚫 Do nothing in grid mode
         if (topCategorySection.classList.contains("is-grid")) return;
 
-        const maxIndex = topCategoryProducts.length - getVisibleItems();
+        const maxIndex =
+            topCategoryProducts.length - getVisibleItems();
+
         currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
 
         topCategoryWrapper.style.transform =
             `translateX(-${currentIndex * getSlideWidth()}px)`;
+
         topCategoryWrapper.style.transition = "transform 0.5s ease";
     }
 
@@ -761,28 +781,52 @@
         updateTopCategoryCarousel();
     });
 
-    window.addEventListener("resize", updateTopCategoryCarousel);
+    window.addEventListener("resize", () => {
+        updateTopCategoryCarousel();
+        updateTopCategoryBackgrounds();
+    });
 
     /* ===============================
-       VIEW ALL / GRID TOGGLE
+       VIEW ALL / VIEW LESS TOGGLE
     =============================== */
 
-    const topCategoryViewAllLabel =
-    topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
-
     topCategoryViewAllBtn.addEventListener("click", () => {
-        const isGrid = topCategorySection.classList.toggle("is-grid");
+        const isGrid =
+            topCategorySection.classList.toggle("is-grid");
 
-        topCategoryViewAllLabel.textContent = isGrid ? "View less" : "View all";
+        // Button always shows the NEXT action
+        topCategoryViewAllLabel.textContent =
+            isGrid ? "View less" : "View all";
 
-        topCategoryViewAllBtn.setAttribute("aria-expanded", isGrid.toString());
+        topCategoryViewAllBtn.setAttribute(
+            "aria-expanded",
+            isGrid.toString()
+        );
 
-        // Reset carousel position when exiting grid
+        // Reset carousel when leaving grid
         if (!isGrid) {
             currentIndex = 0;
             updateTopCategoryCarousel();
         }
     });
+
+    /* ===============================
+       RESPONSIVE BACKGROUND IMAGES
+    =============================== */
+
+    function updateTopCategoryBackgrounds() {
+        const isMobile = window.innerWidth <= 768;
+
+        topCategoryProducts.forEach(product => {
+            const desktopBg = product.dataset.bgDesktop;
+            const mobileBg = product.dataset.bgMobile;
+
+            if (desktopBg && mobileBg) {
+                product.style.backgroundImage =
+                    `url(${isMobile ? mobileBg : desktopBg})`;
+            }
+        });
+    }
 
     /* ===============================
        PRODUCT SUMMARY TRUNCATION
@@ -798,36 +842,17 @@
             summary.textContent = text.slice(0, maxChars) + "…";
         }
     });
-});
 
+    /* ===============================
+       INIT
+    =============================== */
+
+    updateTopCategoryCarousel();
+    updateTopCategoryBackgrounds();
+
+});
 </script>
 
-
-     <script>
-        /* ===============================
-   VIEW ALL (GRID) / VIEW LESS (CAROUSEL)
-=============================== */
-
-const topCategoryViewAllLabel =
-    topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
-
-topCategoryViewAllBtn.addEventListener("click", () => {
-    const isGrid = topCategorySection.classList.toggle("is-grid");
-
-    // Button always shows the NEXT action
-    topCategoryViewAllLabel.textContent = isGrid ? "View less" : "View all";
-    topCategoryViewAllBtn.setAttribute("aria-expanded", isGrid.toString());
-
-    if (!isGrid) {
-        // Returning to carousel
-        currentIndex = 0;
-        updateTopCategoryCarousel();
-    }
-});
-
-     </script>
-
-    
     
 </body>
 </html>
