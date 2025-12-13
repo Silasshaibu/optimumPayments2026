@@ -127,18 +127,18 @@
 
     .carousel-body.productsGrid.supplies-grid .productTitle{
         color: var(--us-store-bambulab-com-mine-shaft, var(--color-grey-20, #333));
-    text-align: center;
+        text-align: center;
 
-    /* us.store.bambulab.com/Semantic/Link */
-    font-family: var(--font-family-Font-1, Manrope);
-    font-size: var(--font-size-14, 14px);
-    font-style: normal;
-    font-weight: var(--font-weight-700, 700);
-    line-height: var(--line-height-21, 21px); /* 150% */
+        /* us.store.bambulab.com/Semantic/Link */
+        font-family: var(--font-family-Font-1, Manrope);
+        font-size: var(--font-size-14, 14px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-21, 21px); /* 150% */
     }
 
 
-    p.productSummary{
+    .carousel-body.productsGrid.supplies-grid p.productSummary{
         color: var(--us-store-bambulab-com-mine-shaft, var(--color-grey-20, #333));
         text-align: center;
 

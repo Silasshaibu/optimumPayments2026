@@ -636,10 +636,16 @@ button:disabled {
   height: 16px;
 }
 
+a{
+  width: fit-content;
+}
+
 a:hover {
   cursor: pointer;
 
 }
+
+
 
 
 
