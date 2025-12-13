@@ -16,7 +16,7 @@
                 /*We are using 1200px or 83vw or 83%*/
             }
             
-            .productCategoryTitle{
+            .topCategory-title{
                 color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
                 /* us.store.bambulab.com/Semantic/Heading 2 */
                 font-family: var(--font-family-Font-1, Manrope);
@@ -26,7 +26,7 @@
                 line-height: var(--line-height-44_2, 44.2px); /* 130% */
             }     
 
-            .home-default-section{
+            .topCategory-section{
                 display: flex;
                 width: var(--slide-and-container-width-singularUnit);
                 flex-direction: column;
@@ -36,14 +36,14 @@
                 gap: 2rem;
             }
         
-            .product-title{
+            .topCategory-productTitle{
                 font-size: var(--font-size-24, 24px);
                 font-style: normal;
                 font-weight: var(--font-weight-700, 700);
                 line-height: var(--line-height-31_2, 31.2px); /* 130% */
             }
 
-            .product-summary{
+            .topCategory-productSummary{
                 font-size: var(--font-size-12, 12px);
                 font-style: normal;
                 font-weight: var(--font-weight-400, 400);
@@ -52,7 +52,7 @@
                 padding-bottom: 2.5rem;
             }
 
-            .btn-featured-products{         
+            .btn-topCategory-products{         
                 font-size: 1rem;
                 font-style: normal;
                 font-weight: var(--font-weight-400, 400);
@@ -66,18 +66,18 @@
                 bottom:1rem;
             }
 
-            .btn-featured-products:hover{              
+            .btn-topCategory-products:hover{              
                 color:var(--Primary-Btn);
                 background-color: var(--Primary-Btn);
                 color:white;
             }
 
-            .btn-featured-products span svg.icon{
+            .btn-topCategory-products span svg.icon{
                 transform: translate(3px, 3px);
 
             }
 
-            .title--and-controlSection{
+            .topCategory-header{
                 display: flex;
                 align-content: center;
                 justify-content: space-between;
@@ -85,28 +85,28 @@
                 
             }
             
-            .carouselWindow{
+            .topCategory-carousel{
                 width: 85vw;
                 overflow: hidden;
                 position: relative;
                 height:275px;
             }
 
-            .controlSection span svg.icon{
+            .topCategory-controls span svg.icon{
                 width: 1rem;
                 height:1rem;
                 margin: 0rem 0.25rem;
             }
 
-            .carouselwithProducts-wrapper{
+            .topCategory-wrapper{
                 position: absolute;
                 height:275px;
                 display: flex;
                 column-gap:1rem;
             }
 
-            .featured-product{
-                width: calc(42.5vw - 0.5rem);  /* (carouselwithProducts-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
+            .topCategory-product{
+                width: calc(42.5vw - 0.5rem);  /* (topCategory-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
                 padding:4rem 2rem;
                 position: relative;       
                 background-position: center;
@@ -114,27 +114,27 @@
                 background-size: contain;  
             }        
 
-            .product-Link-Mobile{
+            .topCategory-productLinkMobile{
                 display: none;
                 padding:1rem 0px;
             }
 
-            .controlSection{
+            .topCategory-controls{
                 position: relative;
                 display:flex;
                 align-items: center;
             }
 
-            .icon.leftArrow, .icon.rightArrow{
+            .icon.topCategory-leftArrow, .icon.topCategory-rightArrow{
                 transform:translateY(3px);
             }
 
-            .topCat-viewAll-Btn{
+            .topCategory-viewAllBtn{
                 color:#333;
 
             }
 
-            .bottomcontrolSection-foot{
+            .topCategory-bottomControls-foot{
                 display: flex;
                 padding-top:2rem;
                 flex-direction: row;
@@ -143,16 +143,10 @@
             }
 
                     /* TOGGLE EXTRA CHANGES IN GRID VIEW */
-            .grid-view .product-summary {
-                padding-right: 0 !important;
-            }
-
-            .grid-view.carouselWindow {
-                height: fit-content !important;
-            }
+           
 
 
-            .carouselwithProducts-wrapper.is-grid .featured-product {
+            .topCategory-wrapper.is-grid .topCategory-product {
             height: auto;
             }
 
@@ -161,21 +155,18 @@
             /* ===============================
             DESKTOP – VIEW ALL (GRID)
             ================================ */
-            .carouselwithProducts-wrapper.is-grid {
+            .topCategory-wrapper.is-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); /* Desktop default */
             transform: none !important;
             }
 
             /* Hide arrows when in grid mode (desktop + all sizes) */
-            .topProducts-carousel-header .controlSection {
+            .topCategory-header .topCategory-controls {
             transition: opacity 0.2s ease;
             }
 
-            .topProducts-carousel-header.is-grid .controlSection {
-            opacity: 0;
-            pointer-events: none;
-            }
+           
 
            /*View All Toggle Grid Carousel Collapse And Expand end*/
 
@@ -184,28 +175,15 @@
                 --slide-and-container-width-singularUnit: 94vw;
             }
 
-             .home-default-section{
+             .topCategory-section{
                 display: flex;
                 width: var(--slide-and-container-width-singularUnit);
             }
 
-            .carouselWindow.grid-view {
-                height: auto !important;
-                overflow: visible;
-                overflow: hidden;
-            }
+           
 
-            .carouselwithProducts-wrapper.grid-view {
-                display: grid !important;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-                position: static !important;
-                transform: none !important;
-                height: auto !important;
-                padding-top: 2rem;
-            }
-
-            .leftArrow, .rightArrow {
+            
+            .topCategory-leftArrow, .topCategory-rightArrow {
                 display: none !important;
             }
 
@@ -213,12 +191,12 @@
                         /* ===============================
             TOP SELLING ONLY – GRID MODE
             ================================ */
-            .home-default-section.is-grid .carouselWindow {
+            .topCategory-section.is-grid .topCategory-carousel {
             overflow: visible;
             height: auto;
             }
 
-            .home-default-section.is-grid .carouselwithProducts-wrapper {
+            .topCategory-section.is-grid .topCategory-wrapper {
             display: grid;
             position: relative;
             grid-template-columns: repeat(2, 1fr);
@@ -226,11 +204,11 @@
             width: 100%;
             }
 
-            .carouselWindow {
+            .topCategory-carousel {
                 overflow: hidden;
                 }
 
-            .carouselwithProducts-wrapper {
+            .topCategory-wrapper {
                 display: flex;
                 gap: 24px;
                 transition: transform 0.4s ease;
@@ -240,7 +218,7 @@
             /* ===============================
                 TABLET
                 ================================ */
-            .carouselwithProducts-wrapper.is-grid {
+            .topCategory-wrapper.is-grid {
                 grid-template-columns: repeat(3, 1fr);
             }  
             /*View All Toggle Grid Carousel Collapse And Expand start*/
@@ -250,8 +228,8 @@
   
         @media (max-width:768px){
             /*On mobile allow horizonatal scroll but make the bars invinsible*/
-            .featured-product{
-                width: calc(42.5vw - 0.3rem);  /* (carouselwithProducts-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
+            .topCategory-product{
+                width: calc(42.5vw - 0.3rem);  /* (topCategory-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
                 padding:0rem .5rem;
                 position: relative; 
                 background-position: center;
@@ -263,16 +241,16 @@
                 justify-content: space-between; 
             }     
 
-            .product-summary{
+            .topCategory-productSummary{
                 padding:0rem;
             }
 
        
-                .title--and-controlSection, .carouselWindow {
+                .topCategory-header, .topCategory-carousel {
                 width: 95vw;
                 }
 
-                .btn-featured-products{
+                .btn-topCategory-products{
                     padding:0rem 0rem;
                     border:none;
                     position: relative;
@@ -280,21 +258,21 @@
                     order:1;
                 }
 
-                .btn-featured-products.btn-Mini{
+                .btn-topCategory-products.btn-Mini{
                     width: 100%;
                     border-radius: 0%;
                 }
 
-                .featured-product{
+                .topCategory-product{
                     gap:0rem;
                     justify-content: space-around;
                 }
 
-                .product-summary{
+                .topCategory-productSummary{
                     order:2;
                 }
 
-                .product-title{
+                .topCategory-productTitle{
                     text-align: center;
                     color: #111827;
                     font-size: 20px;
@@ -303,31 +281,31 @@
                     line-height: 2rem; /* 140% */
                 }
 
-                .btn-featured-products.product-Btn-Desktop{
+                .btn-topCategory-products.topCategory-productBtnDesktop{
                     /* position: absolute; */
                     display: none;
                 }
 
-                .btn-featured-products.product-Btn-Desktop.topCategory{
+                .btn-topCategory-products.topCategory-productBtnDesktop.topCategory{
                     position: absolute;
                 }
 
 
-                .product-Link-Mobile{
+                .topCategory-productLinkMobile{
                     display: flex;
                     padding: 0px;
                     justify-content: center;
                 }
 
-                .product-Link-Mobile .icon{
+                .topCategory-productLinkMobile .icon{
                     transform: translateY(2.5px);
                 }
 
-                .product-Link-Mobile:hover {
+                .topCategory-productLinkMobile:hover {
                     transform: translateX(2.5px);
                 }
 
-                .product-Link-Mobile{
+                .topCategory-productLinkMobile{
                     color: var(--TypographyColors-Link, #63A0CF);
                     font-size: .95rem;
                     font-style: normal;
@@ -335,13 +313,13 @@
                     line-height: 1.2rem; /* 142.857% */
                 }
 
-                .product-Link-Mobile:hover{
+                .topCategory-productLinkMobile:hover{
                     font-size: .95rem;
                     line-height: 1.2rem; /* 142.857% */  
                     cursor: pointer;
                 }
 
-                .productCategoryTitle{
+                .topCategory-title{
                     color: #111827;
                     text-align: center;
                     /* BBu.Mobile.H2 */
@@ -352,31 +330,16 @@
                     line-height: 30px; /* 125% */
                 }
 
-                .grid-view .carouselwithProducts-wrapper {
-                    position: relative !important;
-                    display: grid !important;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 2rem;
-                    height: auto !important;
-                    transform: none !important;
-                }
+                
 
-                .grid-view .featured-product {
-                    width: 100% !important;
-                    height: 320px;
-                    background-size: contain;
-                }
+              
 
-            /* Hide the arrows in grid mode */
-                 .grid-view .controlSection {
-                    display: none !important;
-                }
-
+           
                  /*View All Toggle Grid Carousel Collapse And Expand start*/
                 /* ===============================
                 MOBILE
                 ================================ */
-                .carouselwithProducts-wrapper.is-grid {
+                .topCategory-wrapper.is-grid {
                     grid-template-columns: repeat(2, 1fr);
                 }
                  /*View All Toggle Grid Carousel Collapse And Expand end*/
@@ -385,29 +348,29 @@
 
         /*MOBILE SINGLE UNIT PRODUCT VIEW*/
         @media (max-width:550px){
-                h2.productCategoryTitle{
+                h2.topCategory-title{
                     text-align: center;
                     margin:0 auto;                
                 }
 
-                .title--and-controlSection.head{
+                .topCategory-header.head{
                     position: relative;                    
                     }
 
-                .title--and-controlSection{
+                .topCategory-header{
                     width:95vw;
                     /* background-color: red; */
                 }
 
-                .carouselWindow, .featured-product{
+                .topCategory-carousel, .topCategory-product{
                     width: 95vw;
                 }
 
-                .carouselwithProducts-wrapper{
+                .topCategory-wrapper{
                     column-gap:0rem;
                 }
 
-                .product-summary{
+                .topCategory-productSummary{
                     font-size: 1rem;
                     background-color: white;
                     padding:.5rem;
@@ -419,28 +382,28 @@
                     width: 98%;
                 }
 
-                .controlSection{
+                .topCategory-controls{
                     position: absolute;
                     bottom: 0%;
                     right: 0;
                     display: none;
                 }
 
-                .product-title{
+                .topCategory-productTitle{
                     position: absolute;
                     top:0;
                     left:50%;
                     transform: translateX(-50%);
                 }
 
-                .home-default-section{
+                .topCategory-section{
                     padding-right:0rem;
                     padding-left:0rem;
                 }
             
 
                 /* FOR MOBILE*/
-                    .bottomcontrolSection-foot{
+                    .topCategory-bottomControls-foot{
                         position: relative;
                         display: flex;
                         flex-direction: row;
@@ -448,7 +411,7 @@
                         align-items: center;
                     }
 
-                    .bottomcontrolSection-foot .icon{
+                    .topCategory-bottomControls-foot .icon{
                         transform: translateY(2.5px);
                     }
             }
@@ -485,22 +448,22 @@
     
   
 <!-- TopSellingProductSection Start -->
-    <section class="home-default-section">
-        <div class="HeadAndBodyContainer">
+    <section class="topCategory-section">
+        <div class="topCategory-HeadAndBodyContainer">
             <!-- Head -->
-            <div class="title--and-controlSection head">
-                <h2 class="productCategoryTitle">Top Selling Products</h2>
-                <div class="controlSection">
+            <div class="topCategory-header">
+                <h2 class="topCategory-title">Top Selling Products</h2>
+                <div class="topCategory-controls">
                     <!--Left Caret Arrow-->
                     <span>                            
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon leftArrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-leftArrow">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                         </svg>
                     </span>
 
                     <!--Right Caret Arrow-->
                     <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrow">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                         </svg>
                     </span>
@@ -509,24 +472,24 @@
             </div>
         
             <!-- Body -->
-            <div class="carouselWindow">
-                <div class="carouselwithProducts-wrapper body">      
+            <div class="topCategory-carousel">
+                <div class="topCategory-wrapper">      
                     
                     <!-- Product Item -->
-                    <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
-                        <h3 class="product-title">Valor VP 550<br class="breakLine-productTitle">
-                            <a class="product-Link-Mobile">Learn More
+                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                        <h3 class="topCategory-productTitle">Valor VP 550<br class="topCategory-breakLineTitle">
+                            <a class="topCategory-productLinkMobile">Learn More
                                 <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>
                                 </span>
                             </a>
                         </h3>
                     
-                        <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
-                        <button class="btn-featured-products product-Btn-Desktop topCategory">Learn More <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                        <p class="topCategory-productSummary">The Smart Android Counterop that eliminates charge to the merchant</p>
+                        <button class="btn-topCategory-products topCategory-productBtnDesktop">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
                             </span>
@@ -534,19 +497,20 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
-                        <h3 class="product-title">Clover Mini<br class="breakLine-productTitle">
-                            <a class="product-Link-Mobile">Learn More
+                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                        <h3 class="topCategory-productTitle">Clover Mini<br class="topCategory-breakLineTitle">
+                            <a class="topCategory-productLinkMobile">Learn More
                                 <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>
                                 </span>
                             </a></h3>
                     
-                        <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
-                        <button class="btn-featured-products product-Btn-Desktop topCategory">Learn More <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                        <p class="topCategory-productSummary">The Smart Android Counterop that eliminates charge to the merchant</p>
+                        <button class="btn-topCategory-products topCategory-productBtnDesktop">
+">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
                             </span>
@@ -554,19 +518,20 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
-                        <h3 class="product-title">Clover Flex<br class="breakLine-productTitle">
-                            <a class="product-Link-Mobile">Learn More
+                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                        <h3 class="topCategory-productTitle">Clover Flex<br class="topCategory-breakLineTitle">
+                            <a class="topCategory-productLinkMobile">Learn More
                                 <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>
                                 </span>
                             </a></h3>
                     
-                        <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
-                        <button class="btn-featured-products product-Btn-Desktop topCategory">Learn More <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                        <p class="topCategory-productSummary">The Smart Android Counterop that eliminates charge to the merchant</p>
+                        <button class="btn-topCategory-products topCategory-productBtnDesktop">
+">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
                             </span>
@@ -574,19 +539,20 @@
                     </div> 
                     
                     <!-- Product Item -->
-                    <div class="featured-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
-                        <h3 class="product-title">Valor VP800<br class="breakLine-productTitle">
-                            <a class="product-Link-Mobile">Learn More
+                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                        <h3 class="topCategory-productTitle">Valor VP800<br class="topCategory-breakLineTitle">
+                            <a class="topCategory-productLinkMobile">Learn More
                                 <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>
                                 </span>
                             </a></h3>
                     
-                        <p class="product-summary">The Smart Android Counterop that eliminates charge to the merchant</p>
-                        <button class="btn-featured-products product-Btn-Desktop topCategory">Learn More <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrowcaret">
+                        <p class="topCategory-productSummary">The Smart Android Counterop that eliminates charge to the merchant</p>
+                        <button class="btn-topCategory-products topCategory-productBtnDesktop">
+">Learn More <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
                             </span>
@@ -597,13 +563,13 @@
             </div>
 
             <!-- Foot -->
-            <div class="bottomcontrolSection-foot">                     
+            <div class="topCategory-footer">                     
                 <!-- This should convert the carousel into a 1  by x grid system -->
-                <div class="bottomcontrolSection">
+                <div class="topCategory-bottomControls-foot">
                     <!--Mobile Right Caret Arrow--> 
-                    <a id="viewAllBtn" class="topCat-viewAll-Btn" role="button" aria-expanded="false">
-                        <span class="viewAllLabel">View all</span>
-                        <span class="viewAllIcon">
+                    <a id="topCategoryViewAll" class="topCategory-viewAllBtn" role="button" aria-expanded="false">
+                        <span class="topCategory-viewAllLabel">View all</span>
+                        <span class="topCategory-viewAllIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="icon rightTopCategoryMobileArrow">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -618,12 +584,7 @@
         </div>
     </section>
       
-<!-- Carousel Script -->
-    
-
-        
-        
-      
+<!-- Carousel Script --> 
 
 
 
@@ -636,95 +597,104 @@
 
 <!-- NEW -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
     /* ===============================
        ELEMENTS
     =============================== */
-    const wrapper = document.querySelector(".carouselwithProducts-wrapper");
-    const products = document.querySelectorAll(".featured-product");
-    const leftArrow = document.querySelector(".leftArrow");
-    const rightArrow = document.querySelector(".rightArrow");
-    const viewAllBtn = document.getElementById("viewAllBtn");
-    const header = document.querySelector(".title--and-controlSection");
 
-    if (!wrapper || !products.length) return;
+    const topCategorySection = document.querySelector(".topCategory-section");
+    if (!topCategorySection) return;
 
-    let index = 0;
+    const topCategoryWrapper = topCategorySection.querySelector(".topCategory-wrapper");
+    const topCategoryProducts = topCategorySection.querySelectorAll(".topCategory-product");
+    const topCategoryLeftArrow = topCategorySection.querySelector(".topCategory-leftArrow");
+    const topCategoryRightArrow = topCategorySection.querySelector(".topCategory-rightArrow");
+    const topCategoryHeader = topCategorySection.querySelector(".topCategory-header");
+    const topCategoryViewAllBtn = document.getElementById("topCategoryViewAll");
+
+    if (!topCategoryWrapper || !topCategoryProducts.length) return;
+
+    let currentIndex = 0;
 
     /* ===============================
        CAROUSEL HELPERS
     =============================== */
+
     function getSlideWidth() {
-        const card = products[0];
-        const style = window.getComputedStyle(wrapper);
-        const gap = parseFloat(style.columnGap) || 16;
-        return card.offsetWidth + gap;
+        const firstCard = topCategoryProducts[0];
+        const gap = parseFloat(getComputedStyle(topCategoryWrapper).columnGap) || 16;
+        return firstCard.offsetWidth + gap;
     }
 
     function getVisibleItems() {
-        if (window.innerWidth <= 550) return 1;
-        return 2;
+        return window.innerWidth <= 550 ? 1 : 2;
     }
 
-    function updateCarousel() {
-        if (wrapper.classList.contains("is-grid")) return;
+    function updateTopCategoryCarousel() {
+        if (topCategorySection.classList.contains("is-grid")) return;
 
-        const maxIndex = products.length - getVisibleItems();
-        index = Math.max(0, Math.min(index, maxIndex));
+        const maxIndex = topCategoryProducts.length - getVisibleItems();
+        currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
 
-        const offset = -(index * getSlideWidth());
-        wrapper.style.transform = `translateX(${offset}px)`;
-        wrapper.style.transition = "transform 0.5s ease";
+        topCategoryWrapper.style.transform =
+            `translateX(-${currentIndex * getSlideWidth()}px)`;
+        topCategoryWrapper.style.transition = "transform 0.5s ease";
     }
 
     /* ===============================
        CAROUSEL CONTROLS
     =============================== */
-    rightArrow?.addEventListener("click", () => {
-        if (index < products.length - getVisibleItems()) {
-            index++;
-            updateCarousel();
-        }
+
+    topCategoryRightArrow?.addEventListener("click", () => {
+        currentIndex++;
+        updateTopCategoryCarousel();
     });
 
-    leftArrow?.addEventListener("click", () => {
-        if (index > 0) {
-            index--;
-            updateCarousel();
-        }
+    topCategoryLeftArrow?.addEventListener("click", () => {
+        currentIndex--;
+        updateTopCategoryCarousel();
     });
 
-    window.addEventListener("resize", updateCarousel);
+    window.addEventListener("resize", updateTopCategoryCarousel);
 
     /* ===============================
        VIEW ALL / GRID TOGGLE
     =============================== */
-    const label = viewAllBtn.querySelector(".viewAllLabel");
 
-    viewAllBtn.addEventListener("click", () => {
-        const isGrid = wrapper.classList.toggle("is-grid");
-        header?.classList.toggle("is-grid", isGrid);
+    const topCategoryViewAllLabel =
+    topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
 
-        label.textContent = isGrid ? "View less" : "View all";
-        viewAllBtn.setAttribute("aria-expanded", isGrid.toString());
+    topCategoryViewAllBtn.addEventListener("click", () => {
+        const isGrid = topCategorySection.classList.toggle("is-grid", isGrid);
+
+        topCategoryViewAllLabel.textContent = isGrid ? "View less" : "View all";
+
+        topCategoryViewAllBtn.setAttribute("aria-expanded", isGrid.toString());
+
+        // Reset carousel position when exiting grid
+        if (!isGrid) {
+            currentIndex = 0;
+            updateTopCategoryCarousel();
+        }
     });
-
 
     /* ===============================
        PRODUCT SUMMARY TRUNCATION
     =============================== */
-    const maxChars = 55;
-    const summaries = document.querySelectorAll(".product-summary");
 
-    summaries.forEach(summary => {
+    const maxChars = 55;
+    const productSummaries =
+        topCategorySection.querySelectorAll(".topCategory-productSummary");
+
+    productSummaries.forEach(summary => {
         const text = summary.textContent.trim();
         if (text.length > maxChars) {
             summary.textContent = text.slice(0, maxChars) + "…";
         }
     });
 });
-</script>
 
+</script>
 
 
      
