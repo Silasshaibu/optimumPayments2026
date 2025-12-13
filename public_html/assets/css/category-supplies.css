@@ -369,23 +369,19 @@
         flex-direction: column;
         height: auto;
         text-align: center;
-        padding: 0.5rem .5rem;
+        padding: 1rem;
         bottom:0px;
         }
     }
 
     /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
-    @media (max-width:768px) {
-        
-
+    @media (max-width:768px) {      
         .carousel-body.productsGrid.supplies-grid{
             grid-template-columns: repeat(2, 1fr);
             gap:1rem;
             padding-top:1rem;
             padding-bottom: 2rem;
         }
-
-        
 
 
         .slide{
@@ -419,7 +415,6 @@
         }
         .remoteControl button{
             font-size:.9rem;
-
         }
             
 
@@ -433,8 +428,6 @@
             max-height:var(var(--slide-and-container-height)) ;
             /* height: 100%; */
         }
-
-    
 
         p.display{
             color: var(--TypographyColors-Subtitle, #788289);
@@ -472,6 +465,31 @@
         .remoteControl{
                     display: flex;
                     /* justify-content: center; */
+        }
+
+        .supplies-product{
+                padding: 2rem 1rem;
+        }
+
+        .product-intro{
+            /* text-align: center;   */
+            font-size: 1rem;
+            padding: .75rem;
+        }
+
+        .product-intro{
+            padding:1rem 0rem;
+        }
+
+        .product-title{
+            text-align: left;
+        }
+
+        .featured-product {
+            padding: 2rem 1rem;
+            display: flex;
+            align-content: flex-end;
+            justify-content: flex-start;
         }
 
 
