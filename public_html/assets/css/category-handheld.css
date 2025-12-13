@@ -272,7 +272,6 @@
 
 .carousel-body.productsGrid.handheld-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
     gap:1rem;
     padding-top:1rem;
     padding-bottom: .5rem;
@@ -281,6 +280,45 @@
 .carousel-body.productsGrid.handheld-grid .product-grid-item{
     aspect-ratio: 4/5;    
 }
+
+.product-grid-item.is-hidden {
+  display: none;
+}
+
+
+/*Handheld grid collapse and expand animation logic start*/
+.handheld-grid {
+  overflow: hidden;
+  transition: max-height 0.45s ease, grid-template-columns 0.3s ease;
+}
+
+.product-grid-item {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+.product-grid-item.is-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+
+/*Handheld grid collapse and expand animation logic end*/
+
+.handheld-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.handheld-grid.grid-4-col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
 
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 /*THE TABLE DEVICE*/

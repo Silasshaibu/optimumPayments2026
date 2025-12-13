@@ -350,12 +350,10 @@
             <p class="productSummary">Small footprint, big capability</p>
             <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
         </div>
-    </div>
-
-    
+    </div>   
 
 
-    <!-- 6: Random Product C -->
+    <!-- 6: Clover Go -->
     <div class="product-grid-item cloverGoPlus">
         <div class="productInfo">
             <h3 class="productTitle">Clover Go Plus</h3>
@@ -363,7 +361,25 @@
             <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
         </div>
     </div>
+
+    <!-- 7: Valor VP550C -->
+    <div class="product-grid-item cloverGoPlus">
+        <div class="productInfo">
+            <h3 class="productTitle">Valor VP550-C</h3>
+            <p class="productSummary">Portable and versatile on‑the‑go system</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
     </div>
+
+    <!-- 8: Union POS -->
+    <div class="product-grid-item cloverGoPlus">
+        <div class="productInfo">
+            <h3 class="productTitle">Union POS</h3>
+            <p class="productSummary">Portable and versatile on‑the‑go system</p>
+            <a class="productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        </div>
+    </div>
+</div>
 
        
         <!-- Footer with Fewer Remote Controls -->
@@ -645,40 +661,43 @@
     <!-- Script For handheld grid logic -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const handheldGrid = document.querySelector(".handheld-grid");
+            const toggleBtn = document.getElementById("toggle-view");
 
-        const handheldGrid = document.querySelector(".handheld-grid");
-        const toggleBtn = document.getElementById("toggle-view");
+            if (!handheldGrid || !toggleBtn) return;
 
-        if (!handheldGrid || !toggleBtn) return;
+            const items = handheldGrid.querySelectorAll(".product-grid-item");
+            let expanded = false;
 
-        const items = handheldGrid.querySelectorAll(".product-grid-item");
-        let expanded = false;
+            function showDefault() {
+                items.forEach((item, index) => {
+                    item.classList.toggle("is-hidden", index >= 6);
+                });
+                handheldGrid.classList.remove("grid-4-col");
+                toggleBtn.querySelector("span").textContent = "View all";
+                expanded = false;
+                toggleBtn.setAttribute("aria-pressed", "false");
+            }
 
-        function showDefault() {
-            items.forEach((item, index) => {
-            item.style.display = index < 6 ? "block" : "none";
+            function showAll() {
+                items.forEach(item => {
+                    item.classList.remove("is-hidden");
+                });
+                handheldGrid.classList.add("grid-4-col");
+                toggleBtn.querySelector("span").textContent = "View less";
+                expanded = true;
+                toggleBtn.setAttribute("aria-pressed", "true");
+            }
+
+            // Init
+            showDefault();
+
+            toggleBtn.addEventListener("click", () => {
+                expanded ? showDefault() : showAll();
             });
-            handheldGrid.classList.remove("grid-4-col");
-            toggleBtn.querySelector("span").textContent = "View all";
-            expanded = false;
-        }
-
-        function showAll() {
-            items.forEach(item => item.style.display = "block");
-            handheldGrid.classList.add("grid-4-col");
-            toggleBtn.querySelector("span").textContent = "View less";
-            expanded = true;
-        }
-
-        // Init
-        showDefault();
-
-        toggleBtn.addEventListener("click", () => {
-            expanded ? showDefault() : showAll();
-        });
-
         });
     </script>
+
 
     <!-- Script to truncate product summary text -->
     <script>
