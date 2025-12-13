@@ -211,7 +211,7 @@
             }
 
             .topCategory-section.is-grid .topCategory-product {
-                height: 275px;
+                height: 350px;
             }
 
 
@@ -235,9 +235,7 @@
            
 
             
-            .topCategory-leftArrow, .topCategory-rightArrow {
-                display: none !important;
-            }
+            
 
 
                         /* ===============================
@@ -347,6 +345,8 @@
                     display: flex;
                     padding: 0px;
                     justify-content: center;
+                    align-items: center;
+                    margin: 0 auto;
                 }
 
                 .topCategory-productLinkMobile .icon{
@@ -400,11 +400,17 @@
 
         /*MOBILE SINGLE UNIT PRODUCT VIEW*/
         @media (max-width:550px){
+
+                .topCategory-leftArrow, .topCategory-rightArrow {
+                    display: none !important;
+                }
+
                 h2.topCategory-title{
                     text-align: center;
                     margin:0 auto;                
                 }
 
+                
                 .topCategory-header.head{
                     position: relative;                    
                     }
@@ -414,9 +420,35 @@
                     /* background-color: red; */
                 }
 
+                /*TopCategory--Carousel start*/
                 .topCategory-carousel, .topCategory-product{
                     width: 95vw;
                 }
+
+                 .topCategory-carousel {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    -webkit-overflow-scrolling: touch;
+                    scroll-snap-type: x mandatory;
+                    height: 279px;
+                }
+
+                .topCategory-wrapper {
+                    position: relative;
+                    display: flex;
+                    gap: 16px;
+                    padding-left:1rem;
+                    padding-right: 1rem; /* allows 1.5 item view */
+                }
+
+                .topCategory-product {
+                    flex: 0 0 100%;
+                    scroll-snap-align: start;
+                    height: 275px;
+                }
+
+                /*TopCategory--Carousel End*/
+
 
                 .topCategory-wrapper{
                     column-gap:0rem;
@@ -438,7 +470,7 @@
                     position: absolute;
                     bottom: 0%;
                     right: 0;
-                    display: none;
+                    display: flex;
                 }
 
                 .topCategory-productTitle{
