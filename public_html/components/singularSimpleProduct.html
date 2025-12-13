@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateArrowVisibility();
     window.addEventListener("resize", updateArrowVisibility);
 });
-</script>
+  </script>
 
 
   <!-- Truncate script (unchanged) -->
@@ -349,59 +349,59 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 
 
-<script>
-    const viewAllBtn = document.querySelector(".viewAllBtn");
-    const carouselWrapper = document.querySelector(".carouselwithProducts-wrapper");
-    const controlSection = document.querySelector(".controlSection");
+  <script>
+      const viewAllBtn = document.querySelector(".viewAllBtn");
+      const carouselWrapper = document.querySelector(".carouselwithProducts-wrapper");
+      const controlSection = document.querySelector(".controlSection");
 
 
 
 
 
-const leftArrow = document.querySelector(".leftArrow");
-const rightArrow = document.querySelector(".rightArrow");
+  const leftArrow = document.querySelector(".leftArrow");
+  const rightArrow = document.querySelector(".rightArrow");
 
-let expanded = false;
+  let expanded = false;
 
-viewAllBtn.addEventListener("click", () => {
-    expanded = !expanded;
+  viewAllBtn.addEventListener("click", () => {
+      expanded = !expanded;
 
-    if (expanded) {
-        // Expand grid depending on screen width
-        if (window.innerWidth > 1024) {
-            carouselWrapper.classList.add("grid-3");
-        } else if (window.innerWidth > 769 && window.innerWidth <= 1024) {
-            carouselWrapper.classList.add("grid-2");
-        } else {
-            carouselWrapper.classList.add("grid-1");
+      if (expanded) {
+          // Expand grid depending on screen width
+          if (window.innerWidth > 1024) {
+              carouselWrapper.classList.add("grid-3");
+          } else if (window.innerWidth > 769 && window.innerWidth <= 1024) {
+              carouselWrapper.classList.add("grid-2");
+          } else {
+              carouselWrapper.classList.add("grid-1");
 
-        }
+          }
 
 
-        // Hide arrows
-        controlSection.style.display = "none";
-           
-        leftArrow.style.display = "none";
-        rightArrow.style.display = "none";
-         
+          // Hide arrows
+          controlSection.style.display = "none";
+            
+          leftArrow.style.display = "none";
+          rightArrow.style.display = "none";
+          
 
-        // Change button text
-        viewAllBtn.textContent = "View Less";
+          // Change button text
+          viewAllBtn.textContent = "View Less";
 
-    } else {
-        // Remove grid modes
-        carouselWrapper.classList.remove("grid-3", "grid-2", "grid-1");
+      } else {
+          // Remove grid modes
+          carouselWrapper.classList.remove("grid-3", "grid-2", "grid-1");
 
-        // Show arrows again
-        leftArrow.style.display = "flex";
-        rightArrow.style.display = "flex";
-         controlSection.style.display = "flex";
+          // Show arrows again
+          leftArrow.style.display = "flex";
+          rightArrow.style.display = "flex";
+          controlSection.style.display = "flex";
 
-        // Reset button label
-        viewAllBtn.textContent = "View All";
-    }
-});
+          // Reset button label
+          viewAllBtn.textContent = "View All";
+      }
+  });
 
-</script>
+  </script>
 </body>
 </html>
