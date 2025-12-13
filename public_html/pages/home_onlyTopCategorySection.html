@@ -77,6 +77,10 @@
 
             }
 
+            .topCategory-wrapper.is-grid {
+                display: grid;
+            }
+
             .topCategory-header{
                 display: flex;
                 align-content: center;
@@ -166,7 +170,55 @@
             transition: opacity 0.2s ease;
             }
 
-           
+
+
+            /*CAROUSEL MODE (DEFAULT → View less state)*/
+            .topCategory-carousel {
+                overflow: hidden;
+                height: 279px;
+                position: relative;
+            }
+
+            .topCategory-wrapper {
+                position: absolute;
+                display: flex;
+                height: 279px;
+                gap: 0;
+                column-gap: 1rem;
+            }
+
+            .topCategory-product {
+                height: 275px;
+            }
+
+
+
+
+            /*GRID MODE (View all clicked)*/
+            .topCategory-section.is-grid .topCategory-carousel {
+                overflow: visible;
+                height: auto;
+                position: relative;
+            }
+
+            .topCategory-section.is-grid .topCategory-wrapper {
+                position: relative;
+                display: grid;
+                height: auto;
+                gap: 1rem;
+                grid-template-columns: repeat(2, 1fr); /* >768px */
+                transform: none !important;
+            }
+
+            .topCategory-section.is-grid .topCategory-product {
+                height: 275px;
+            }
+
+
+
+
+
+
 
            /*View All Toggle Grid Carousel Collapse And Expand end*/
 
@@ -508,8 +560,8 @@
                             </a></h3>
                     
                         <p class="topCategory-productSummary">The Smart Android Counterop that eliminates charge to the merchant</p>
-                        <button class="btn-topCategory-products topCategory-productBtnDesktop">
-">Learn More <span>
+                        <button class="btn-topCategory-products topCategory-productBtnDesktop">Learn More 
+                            <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
@@ -529,8 +581,8 @@
                             </a></h3>
                     
                         <p class="topCategory-productSummary">The Smart Android Counterop that eliminates charge to the merchant</p>
-                        <button class="btn-topCategory-products topCategory-productBtnDesktop">
-">Learn More <span>
+                        <button class="btn-topCategory-products topCategory-productBtnDesktop"> Learn More 
+                            <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
@@ -550,8 +602,8 @@
                             </a></h3>
                     
                         <p class="topCategory-productSummary">The Smart Android Counterop that eliminates charge to the merchant</p>
-                        <button class="btn-topCategory-products topCategory-productBtnDesktop">
-">Learn More <span>
+                        <button class="btn-topCategory-products topCategory-productBtnDesktop">Learn More 
+                            <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon topCategory-rightArrowcaret">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
@@ -665,7 +717,7 @@
     topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
 
     topCategoryViewAllBtn.addEventListener("click", () => {
-        const isGrid = topCategorySection.classList.toggle("is-grid", isGrid);
+        const isGrid = topCategorySection.classList.toggle("is-grid");
 
         topCategoryViewAllLabel.textContent = isGrid ? "View less" : "View all";
 
@@ -697,7 +749,29 @@
 </script>
 
 
-     
+     <script>
+        /* ===============================
+   VIEW ALL (GRID) / VIEW LESS (CAROUSEL)
+=============================== */
+
+const topCategoryViewAllLabel =
+    topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
+
+topCategoryViewAllBtn.addEventListener("click", () => {
+    const isGrid = topCategorySection.classList.toggle("is-grid");
+
+    // Button always shows the NEXT action
+    topCategoryViewAllLabel.textContent = isGrid ? "View less" : "View all";
+    topCategoryViewAllBtn.setAttribute("aria-expanded", isGrid.toString());
+
+    if (!isGrid) {
+        // Returning to carousel
+        currentIndex = 0;
+        updateTopCategoryCarousel();
+    }
+});
+
+     </script>
 
     
     
