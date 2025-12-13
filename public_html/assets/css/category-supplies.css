@@ -1,4 +1,6 @@
-    .icon.rightTopCategoryMobileArrow{
+/*LINKED SUPPLIES STYLING*/
+
+.icon.rightTopCategoryMobileArrow{
         transform:translateY(3px);
     }
 
@@ -235,6 +237,7 @@
             justify-content: space-between;
             align-items: center;
             padding-bottom: 36px;
+            position: relative;
         }
 
 

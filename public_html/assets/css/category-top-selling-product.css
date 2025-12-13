@@ -1,4 +1,5 @@
-            :root {
+/*LINKED TOP SELLING PRODUCTS STYLING*/
+:root {
                 --slide-and-container-width-singularUnit: 83vw;
                 --slide-and-container-height: 400px;
                 /* controls the slide viewer width per slide*/
@@ -71,6 +72,7 @@
                 display: flex;
                 align-content: center;
                 justify-content: space-between;
+                position: relative;
                 
             }
             
@@ -141,6 +143,32 @@
             }
 
 
+            .carouselwithProducts-wrapper.is-grid .featured-product {
+            height: auto;
+            }
+
+
+         /*View All Toggle Grid Carousel Collapse And Expand start*/
+            /* ===============================
+            DESKTOP – VIEW ALL (GRID)
+            ================================ */
+            .carouselwithProducts-wrapper.is-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Desktop default */
+            transform: none !important;
+            }
+
+            /* Hide arrows when in grid mode (desktop + all sizes) */
+            .topProducts-carousel-header .controlSection {
+            transition: opacity 0.2s ease;
+            }
+
+            .topProducts-carousel-header.is-grid .controlSection {
+            opacity: 0;
+            pointer-events: none;
+            }
+
+           /*View All Toggle Grid Carousel Collapse And Expand end*/
 
           @media (max-width: 1024px) {
              :root {
@@ -171,6 +199,48 @@
             .leftArrow, .rightArrow {
                 display: none !important;
             }
+
+
+                        /* ===============================
+            TOP SELLING ONLY – GRID MODE
+            ================================ */
+            .home-default-section.is-grid .carouselWindow {
+            overflow: visible;
+            height: auto;
+            }
+
+            .home-default-section.is-grid .carouselwithProducts-wrapper {
+            display: grid;
+            position: relative;
+            grid-template-columns: repeat(2, 1fr);
+            transform: none !important;
+            width: 100%;
+            }
+
+            .carouselWindow {
+                overflow: hidden;
+                }
+
+            .carouselwithProducts-wrapper {
+                display: flex;
+                gap: 24px;
+                transition: transform 0.4s ease;
+            }
+
+          
+
+
+
+          /*View All Toggle Grid Carousel Collapse And Expand start*/
+          /* ===============================
+            TABLET
+            ================================ */
+            @media (max-width: 1024px) {
+            .carouselwithProducts-wrapper.is-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            }
+         /*View All Toggle Grid Carousel Collapse And Expand start*/
         }
 
   
@@ -287,18 +357,26 @@
                     transform: none !important;
                 }
 
-            .grid-view .featured-product {
+                .grid-view .featured-product {
                     width: 100% !important;
                     height: 320px;
                     background-size: contain;
                 }
 
             /* Hide the arrows in grid mode */
-            .grid-view .controlSection {
+                 .grid-view .controlSection {
                     display: none !important;
                 }
-            }
-                
+
+                 /*View All Toggle Grid Carousel Collapse And Expand start*/
+                /* ===============================
+                MOBILE
+                ================================ */
+                .carouselwithProducts-wrapper.is-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                 /*View All Toggle Grid Carousel Collapse And Expand end*/
+        }     
 
 
         /*MOBILE SINGLE UNIT PRODUCT VIEW*/
@@ -359,6 +437,7 @@
 
                 /* FOR MOBILE*/
                     .bottomcontrolSection-foot{
+                        position: relative;
                         display: flex;
                         flex-direction: row;
                         justify-content: end;
