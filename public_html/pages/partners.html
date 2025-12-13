@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PartnersMarque</title>
+<style>
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #fff;
+  }
+
+  /* ===============================
+     MARQUEE CONTAINER
+  =============================== */
+  .logo-marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+    background: #ffffff;
+    cursor: grab;
+  }
+
+  .logo-track {
+    display: flex;
+    gap: 48px;
+    width: max-content;
+    animation: scroll 35s linear infinite;
+  }
+
+  /* Hover pause for desktop */
+  .logo-marquee:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  /* ===============================
+     LOGO STYLE
+  =============================== */
+  .logo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    width: auto;
+    height: auto;
+    max-height: 56px;  /* Desktop default */
+    max-width: 200px;
+        /* filter: grayscale(100%); */
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .logo img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  /* ===============================
+     SCROLL ANIMATION
+  =============================== */
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Fade edges for premium look */
+  .logo-marquee::before,
+  .logo-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+  }
+  .logo-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, #fff, transparent);
+  }
+  .logo-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, #fff, transparent);
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .logo-track { animation: none; }
+  }
+
+  /* ===============================
+     TABLET
+  =============================== */
+  @media (max-width: 1199px) {
+    .logo-track { 
+      gap: 32px;
+      animation-duration: 50s; /* slower */
+    }
+    .logo img {
+      max-height: 50px;
+      max-width: 180px;
+    }
+  }
+
+  /* ===============================
+     MOBILE
+  =============================== */
+  @media (max-width: 767px) {
+    .logo-track { 
+      gap: 24px;
+      animation-duration: 60s; /* slower on mobile */
+    }
+    .logo img {
+      max-height: 40px;
+      max-width: 140px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="logo-marquee">
+  <div class="logo-track">
+    <!-- Original Logos -->
+    <div class="logo"><img src="../assets/images/partners/americanExpress.png" alt="AmericanExpress"></div>
+    <div class="logo"><img src="../assets/images/partners/applePay.png" alt="ApplePay"></div>
+    <div class="logo"><img src="../assets/images/partners/verifone.png" alt="Verifone"></div>
+    <div class="logo"><img src="../assets/images/partners/authorizeNet.png" alt="AuthorizeNet"></div>
+    <div class="logo"><img src="../assets/images/partners/clover.png" alt="Clover"></div>
+    <div class="logo"><img src="../assets/images/partners/discover.png" alt="Discover"></div>
+    <div class="logo"><img src="../assets/images/partners/firstData.png" alt="FirstData"></div>
+    <div class="logo"><img src="../assets/images/partners/masterCard.png" alt="MasterCard"></div>
+    <div class="logo"><img src="../assets/images/partners/octopos.png" alt="OctoPOS"></div>
+    <div class="logo"><img src="../assets/images/partners/payPal.png" alt="PayPal"></div>
+    <div class="logo"><img src="../assets/images/partners/rokfinancial.png" alt="ROK-Financial"></div>
+    <div class="logo"><img src="../assets/images/partners/tsys.png" alt="TSYS"></div>
+    <div class="logo"><img src="../assets/images/partners/union.png" alt="Union"></div>    
+    <div class="logo"><img src="../assets/images/partners/americanExpress.png" alt="AmericanExpress"></div>
+    <div class="logo"><img src="../assets/images/partners/applePay.png" alt="ApplePay"></div>
+    <div class="logo"><img src="../assets/images/partners/verifone.png" alt="Verifone"></div>
+    <div class="logo"><img src="../assets/images/partners/authorizeNet.png" alt="AuthorizeNet"></div>
+    <div class="logo"><img src="../assets/images/partners/clover.png" alt="Clover"></div>
+    <div class="logo"><img src="../assets/images/partners/discover.png" alt="Discover"></div>
+    <div class="logo"><img src="../assets/images/partners/firstData.png" alt="FirstData"></div>
+    <div class="logo"><img src="../assets/images/partners/masterCard.png" alt="MasterCard"></div>
+    <div class="logo"><img src="../assets/images/partners/octopos.png" alt="OctoPOS"></div>
+    <div class="logo"><img src="../assets/images/partners/payPal.png" alt="PayPal"></div>
+    <div class="logo"><img src="../assets/images/partners/rokfinancial.png" alt="ROK-Financial"></div>
+    <div class="logo"><img src="../assets/images/partners/tsys.png" alt="TSYS"></div>
+    <div class="logo"><img src="../assets/images/partners/union.png" alt="Union"></div>
+
+    <!-- Duplicate logos for seamless scroll -->
+    
+  </div>
+</div>
+
+<script>
+  const marquee = document.querySelector('.logo-marquee');
+  const track = marquee.querySelector('.logo-track');
+
+  // Drag-to-scroll for desktop
+  let isDown = false, startX, scrollLeft;
+  marquee.addEventListener('mousedown', (e) => {
+    isDown = true;
+    marquee.classList.add('active');
+    startX = e.pageX - marquee.offsetLeft;
+    scrollLeft = marquee.scrollLeft;
+    track.style.animationPlayState = 'paused';
+  });
+  marquee.addEventListener('mouseleave', () => { isDown = false; marquee.classList.remove('active'); track.style.animationPlayState = ''; });
+  marquee.addEventListener('mouseup', () => { isDown = false; marquee.classList.remove('active'); track.style.animationPlayState = ''; });
+  marquee.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - marquee.offsetLeft;
+    const walk = (x - startX) * 2;
+    marquee.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch support with auto-scroll pause
+  let startTouchX, scrollStart;
+  marquee.addEventListener('touchstart', (e) => {
+    startTouchX = e.touches[0].pageX;
+    scrollStart = marquee.scrollLeft;
+    track.style.animationPlayState = 'paused';
+  });
+  marquee.addEventListener('touchmove', (e) => {
+    const x = e.touches[0].pageX;
+    marquee.scrollLeft = scrollStart - (x - startTouchX);
+  });
+  marquee.addEventListener('touchend', () => {
+    track.style.animationPlayState = '';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Partners</title>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+
+  <style>
+
+    .partners {
+      padding: 80px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .partners-grid > :last-child {
+      grid-column: span 2;
+      justify-self: center;
+    }
+
+    .logo img {
+      max-height: 56px;
+      max-width: 180px;
+      opacity: 0.75;
+      /* filter: grayscale(100%); */
+      transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+    }
+
+    .logo img:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
+    /* Center the last logo using negative grid lines */
+.partners-grid > :last-child {
+  grid-column: -4 / -2; /* spans 2 columns, centered */
+  justify-self: center;
+}
+
+    .partners-grid .logo {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition-delay: var(--delay);
+    }
+
+    .partners-grid .logo.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .partners-grid .logo {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+
+      /* Center the last logo using negative grid lines */
+        .partners-grid > :last-child {
+        grid-column: -3 / -2; /* spans 2 columns, centered */
+        justify-self: center;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+      .partners {
+        padding: 4.75rem 1rem;
+      }
+
+      .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+       .partners-grid > :last-child {
+        grid-column: -3 / -1; /* spans 2 columns, centered */
+        justify-self: center;
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="partners">
+  <div class="partners-grid">
+
+    <div class="logo">
+      <img src="../assets/images/partners/americanExpress.png" alt="American Express">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/applePay.png" alt="Apple Pay">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/verifone.png" alt="Verifone">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/authorizeNet.png" alt="Authorize.Net">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/clover.png" alt="Clover">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/discover.png" alt="Discover">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/firstData.png" alt="First Data">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/masterCard.png" alt="MasterCard">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/octopos.png" alt="OctoPOS">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/payPal.png" alt="PayPal">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/rokfinancial.png" alt="ROK Financial">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/tsys.png" alt="TSYS">
+    </div>
+
+    <div class="logo">
+      <img src="../assets/images/partners/union.png" alt="Union">
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const logos = document.querySelectorAll('.partners-grid .logo');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  logos.forEach((logo, index) => {
+    logo.style.setProperty('--delay', `${index * 80}ms`);
+    observer.observe(logo);
+  });
+</script>
+
+</body>
+</html>
