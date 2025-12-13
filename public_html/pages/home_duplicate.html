@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home-Duplicate</title>
 </head>
 <body>
     <!-- Replace navbar here -->
@@ -229,72 +229,9 @@
         });
         </script>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
+        
 
-                const viewAllBtn = document.getElementById("viewAllBtn");
-                const mainContainer = document.querySelector(".HeadAndBodyContainer");
-
-                viewAllBtn.addEventListener("click", () => {
-                    // Only apply grid on desktop (>=769px)
-                    if (window.innerWidth >= 769) {
-                        mainContainer.classList.toggle("grid-view");
-                    }
-
-                    // Scroll into view nicely
-                    mainContainer.scrollIntoView({ behavior: "smooth" });
-                });
-
-            });
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-
-            const viewAllBtn = document.getElementById("viewAllBtn");
-            const carouselWindow = document.querySelector(".carouselWindow");
-            const carouselWrapper = document.querySelector(".carouselwithProducts-wrapper");
-
-            let isGrid = false;
-
-            viewAllBtn.addEventListener("click", () => {
-
-            // Only apply grid on desktop
-            if (window.innerWidth >= 1200) {
-
-                isGrid = !isGrid; // toggle state
-
-                if (isGrid) {
-                    // Add grid view
-                    carouselWindow.classList.add("grid-view");
-                    carouselWrapper.classList.add("grid-view");
-
-                    // Change text to View Less
-                    viewAllBtn.innerHTML = `View less 
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightTopCategoryMobileArrow">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </span>`;
-                } else {
-                    // Remove grid view
-                    carouselWindow.classList.remove("grid-view");
-                    carouselWrapper.classList.remove("grid-view");
-
-                    // Restore button text
-                    viewAllBtn.innerHTML = `View all 
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightTopCategoryMobileArrow">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </span>`;
-                }
-            }
-
-                });
-
-            });
-        </script>
+       
 <!-- TopSellingProductSection End -->    
 
 
@@ -375,7 +312,7 @@
 
         <!-- Body Product Container -->
         <!-- Updated Product Grid with 6 items -->
-    <div id="productsGrid" class="carousel-body product-grid-handheld">
+    <div  class="carousel-body productsGrid handheld-grid">
     <!-- 1: Valor VP800 -->
     <div class="product-grid-item valorVP800">
         <div class="productInfo">
@@ -544,7 +481,7 @@
         </div>
 
         <!-- Body Product Grid -->
-        <div id="productsGrid" class="carousel-body product-grid-handheld">
+        <div class="carousel-body productsGrid supplies-grid">
 
             <!-- 1 -->
             <div class="product-grid-item cloverBarcodeScanner">
@@ -709,28 +646,47 @@
     }
     </script>
 
+
+    
+    <!-- Script For handheld grid logic -->
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const grid = document.getElementById("productsGrid");
-        const items = grid.querySelectorAll(".product-grid-item");
+        document.addEventListener("DOMContentLoaded", () => {
+
+        const handheldGrid = document.querySelector(".handheld-grid");
         const toggleBtn = document.getElementById("toggle-view");
 
-        // ALWAYS SHOW 8 ITEMS ON LOAD
-        function showDefaultItems() {
+        if (!handheldGrid || !toggleBtn) return;
+
+        const items = handheldGrid.querySelectorAll(".product-grid-item");
+        let expanded = false;
+
+        function showDefault() {
             items.forEach((item, index) => {
-                item.style.display = index < 8 ? "block" : "none";
+            item.style.display = index < 6 ? "block" : "none";
             });
+            handheldGrid.classList.remove("grid-4-col");
+            toggleBtn.querySelector("span").textContent = "View all";
+            expanded = false;
         }
 
-        showDefaultItems(); // initial load
+        function showAll() {
+            items.forEach(item => item.style.display = "block");
+            handheldGrid.classList.add("grid-4-col");
+            toggleBtn.querySelector("span").textContent = "View less";
+            expanded = true;
+        }
 
-        // View all acts as redirect link
-        toggleBtn.addEventListener("click", function () {
-            window.location.href = "/supplies"; // <-- change to your target page
+        // Init
+        showDefault();
+
+        toggleBtn.addEventListener("click", () => {
+            expanded ? showDefault() : showAll();
         });
-    });
+
+        });
     </script>
 
+    <!-- Script to truncate product summary text -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const summaries = document.querySelectorAll("p.productSummary");
@@ -742,6 +698,7 @@
             });
         });
     </script>
+
     <!--Supplies section end-->
 
     <!--stylings for contact us form-->

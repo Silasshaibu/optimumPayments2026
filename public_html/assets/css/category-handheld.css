@@ -1,0 +1,382 @@
+
+:root {
+    --slide-and-container-width-singularUnit: 83vw;
+    --slide-and-container-height: 400px;
+    /* controls the slide viewer width per slide*/
+    /*We are using 1200px or 83vw or 83%*/
+}
+
+.carousel-header, .carousel-body, .carousel-footer{
+    width: var(--slide-and-container-width-singularUnit);
+    margin:0 auto;
+}
+
+.section.topProducts-carousel-header{
+    padding-top:4.375rem;
+
+}
+
+.carousel-window, .carousel-wrapper, .slide{
+    height: var(--slide-and-container-height);
+}
+
+
+/*GRID SYSTEM TEMPLATE FOR REUSE*/
+.carousel-body.product-grid-handheld{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:1rem;
+    padding-top:1rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+  
+
+    .carousel-body.product-grid-handheld .product-grid-item{
+        aspect-ratio: 18/25;
+        /* position: absolute; */
+    }
+
+    .product-grid-item{
+        position: relative;
+    }      
+
+    .productInfo{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        /* gap:4rem; */
+        height:200px;
+        padding: 1.5rem 2rem;
+        bottom:0;
+    }
+
+    .featured-product{
+        padding:4rem 2rem;
+    }
+
+    .featured-product.valorVP550{
+        background:url(../images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:var(--slide-and-container-width-singularUnit);
+        height:var(--slide-and-container-height);
+    }
+
+    .featured-product.valorVP800{
+        background:url(../images/products/handheldProducts/Banner-HandHeldDevices-VP800--1200x400.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:var(--slide-and-container-width-singularUnit);
+        height:var(--slide-and-container-height);
+    }
+
+    .carousel-window {
+        position: relative;
+        width: var(--slide-and-container-width-singularUnit);
+        overflow: hidden; /* hide overflow for carousel effect */        
+        margin:0 auto;
+    }
+
+    .carousel-wrapper {
+        top:0px;
+        left:0px;
+        position: absolute;
+        display: flex; /* make slides line up horizontally */
+        width: max-content; /* let JS or content determine total width */
+    }
+
+
+    .slide {
+        width: var(--slide-and-container-width-singularUnit) ; /* each slide takes full viewport width */
+        flex-shrink: 0; /* prevent shrinking */
+        padding:0rem;
+        flex-direction: row;
+        align-self: center;
+        min-height:200px; /*Placeholder can be changed where necessary */
+        align-items: center;
+        background-color: rgb(214, 213, 213);
+    }
+
+    .textInfo-wrapper, .image-wrapper{
+        flex:1;
+    }
+
+    .textInfo-wrapper{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .cta-container-hero{
+        padding-top: 52px;
+        display: flex;
+        gap:1rem;
+    }
+
+
+    p.label-h1{
+        color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16.8px; /* 120% */
+        min-height:16.8px;
+        
+    }
+
+    p.display{
+        color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
+        font-size: var(--line-height-18, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-23_4, 23.4px); /* 130% */
+        width: 340px;
+        max-width: 28ch;
+    }
+    
+    h1.producCategoryheading.title{
+    color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-44_2, 44.2px); /* 130% */
+    }
+ 
+    .carousel-header.withRemote{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 36px;
+    }
+
+
+    .view-toggle.handHeldDevice{
+        color: #333;
+        border-radius:0px;
+        background-color: transparent;
+        padding:0;
+    }
+
+    .directionCarousel.handHeldDevice{
+        color: #333;
+        border-radius:0px;
+        background-color: transparent;
+        padding:0;
+        border:1px solid #ccc;
+        border:1px solid #656572;        
+        width: var(--circle-size, 32px);
+        height: var(--circle-size, 32px);
+        background: var(--circle-color);        
+        border-radius: 50%; /* makes it a perfect circle */
+    }
+
+
+
+    .view-toggle.handHeldDevice svg, .btn-featured-products.product-Btn-Desktop svg, .icon.rightArrow{
+        transform: translateY(3px);
+    }
+     
+    .btn-featured-products.product-Btn-Desktop:hover{
+        background-color: white;
+
+    }
+
+    .btn-featured-products.product-Btn-Desktop{
+        margin-top:.8rem;
+    }
+
+   
+
+    .product-title{
+        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
+        font-size: var(--line-height-18, 18px);
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-23_4, 23.4px); /* 130% */
+    }
+
+    .product-intro{
+        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: var(--font-weight-700, 700);
+        line-height: var(--line-height-28_8, 28.8px); /* 120% */
+        padding:.75rem 0rem;
+    }
+
+    a.productLink{
+        padding:1.5rem 0rem;   
+        cursor: pointer;                     
+    }
+
+   
+    .product-grid-item.valorVP800 {
+        background:url(../images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.valorVL100 {
+        background:url(../images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.valorVL110 {
+        background:url(../images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.cloverFlex {
+        background:url(../images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.valorVP550 {
+        background:url(../images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product-grid-item.cloverGoPlus {
+        background:url(../images/products/handheldProducts/HandHeldDevice-sample.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .remoteControl{
+        display: flex;
+        justify-content: end;
+        gap:.5rem;
+    }
+
+    /* .view-toggle.handHeldDevice:hover{
+        background-color: grey;
+        color:white;
+
+    } */
+
+.carousel-body.productsGrid.handheld-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap:1rem;
+    padding-top:1rem;
+    padding-bottom: .5rem;
+}
+
+.carousel-body.productsGrid.handheld-grid .product-grid-item{
+    aspect-ratio: 4/5;    
+}
+
+/*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE TABLE DEVICE*/
+@media (max-width:1024px) {
+
+}
+
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+    :root{
+        --slide-and-container-width-singularUnit:94vw;
+    }
+
+    .slide{
+        /* margin:auto 0; */
+        background-color: #fff;
+        flex-direction: column;
+        
+    }
+
+    .featured-product{
+        padding:2rem 1rem;
+    }
+
+    
+
+   
+    .textInfo-wrapper{
+        align-items: center; 
+        padding:.5rem;
+    }
+
+    p.display, h1.heading.title{
+        width: 100%;
+    }
+        
+
+    p.display, h1.heading.title{
+        text-align: center;
+    }
+
+    h1.producCategoryheading.title{
+        font-size:1.25em;
+    }
+    .remoteControl button{
+        font-size:.9rem;
+
+    }
+        
+
+    .image-wrapper{
+        position: relative;
+        right:0;
+        bottom:0%;
+        transform:translate(0%, 0%);
+        border:1px solid white;
+        width:var(--slide-and-container-width-singularUnit); /*Image container width to cover in d esktop version*/
+        height:var(var(--slide-and-container-height)) ;
+        /* height: 100%; */
+    }
+
+  
+
+    p.display{
+        color: var(--TypographyColors-Subtitle, #788289);
+        text-align: center;
+
+        /* BBu.Mobile.P1 */
+        font-family: Manrope;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 150% */
+    }
+
+    h1.heading.title{
+    color: var(--TypographyColors-Title, #18374E);
+    text-align: center;
+
+    /* Mobile.H1 */
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52.8px; /* 120% */
+    }
+
+    .carousel-body.product-grid-handheld{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        /* column-gap:0rem; */
+        gap:1rem;
+        padding-top:1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .remoteControl{
+                display: flex;
+                /* justify-content: center; */
+    }
+
+
+}
