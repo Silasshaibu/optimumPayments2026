@@ -165,53 +165,7 @@
     </section>
       
     <!-- Carousel Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        const wrapper = document.querySelector(".carouselwithProducts-wrapper");
-        const products = document.querySelectorAll(".featured-product");
-
-        const leftArrow = document.querySelector(".leftArrow");
-        const rightArrow = document.querySelector(".rightArrow");
-
-        let index = 0;
-
-        // Width of ONE product card (including the column gap)
-        function getSlideWidth() {
-            const card = products[0];
-            const style = window.getComputedStyle(wrapper);
-            const gap = parseFloat(style.columnGap);
-            return card.offsetWidth + gap;
-        }
-
-        function updateCarousel() {
-            const offset = -(index * getSlideWidth());
-            wrapper.style.transform = `translateX(${offset}px)`;
-            wrapper.style.transition = "transform 0.5s ease";
-        }
-
-        function getVisibleItems() {
-            return window.innerWidth <= 550 ? 1 : 2;
-        }
-
-
-        rightArrow.addEventListener("click", () => {
-            if (index < products.length - getVisibleItems()) {
-                index++;         
-                updateCarousel();
-            }
-        });
-
-
-        leftArrow.addEventListener("click", () => {
-            if (index > 0) {
-                index--;
-                updateCarousel();
-            }
-        });
-
-        window.addEventListener("resize", updateCarousel);
-    });
-    </script>
+    
 
         
         
