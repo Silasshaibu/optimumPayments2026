@@ -53,6 +53,10 @@
         bottom:0;
     }
 
+    .carousel-body.productsGrid.handheld-grid > div > div.productInfo{
+        text-align: left;
+
+    }
     .featured-product{
         padding:4rem 2rem;
     }

@@ -125,7 +125,7 @@
     }
 
 
-    .productTitle{
+    .carousel-body.productsGrid.supplies-grid .productTitle{
         color: var(--us-store-bambulab-com-mine-shaft, var(--color-grey-20, #333));
     text-align: center;
 

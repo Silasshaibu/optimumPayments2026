@@ -1,3 +1,10 @@
+            :root {
+                --slide-and-container-width-singularUnit: 83vw;
+                --slide-and-container-height: 400px;
+                /* controls the slide viewer width per slide*/
+                /*We are using 1200px or 83vw or 83%*/
+            }
+            
             .productCategoryTitle{
                 color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
                 /* us.store.bambulab.com/Semantic/Heading 2 */
@@ -10,12 +17,12 @@
 
             .home-default-section{
                 display: flex;
-                width: 100%;
-                padding: 8.75rem 7.5rem 4rem 7.5rem;
+                width: var(--slide-and-container-width-singularUnit);
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
-                gap: 36px;
+                align-items: stretch;
+                margin:0 auto;
+                gap: 2rem;
             }
         
             .product-title{
@@ -64,8 +71,7 @@
                 display: flex;
                 align-content: center;
                 justify-content: space-between;
-                align-items: center;
-                width: 85vw;
+                
             }
             
             .carouselWindow{
@@ -137,6 +143,14 @@
 
 
           @media (max-width: 1024px) {
+             :root {
+                --slide-and-container-width-singularUnit: 94vw;
+            }
+
+             .home-default-section{
+                display: flex;
+                width: var(--slide-and-container-width-singularUnit);
+            }
 
             .carouselWindow.grid-view {
                 height: auto !important;
@@ -179,17 +193,7 @@
                 padding:0rem;
             }
 
-            .home-default-section{
-                display: flex;
-                width: 100%;
-                padding: 8.75rem 7.5rem 4rem 7.5rem;
-                padding: 1rem;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 36px;
-                }
-
+       
                 .title--and-controlSection, .carouselWindow {
                 width: 95vw;
                 }
