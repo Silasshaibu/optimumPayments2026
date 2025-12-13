@@ -34,7 +34,8 @@
 
     /* Hide any default arrows in Firefox */
     .carousel-wrapper {
-        scrollbar-width: thin;  /* optional: still keeps a thin scrollbar */
+        scrollbar-width:thin;  
+        /* optional: still keeps a thin scrollbar */
     }
 
         /* .carousel-wrapper {
