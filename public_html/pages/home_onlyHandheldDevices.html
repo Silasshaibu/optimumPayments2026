@@ -78,7 +78,7 @@
         padding:4rem 2rem;
     }
 
-    .handheld .featured-product.valorVP550{
+    .handheld__featured--vp800{
         background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
         background-size: cover;
         background-position: center;
@@ -87,8 +87,8 @@
         height:var(--handheld__slide-and-container-height);
     }
 
-    .handheld .featured-product.valorVP800{
-        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP800--1200x400.jpg);
+    .handheld__featured--vp550{
+        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -302,28 +302,44 @@
         background: var(--circle-color);
         border-radius: 50%;
     }
+
+    .handheld__arrow:hover{
+        background-color: #333;
+        color:#fff;
+    }
    
 
     .handheld.remoteControl.handheld__arrow:hover{
-        background-color: grey;
-        color:white;
-
+        background-color: #333;
+        color:#fff;
     } 
 
-.handheld__carousel.productsGrid.handheld-grid{
-    display: grid;
-    gap:1rem;
-    padding-top:1rem;
-    padding-bottom: .5rem;
-}
+    .handheld__carousel.productsGrid.handheld-grid{
+        display: grid;
+        gap:1rem;
+        padding-top:1rem;
+        padding-bottom: .5rem;
+    }
 
-.handheld__carousel.productsGrid.handheld-grid .handheld__item{
-    aspect-ratio: 4/5;    
-}
+    .handheld__carousel.productsGrid.handheld-grid .handheld__item{
+        aspect-ratio: 4/5;    
+    }
 
-.handheld__item.is-hidden {
-  display: none;
-}
+    .handheld__item.is-hidden {
+    display: none;
+    }
+
+    .handheld__toggle{
+        border-bottom: 1px solid transparent;
+
+    }
+
+    .handheld__toggle:hover{
+        background: transparent;
+        color:var(--color-primary);
+        border-bottom:1px solid var(--color-primary);
+
+    }
 
 
 /*Handheld grid collapse and expand animation logic start*/
@@ -494,6 +510,19 @@
 
 
 }
+
+
+
+@media (max-width:550px){
+    .handheld .handheld-productInfo{
+       height: 110px;
+       padding:0.5rem 1rem;
+    }
+
+    a.handheld-productLink{
+        padding:0.5rem 0rem;
+    }
+}
 </style>
 <body>
     <!-- Replace navbar here -->
@@ -610,7 +639,7 @@
     <div class="handheld__item js-handheld-item valorVP800">
         <div class="handheld-productInfo">
             <h3 class="handheld-productTitle">Valor VP800</h3>
-            <p class="handheld-productSummary">High‑performance portable device</p>
+            <p class="handheld-productSummary"> High‑performance portable device High‑performance portable deviceHigh‑performance portable device</p>
             <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
         </div>
     </div>
@@ -795,18 +824,39 @@ function initHandheldCarousel(carouselEl) {
 
 <script>
 /* ==========================================================
-   HANDHELD PRODUCT SUMMARY TRUNCATION
+   HANDHELD PRODUCT SUMMARY TRUNCATION (RESPONSIVE)
    ========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".handheld-productSummary").forEach(el => {
-    const text = el.textContent.trim();
-    if (text.length > 25) {
-      el.textContent = text.slice(0, 25) + "...";
-    }
-  });
+  const summaries = document.querySelectorAll(".handheld-productSummary");
+
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
+  function truncateSummaries() {
+    summaries.forEach(el => {
+      const fullText = el.getAttribute("data-fulltext") || el.textContent.trim();
+
+      // Store original text once
+      if (!el.hasAttribute("data-fulltext")) {
+        el.setAttribute("data-fulltext", fullText);
+      }
+
+      const maxLength = isMobile() ? 18 : 32;
+
+      el.textContent =
+        fullText.length > maxLength
+          ? fullText.slice(0, maxLength) + "…"
+          : fullText;
+    });
+  }
+
+  truncateSummaries();
+  window.addEventListener("resize", truncateSummaries);
 });
 </script>
+
 
 <script>
 /* ==========================================================
