@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mega Menu Layout</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --left-column-width: 300px;
+        }
+
+        /* ===== Layout ===== */
+        .BigDropDown-Tray {
+            display: flex;
+            width: 100%;
+        }
+
+        /* ===== Left Menu ===== */
+        .processingSolutionDropDown-1st-Level {
+            width: var(--left-column-width);
+            min-width: var(--left-column-width);
+            background: #777;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .processingSolutionDropDown-1st-Level li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            line-height: 20px;
+            padding: 15px 30px 15px 20px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        /* ===== Right Grid ===== */
+        .grid-space-area {
+            width: calc(100vw - var(--left-column-width));
+            padding: 48px 80px;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 30px;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            background: rgb(184, 103, 74);
+        }
+
+        .grid-item {
+            background: #fff;
+            height: 120px;
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="BigDropDown-Tray">
+
+    <!-- Left Menu -->
+    <ul class="processingSolutionDropDown-1st-Level">
+        <li>X1 Series <span>&gt;</span></li>
+        <li>P Series <span>&gt;</span></li>
+        <li>A1 Series <span>&gt;</span></li>
+        <li>For Professionals <span>&gt;</span></li>
+        <li>All 3D Printers <span>&gt;</span></li>
+        <li>Compare Bambulab Printers <span>&gt;</span></li>
+    </ul>
+
+    <!-- Right Grid -->
+    <div class="grid-space-area">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+        <div class="grid-item">Item 4</div>
+        <div class="grid-item">Item 5</div>
+        <div class="grid-item">Item 6</div>
+        <div class="grid-item">Item 7</div>
+        <div class="grid-item">Item 8</div>
+        <div class="grid-item">Item 9</div>
+        <div class="grid-item">Item 10</div>
+        <div class="grid-item">Item 11</div>
+        <div class="grid-item">Item 12</div>
+    </div>
+
+</div>
+
+<script>
+    function syncGridHeightToList() {
+        const list = document.querySelector('.processingSolutionDropDown-1st-Level');
+        const items = list.querySelectorAll('li');
+        const grid = document.querySelector('.grid-space-area');
+
+        if (!items.length || !grid) return;
+
+        const style = getComputedStyle(items[0]);
+
+        const lineHeight = parseFloat(style.lineHeight);
+        const paddingTop = parseFloat(style.paddingTop);
+        const paddingBottom = parseFloat(style.paddingBottom);
+        const borderBottom = parseFloat(style.borderBottomWidth);
+
+        const singleItemHeight =
+            lineHeight + paddingTop + paddingBottom + borderBottom;
+
+        const totalHeight = singleItemHeight * items.length;
+
+        grid.style.maxHeight = totalHeight + 'px';
+    }
+
+    window.addEventListener('load', syncGridHeightToList);
+    window.addEventListener('resize', syncGridHeightToList);
+</script>
+
+</body>
+</html>
