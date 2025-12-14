@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data Driven Mega Menu</title>
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+  --left-width: 300px;
+}
+
+/* ================= LAYOUT ================= */
+.BigDropDown-Tray {
+  display: flex;
+  width: 100%;
+}
+
+/* ================= LEFT MENU ================= */
+.processingSolutionDropDown-1st-Level {
+  width: var(--left-width);
+  min-width: var(--left-width);
+  background: #333;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.processingSolutionDropDown-1st-Level li {
+  padding: 15px 30px 15px 20px;
+  line-height: 20px;
+  color: #fff;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.processingSolutionDropDown-1st-Level li.active,
+.processingSolutionDropDown-1st-Level li:hover {
+  background: #444;
+}
+
+/* ================= GRID ================= */
+.grid-space-area {
+  width: calc(100vw - var(--left-width));
+  padding: 48px 80px;
+
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+
+  overflow-y: auto;
+  background: #b8674a;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .grid-space-area {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .BigDropDown-Tray {
+    flex-direction: column;
+  }
+
+  .processingSolutionDropDown-1st-Level {
+    width: 100%;
+  }
+
+  .grid-space-area {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 32px;
+  }
+}
+
+/* ================= PRODUCT CARD ================= */
+.product-grid-item {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #000;
+
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #eee;
+}
+
+.product-details {
+  text-align: center;
+}
+
+.product-details h3 {
+  margin: 0;
+}
+
+.product-details p {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="BigDropDown-Tray">
+
+  <!-- LEFT MENU -->
+  <ul class="processingSolutionDropDown-1st-Level" id="menu"></ul>
+
+  <!-- GRID -->
+  <div class="grid-space-area" id="grid"></div>
+
+</div>
+
+<script>
+/* ================= DATA ================= */
+const menuData = [
+  {
+    label: "Full service fine dining",
+    products: ["OctoPos", "Clover", "Swipe Simple"]
+  },
+  {
+    label: "QSR and Food Trucks",
+    products: ["Clover", "Swipe Simple", "Valor"]
+  },
+  {
+    label: "Bars / Night Clubs / High Volume",
+    products: ["Union POS"]
+  },
+  {
+    label: "Retail / Liquor / Smoke Shops",
+    products: ["OctoPos", "Clover", "Swipe Simple", "Valor"]
+  },
+  {
+    label: "Medical",
+    products: ["Practice Management Bridge"]
+  },
+  {
+    label: "Contractors / Online Payments / Mobile",
+    products: ["Hyfin", "NMI", "Clover", "Valor", "Swipe Simple"]
+  },
+  {
+    label: "Need a Basic Setup?",
+    products: ["Terminal Options"]
+  }
+];
+
+/* ================= ELEMENTS ================= */
+const menu = document.getElementById("menu");
+const grid = document.getElementById("grid");
+
+/* ================= BUILD MENU ================= */
+menuData.forEach((item, index) => {
+  const li = document.createElement("li");
+  li.textContent = item.label;
+  li.dataset.index = index;
+  if (index === 0) li.classList.add("active");
+  menu.appendChild(li);
+});
+
+/* ================= HEIGHT CALC ================= */
+function syncGridHeight() {
+  const items = menu.querySelectorAll("li");
+  if (!items.length) return;
+
+  const style = getComputedStyle(items[0]);
+
+  const singleHeight =
+    parseFloat(style.lineHeight) +
+    parseFloat(style.paddingTop) +
+    parseFloat(style.paddingBottom) +
+    parseFloat(style.borderBottomWidth);
+
+  grid.style.maxHeight = (singleHeight * items.length) + "px";
+}
+
+/* ================= RENDER GRID ================= */
+function renderGrid(index) {
+  grid.innerHTML = "";
+
+  menuData[index].products.forEach(name => {
+    const card = document.createElement("div");
+    card.className = "product-grid-item";
+    card.innerHTML = `
+      <div class="product-image"></div>
+      <div class="product-details">
+        <h3>${name}</h3>
+        <p>Image + Title + Paragraph</p>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  grid.scrollTop = 0;
+}
+
+/* ================= EVENTS ================= */
+menu.addEventListener("mouseenter", e => {
+  if (e.target.tagName !== "LI") return;
+
+  menu.querySelectorAll("li").forEach(li => li.classList.remove("active"));
+  e.target.classList.add("active");
+
+  renderGrid(e.target.dataset.index);
+}, true);
+
+/* ================= INIT ================= */
+window.addEventListener("load", () => {
+  syncGridHeight();
+  renderGrid(0);
+});
+
+window.addEventListener("resize", syncGridHeight);
+</script>
+
+</body>
+</html>
