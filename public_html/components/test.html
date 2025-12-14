@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Handheld Devices</title>
+
+<style>
+/* ==============================
+   RESET / BASE
+================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+/* ==============================
+   HANDHELD COMPONENT
+================================ */
+
+.handheld {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ---------- Header ---------- */
+
+.handheld__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.handheld__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.handheld__controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.handheld__arrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.handheld__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- Carousel ---------- */
+
+.handheld__carousel {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.handheld__track {
+  display: flex;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.handheld__slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.handheld__featured {
+  height: 280px;
+  border-radius: 16px;
+  padding: 1.5rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Example featured backgrounds */
+.handheld__featured--vp800 {
+  background-image: url("https://picsum.photos/800/600?random=1");
+}
+
+.handheld__featured--vp550 {
+  background-image: url("https://picsum.photos/800/600?random=2");
+}
+
+.handheld__product-title {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.handheld__product-intro {
+  font-size: 0.9rem;
+  margin: 0.25rem 0 1rem;
+}
+
+.handheld__cta {
+  align-self: flex-start;
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ---------- Grid ---------- */
+
+.handheld__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.handheld__item {
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Example grid images */
+.handheld__item--vp800 {
+  background-image: url("https://picsum.photos/600/800?random=3");
+}
+
+.handheld__item--vl100 {
+  background-image: url("https://picsum.photos/600/800?random=4");
+}
+
+.handheld__item--vx200 {
+  background-image: url("https://picsum.photos/600/800?random=5");
+}
+
+.handheld__info {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent 60%);
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.handheld__info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.handheld__info p {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.85rem;
+}
+
+.handheld__info a {
+  font-size: 0.85rem;
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+
+.handheld__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.handheld__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .handheld__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .handheld__grid {
+    grid-template-columns: repeat(1.5, 1fr);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+
+  .handheld__grid::-webkit-scrollbar {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="handheld js-handheld">
+
+  <div class="handheld__header">
+    <h2 class="handheld__title">Handheld Devices</h2>
+
+    <div class="handheld__controls">
+      <button class="handheld__arrow js-handheld-prev" aria-label="Previous">
+        ←
+      </button>
+      <button class="handheld__arrow js-handheld-next" aria-label="Next">
+        →
+      </button>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="handheld__carousel js-handheld-carousel">
+    <div class="handheld__track js-handheld-track">
+      <div class="handheld__slide">
+        <div class="handheld__featured handheld__featured--vp800">
+          <h3 class="handheld__product-title">Valor VP 800</h3>
+          <p class="handheld__product-intro">The complete portable solution</p>
+          <button class="handheld__cta">Learn More</button>
+        </div>
+      </div>
+
+      <div class="handheld__slide">
+        <div class="handheld__featured handheld__featured--vp550">
+          <h3 class="handheld__product-title">Valor VP 550</h3>
+          <p class="handheld__product-intro">Compact and reliable</p>
+          <button class="handheld__cta">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="handheld__grid js-handheld-grid">
+    <div class="handheld__item handheld__item--vp800 js-handheld-item">
+      <div class="handheld__info">
+        <h3>Valor VP800</h3>
+        <p>High-performance portable</p>
+        <a>View product →</a>
+      </div>
+    </div>
+
+    <div class="handheld__item handheld__item--vl100 js-handheld-item">
+      <div class="handheld__info">
+        <h3>Valor VL100</h3>
+        <p>Compact solution</p>
+        <a>View product →</a>
+      </div>
+    </div>
+
+    <div class="handheld__item handheld__item--vx200 js-handheld-item">
+      <div class="handheld__info">
+        <h3>Valor VX200</h3>
+        <p>Fast & lightweight</p>
+        <a>View product →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="handheld__footer">
+    <button class="handheld__toggle js-handheld-toggle">
+      View all
+    </button>
+  </div>
+
+</section>
+
+</body>
+</html>

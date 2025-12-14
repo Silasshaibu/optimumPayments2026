@@ -8,8 +8,8 @@
 </head>
 
 <style>
-            /*LINKED TOP SELLING PRODUCTS STYLING*/
-            :root {
+    /*LINKED TOP SELLING PRODUCTS STYLING*/
+:root {
                 --slide-and-container-width-singularUnit: 83vw;
                 --slide-and-container-height: 400px;
                 /* controls the slide viewer width per slide*/
@@ -85,7 +85,8 @@
                 display: flex;
                 align-content: center;
                 justify-content: space-between;
-                position: relative;                
+                position: relative;
+                
             }
             
             .topCategory-carousel{
@@ -99,7 +100,12 @@
                 width: 1rem;
                 height:1rem;
                 margin: 0rem 0.25rem;
+
+                
+
             }
+
+            
 
             .topCategory-wrapper{
                 position: absolute;
@@ -126,14 +132,33 @@
                 position: relative;
                 display:flex;
                 align-items: center;
+                gap:.5rem;
+            }
+
+            .topCategory-controls span{
+                color: #333;
+                border-radius: 0px;
+                background-color: transparent;
+                padding: 0;
+                border: 1px solid #656572;
+                width: var(--circle-size, 32px);
+                height: var(--circle-size, 32px);
+                background: var(--circle-color);
+                border-radius: 50%;
+            }
+
+            .topCategory-controls span:hover{
+                color: white;                
+                background-color: #333;
             }
 
             .icon.topCategory-leftArrow, .icon.topCategory-rightArrow{
-                transform:translateY(3px);
+                transform:translate(3px, 5px);
             }
 
             .topCategory-viewAllBtn{
                 color:#333;
+
             }
 
             .topCategory-bottomControls-foot{
@@ -144,10 +169,14 @@
                 align-items: center;
             }
 
-            /* TOGGLE EXTRA CHANGES IN GRID VIEW */   
+                    /* TOGGLE EXTRA CHANGES IN GRID VIEW */
+           
+
+
             .topCategory-wrapper.is-grid .topCategory-product {
             height: auto;
             }
+
 
          /*View All Toggle Grid Carousel Collapse And Expand start*/
             /* ===============================
@@ -163,6 +192,8 @@
             .topCategory-header .topCategory-controls {
             transition: opacity 0.2s ease;
             }
+
+
 
             /*CAROUSEL MODE (DEFAULT → View less state)*/
             .topCategory-carousel {
@@ -182,6 +213,9 @@
             .topCategory-product {
                 height: 275px;
             }
+
+
+
 
             /*GRID MODE (View all clicked)*/
             .topCategory-section.is-grid .topCategory-carousel {
@@ -204,6 +238,28 @@
             }
 
 
+
+            /* Disable arrows in View Less (grid mode) */
+           
+
+          
+            /* Disabled arrow state */
+            .topCategory-controls span.is-disabled {
+                opacity: 0.3;
+                pointer-events: none; /* 🔒 prevents clicking */
+                cursor: default;
+            }
+
+              .topCategory-controls span {
+                transition: opacity 0.25s ease;
+            }
+
+
+
+
+
+
+
            /*View All Toggle Grid Carousel Collapse And Expand end*/
 
           @media (max-width: 1024px) {
@@ -211,7 +267,7 @@
                 --slide-and-container-width-singularUnit: 94vw;
             }
 
-            .topCategory-section{
+             .topCategory-section{
                 display: flex;
                 width: var(--slide-and-container-width-singularUnit);
             }
@@ -389,6 +445,11 @@
                     display: none !important;
                 }
 
+
+                .topCategory-controls span{
+                    display: none;
+                }
+
                 h2.topCategory-title{
                     text-align: center;
                     margin:0 auto;                
@@ -493,17 +554,35 @@
             
 
                 /* FOR MOBILE*/
-                    .topCategory-bottomControls-foot{
-                        position: relative;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: end;
-                        align-items: center;
-                    }
+                .topCategory-bottomControls-foot{
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: end;
+                    align-items: center;
+                }
 
-                    .topCategory-bottomControls-foot .icon{
-                        transform: translateY(2.5px);
-                    }
+                .topCategory-bottomControls-foot .icon{
+                    transform: translateY(2.5px);
+                }
+
+                .topCategory-wrapper {
+                    overflow-x: auto;
+                    scrollbar-width: none;          /* Firefox */
+                    -ms-overflow-style: none;       /* IE / Edge legacy */
+                    touch-action:pan-x;
+                    scroll-snap-type: x mandatory;
+                    overscroll-behavior-x: contain;
+                }
+
+                .topCategory-wrapper::-webkit-scrollbar {
+                    display: none;                  /* Chrome, Safari */
+                }
+
+                .topCategory-product {
+                    scroll-snap-align: start;
+                }
+
             }
 
        
@@ -566,7 +645,8 @@
                 <div class="topCategory-wrapper">      
                     
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
+
                         <h3 class="topCategory-productTitle">Valor VP 550<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -587,7 +667,7 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
                         <h3 class="topCategory-productTitle">Clover Mini<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -608,7 +688,7 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
                         <h3 class="topCategory-productTitle">Clover Flex<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -629,7 +709,7 @@
                     </div> 
                     
                     <!-- Product Item -->
-                    <div class="topCategory-product" style="background-image: url(../assets/images/products/topSellingProducts/cloverMiniDevice.jpg);">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
                         <h3 class="topCategory-productTitle">Valor VP800<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -685,9 +765,9 @@
 
 
 
-<!-- NEW -->
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+
     /* ===============================
        ELEMENTS
     =============================== */
@@ -695,16 +775,72 @@
     const topCategorySection = document.querySelector(".topCategory-section");
     if (!topCategorySection) return;
 
-    const topCategoryWrapper = topCategorySection.querySelector(".topCategory-wrapper");
-    const topCategoryProducts = topCategorySection.querySelectorAll(".topCategory-product");
-    const topCategoryLeftArrow = topCategorySection.querySelector(".topCategory-leftArrow");
-    const topCategoryRightArrow = topCategorySection.querySelector(".topCategory-rightArrow");
-    const topCategoryHeader = topCategorySection.querySelector(".topCategory-header");
-    const topCategoryViewAllBtn = document.getElementById("topCategoryViewAll");
+    const topCategoryWrapper =
+        topCategorySection.querySelector(".topCategory-wrapper");
 
-    if (!topCategoryWrapper || !topCategoryProducts.length) return;
+    const topCategoryProducts =
+        topCategorySection.querySelectorAll(".topCategory-product");
+
+    const topCategoryLeftArrow =
+        topCategorySection.querySelector(".topCategory-leftArrow");
+
+    const topCategoryRightArrow =
+        topCategorySection.querySelector(".topCategory-rightArrow");
+
+    const topCategoryViewAllBtn =
+        document.getElementById("topCategoryViewAll");
+
+
+    if (!topCategoryWrapper || !topCategoryProducts.length || !topCategoryViewAllBtn) {
+        return;
+    }
+
+    const topCategoryViewAllLabel =
+        topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
 
     let currentIndex = 0;
+
+    function updateArrowState() {
+    const visibleItems = getVisibleItems();
+    const maxIndex = topCategoryProducts.length - visibleItems;
+
+    const leftBtn = topCategoryLeftArrow?.parentElement;
+    const rightBtn = topCategoryRightArrow?.parentElement;
+
+    // If grid mode → lock both arrows
+    if (topCategorySection.classList.contains("is-grid")) {
+        leftBtn?.classList.add("is-disabled");
+        rightBtn?.classList.add("is-disabled");
+        return;
+    }
+
+    // Lock left arrow at start
+    if (currentIndex <= 0) {
+        leftBtn?.classList.add("is-disabled");
+    } else {
+        leftBtn?.classList.remove("is-disabled");
+    }
+
+    // Lock right arrow at end
+    if (currentIndex >= maxIndex) {
+        rightBtn?.classList.add("is-disabled");
+    } else {
+        rightBtn?.classList.remove("is-disabled");
+    }
+}
+
+function loadProductBackground(product) {
+    if (product.dataset.loaded === "true") return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const { bgDesktop, bgMobile } = product.dataset;
+
+    product.style.backgroundImage =
+        `url(${isMobile ? bgMobile : bgDesktop})`;
+
+    product.dataset.loaded = "true";
+}
+
 
     /* ===============================
        CAROUSEL HELPERS
@@ -712,7 +848,9 @@
 
     function getSlideWidth() {
         const firstCard = topCategoryProducts[0];
-        const gap = parseFloat(getComputedStyle(topCategoryWrapper).columnGap) || 16;
+        const gap =
+            parseFloat(getComputedStyle(topCategoryWrapper).columnGap) || 16;
+
         return firstCard.offsetWidth + gap;
     }
 
@@ -721,14 +859,19 @@
     }
 
     function updateTopCategoryCarousel() {
+        // 🚫 Do nothing in grid mode
         if (topCategorySection.classList.contains("is-grid")) return;
 
-        const maxIndex = topCategoryProducts.length - getVisibleItems();
+        const maxIndex =
+            topCategoryProducts.length - getVisibleItems();
+
         currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
 
         topCategoryWrapper.style.transform =
             `translateX(-${currentIndex * getSlideWidth()}px)`;
+
         topCategoryWrapper.style.transition = "transform 0.5s ease";
+        updateArrowState(); // 🔑
     }
 
     /* ===============================
@@ -745,28 +888,54 @@
         updateTopCategoryCarousel();
     });
 
-    window.addEventListener("resize", updateTopCategoryCarousel);
+    window.addEventListener("resize", () => {
+        updateTopCategoryCarousel();
+        updateTopCategoryBackgrounds();
+        updateArrowState(); // 🔑
+    });
 
     /* ===============================
-       VIEW ALL / GRID TOGGLE
+       VIEW ALL / VIEW LESS TOGGLE
     =============================== */
 
-    const topCategoryViewAllLabel =
-    topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
-
     topCategoryViewAllBtn.addEventListener("click", () => {
-        const isGrid = topCategorySection.classList.toggle("is-grid");
+        const isGrid =
+            topCategorySection.classList.toggle("is-grid");
 
-        topCategoryViewAllLabel.textContent = isGrid ? "View less" : "View all";
+        // Button always shows the NEXT action
+        topCategoryViewAllLabel.textContent =
+            isGrid ? "View less" : "View all";
 
-        topCategoryViewAllBtn.setAttribute("aria-expanded", isGrid.toString());
+        topCategoryViewAllBtn.setAttribute(
+            "aria-expanded",
+            isGrid.toString()
+        );
 
-        // Reset carousel position when exiting grid
+        // Reset carousel when leaving grid
         if (!isGrid) {
             currentIndex = 0;
             updateTopCategoryCarousel();
         }
+        updateArrowState(); // 🔑
     });
+
+    /* ===============================
+       RESPONSIVE BACKGROUND IMAGES
+    =============================== */
+
+    function updateTopCategoryBackgrounds() {
+        const isMobile = window.innerWidth <= 768;
+
+        topCategoryProducts.forEach(product => {
+            const desktopBg = product.dataset.bgDesktop;
+            const mobileBg = product.dataset.bgMobile;
+
+            if (desktopBg && mobileBg) {
+                product.style.backgroundImage =
+                    `url(${isMobile ? mobileBg : desktopBg})`;
+            }
+        });
+    }
 
     /* ===============================
        PRODUCT SUMMARY TRUNCATION
@@ -782,36 +951,19 @@
             summary.textContent = text.slice(0, maxChars) + "…";
         }
     });
-});
 
+    /* ===============================
+       INIT
+    =============================== */
+
+    updateTopCategoryCarousel();
+    updateTopCategoryBackgrounds();
+
+});
 </script>
 
 
-     <script>
-        /* ===============================
-   VIEW ALL (GRID) / VIEW LESS (CAROUSEL)
-=============================== */
 
-const topCategoryViewAllLabel =
-    topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
-
-topCategoryViewAllBtn.addEventListener("click", () => {
-    const isGrid = topCategorySection.classList.toggle("is-grid");
-
-    // Button always shows the NEXT action
-    topCategoryViewAllLabel.textContent = isGrid ? "View less" : "View all";
-    topCategoryViewAllBtn.setAttribute("aria-expanded", isGrid.toString());
-
-    if (!isGrid) {
-        // Returning to carousel
-        currentIndex = 0;
-        updateTopCategoryCarousel();
-    }
-});
-
-     </script>
-
-    
     
 </body>
 </html>
