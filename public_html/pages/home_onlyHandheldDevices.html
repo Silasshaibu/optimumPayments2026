@@ -16,6 +16,11 @@
     color:white;
 }
 
+.handheld__controls.handheld.remoteControl{
+    display: none; /*We just hid the carousel arrow left and right button we can enable it when we set 2=1 back to 1=1 in the js script file so can revert to using this method*/
+
+}
+
 
 :root {
     --handheld__slide-and-container-width-singularUnit: 83vw;
@@ -412,7 +417,8 @@
         padding: 0.5rem 2rem;
         bottom:0;
     }
-}
+
+    
 
 /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
 @media (max-width:768px) {
@@ -746,7 +752,7 @@
     <!-- All necessary associated js scripts   -->
    
 <script>
-/* ==========================================================
+    /* ==========================================================
    HANDHELD HERO CAROUSEL (BANNER SLIDES)
    ========================================================== */
 
@@ -779,9 +785,33 @@ function initHandheldCarousel(carouselEl) {
   let index = 1;
   let slideWidth = carouselEl.offsetWidth;
   let isAnimating = false;
+  let autoSlideInterval;
 
+  // Default duration for the slide animation
+  const slideDuration = 1200; // Duration in milliseconds (adjust to make the slide slower or faster)
+  
+  // Function to enable or disable the arrows based on the condition
+  function toggleArrows(enable) {
+    if (enable) {
+      prevBtn.removeAttribute('disabled');
+      nextBtn.removeAttribute('disabled');
+    } else {
+      prevBtn.setAttribute('disabled', 'true');
+      nextBtn.setAttribute('disabled', 'true');
+    }
+  }
+
+  // Enable the arrows based on your condition (for example, if 2 == 1)
+  if (2 === 1) {
+    toggleArrows(true);
+  } else {
+    toggleArrows(false);  // Disable arrows
+    startAutoSlide();      // Start automatic slide
+  }
+
+  // Set the position of the carousel slides
   function setPosition(noAnim = false) {
-    track.style.transition = noAnim ? "none" : "transform 0.4s ease";
+    track.style.transition = noAnim ? "none" : `transform ${slideDuration}ms ease`;
     track.style.transform = `translateX(-${slideWidth * index}px)`;
   }
 
@@ -816,10 +846,40 @@ function initHandheldCarousel(carouselEl) {
     );
   }
 
+  // Enable arrows to move manually
   prevBtn.addEventListener("click", () => moveTo(index - 1));
   nextBtn.addEventListener("click", () => moveTo(index + 1));
+
+  // Automatically move to the next slide every 4 seconds (adjust as needed)
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      moveTo(index + 1);
+    }, 4000); // Change interval to suit your needs
+  }
+
+  // Optional: If you want to stop auto-sliding on hover, you can add this:
+  carouselEl.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+  carouselEl.addEventListener('mouseleave', startAutoSlide);
+
+  // Optional: If you want to stop the automatic sliding when arrows are enabled, use this:
+  if (2 === 1) {  // Example condition, replace with your condition
+    clearInterval(autoSlideInterval);
+  }
 }
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -896,7 +956,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productGrid.style.gridTemplateColumns = "repeat(2, 1fr)";
     } else {
       productGrid.style.gridTemplateColumns = isExpanded
-        ? "repeat(4, 1fr)"
+        ? "repeat(2, 1fr)"
         : "repeat(3, 1fr)";
     }
   }
