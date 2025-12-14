@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+</head>
+<body>
+
+    <div class="screen-action-interface">
+        
+            <button class="scroll-to-top">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon slim-long-up-arrow">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                </svg>
+            </button>
+            
+     
+        
+            <button class="facebook-messenger">
+                <img src="../assets/images/logo/messenger.svg" alt="">
+            </button>
+            
+        
+
+
+    </div>
+    <style>
+
+        .screen-action-interface{   
+            width: fit-content;         
+            display: grid;
+            place-items: center;
+            max-width: 4rem;
+            gap:1rem;  
+            }
+
+
+        .scroll-to-top{
+            width: 56px;
+            height: 56px;
+             border-radius: 50%;
+            color: #333;
+            background-color: #fff;
+            font-style: normal;
+            display: grid;
+            place-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);   
+            
+        }
+
+        .scroll-to-top:hover{
+            /* background-color: var(--color-primary); */
+            color:#fff;
+
+        }
+        svg.icon.slim-long-up-arrow{
+            width: 24px;
+            height: 24px;
+            /* transform: translateY(10px); */
+        }
+
+        .facebook-messenger{
+            width: 64px;
+            height: 64px;
+            border-radius: 9999px;
+            background: #0084FF;
+            display: grid;
+            padding:.2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);
+        }
+
+        .facebook-messenger img{
+            transform: translateY(2px);
+        }
+
+        @media (max-width:1024px){
+
+        }
+
+        @media (max-width:768px){
+            
+        }
+    </style>
+
+</body>
+</html>
