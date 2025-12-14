@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Customer Reviews</title>
+	<link rel="stylesheet" href="../assets/css/style-guide.css">
 </head>
 <body>
 	<!-- header include (prepended) -->
@@ -27,11 +28,82 @@
 		</div>
 	</header>
 
+	<!-- customer review hero-->
 
 
+	<!-- customer review section-->
+	 <section class="customer-review-section">		
+		<div>
+			<h1 class="customer-review-section title">What people say about us</h1>
+		</div>
+		<div class="grid">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+			<div class="item">6</div>
+			<div class="item special">7</div>
+		</div>
+
+	 </section>
 
 
+<style>
 
+.customer-review-section{
+	display: flex;
+	flex-direction: column;
+	gap:32px;
+	padding:1rem 10%;
+}
+
+h1.customer-review-section.title{
+	display: flex;
+	padding-bottom: 12px;
+	flex-direction: column;
+	text-align: center;
+	}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	gap:64px;
+	}
+
+/* Optional styling */
+	.item {
+	background: #e5e7eb;
+	padding: 1rem;
+	text-align: center;
+	}
+/* last item spans from -3 to -2 (middle column in a 3-col grid) */
+.grid .special {
+	grid-column: -3 / -2;
+	}
+
+
+@media (max-width: 1024px) {
+	
+}
+
+
+/* Mobile: 1 column */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* reset span on mobile */
+  .grid .special {
+		grid-column: auto;
+	}
+	}
+
+	
+
+</style>
 
 
 
