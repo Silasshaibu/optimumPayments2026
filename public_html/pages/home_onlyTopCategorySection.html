@@ -100,7 +100,12 @@
                 width: 1rem;
                 height:1rem;
                 margin: 0rem 0.25rem;
+
+                
+
             }
+
+            
 
             .topCategory-wrapper{
                 position: absolute;
@@ -127,10 +132,28 @@
                 position: relative;
                 display:flex;
                 align-items: center;
+                gap:.5rem;
+            }
+
+            .topCategory-controls span{
+                color: #333;
+                border-radius: 0px;
+                background-color: transparent;
+                padding: 0;
+                border: 1px solid #656572;
+                width: var(--circle-size, 32px);
+                height: var(--circle-size, 32px);
+                background: var(--circle-color);
+                border-radius: 50%;
+            }
+
+            .topCategory-controls span:hover{
+                color: white;                
+                background-color: #333;
             }
 
             .icon.topCategory-leftArrow, .icon.topCategory-rightArrow{
-                transform:translateY(3px);
+                transform:translate(3px, 5px);
             }
 
             .topCategory-viewAllBtn{
@@ -212,6 +235,23 @@
 
             .topCategory-section.is-grid .topCategory-product {
                 height: 350px;
+            }
+
+
+
+            /* Disable arrows in View Less (grid mode) */
+           
+
+          
+            /* Disabled arrow state */
+            .topCategory-controls span.is-disabled {
+                opacity: 0.3;
+                pointer-events: none; /* 🔒 prevents clicking */
+                cursor: default;
+            }
+
+              .topCategory-controls span {
+                transition: opacity 0.25s ease;
             }
 
 
@@ -727,6 +767,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const topCategoryViewAllBtn =
         document.getElementById("topCategoryViewAll");
 
+
     if (!topCategoryWrapper || !topCategoryProducts.length || !topCategoryViewAllBtn) {
         return;
     }
@@ -735,6 +776,35 @@ document.addEventListener("DOMContentLoaded", () => {
         topCategoryViewAllBtn.querySelector(".topCategory-viewAllLabel");
 
     let currentIndex = 0;
+
+    function updateArrowState() {
+    const visibleItems = getVisibleItems();
+    const maxIndex = topCategoryProducts.length - visibleItems;
+
+    const leftBtn = topCategoryLeftArrow?.parentElement;
+    const rightBtn = topCategoryRightArrow?.parentElement;
+
+    // If grid mode → lock both arrows
+    if (topCategorySection.classList.contains("is-grid")) {
+        leftBtn?.classList.add("is-disabled");
+        rightBtn?.classList.add("is-disabled");
+        return;
+    }
+
+    // Lock left arrow at start
+    if (currentIndex <= 0) {
+        leftBtn?.classList.add("is-disabled");
+    } else {
+        leftBtn?.classList.remove("is-disabled");
+    }
+
+    // Lock right arrow at end
+    if (currentIndex >= maxIndex) {
+        rightBtn?.classList.add("is-disabled");
+    } else {
+        rightBtn?.classList.remove("is-disabled");
+    }
+}
 
     /* ===============================
        CAROUSEL HELPERS
@@ -765,6 +835,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `translateX(-${currentIndex * getSlideWidth()}px)`;
 
         topCategoryWrapper.style.transition = "transform 0.5s ease";
+        updateArrowState(); // 🔑
     }
 
     /* ===============================
@@ -784,6 +855,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => {
         updateTopCategoryCarousel();
         updateTopCategoryBackgrounds();
+        updateArrowState(); // 🔑
     });
 
     /* ===============================
@@ -808,6 +880,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currentIndex = 0;
             updateTopCategoryCarousel();
         }
+        updateArrowState(); // 🔑
     });
 
     /* ===============================
@@ -852,6 +925,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
+
 
     
 </body>
