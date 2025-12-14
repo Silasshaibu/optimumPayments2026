@@ -3,13 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6 Card Grid</title>
+  <title>Customers Reviews</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/style-guide.css">
  
 </head>
 <body>
 
+  <style>
+    header.hero-section {
+      text-align: center;
+      padding: 2rem;
+      background-color: grey;
+      background-image: url("../assets/images/promo/HeroBanner1.jpg");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+  </style>
+    <!-- Header Section -->
+  <header class="hero-section">
+    <h1 class="hero-title"> Customers Reviews<h1>
+  </header>
   <section class="customer-review-section">
     <div>
           <h1 class="customer-review-section title">What people say about us</h1>
@@ -459,6 +480,10 @@ h1.customer-review-section.title{
       .card-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .hero-title {
+			font-size: 3rem;
+			}
     }
 
     @media (max-width: 768px) {
@@ -467,6 +492,10 @@ h1.customer-review-section.title{
         flex-direction: column;
         gap:2rem;
       }
+
+      .hero-title {
+			font-size: 2.2rem;
+			}
 
       .customer-review-section{
       padding:1rem 1rem;
