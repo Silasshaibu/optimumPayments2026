@@ -1,134 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mega Menu Layout</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mega Menu Grid</title>
+<link rel="stylesheet" href="../assets/css/style-guide.css">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+<style>
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+}
 
-        :root {
-            --left-column-width: 300px;
-        }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
-        /* ===== Layout ===== */
-        .BigDropDown-Tray {
-            display: flex;
-            width: 100%;
-        }
+/* ===== Variables ===== */
+:root {
+  --left-column-width: 300px;
+}
 
-        /* ===== Left Menu ===== */
-        .processingSolutionDropDown-1st-Level {
-            width: var(--left-column-width);
-            min-width: var(--left-column-width);
-            background: #777;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
+/* ===== Layout ===== */
+.BigDropDown-Tray {
+  display: flex;
+  width: 100%;
+}
 
-        .processingSolutionDropDown-1st-Level li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+/* ===== Left Menu ===== */
+.processingSolutionDropDown-1st-Level {
+  width: var(--left-column-width);
+  min-width: var(--left-column-width);
+  background: #555;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
-            line-height: 20px;
-            padding: 15px 30px 15px 20px;
+.processingSolutionDropDown-1st-Level li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            color: #fff;
-        }
+  line-height: 20px;
+  padding: 15px 30px 15px 20px;
 
-        /* ===== Right Grid ===== */
-        .grid-space-area {
-            width: calc(100vw - var(--left-column-width));
-            padding: 48px 80px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
 
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 30px;
+/* ===== Grid Area ===== */
+.grid-space-area {
+  width: calc(100vw - var(--left-column-width));
+  padding: 48px 80px;
+  padding-bottom: 72px;
 
-            overflow-y: auto;
-            overflow-x: hidden;
+  display: grid;
+  gap: 30px;
 
-            background: rgb(184, 103, 74);
-        }
+  /* Desktop */
+  grid-template-columns: repeat(4, 1fr);
 
-        .grid-item {
-            background: #fff;
-            height: 120px;
-            border-radius: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+  background: rgb(184, 103, 74);
+}
 
-            font-weight: bold;
-        }
-    </style>
+/* Tablet */
+@media (max-width: 1024px) {
+  .grid-space-area {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .BigDropDown-Tray {
+    flex-direction: column;
+  }
+
+  .processingSolutionDropDown-1st-Level {
+    width: 100%;
+  }
+
+  .grid-space-area {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 32px;
+  }
+}
+
+/* ===== Product Card ===== */
+.product-grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 16px;
+  min-height: 274px;
+
+  background: #fff;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.product-details {
+  text-align: center;
+}
+
+.product-details h3 {
+  margin: 0;
+}
+
+.product-details p {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
 <div class="BigDropDown-Tray">
 
-    <!-- Left Menu -->
-    <ul class="processingSolutionDropDown-1st-Level">
-        <li>X1 Series <span>&gt;</span></li>
-        <li>P Series <span>&gt;</span></li>
-        <li>A1 Series <span>&gt;</span></li>
-        <li>For Professionals <span>&gt;</span></li>
-        <li>All 3D Printers <span>&gt;</span></li>
-        <li>Compare Bambulab Printers <span>&gt;</span></li>
-    </ul>
+  <!-- Left Menu -->
+  <ul class="processingSolutionDropDown-1st-Level">
+    <li>X1 Series <span>&gt;</span></li>
+    <li>P Series <span>&gt;</span></li>
+    <li>A1 Series <span>&gt;</span></li>
+    <li>For Professionals <span>&gt;</span></li>
+    <li>All 3D Printers <span>&gt;</span></li>
+    <li>Compare Bambulab Printers <span>&gt;</span></li>
+  </ul>
 
-    <!-- Right Grid -->
-    <div class="grid-space-area">
-        <div class="grid-item">Item 1</div>
-        <div class="grid-item">Item 2</div>
-        <div class="grid-item">Item 3</div>
-        <div class="grid-item">Item 4</div>
-        <div class="grid-item">Item 5</div>
-        <div class="grid-item">Item 6</div>
-        <div class="grid-item">Item 7</div>
-        <div class="grid-item">Item 8</div>
-        <div class="grid-item">Item 9</div>
-        <div class="grid-item">Item 10</div>
-        <div class="grid-item">Item 11</div>
-        <div class="grid-item">Item 12</div>
+  <!-- Grid -->
+  <div class="grid-space-area">
+
+    <div class="product-grid-item">
+      <img class="product-image" src="./" alt="H2C">
+      <div class="product-details">
+        <h3>H2C</h3>
+        <p>Specialized For Multi-Material Printing</p>
+      </div>
     </div>
 
+    <div class="product-grid-item">
+      <img class="product-image" src="./" alt="X1">
+      <div class="product-details">
+        <h3>X1</h3>
+        <p>High Performance Industrial Printer</p>
+      </div>
+    </div>
+
+    <div class="product-grid-item">
+      <img class="product-image" src="./" alt="A1">
+      <div class="product-details">
+        <h3>A1</h3>
+        <p>Compact Desktop 3D Printer</p>
+      </div>
+    </div>
+
+    <div class="product-grid-item">
+      <img class="product-image" src="./" alt="P1">
+      <div class="product-details">
+        <h3>P1</h3>
+        <p>Professional Printing Solution</p>
+      </div>
+    </div>
+
+    <div class="product-grid-item">
+      <img class="product-image" src="./" alt="Pro">
+      <div class="product-details">
+        <h3>Pro</h3>
+        <p>Advanced Manufacturing System</p>
+      </div>
+    </div>
+
+    <div class="product-grid-item">
+      <img class="product-image" src="./" alt="Lite">
+      <div class="product-details">
+        <h3>Lite</h3>
+        <p>Entry-Level 3D Printing</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script>
-    function syncGridHeightToList() {
-        const list = document.querySelector('.processingSolutionDropDown-1st-Level');
-        const items = list.querySelectorAll('li');
-        const grid = document.querySelector('.grid-space-area');
+function syncGridHeightToList() {
+  const list = document.querySelector('.processingSolutionDropDown-1st-Level');
+  const items = list.querySelectorAll('li');
+  const grid = document.querySelector('.grid-space-area');
 
-        if (!items.length || !grid) return;
+  if (!items.length || !grid) return;
 
-        const style = getComputedStyle(items[0]);
+  const style = getComputedStyle(items[0]);
 
-        const lineHeight = parseFloat(style.lineHeight);
-        const paddingTop = parseFloat(style.paddingTop);
-        const paddingBottom = parseFloat(style.paddingBottom);
-        const borderBottom = parseFloat(style.borderBottomWidth);
+  const lineHeight = parseFloat(style.lineHeight);
+  const paddingTop = parseFloat(style.paddingTop);
+  const paddingBottom = parseFloat(style.paddingBottom);
+  const borderBottom = parseFloat(style.borderBottomWidth);
 
-        const singleItemHeight =
-            lineHeight + paddingTop + paddingBottom + borderBottom;
+  const singleItemHeight =
+    lineHeight + paddingTop + paddingBottom + borderBottom;
 
-        const totalHeight = singleItemHeight * items.length;
+  const totalHeight = singleItemHeight * items.length;
 
-        grid.style.maxHeight = totalHeight + 'px';
-    }
+  grid.style.maxHeight = totalHeight + 'px';
+}
 
-    window.addEventListener('load', syncGridHeightToList);
-    window.addEventListener('resize', syncGridHeightToList);
+window.addEventListener('load', syncGridHeightToList);
+window.addEventListener('resize', syncGridHeightToList);
 </script>
 
 </body>
