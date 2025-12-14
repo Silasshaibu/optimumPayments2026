@@ -554,17 +554,35 @@
             
 
                 /* FOR MOBILE*/
-                    .topCategory-bottomControls-foot{
-                        position: relative;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: end;
-                        align-items: center;
-                    }
+                .topCategory-bottomControls-foot{
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: end;
+                    align-items: center;
+                }
 
-                    .topCategory-bottomControls-foot .icon{
-                        transform: translateY(2.5px);
-                    }
+                .topCategory-bottomControls-foot .icon{
+                    transform: translateY(2.5px);
+                }
+
+                .topCategory-wrapper {
+                    overflow-x: auto;
+                    scrollbar-width: none;          /* Firefox */
+                    -ms-overflow-style: none;       /* IE / Edge legacy */
+                    touch-action:pan-x;
+                    scroll-snap-type: x mandatory;
+                    overscroll-behavior-x: contain;
+                }
+
+                .topCategory-wrapper::-webkit-scrollbar {
+                    display: none;                  /* Chrome, Safari */
+                }
+
+                .topCategory-product {
+                    scroll-snap-align: start;
+                }
+
             }
 
        
@@ -627,7 +645,7 @@
                 <div class="topCategory-wrapper">      
                     
                     <!-- Product Item -->
-                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
 
                         <h3 class="topCategory-productTitle">Valor VP 550<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
@@ -649,7 +667,7 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
                         <h3 class="topCategory-productTitle">Clover Mini<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -670,7 +688,7 @@
                     </div>
 
                     <!-- Product Item -->
-                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
                         <h3 class="topCategory-productTitle">Clover Flex<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -691,7 +709,7 @@
                     </div> 
                     
                     <!-- Product Item -->
-                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg">
+                    <div class="topCategory-product" data-bg-desktop="../assets/images/products/topSellingProducts/cloverMiniDevice.jpg" data-bg-mobile="../assets/images/products/topSellingProducts/cloverMiniDevice-mobile.jpg" data-lazy="true">
                         <h3 class="topCategory-productTitle">Valor VP800<br class="topCategory-breakLineTitle">
                             <a class="topCategory-productLinkMobile">Learn More
                                 <span>
@@ -810,6 +828,19 @@ document.addEventListener("DOMContentLoaded", () => {
         rightBtn?.classList.remove("is-disabled");
     }
 }
+
+function loadProductBackground(product) {
+    if (product.dataset.loaded === "true") return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const { bgDesktop, bgMobile } = product.dataset;
+
+    product.style.backgroundImage =
+        `url(${isMobile ? bgMobile : bgDesktop})`;
+
+    product.dataset.loaded = "true";
+}
+
 
     /* ===============================
        CAROUSEL HELPERS
