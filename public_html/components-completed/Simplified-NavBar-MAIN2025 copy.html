@@ -43,7 +43,7 @@
 /* Card */
 .mini-service-card {
   background: #fff;
-  padding: 24px;
+  padding: .5rem;
   border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@
 /* Image */
 .mini-service-image {
   width: 100%;
-  height: 100px;
+  height: 200px;
   object-fit: cover;
   background: #e0e0e0;
 }
@@ -97,7 +97,49 @@
 </style>
 <!-- Style for Mini Mega Menu For Digital Service  End-->
 
+<style>
+  
+/* ================= ICON VISIBILITY ================= */
 
+/* Hamburger hidden by default */
+svg.icon.hamburger {
+  display: none;
+}
+
+/* Hamburger visible when active */
+svg.icon.hamburger.active {
+  display: flex;
+}
+
+/* Close (X) hidden by default */
+svg.icon.close-MobileDropDownMenu {
+  display: none;
+}
+
+/* Close (X) visible when active */
+svg.icon.close-MobileDropDownMenu.active {
+  display: flex;
+}
+
+/* ================= MOBILE MENU ================= */
+
+/* Mobile dropdown hidden */
+nav.main-menu.mobileDropDown {
+  display: none;
+}
+
+/* Mobile dropdown visible */
+nav.main-menu.mobileDropDown.active {
+  display: block; /* or flex */
+}
+
+
+
+/* ================= MOBILE MENU ================= */
+
+/* Mobile dropdown hidden by default */
+
+</style>
 
 
 <!-- Mobile Menu Styling -->
@@ -107,6 +149,7 @@ nav.main-menu {
     width: 100%;
     /* max-width: 350px; */
     font-family: Manrope, sans-serif;
+    
 }
 
 nav.main-menu ul {
@@ -316,6 +359,15 @@ ul.service-cards li .cta {
 li.child-dropdown a{
     position: relative;
 }
+
+
+
+/* Mobile dropdown shows when active */
+main-menu.mobileDropDown.active {
+  display: flex; /* or block depending on layout */
+}
+
+
 </style>
 
 </head>
@@ -329,9 +381,12 @@ li.child-dropdown a{
     <ul class="mobile-Section">
         <li>
             <span class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon hamburger">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon hamburger active">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                           d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon close-MobileDropDownMenu">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
                 </svg>
             </span>
         </li>
@@ -403,7 +458,7 @@ li.child-dropdown a{
 
 
 <!-- Mobile Menu Navigation start -->
-<nav class="main-menu">
+<nav class="main-menu mobileDropDown">
     <ul>
         <!-- Top links -->
         <li><a href="#">Home</a></li>
@@ -1187,6 +1242,44 @@ document.querySelectorAll('.child-toggle').forEach(child => {
     });
 });
 </script>
+
+<!-- Mobile hamburger Close And open dropdown state -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector("svg.icon.hamburger");
+  const closeIcon = document.querySelector("svg.icon.close-MobileDropDownMenu");
+  const mobileMenu = document.querySelector("nav.main-menu.mobileDropDown");
+
+  if (!hamburger || !closeIcon || !mobileMenu) return;
+
+  // Default state
+  hamburger.classList.add("active");
+  closeIcon.classList.remove("active");
+  mobileMenu.classList.remove("active");
+
+  function toggleMobileMenu() {
+    const isOpen = mobileMenu.classList.contains("active");
+
+    mobileMenu.classList.toggle("active", !isOpen);
+    hamburger.classList.toggle("active", isOpen);
+    closeIcon.classList.toggle("active", !isOpen);
+  }
+
+  hamburger.addEventListener("click", toggleMobileMenu);
+  closeIcon.addEventListener("click", toggleMobileMenu);
+
+  // ESC closes
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.add("active");
+      closeIcon.classList.remove("active");
+    }
+  });
+});
+</script>
+
+
 
 </body>
 </html>

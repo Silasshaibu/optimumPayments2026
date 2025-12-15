@@ -108,6 +108,7 @@ svg {
     background-color: #efefef;
     padding: 1rem 2rem;
     display: none;
+    z-index:1;
 }
 
 .searchFieldBoxAndResults {
