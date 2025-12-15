@@ -11,10 +11,9 @@
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 .carousel-window {
     position: relative;
-    width: 100vw;
+    width: 100%;
     overflow: hidden; /* hide overflow for carousel effect */
-    height: 90vh;    
-    height: fit-content;
+    height: 90vh; 
     min-height:560px;
     overflow: hidden;
 }
@@ -22,7 +21,7 @@
 .carousel-wrapper {
     top:0px;
     left:0px;
-    height: 80vh;
+    /* height: 80vh; */
     position: absolute;
     width: calc(var(--slide-count) * 100vw); /* dynamic width based on slide count */
     display: flex; /* make slides line up horizontally */
@@ -67,7 +66,7 @@
 }
 
 .cta-container-hero{
-    padding-top: 52px;
+    padding-top: 1rem;
     display: flex;
      gap:1rem;
 }
@@ -139,6 +138,7 @@ h1.heading.title{
         align-items: center; 
         width: 100%;
         padding:.5rem;
+        gap:1rem;
     }
 
     p.display, h1.heading.title{
@@ -163,9 +163,12 @@ h1.heading.title{
 
     .carousel-window {
     min-height:614px;
-    height: 80vh;
-    height: fit-content;
     overflow: hidden;
+    height: auto;
+    }
+
+    .carousel-wrapper{
+        position: relative;
     }
 
     

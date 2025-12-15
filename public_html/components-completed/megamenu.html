@@ -9,6 +9,29 @@
 <style>
 * { box-sizing: border-box; }
 
+
+.mega-menu-left > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-caret-desktop-mega-menu {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.mega-menu-left > li:hover .right-caret-desktop-mega-menu {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -16,7 +39,7 @@ body {
 
 /* ================= VARIABLES ================= */
 :root {
-  --left-width: 300px;
+  --left-width: 390px;
 }
 
 /* ================= LAYOUT ================= */
@@ -25,6 +48,10 @@ body {
   width: 100%;
 }
 
+
+.right-caret-desktop-mega-menu{
+  transform: translateY(3px);
+}
 /* ================= LEFT MENU ================= */
 .processingSolutionDropDown-1st-Level {
   width: var(--left-width);
@@ -41,6 +68,8 @@ body {
   color: #fff;
   cursor: pointer;
   border-bottom: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  justify-content: space-between;
 }
 
 .processingSolutionDropDown-1st-Level li.active,
@@ -52,13 +81,16 @@ body {
 .grid-space-area {
   width: calc(100vw - var(--left-width));
   padding: 48px 80px;
+  padding:2rem 4rem;
 
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   overflow-y: auto;
-  background: #b8674a;
+  /* background: #b8674a; */
+  background-color: #efefef;
+  border: 1px solid rgb(187, 187, 187);
 }
 
 /* Tablet */
@@ -87,34 +119,43 @@ body {
 
 /* ================= PRODUCT CARD ================= */
 .product-grid-item {
-  background: #fff;
-  border-radius: 8px;
-  border: 1px solid #000;
-
-  padding: 16px;
+  /* background: #fff; */
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  flex-direction: row; 
+  gap: 1rem;
+  min-height: fit-content;
+  max-height: 150px;
+  align-items: flex-start;
+}
+
+
+
+.product-grid-item:hover{
+  text-decoration: none;
 }
 
 .product-image {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height:100px;
+  aspect-ratio: 1.2;
   object-fit: cover;
   background: #eee;
+  flex-basis:25%;
 }
 
 .product-details {
-  text-align: center;
+  text-align: left;
 }
 
 .product-details h3 {
   margin: 0;
+  
 }
 
 .product-details p {
   margin: 8px 0 0;
-  font-size: 14px;
+  font-size: .9rem;
+  
 }
 </style>
 </head>
@@ -136,31 +177,151 @@ body {
 const menuData = [
   {
     label: "Full service fine dining",
-    products: ["OctoPos", "Clover", "Swipe Simple"]
+    products: [
+      {
+        name: "Union POS",
+        description: "Manage order, sales, and payments in one place",
+        image: "../../assets/images/products/union-pos.webp",
+        href: "#"
+      },
+      {
+        name: "Clover",
+        description: "Do what you do better with the world's smartest POS system",
+        image: "../assets/images/products/clover-fine-dining.webp",
+        href: "#"
+      },
+      {
+        name: "OctoPOS",
+        description: "Cloud-based POS and inventory management platform",
+        image: "../assets/images/products/octopos.webp",
+        href: "#"
+      }
+    ]
   },
+
   {
     label: "QSR and Food Trucks",
-    products: ["Clover", "Swipe Simple", "Valor"]
+    products: [
+      {
+        name: "Clover",
+        description: "Fast, flexible POS built for quick service environments",
+        image: "../assets/images/products/clover-qsr.webp",
+        href: "#"
+      },
+      {
+        name: "Swipe Simple",
+        description: "For Food and Beverage merchants",
+        image: "../assets/images/products/swipe-simple.webp",
+        href: "#"
+      },
+      {
+        name: "Valor",
+        description: "Reliable countertop and mobile terminals",
+        image: "../assets/images/products/valor.webp",
+        href: "#"
+      }
+    ]
   },
+
   {
     label: "Bars / Night Clubs / High Volume",
-    products: ["Union POS"]
+    products: [
+      {
+        name: "Union POS",
+        description: "Fast, flexible POS built for quick service environments",
+        image: "../assets/images/products/clover-qsr.webp",
+        href: "#"
+      }
+     
+    ]
   },
+
   {
     label: "Retail / Liquor / Smoke Shops",
-    products: ["OctoPos", "Clover", "Swipe Simple", "Valor"]
+    products: [
+      {
+        name: "OctoPOS",
+        description: "Fast, flexible POS built for quick service environments",
+        image: "../assets/images/products/clover-qsr.webp",
+        href: "#"
+      },
+      
+      {
+        name: "Clover",
+        description: "Fast, flexible POS built for quick service environments",
+        image: "../assets/images/products/clover-qsr.webp",
+        href: "#"
+      },
+      {
+        name: "Swipe Simple",
+        description: "Fast, flexible POS built for quick service environments",
+        image: "../assets/images/products/clover-qsr.webp",
+        href: "#"
+      }
+      ,
+      {
+        name: "Valor",
+        description: "Fast, flexible POS built for quick service environments",
+        image: "../assets/images/products/clover-qsr.webp",
+        href: "#"
+      }
+    ]
   },
+
   {
     label: "Medical",
-    products: ["Practice Management Bridge"]
+    products: [
+      {
+        name: "Practice Management Bridge",
+        description:
+          "Keeping your patients and your practice healthy requires a partner who understands your needs and technology that simplifies the day-to-day",
+        image: "../assets/images/products/practice-bridge.webp",
+        href: "#"
+      }
+    ]
   },
+
   {
     label: "Contractors / Online Payments / Mobile",
-    products: ["Hyfin", "NMI", "Clover", "Valor", "Swipe Simple"]
+    products: [
+      {
+        name: "Hyfin",
+        description: "Automate your receivables and save time",
+        image: "../assets/images/products/hyfin.webp",
+        href: "#"
+      },
+      {
+        name: "NMI",
+        description: "White Label Payment Gateway Solutions to Boost Your Business",
+        image: "../assets/images/products/nmi.webp",
+        href: "#"
+      },
+      {
+        name: "Clover",
+        description: "White Label Payment Gateway Solutions to Boost Your Business",
+        image: "../assets/images/products/nmi.webp",
+        href: "#"
+      },
+      {
+        name: "Valor",
+        description: "White Label Payment Gateway Solutions to Boost Your Business",
+        image: "../assets/images/products/nmi.webp",
+        href: "#"
+      }
+    ]
   },
+
   {
     label: "Need a Basic Setup?",
-    products: ["Terminal Options"]
+    products: [
+      {
+        name: "Terminal Options",
+        description:
+          "Used by small businesses across restaurants, retail, and the service industry",
+        image: "../assets/images/products/terminal-options.webp",
+        href: "#"
+      }
+    ]
   }
 ];
 
@@ -197,21 +358,35 @@ function syncGridHeight() {
 function renderGrid(index) {
   grid.innerHTML = "";
 
-  menuData[index].products.forEach(name => {
-    const card = document.createElement("div");
+  menuData[index].products.forEach(product => {
+    const card = document.createElement("a");
     card.className = "product-grid-item";
+    card.href = product.href;
+
     card.innerHTML = `
-      <div class="product-image"></div>
+      <img
+        class="product-image"
+        src="${product.image}"
+        alt="${product.name}"
+        loading="lazy"
+      />
+
       <div class="product-details">
-        <h3>${name}</h3>
-        <p>Image + Title + Paragraph</p>
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
       </div>
     `;
+
     grid.appendChild(card);
   });
 
   grid.scrollTop = 0;
 }
+
+
+
+
+ 
 
 /* ================= EVENTS ================= */
 menu.addEventListener("mouseenter", e => {
@@ -231,6 +406,42 @@ window.addEventListener("load", () => {
 
 window.addEventListener("resize", syncGridHeight);
 </script>
+
+
+<script>
+(function injectMegaMenuCarets() {
+
+  const menuItems = document.querySelectorAll(
+    ".processingSolutionDropDown-1st-Level > li"
+  );
+
+  if (!menuItems.length) return;
+
+  const svgMarkup = `
+    <svg xmlns="http://www.w3.org/2000/svg"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke-width="1.5"
+         stroke="currentColor"
+         class="right-caret-desktop-mega-menu"
+         aria-hidden="true">
+      <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+  `;
+
+  menuItems.forEach(li => {
+    // Prevent duplicate injection
+    if (li.querySelector(".right-caret-desktop-mega-menu")) return;
+
+    li.insertAdjacentHTML("beforeend", svgMarkup);
+  });
+
+})();
+</script>
+
+
 
 </body>
 </html>
