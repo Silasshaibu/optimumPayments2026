@@ -641,7 +641,7 @@ button:disabled {
 }
 
 a{
-  width: fit-content;
+  /* width: fit-content; */
 }
 
 a:hover {
