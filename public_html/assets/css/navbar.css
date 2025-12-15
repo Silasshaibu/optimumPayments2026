@@ -16,6 +16,10 @@ a {
     color: inherit;
 }
 
+.mini-service-card a{
+    color:var(--blue-400);
+}
+
 body {
     font-family: Manrope, sans-serif;
 }
