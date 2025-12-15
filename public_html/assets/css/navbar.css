@@ -27,7 +27,7 @@ body {
     --nav-height: 60px;
     --text-color: #1A1A1A;
     --bg-light: #f3f3f3;
-    --active-border: blue;
+    --active-border: var(--blue-700);
 }
 
 /* ==========================
