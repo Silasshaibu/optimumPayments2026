@@ -6,29 +6,29 @@ const miniMegaMenuData = [
     title: "Website Design",
     description: "Premium designs at your finger tips",
     cta: "Explore",
-    image: "../assets/images/services/web-design.webp",
-    href: "#"
+    image: "../assets/images/MobileMenuImages/Website_Design.jpg",
+    href: "www.instagram.com"
   },
   {
     title: "3D Printing",
     description: "1-stop shopping for all your 3D-printed needs",
     cta: "Order Now",
-    image: "../assets/images/services/3d-printing.webp",
-    href: "#"
+    image: "../assets/images/MobileMenuImages/3dModelingForPrints.jpg",
+    href: "www.facebook.com"
   },
   {
     title: "Branding",
     description: "We can handle all form of your branding needs",
     cta: "Order Now",
-    image: "../assets/images/services/branding.webp",
-    href: "#"
+    image: "../assets/images/MobileMenuImages/Branding.jpg",
+    href: "www.youtube.com"
   },
   {
     title: "Social Media Marketing",
     description: "Let market your product on your socials",
     cta: "Order Now",
-    image: "../assets/images/services/social-media.webp",
-    href: "#"
+    image: "../assets/images/MobileMenuImages/SocialMediaMarketing-01.jpg",
+    href: "www.google.com"
   }
 ];
 
