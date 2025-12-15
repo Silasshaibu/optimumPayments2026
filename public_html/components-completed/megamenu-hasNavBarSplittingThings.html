@@ -13,13 +13,7 @@
 <script src="../assets/js/navbar.js" defer></script>
 <script src="../assets/js/mega-menu.js" defer></script>
 <script src="../assets/js/mini-mega-menu.js" defer></script>
-
-
-
-
-
-
-
+<script src="../assets/js/"></script>
 
 <!-- style for Mini Mega Menu For Digital Service  Start-->
 <style>
@@ -102,9 +96,7 @@
 
 
 </style>
-
-
-<!-- Style for Mini Mega Menu For Digital Service  Start-->
+<!-- Style for Mini Mega Menu For Digital Service  End-->
 
 </head>
 
@@ -473,125 +465,7 @@
   </script>
 <!-- Processing Solution Mega Menu Script End -->
 
-<!-- Nav Bar Scripts Start -->
-    <script>
-    /* ==========================
-    Active Nav Item
-    ========================== */
-    document.addEventListener("DOMContentLoaded", () => {
-        const navItems = document.querySelectorAll(".one > li");
 
-        navItems.forEach(item => {
-            item.addEventListener("click", () => {
-                navItems.forEach(i => i.classList.remove("active"));
-                item.classList.add("active");
-            });
-        });
-    });
-
-    /* ==========================
-    Mobile Adjustments
-    ========================== */
-    function updateMobileView() {
-        const shopBtn = document.getElementById("shopBtn");
-        const searchLi = document.getElementById("searchSectionMain");
-        const mobileSection = document.querySelector(".mobile-Section");
-        const originalParent = document.querySelector(".searchAndstore-NavSection");
-
-        if (!shopBtn) return;
-
-        if (window.innerWidth <= 1200) {
-            shopBtn.textContent = "Store";
-            shopBtn.classList.remove("btn-primary");
-            shopBtn.classList.add("btn-primary-sm");
-
-            if (searchLi && mobileSection && !mobileSection.contains(searchLi)) {
-                mobileSection.appendChild(searchLi);
-            }
-        } else {
-            shopBtn.textContent = "Shop for Supplies";
-            shopBtn.classList.remove("btn-primary-sm");
-            shopBtn.classList.add("btn-primary");
-
-            if (searchLi && originalParent && !originalParent.contains(searchLi)) {
-                originalParent.appendChild(searchLi);
-            }
-        }
-    }
-
-    window.addEventListener("DOMContentLoaded", updateMobileView);
-    window.addEventListener("resize", updateMobileView);
-    </script>
-
-<!-- Script for Mini Mega Menu For Digital Service  Start-->
-<script>
-/* ================= DATA ================= */
-
-const miniMegaMenuData = [
-  {
-    title: "Website Design",
-    description: "Premium designs at your finger tips",
-    cta: "Explore",
-    image: "../assets/images/services/web-design.webp",
-    href: "#"
-  },
-  {
-    title: "3D Printing",
-    description: "1-stop shopping for all your 3D-printed needs",
-    cta: "Order Now",
-    image: "../assets/images/services/3d-printing.webp",
-    href: "#"
-  },
-  {
-    title: "Branding",
-    description: "We can handle all form of your branding needs",
-    cta: "Order Now",
-    image: "../assets/images/services/branding.webp",
-    href: "#"
-  },
-  {
-    title: "Social Media Marketing",
-    description: "Let market your product on your socials",
-    cta: "Order Now",
-    image: "../assets/images/services/social-media.webp",
-    href: "#"
-  }
-];
-
-/* ================= RENDER ================= */
-
-const miniServicesGrid = document.getElementById("miniServicesGrid");
-
-function renderMiniMegaMenu() {
-  miniServicesGrid.innerHTML = "";
-
-  miniMegaMenuData.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "mini-service-card";
-
-    card.innerHTML = `
-      <img
-        class="mini-service-image"
-        src="${item.image}"
-        alt="${item.title}"
-        loading="lazy"
-      />
-
-      <h3>${item.title}</h3>
-      <p>${item.description}</p>
-      <a href="${item.href}">${item.cta}</a>
-    `;
-
-    miniServicesGrid.appendChild(card);
-  });
-}
-
-/* ================= INIT ================= */
-
-renderMiniMegaMenu();
-</script>
-
-<!-- Script for Mini Mega Menu For Digital Service  end-->
 
 
 <script>
@@ -669,9 +543,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
-
-
-
 
 </body>
 </html>
