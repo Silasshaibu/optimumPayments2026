@@ -159,11 +159,16 @@ button {
 /* ==========================
    Responsive
 ========================== */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .about-us,
     .contact-us,
     .one {
         display: none;
+    }
+
+     .searchFieldBoxAndResults{
+        padding:1rem .5rem;
+
     }
 
     .mobile-Section {
@@ -188,4 +193,16 @@ button {
         width: 24px;
         height: 24px;
     }
+}
+
+
+@media (max-width: 768px) {
+   .searchButton.Main{
+    display: none;
+   }
+
+   .searchFieldInput{
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+   }
 }
