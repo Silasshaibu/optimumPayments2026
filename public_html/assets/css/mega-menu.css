@@ -1,0 +1,160 @@
+
+* { box-sizing: border-box; }
+
+
+.mega-menu-left > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-caret-desktop-mega-menu {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.mega-menu-left > li:hover .right-caret-desktop-mega-menu {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+  --left-width: 390px;
+}
+
+/* ================= LAYOUT ================= */
+.BigDropDown-Tray {
+  display: flex;
+  width: 100%;
+}
+
+
+.right-caret-desktop-mega-menu{
+  transform: translateY(3px);
+}
+/* ================= LEFT MENU ================= */
+.processingSolutionDropDown-1st-Level {
+  width: var(--left-width);
+  min-width: var(--left-width);
+  background: #333;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.BigDropDown-Tray {
+  display: none;
+}
+
+.BigDropDown-Tray.active {
+  display: flex;
+}
+
+
+.processingSolutionDropDown-1st-Level li {
+  padding: 15px 30px 15px 20px;
+  line-height: 20px;
+  color: #fff;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  justify-content: space-between;
+}
+
+.processingSolutionDropDown-1st-Level li.active,
+.processingSolutionDropDown-1st-Level li:hover {
+  background: #444;
+}
+
+/* ================= GRID ================= */
+.grid-space-area {
+  width: calc(100vw - var(--left-width));
+  padding: 48px 80px;
+  padding:2rem 4rem;
+
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+
+  overflow-y: auto;
+  /* background: #b8674a; */
+  background-color: #efefef;
+  border: 1px solid rgb(187, 187, 187);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .grid-space-area {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .BigDropDown-Tray {
+    flex-direction: column;
+  }
+
+  .processingSolutionDropDown-1st-Level {
+    width: 100%;
+  }
+
+  .grid-space-area {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 32px;
+  }
+}
+
+/* ================= PRODUCT CARD ================= */
+.product-grid-item {
+  /* background: #fff; */
+  display: flex;
+  flex-direction: row; 
+  gap: 1rem;
+  min-height: fit-content;
+  max-height: 150px;
+  align-items: flex-start;
+}
+
+
+
+.product-grid-item:hover{
+  text-decoration: none;
+}
+
+.product-image {
+  width: 100%;
+  height:100px;
+  aspect-ratio: 1.2;
+  object-fit: cover;
+  background: #eee;
+  flex-basis:25%;
+}
+
+.product-details {
+  text-align: left;
+}
+
+.product-details h3 {
+  margin: 0;
+  
+}
+
+.product-details p {
+  margin: 8px 0 0;
+  font-size: .9rem;
+  
+}

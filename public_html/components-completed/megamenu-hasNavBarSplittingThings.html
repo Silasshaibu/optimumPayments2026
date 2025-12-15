@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Simplified Full Nav Menu</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="../assets/css/style-guide.css">
+<link rel="stylesheet" href="../assets/css/navbar.css">
+<link rel="stylesheet" href="../assets/css/mega-menu.css">
+
+<script src="../assets/js/navbar.js" defer></script>
+<script src="../assets/js/mega-menu.js" defer></script>
+<script src="../assets/js/mini-mega-menu.js" defer></script>
+
+
+
+
+
+
+
+
+<!-- style for Mini Mega Menu For Digital Service  Start-->
+<style>
+/* ================= MINI MEGA MENU ================= */
+
+.MiniMegaMenu {
+  width: 100%;
+  background: #efefef;
+  border-top: 1px solid #bbb;
+}
+
+/* Grid */
+.mini-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding: 3rem 4rem;
+}
+
+.MiniMegaMenu.MiniDropDown-Tray {
+  display: none;
+}
+
+.MiniMegaMenu.MiniDropDown-Tray.active {
+  display: block; /* or flex if needed */
+}
+
+/* Card */
+.mini-service-card {
+  background: #fff;
+  padding: 24px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Image */
+.mini-service-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  background: #e0e0e0;
+}
+
+/* Text */
+.mini-service-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.mini-service-card p {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.mini-service-card a {
+  margin-top: auto;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mini-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .mini-services-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}
+
+
+</style>
+
+
+<!-- Style for Mini Mega Menu For Digital Service  Start-->
+
+</head>
+
+<body>
+
+<!-- NavBar -->
+<nav class="navbar header" role="navigation">
+
+    <!-- Mobile Hamburger -->
+    <ul class="mobile-Section">
+        <li>
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </span>
+        </li>
+    </ul>
+
+    <!-- Logo -->
+    <ul class="LogoSection-with-MoreMobileTemporalButtons">
+        <li class="Logo-Action">
+            <a href="#">
+                <img src="../assets/images/logo/optimum-navLogo.webp"
+                     alt="Optimum Payments"
+                     width="120">
+            </a>
+        </li>
+    </ul>
+
+     <!-- Main Menu -->
+    <ul class="one mainMenu">
+      
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Promo</a></li>
+        <li id="processing-btn"><a href="#">Processing Solutions</a></li>
+        <li id="financing-btn"><a href="#">Digital Services</a></li>
+        <li><a href="#">Business Financing</a></li>
+        <li class="about-us"><a href="#">About Us</a></li>
+        <li class="contact-us"><a href="#">Contact Us</a></li>
+    </ul>
+
+    <!-- Search + Store -->
+    <ul class="searchAndstore-NavSection">
+        
+        <li id="searchSectionMain">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon desktop-SearchIcon">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                          d="m21 21-5.197-5.197M15.803 15.803A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </span>
+
+            <div class="searchFieldBoxAndResults">
+                <button class="searchButton Main">Search</button>
+                <input class="searchFieldInput" type="text" placeholder="Search...">
+                <button class="close-searchButton Main"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon close-searchFieldBar">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+
+                </button>
+                
+            </div>
+        </li>
+
+        <li>
+            <button id="shopBtn" class="btn-primary">Shop for Supplies</button>
+        </li>
+        
+    </ul>
+
+   
+
+</nav>
+
+
+<!-- Processing Solution Mega Menu DropDown Div -->
+<div class="BigDropDown-Tray">
+
+  <!-- LEFT MENU -->
+  <ul class="processingSolutionDropDown-1st-Level" id="menu"></ul>
+
+  <!-- GRID -->
+  <div class="grid-space-area" id="grid"></div>
+
+</div>
+
+<!-- ================= MINI MEGA MENU START================= -->
+<div class="MiniMegaMenu MiniDropDown-Tray">
+  <div class="mini-services-grid" id="miniServicesGrid"></div>
+</div>
+<!-- ================= MINI MEGA MENU END================= -->
+
+
+
+<!-- Processing solution Mega Menu Script Start -->
+  <script>
+  /* ================= DATA ================= */
+  const menuData = [
+    {
+      label: "Full service fine dining",
+      products: [
+        {
+          name: "Union POS",
+          description: "Manage order, sales, and payments in one place",
+          image: "../../assets/images/products/union-pos.webp",
+          href: "#"
+        },
+        {
+          name: "Clover",
+          description: "Do what you do better with the world's smartest POS system",
+          image: "../assets/images/products/clover-fine-dining.webp",
+          href: "#"
+        },
+        {
+          name: "OctoPOS",
+          description: "Cloud-based POS and inventory management platform",
+          image: "../assets/images/products/octopos.webp",
+          href: "#"
+        }
+      ]
+    },
+
+    {
+      label: "QSR and Food Trucks",
+      products: [
+        {
+          name: "Clover",
+          description: "Fast, flexible POS built for quick service environments",
+          image: "../assets/images/products/clover-qsr.webp",
+          href: "#"
+        },
+        {
+          name: "Swipe Simple",
+          description: "For Food and Beverage merchants",
+          image: "../assets/images/products/swipe-simple.webp",
+          href: "#"
+        },
+        {
+          name: "Valor",
+          description: "Reliable countertop and mobile terminals",
+          image: "../assets/images/products/valor.webp",
+          href: "#"
+        }
+      ]
+    },
+
+    {
+      label: "Bars / Night Clubs / High Volume",
+      products: [
+        {
+          name: "Union POS",
+          description: "Fast, flexible POS built for quick service environments",
+          image: "../assets/images/products/clover-qsr.webp",
+          href: "#"
+        }
+      
+      ]
+    },
+
+    {
+      label: "Retail / Liquor / Smoke Shops",
+      products: [
+        {
+          name: "OctoPOS",
+          description: "Fast, flexible POS built for quick service environments",
+          image: "../assets/images/products/clover-qsr.webp",
+          href: "#"
+        },
+        
+        {
+          name: "Clover",
+          description: "Fast, flexible POS built for quick service environments",
+          image: "../assets/images/products/clover-qsr.webp",
+          href: "#"
+        },
+        {
+          name: "Swipe Simple",
+          description: "Fast, flexible POS built for quick service environments",
+          image: "../assets/images/products/clover-qsr.webp",
+          href: "#"
+        }
+        ,
+        {
+          name: "Valor",
+          description: "Fast, flexible POS built for quick service environments",
+          image: "../assets/images/products/clover-qsr.webp",
+          href: "#"
+        }
+      ]
+    },
+
+    {
+      label: "Medical",
+      products: [
+        {
+          name: "Practice Management Bridge",
+          description:
+            "Keeping your patients and your practice healthy requires a partner who understands your needs and technology that simplifies the day-to-day",
+          image: "../assets/images/products/practice-bridge.webp",
+          href: "#"
+        }
+      ]
+    },
+
+    {
+      label: "Contractors / Online Payments / Mobile",
+      products: [
+        {
+          name: "Hyfin",
+          description: "Automate your receivables and save time",
+          image: "../assets/images/products/hyfin.webp",
+          href: "#"
+        },
+        {
+          name: "NMI",
+          description: "White Label Payment Gateway Solutions to Boost Your Business",
+          image: "../assets/images/products/nmi.webp",
+          href: "#"
+        },
+        {
+          name: "Clover",
+          description: "White Label Payment Gateway Solutions to Boost Your Business",
+          image: "../assets/images/products/nmi.webp",
+          href: "#"
+        },
+        {
+          name: "Valor",
+          description: "White Label Payment Gateway Solutions to Boost Your Business",
+          image: "../assets/images/products/nmi.webp",
+          href: "#"
+        }
+      ]
+    },
+
+    {
+      label: "Need a Basic Setup?",
+      products: [
+        {
+          name: "Terminal Options",
+          description:
+            "Used by small businesses across restaurants, retail, and the service industry",
+          image: "../assets/images/products/terminal-options.webp",
+          href: "#"
+        }
+      ]
+    }
+  ];
+
+  /* ================= ELEMENTS ================= */
+  const menu = document.getElementById("menu");
+  const grid = document.getElementById("grid");
+
+  /* ================= BUILD MENU ================= */
+  menuData.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.textContent = item.label;
+    li.dataset.index = index;
+    if (index === 0) li.classList.add("active");
+    menu.appendChild(li);
+  });
+
+  /* ================= HEIGHT CALC ================= */
+  function syncGridHeight() {
+    const items = menu.querySelectorAll("li");
+    if (!items.length) return;
+
+    const style = getComputedStyle(items[0]);
+
+    const singleHeight =
+      parseFloat(style.lineHeight) +
+      parseFloat(style.paddingTop) +
+      parseFloat(style.paddingBottom) +
+      parseFloat(style.borderBottomWidth);
+
+    grid.style.maxHeight = (singleHeight * items.length) + "px";
+  }
+
+  /* ================= RENDER GRID ================= */
+  function renderGrid(index) {
+    grid.innerHTML = "";
+
+    menuData[index].products.forEach(product => {
+      const card = document.createElement("a");
+      card.className = "product-grid-item";
+      card.href = product.href;
+
+      card.innerHTML = `
+        <img
+          class="product-image"
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
+        />
+
+        <div class="product-details">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    grid.scrollTop = 0;
+  }
+
+
+
+
+  
+
+  /* ================= EVENTS ================= */
+  menu.addEventListener("mouseenter", e => {
+    if (e.target.tagName !== "LI") return;
+
+    menu.querySelectorAll("li").forEach(li => li.classList.remove("active"));
+    e.target.classList.add("active");
+
+    renderGrid(e.target.dataset.index);
+  }, true);
+
+  /* ================= INIT ================= */
+  window.addEventListener("load", () => {
+    syncGridHeight();
+    renderGrid(0);
+  });
+
+  window.addEventListener("resize", syncGridHeight);
+  </script>
+
+
+  <script>
+  (function injectMegaMenuCarets() {
+
+    const menuItems = document.querySelectorAll(
+      ".processingSolutionDropDown-1st-Level > li"
+    );
+
+    if (!menuItems.length) return;
+
+    const svgMarkup = `
+      <svg xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="right-caret-desktop-mega-menu"
+          aria-hidden="true">
+        <path stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+      </svg>
+    `;
+
+    menuItems.forEach(li => {
+      // Prevent duplicate injection
+      if (li.querySelector(".right-caret-desktop-mega-menu")) return;
+
+      li.insertAdjacentHTML("beforeend", svgMarkup);
+    });
+
+  })();
+  </script>
+<!-- Processing Solution Mega Menu Script End -->
+
+<!-- Nav Bar Scripts Start -->
+    <script>
+    /* ==========================
+    Active Nav Item
+    ========================== */
+    document.addEventListener("DOMContentLoaded", () => {
+        const navItems = document.querySelectorAll(".one > li");
+
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                navItems.forEach(i => i.classList.remove("active"));
+                item.classList.add("active");
+            });
+        });
+    });
+
+    /* ==========================
+    Mobile Adjustments
+    ========================== */
+    function updateMobileView() {
+        const shopBtn = document.getElementById("shopBtn");
+        const searchLi = document.getElementById("searchSectionMain");
+        const mobileSection = document.querySelector(".mobile-Section");
+        const originalParent = document.querySelector(".searchAndstore-NavSection");
+
+        if (!shopBtn) return;
+
+        if (window.innerWidth <= 1200) {
+            shopBtn.textContent = "Store";
+            shopBtn.classList.remove("btn-primary");
+            shopBtn.classList.add("btn-primary-sm");
+
+            if (searchLi && mobileSection && !mobileSection.contains(searchLi)) {
+                mobileSection.appendChild(searchLi);
+            }
+        } else {
+            shopBtn.textContent = "Shop for Supplies";
+            shopBtn.classList.remove("btn-primary-sm");
+            shopBtn.classList.add("btn-primary");
+
+            if (searchLi && originalParent && !originalParent.contains(searchLi)) {
+                originalParent.appendChild(searchLi);
+            }
+        }
+    }
+
+    window.addEventListener("DOMContentLoaded", updateMobileView);
+    window.addEventListener("resize", updateMobileView);
+    </script>
+
+<!-- Script for Mini Mega Menu For Digital Service  Start-->
+<script>
+/* ================= DATA ================= */
+
+const miniMegaMenuData = [
+  {
+    title: "Website Design",
+    description: "Premium designs at your finger tips",
+    cta: "Explore",
+    image: "../assets/images/services/web-design.webp",
+    href: "#"
+  },
+  {
+    title: "3D Printing",
+    description: "1-stop shopping for all your 3D-printed needs",
+    cta: "Order Now",
+    image: "../assets/images/services/3d-printing.webp",
+    href: "#"
+  },
+  {
+    title: "Branding",
+    description: "We can handle all form of your branding needs",
+    cta: "Order Now",
+    image: "../assets/images/services/branding.webp",
+    href: "#"
+  },
+  {
+    title: "Social Media Marketing",
+    description: "Let market your product on your socials",
+    cta: "Order Now",
+    image: "../assets/images/services/social-media.webp",
+    href: "#"
+  }
+];
+
+/* ================= RENDER ================= */
+
+const miniServicesGrid = document.getElementById("miniServicesGrid");
+
+function renderMiniMegaMenu() {
+  miniServicesGrid.innerHTML = "";
+
+  miniMegaMenuData.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "mini-service-card";
+
+    card.innerHTML = `
+      <img
+        class="mini-service-image"
+        src="${item.image}"
+        alt="${item.title}"
+        loading="lazy"
+      />
+
+      <h3>${item.title}</h3>
+      <p>${item.description}</p>
+      <a href="${item.href}">${item.cta}</a>
+    `;
+
+    miniServicesGrid.appendChild(card);
+  });
+}
+
+/* ================= INIT ================= */
+
+renderMiniMegaMenu();
+</script>
+
+<!-- Script for Mini Mega Menu For Digital Service  end-->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // === ELEMENTS ===
+    const processingBtn = document.getElementById("processing-btn");
+    const digitalBtn = document.getElementById("financing-btn");
+    const bigMenu = document.querySelector(".BigDropDown-Tray");
+    const miniMenu = document.querySelector(".MiniDropDown-Tray");
+    const searchIcon = document.querySelector(".desktop-SearchIcon");
+    const searchBox = document.querySelector(".searchFieldBoxAndResults");
+    const closeSearchBtn = document.querySelector(".close-searchFieldBar");
+
+    if (!processingBtn || !digitalBtn || !bigMenu || !miniMenu || !searchIcon || !searchBox || !closeSearchBtn) return;
+
+    // --- UTILITY: Close everything ---
+    function closeAll() {
+        bigMenu.classList.remove("active");
+        miniMenu.classList.remove("active");
+        searchBox.classList.remove("active");
+
+        processingBtn.classList.remove("active");
+        digitalBtn.classList.remove("active");
+    }
+
+    // --- Processing Menu Toggle ---
+    processingBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = bigMenu.classList.contains("active");
+        closeAll();
+        if (!isOpen) {
+            bigMenu.classList.add("active");
+            processingBtn.classList.add("active");
+        }
+    });
+
+    // --- Digital Menu Toggle ---
+    digitalBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = miniMenu.classList.contains("active");
+        closeAll();
+        if (!isOpen) {
+            miniMenu.classList.add("active");
+            digitalBtn.classList.add("active");
+        }
+    });
+
+    // --- Search Toggle ---
+    searchIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = searchBox.classList.contains("active");
+        closeAll();
+        if (!isOpen) {
+            searchBox.classList.add("active");
+        }
+    });
+
+    // Close search via close button
+    closeSearchBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        searchBox.classList.remove("active");
+    });
+
+    // --- Prevent inside clicks from closing ---
+    bigMenu.addEventListener("click", (e) => e.stopPropagation());
+    miniMenu.addEventListener("click", (e) => e.stopPropagation());
+    searchBox.addEventListener("click", (e) => e.stopPropagation());
+
+    // --- Click outside closes all ---
+    document.addEventListener("click", closeAll);
+
+    // --- ESC closes all ---
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeAll();
+    });
+});
+</script>
+
+
+
+
+</body>
+</html>

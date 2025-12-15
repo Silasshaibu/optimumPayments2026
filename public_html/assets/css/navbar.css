@@ -1,0 +1,191 @@
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: Manrope, sans-serif;
+}
+
+/* ==========================
+   Variables
+========================== */
+:root {
+    --nav-height: 60px;
+    --text-color: #1A1A1A;
+    --bg-light: #f3f3f3;
+    --active-border: blue;
+}
+
+/* ==========================
+   Navbar Layout
+========================== */
+.navbar.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-height);
+    padding: 0 2rem;
+    background-color: var(--bg-light);
+}
+
+/* ==========================
+   Sections
+========================== */
+.mobile-Section {
+    display: none;
+}
+
+.LogoSection-with-MoreMobileTemporalButtons {
+    display: flex;
+    align-items: center;
+}
+
+.searchAndstore-NavSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==========================
+   Main Menu
+========================== */
+.one {
+    display: flex;
+    gap: 24px;
+}
+
+.one > li {
+    padding: 18px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-color);
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: border-bottom 0.25s ease;
+}
+
+.one > li.active {
+    border-bottom: 3px solid var(--active-border);
+}
+
+/* ==========================
+   Icons
+========================== */
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transform: translateY(3px);
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================
+   Search
+========================== */
+.searchFieldBoxAndResults {
+    position: absolute;
+    top: var(--nav-height);
+    right: 0;
+    width: 100%;
+    background-color: #efefef;
+    padding: 1rem 2rem;
+    display: none;
+}
+
+.searchFieldBoxAndResults {
+    display: none;
+}
+
+.searchFieldBoxAndResults.active {
+    display: flex;
+}
+
+
+.searchFieldInput {
+    padding: 0.5rem;
+    /* border-radius: 6px 0 0 6px; */
+    border: 1px solid #ccc;
+    border-right:none;
+}
+
+.searchButton.Main {
+    padding: 0.5rem 1rem;
+    border-radius: 6px  0px 0px 6px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close-searchButton.Main{
+    border-radius: 0px  6px 6px 0px;
+    background-color: #333;
+    /* background-color: #fff; */
+}
+
+/* ==========================
+   Buttons
+========================== */
+button {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary {
+    padding: 0.5rem 1rem;
+}
+
+.btn-primary-sm {
+    padding: 0.4rem 0.75rem;
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 1200px) {
+    .about-us,
+    .contact-us,
+    .one {
+        display: none;
+    }
+
+    .mobile-Section {
+        display: flex;
+    }
+
+    .navbar.header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0 0.5rem;
+    }
+
+    .LogoSection-with-MoreMobileTemporalButtons {
+        justify-content: center;
+    }
+
+    .searchAndstore-NavSection {
+        justify-content: flex-end;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+}
