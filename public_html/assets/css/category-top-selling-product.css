@@ -1,4 +1,5 @@
-/*LINKED TOP SELLING PRODUCTS STYLING*/
+
+    /*LINKED TOP SELLING PRODUCTS STYLING*/
 :root {
                 --slide-and-container-width-singularUnit: 83vw;
                 --slide-and-container-height: 400px;
@@ -6,7 +7,7 @@
                 /*We are using 1200px or 83vw or 83%*/
             }
             
-            .productCategoryTitle{
+            .topCategory-title{
                 color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
                 /* us.store.bambulab.com/Semantic/Heading 2 */
                 font-family: var(--font-family-Font-1, Manrope);
@@ -16,7 +17,7 @@
                 line-height: var(--line-height-44_2, 44.2px); /* 130% */
             }     
 
-            .home-default-section{
+            .topCategory-section{
                 display: flex;
                 width: var(--slide-and-container-width-singularUnit);
                 flex-direction: column;
@@ -26,14 +27,14 @@
                 gap: 2rem;
             }
         
-            .product-title{
+            .topCategory-productTitle{
                 font-size: var(--font-size-24, 24px);
                 font-style: normal;
                 font-weight: var(--font-weight-700, 700);
                 line-height: var(--line-height-31_2, 31.2px); /* 130% */
             }
 
-            .product-summary{
+            .topCategory-productSummary{
                 font-size: var(--font-size-12, 12px);
                 font-style: normal;
                 font-weight: var(--font-weight-400, 400);
@@ -42,7 +43,7 @@
                 padding-bottom: 2.5rem;
             }
 
-            .btn-featured-products{         
+            .btn-topCategory-products{         
                 font-size: 1rem;
                 font-style: normal;
                 font-weight: var(--font-weight-400, 400);
@@ -56,18 +57,22 @@
                 bottom:1rem;
             }
 
-            .btn-featured-products:hover{              
+            .btn-topCategory-products:hover{              
                 color:var(--Primary-Btn);
                 background-color: var(--Primary-Btn);
                 color:white;
             }
 
-            .btn-featured-products span svg.icon{
+            .btn-topCategory-products span svg.icon{
                 transform: translate(3px, 3px);
 
             }
 
-            .title--and-controlSection{
+            .topCategory-wrapper.is-grid {
+                display: grid;
+            }
+
+            .topCategory-header{
                 display: flex;
                 align-content: center;
                 justify-content: space-between;
@@ -75,28 +80,33 @@
                 
             }
             
-            .carouselWindow{
+            .topCategory-carousel{
                 width: 85vw;
                 overflow: hidden;
                 position: relative;
                 height:275px;
             }
 
-            .controlSection span svg.icon{
+            .topCategory-controls span svg.icon{
                 width: 1rem;
                 height:1rem;
                 margin: 0rem 0.25rem;
+
+                
+
             }
 
-            .carouselwithProducts-wrapper{
+            
+
+            .topCategory-wrapper{
                 position: absolute;
                 height:275px;
                 display: flex;
                 column-gap:1rem;
             }
 
-            .featured-product{
-                width: calc(42.5vw - 0.5rem);  /* (carouselwithProducts-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
+            .topCategory-product{
+                width: calc(42.5vw - 0.5rem);  /* (topCategory-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
                 padding:4rem 2rem;
                 position: relative;       
                 background-position: center;
@@ -104,27 +114,45 @@
                 background-size: contain;  
             }        
 
-            .product-Link-Mobile{
+            .topCategory-productLinkMobile{
                 display: none;
                 padding:1rem 0px;
             }
 
-            .controlSection{
+            .topCategory-controls{
                 position: relative;
                 display:flex;
                 align-items: center;
+                gap:.5rem;
             }
 
-            .icon.leftArrow, .icon.rightArrow{
-                transform:translateY(3px);
+            .topCategory-controls span{
+                color: #333;
+                border-radius: 0px;
+                background-color: transparent;
+                padding: 0;
+                border: 1px solid #656572;
+                width: var(--circle-size, 32px);
+                height: var(--circle-size, 32px);
+                background: var(--circle-color);
+                border-radius: 50%;
             }
 
-            .topCat-viewAll-Btn{
+            .topCategory-controls span:hover{
+                color: white;                
+                background-color: #333;
+            }
+
+            .icon.topCategory-leftArrow, .icon.topCategory-rightArrow{
+                transform:translate(3px, 5px);
+            }
+
+            .topCategory-viewAllBtn{
                 color:#333;
 
             }
 
-            .bottomcontrolSection-foot{
+            .topCategory-bottomControls-foot{
                 display: flex;
                 padding-top:2rem;
                 flex-direction: row;
@@ -133,16 +161,10 @@
             }
 
                     /* TOGGLE EXTRA CHANGES IN GRID VIEW */
-            .grid-view .product-summary {
-                padding-right: 0 !important;
-            }
-
-            .grid-view.carouselWindow {
-                height: fit-content !important;
-            }
+           
 
 
-            .carouselwithProducts-wrapper.is-grid .featured-product {
+            .topCategory-wrapper.is-grid .topCategory-product {
             height: auto;
             }
 
@@ -151,21 +173,83 @@
             /* ===============================
             DESKTOP – VIEW ALL (GRID)
             ================================ */
-            .carouselwithProducts-wrapper.is-grid {
+            .topCategory-wrapper.is-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr); /* Desktop default */
             transform: none !important;
             }
 
             /* Hide arrows when in grid mode (desktop + all sizes) */
-            .topProducts-carousel-header .controlSection {
+            .topCategory-header .topCategory-controls {
             transition: opacity 0.2s ease;
             }
 
-            .topProducts-carousel-header.is-grid .controlSection {
-            opacity: 0;
-            pointer-events: none;
+
+
+            /*CAROUSEL MODE (DEFAULT → View less state)*/
+            .topCategory-carousel {
+                overflow: hidden;
+                height: 279px;
+                position: relative;
             }
+
+            .topCategory-wrapper {
+                position: absolute;
+                display: flex;
+                height: 279px;
+                gap: 0;
+                column-gap: 1rem;
+            }
+
+            .topCategory-product {
+                height: 275px;
+            }
+
+
+
+
+            /*GRID MODE (View all clicked)*/
+            .topCategory-section.is-grid .topCategory-carousel {
+                overflow: visible;
+                height: auto;
+                position: relative;
+            }
+
+            .topCategory-section.is-grid .topCategory-wrapper {
+                position: relative;
+                display: grid;
+                height: auto;
+                gap: 1rem;
+                grid-template-columns: repeat(2, 1fr); /* >768px */
+                transform: none !important;
+            }
+
+            .topCategory-section.is-grid .topCategory-product {
+                height: 350px;
+            }
+
+
+
+            /* Disable arrows in View Less (grid mode) */
+           
+
+          
+            /* Disabled arrow state */
+            .topCategory-controls span.is-disabled {
+                opacity: 0.3;
+                pointer-events: none; /* 🔒 prevents clicking */
+                cursor: default;
+            }
+
+              .topCategory-controls span {
+                transition: opacity 0.25s ease;
+            }
+
+
+
+
+
+
 
            /*View All Toggle Grid Carousel Collapse And Expand end*/
 
@@ -174,41 +258,26 @@
                 --slide-and-container-width-singularUnit: 94vw;
             }
 
-             .home-default-section{
+             .topCategory-section{
                 display: flex;
                 width: var(--slide-and-container-width-singularUnit);
             }
 
-            .carouselWindow.grid-view {
-                height: auto !important;
-                overflow: visible;
-                overflow: hidden;
-            }
+           
 
-            .carouselwithProducts-wrapper.grid-view {
-                display: grid !important;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-                position: static !important;
-                transform: none !important;
-                height: auto !important;
-                padding-top: 2rem;
-            }
-
-            .leftArrow, .rightArrow {
-                display: none !important;
-            }
+            
+            
 
 
                         /* ===============================
             TOP SELLING ONLY – GRID MODE
             ================================ */
-            .home-default-section.is-grid .carouselWindow {
+            .topCategory-section.is-grid .topCategory-carousel {
             overflow: visible;
             height: auto;
             }
 
-            .home-default-section.is-grid .carouselwithProducts-wrapper {
+            .topCategory-section.is-grid .topCategory-wrapper {
             display: grid;
             position: relative;
             grid-template-columns: repeat(2, 1fr);
@@ -216,11 +285,11 @@
             width: 100%;
             }
 
-            .carouselWindow {
+            .topCategory-carousel {
                 overflow: hidden;
                 }
 
-            .carouselwithProducts-wrapper {
+            .topCategory-wrapper {
                 display: flex;
                 gap: 24px;
                 transition: transform 0.4s ease;
@@ -230,7 +299,7 @@
             /* ===============================
                 TABLET
                 ================================ */
-            .carouselwithProducts-wrapper.is-grid {
+            .topCategory-wrapper.is-grid {
                 grid-template-columns: repeat(3, 1fr);
             }  
             /*View All Toggle Grid Carousel Collapse And Expand start*/
@@ -240,8 +309,8 @@
   
         @media (max-width:768px){
             /*On mobile allow horizonatal scroll but make the bars invinsible*/
-            .featured-product{
-                width: calc(42.5vw - 0.3rem);  /* (carouselwithProducts-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
+            .topCategory-product{
+                width: calc(42.5vw - 0.3rem);  /* (topCategory-wrapper width / 2) - (column-gap/2) calculate the container divided by number of product to be seen per window minus the gap*/
                 padding:0rem .5rem;
                 position: relative; 
                 background-position: center;
@@ -253,16 +322,16 @@
                 justify-content: space-between; 
             }     
 
-            .product-summary{
+            .topCategory-productSummary{
                 padding:0rem;
             }
 
        
-                .title--and-controlSection, .carouselWindow {
+                .topCategory-header, .topCategory-carousel {
                 width: 95vw;
                 }
 
-                .btn-featured-products{
+                .btn-topCategory-products{
                     padding:0rem 0rem;
                     border:none;
                     position: relative;
@@ -270,21 +339,21 @@
                     order:1;
                 }
 
-                .btn-featured-products.btn-Mini{
+                .btn-topCategory-products.btn-Mini{
                     width: 100%;
                     border-radius: 0%;
                 }
 
-                .featured-product{
+                .topCategory-product{
                     gap:0rem;
                     justify-content: space-around;
                 }
 
-                .product-summary{
+                .topCategory-productSummary{
                     order:2;
                 }
 
-                .product-title{
+                .topCategory-productTitle{
                     text-align: center;
                     color: #111827;
                     font-size: 20px;
@@ -293,31 +362,33 @@
                     line-height: 2rem; /* 140% */
                 }
 
-                .btn-featured-products.product-Btn-Desktop{
+                .btn-topCategory-products.topCategory-productBtnDesktop{
                     /* position: absolute; */
                     display: none;
                 }
 
-                .btn-featured-products.product-Btn-Desktop.topCategory{
+                .btn-topCategory-products.topCategory-productBtnDesktop.topCategory{
                     position: absolute;
                 }
 
 
-                .product-Link-Mobile{
+                .topCategory-productLinkMobile{
                     display: flex;
                     padding: 0px;
                     justify-content: center;
+                    align-items: center;
+                    margin: 0 auto;
                 }
 
-                .product-Link-Mobile .icon{
+                .topCategory-productLinkMobile .icon{
                     transform: translateY(2.5px);
                 }
 
-                .product-Link-Mobile:hover {
+                .topCategory-productLinkMobile:hover {
                     transform: translateX(2.5px);
                 }
 
-                .product-Link-Mobile{
+                .topCategory-productLinkMobile{
                     color: var(--TypographyColors-Link, #63A0CF);
                     font-size: .95rem;
                     font-style: normal;
@@ -325,13 +396,13 @@
                     line-height: 1.2rem; /* 142.857% */
                 }
 
-                .product-Link-Mobile:hover{
+                .topCategory-productLinkMobile:hover{
                     font-size: .95rem;
                     line-height: 1.2rem; /* 142.857% */  
                     cursor: pointer;
                 }
 
-                .productCategoryTitle{
+                .topCategory-title{
                     color: #111827;
                     text-align: center;
                     /* BBu.Mobile.H2 */
@@ -342,31 +413,16 @@
                     line-height: 30px; /* 125% */
                 }
 
-                .grid-view .carouselwithProducts-wrapper {
-                    position: relative !important;
-                    display: grid !important;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 2rem;
-                    height: auto !important;
-                    transform: none !important;
-                }
+                
 
-                .grid-view .featured-product {
-                    width: 100% !important;
-                    height: 320px;
-                    background-size: contain;
-                }
+              
 
-            /* Hide the arrows in grid mode */
-                 .grid-view .controlSection {
-                    display: none !important;
-                }
-
+           
                  /*View All Toggle Grid Carousel Collapse And Expand start*/
                 /* ===============================
                 MOBILE
                 ================================ */
-                .carouselwithProducts-wrapper.is-grid {
+                .topCategory-wrapper.is-grid {
                     grid-template-columns: repeat(2, 1fr);
                 }
                  /*View All Toggle Grid Carousel Collapse And Expand end*/
@@ -375,29 +431,86 @@
 
         /*MOBILE SINGLE UNIT PRODUCT VIEW*/
         @media (max-width:550px){
-                h2.productCategoryTitle{
+
+                .topCategory-leftArrow, .topCategory-rightArrow {
+                    display: none !important;
+                }
+
+
+                .topCategory-controls span{
+                    display: none;
+                }
+
+                h2.topCategory-title{
                     text-align: center;
                     margin:0 auto;                
                 }
 
-                .title--and-controlSection.head{
+                
+                .topCategory-header.head{
                     position: relative;                    
                     }
 
-                .title--and-controlSection{
+                .topCategory-header{
                     width:95vw;
                     /* background-color: red; */
                 }
 
-                .carouselWindow, .featured-product{
+                /*TopCategory--Carousel start*/
+                .topCategory-carousel, .topCategory-product{
                     width: 95vw;
                 }
 
-                .carouselwithProducts-wrapper{
+                 .topCategory-carousel {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    -webkit-overflow-scrolling: touch;
+                    scroll-snap-type: x mandatory;
+                    height: 320px;
+                    
+                }
+
+                .topCategory-wrapper {
+                    position: relative;
+                    display: flex;
+                    gap: 16px;
+                    padding-left:1rem;
+                    padding-right: 1rem; /* allows 1.5 item view */
+                }
+
+                .topCategory-product {
+                    flex: 0 0 100%;
+                    scroll-snap-align: start;
+                    margin-top:24px;
+                    
+                }
+
+                 .topCategory-section.is-grid .topCategory-carousel {
+                    overflow: hidden;     /* 🔑 disable scrolling */
+                    height: auto;
+                }
+
+                .topCategory-section.is-grid .topCategory-wrapper {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 1rem;
+                    padding-right: 0;
+                    overflow: visible;
+                }
+
+                .topCategory-section.is-grid .topCategory-product {
+                    width: 100%;
+                    height: 275px;
+                }
+
+                /*TopCategory--Carousel End*/
+
+
+                .topCategory-wrapper{
                     column-gap:0rem;
                 }
 
-                .product-summary{
+                .topCategory-productSummary{
                     font-size: 1rem;
                     background-color: white;
                     padding:.5rem;
@@ -407,40 +520,58 @@
                     transform: translateY(10px);
                     height:auto;
                     width: 98%;
+                    /* background-color: orange; */
+                    height:56px;
                 }
 
-                .controlSection{
+                .topCategory-controls{
                     position: absolute;
                     bottom: 0%;
                     right: 0;
-                    display: none;
+                    display: flex;
                 }
 
-                .product-title{
+                .topCategory-productTitle{
                     position: absolute;
                     top:0;
                     left:50%;
                     transform: translateX(-50%);
                 }
 
-                .home-default-section{
+                .topCategory-section{
                     padding-right:0rem;
                     padding-left:0rem;
                 }
             
 
                 /* FOR MOBILE*/
-                    .bottomcontrolSection-foot{
-                        position: relative;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: end;
-                        align-items: center;
-                    }
+                .topCategory-bottomControls-foot{
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: end;
+                    align-items: center;
+                }
 
-                    .bottomcontrolSection-foot .icon{
-                        transform: translateY(2.5px);
-                    }
+                .topCategory-bottomControls-foot .icon{
+                    transform: translateY(2.5px);
+                }
+
+                .topCategory-wrapper {
+                    overflow-x: auto;
+                    scrollbar-width: none;          /* Firefox */
+                    -ms-overflow-style: none;       /* IE / Edge legacy */
+                    touch-action:pan-x;
+                    scroll-snap-type: x mandatory;
+                    overscroll-behavior-x: contain;
+                }
+
+                .topCategory-wrapper::-webkit-scrollbar {
+                    display: none;                  /* Chrome, Safari */
+                }
+
+                .topCategory-product {
+                    scroll-snap-align: start;
+                }
+
             }
-
-       
