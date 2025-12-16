@@ -53,6 +53,10 @@
     .carousel-scrollbar-container {
         position: relative;
         width: 100vw;
+        min-height:300px;
+        overflow-y: hidden;
+        margin-bottom:100px;
+        /* background-color: grey; */
     }
 
     /* CAROUSEL WRAPPER */
