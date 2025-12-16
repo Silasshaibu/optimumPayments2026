@@ -10,10 +10,6 @@
     user-select: none;
 }
 
-
-
-
-
 .homeHero-carousel .carousel-indicator {
     position: absolute;
     bottom: 5%;
@@ -97,8 +93,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    max-height: 90vh;
-    min-height: 560px;
+    /* min-height: 80vh; */
 }
 
 .homeHero-carousel .carousel-wrapper {
