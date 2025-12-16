@@ -15,6 +15,13 @@
     position: relative;
 }
 
+.homeHero-carousel {
+    user-select: none;
+}
+
+
+
+
 
 .homeHero-carousel .carousel-indicator {
     position: absolute;
@@ -33,7 +40,29 @@
     border-radius: 50px;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden
 }
+
+.homeHero-carousel .carousel-indicator .dot .progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: #adacac;
+    border-radius: 50px;
+}
+
+.homeHero-carousel .carousel-indicator .dot.active .progress {
+    animation: fillProgress linear forwards;
+}
+
+@keyframes fillProgress {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
 
 .homeHero-carousel .carousel-indicator .dot.active {
     width: 28px;           /* pill effect */
@@ -42,7 +71,7 @@
 
 
     .homeHero-carousel .slide[data-bg="1"] {
-        background: url('../assets/images/hero/desktop-slide-1.jpg') no-repeat center/cover;
+        background: url('../assets/images/hero/Home-OptimumPaymentsHero.jpg') no-repeat center/cover;
         background: rgb(189, 189, 84);
     }
 
@@ -115,6 +144,7 @@
     align-items: center;
     width: 50vw;
     height: 400px;
+    display:none;
 }
 
 .homeHero-carousel .textInfo-wrapper {
@@ -283,10 +313,6 @@ h1.heading.title{
     line-height: 52.8px; /* 120% */
     }
 
-  
-    .homeHero-carousel .slide {
-        background: none !important;
-    }
 
     .homeHero-carousel .image-wrapper {
         display: flex;
@@ -320,7 +346,9 @@ h1.heading.title{
                         <div class="image-wrapper">
                             <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
                         </div>
-                        <div class="cta-container-hero">
+
+                        <!-- Since we won't need a btn here so we will remove it for the moment  -->
+                        <div style="display:none" class="cta-container-hero">
                             <button class="btn-primary">Learn More</button>
                             <button class="btn-secondary">Learn More</button>
                         </div>   
@@ -337,8 +365,11 @@ h1.heading.title{
                         <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                         </div>
                         <div class="cta-container-hero">
-                            <button class="btn-primary">Get Started</button>
-                            <button class="btn-secondary">Learn More</button>
+                            <!-- Takes us to our partners main page through our referral - external  link -->
+                            <button class="btn-primary" onclick="window.open('https://example.com', '_blank')">Get Started</button>
+
+                            <!-- Takes us to our own webpage with our partner collab page internal  link -->
+                            <button class="btn-secondary" onclick="window.location.href='./businessFinancing.html'">Learn More</button>
                         </div>   
                     </div>
                 
@@ -354,8 +385,8 @@ h1.heading.title{
                         <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                         </div>
                         <div class="cta-container-hero">
-                            <button class="btn-primary">Apply Now</button>
-                            <button class="btn-secondary">Learn More</button>
+                            <button class="btn-primary" onclick="window.location.href='./merchant-application.html'">Apply Now</button>
+                            <button class="btn-secondary" onclick="window.location.href='./payment-processing.html'">Learn More</button>
                         </div>   
                     </div>
                 
@@ -371,8 +402,8 @@ h1.heading.title{
                         <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                     </div>
                         <div class="cta-container-hero">
-                            <button class="btn-primary">Fill The Form</button>
-                            <button class="btn-secondary">Learn More</button>
+                            <button class="btn-primary" onclick="window.location.href='./merchant-application.html'">Fill The Form</button>
+                            <button style="display:none;" class="btn-secondary">Learn More</button>
                         </div>   
                     </div>
                 
@@ -388,8 +419,8 @@ h1.heading.title{
                         <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
                     </div>
                         <div class="cta-container-hero">
-                            <button class="btn-primary">Fill The Form</button>
-                            <button class="btn-secondary">Learn More</button>
+                            <button class="btn-primary" onclick="window.location.href='./digital-services-brief-submit.html'">Post a Brief</button>
+                            <button class="btn-secondary" onclick="window.location.href='./digital-services.html'">Learn More</button>
                         </div>   
                     </div>
                     
@@ -414,9 +445,11 @@ h1.heading.title{
         </div>
     </div>
     
-   <script>
+ 
+    <script>
 /* ===============================
    HOME HERO CAROUSEL SCRIPT
+   (FIXES 2 → 6 APPLIED)
    =============================== */
 
 const root = document.querySelector(".homeHero-carousel");
@@ -441,10 +474,10 @@ lastClone.classList.add("clone");
 wrapper.appendChild(firstClone);
 wrapper.insertBefore(lastClone, slides[0]);
 
-// Re-query slides after cloning
 slides = root.querySelectorAll(".carousel-wrapper .slide");
 
 let slideWidth = slides[0].clientWidth;
+let dragThreshold = slideWidth * 0.2;
 
 /* ===============================
    INITIAL POSITION
@@ -454,19 +487,38 @@ wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
 /* ===============================
    INDICATOR SETUP
    =============================== */
-const realSlideCount = slides.length - 2; // exclude clones
+const realSlideCount = slides.length - 2;
 
-// Create dots
 for (let i = 0; i < realSlideCount; i++) {
     const dot = document.createElement("span");
     dot.classList.add("dot");
     dot.dataset.index = i + 1;
+    dot.setAttribute("role", "button");
+    dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
 
     const progress = document.createElement("span");
     progress.classList.add("progress");
 
     dot.appendChild(progress);
     indicator.appendChild(dot);
+}
+
+function resetProgressBars() {
+    const bars = indicator.querySelectorAll(".progress");
+    bars.forEach(bar => {
+        bar.style.animation = "none";
+        bar.offsetHeight;
+        bar.style.animation = "";
+    });
+}
+
+function startProgressBar() {
+    // if (window.innerWidth > 768) return;
+
+    const active = indicator.querySelector(".dot.active .progress");
+    if (!active) return;
+
+    active.style.animationDuration = `${autoSlideTime}ms`;
 }
 
 function updateIndicator() {
@@ -477,31 +529,30 @@ function updateIndicator() {
     if (activeIndex < 0) activeIndex = realSlideCount - 1;
     if (activeIndex >= realSlideCount) activeIndex = 0;
 
-    
-
     dots[activeIndex].classList.add("active");
-    
+
     resetProgressBars();
     startProgressBar();
-
 }
 
 updateIndicator();
 
 /* ===============================
-   SLIDE FUNCTIONS
+   SLIDE CONTROLS
    =============================== */
 function nextSlide() {
     if (index >= slides.length - 1) return;
     index++;
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-    updateIndicator();
+    moveToIndex();
 }
 
 function prevSlide() {
     if (index <= 0) return;
     index--;
+    moveToIndex();
+}
+
+function moveToIndex() {
     wrapper.style.transition = "transform 0.5s ease-in-out";
     wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
     updateIndicator();
@@ -511,24 +562,25 @@ function prevSlide() {
    INFINITE LOOP FIX
    =============================== */
 wrapper.addEventListener("transitionend", () => {
-    if (slides[index].classList.contains("clone")) {
-        wrapper.style.transition = "none";
+    if (!slides[index].classList.contains("clone")) return;
 
-        if (index === 0) {
-            index = slides.length - 2;
-        } else if (index === slides.length - 1) {
-            index = 1;
-        }
+    wrapper.style.transition = "none";
 
-        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-        updateIndicator();
+    if (index === 0) {
+        index = slides.length - 2;
+    } else if (index === slides.length - 1) {
+        index = 1;
     }
+
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    updateIndicator();
 });
 
 /* ===============================
    AUTOPLAY
    =============================== */
 function startAutoSlide() {
+    stopAutoSlide();
     interval = setInterval(nextSlide, autoSlideTime);
 }
 
@@ -540,63 +592,53 @@ wrapper.addEventListener("mouseenter", stopAutoSlide);
 wrapper.addEventListener("mouseleave", startAutoSlide);
 
 /* ===============================
-   ARROW CONTROLS
+   ARROWS
    =============================== */
-root.querySelector(".carousel-remote .next").addEventListener("click", () => {
+root.querySelector(".next").addEventListener("click", () => {
     stopAutoSlide();
     nextSlide();
     startAutoSlide();
 });
 
-root.querySelector(".carousel-remote .prev").addEventListener("click", () => {
+root.querySelector(".prev").addEventListener("click", () => {
     stopAutoSlide();
     prevSlide();
     startAutoSlide();
 });
 
 /* ===============================
-   DOT CLICK NAVIGATION
+   DOT CLICK NAVIGATION (FIX #2)
    =============================== */
 indicator.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("dot")) return;
+    const dot = e.target.closest(".dot");
+    if (!dot) return;
 
     stopAutoSlide();
-    index = Number(e.target.dataset.index);
-    wrapper.style.transition = "transform 0.5s ease-in-out";
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-    updateIndicator();
+    index = Number(dot.dataset.index);
+    moveToIndex();
     startAutoSlide();
 });
 
 /* ===============================
-   RESPONSIVE RESIZE
+   RESPONSIVE RESIZE (FIX #3)
    =============================== */
 window.addEventListener("resize", () => {
     slideWidth = slides[0].clientWidth;
+    dragThreshold = slideWidth * 0.2;
     wrapper.style.transition = "none";
     wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    syncTranslate();
 });
 
 /* ===============================
-   START
+   DRAG / SWIPE SUPPORT (FIX #4 & #6)
    =============================== */
-startAutoSlide();
-
-
-
-/* ===============================
-   DRAG / SWIPE SUPPORT
-   =============================== */
-
 let isDragging = false;
 let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID = null;
 
-const dragThreshold = slideWidth * 0.2;
-
-/* --- Helpers --- */
 function getPositionX(e) {
     return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
 }
@@ -612,65 +654,52 @@ function animation() {
     }
 }
 
-/* --- Drag Start --- */
 function dragStart(e) {
     stopAutoSlide();
     isDragging = true;
     startX = getPositionX(e);
+    prevTranslate = -slideWidth * index;
     wrapper.style.transition = "none";
     animationID = requestAnimationFrame(animation);
 }
 
-/* --- Drag Move --- */
 function dragMove(e) {
     if (!isDragging) return;
     const currentPosition = getPositionX(e);
     currentTranslate = prevTranslate + currentPosition - startX;
 }
 
-/* --- Drag End --- */
 function dragEnd() {
     cancelAnimationFrame(animationID);
     isDragging = false;
 
     const movedBy = currentTranslate - prevTranslate;
 
-    wrapper.style.transition = "transform 0.5s ease-in-out";
+    if (movedBy < -dragThreshold) index++;
+    else if (movedBy > dragThreshold) index--;
 
-    if (movedBy < -dragThreshold) {
-        index++;
-    } else if (movedBy > dragThreshold) {
-        index--;
-    }
+    index = Math.max(0, Math.min(index, slides.length - 1));
 
-    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
-    prevTranslate = -slideWidth * index;
-
-    updateIndicator();
+    moveToIndex();
+    syncTranslate();
     startAutoSlide();
 }
 
-/* ===============================
-   EVENT LISTENERS
-   =============================== */
-
-/* Mouse */
 wrapper.addEventListener("mousedown", dragStart);
 window.addEventListener("mousemove", dragMove);
 window.addEventListener("mouseup", dragEnd);
 
-/* Touch */
 wrapper.addEventListener("touchstart", dragStart, { passive: true });
 wrapper.addEventListener("touchmove", dragMove, { passive: true });
 wrapper.addEventListener("touchend", dragEnd);
 
-/* Prevent image drag */
+/* Prevent image dragging */
 wrapper.querySelectorAll("img").forEach(img => {
     img.addEventListener("dragstart", e => e.preventDefault());
 });
 
 /* ===============================
-   SYNC POSITION AFTER SLIDE CHANGE
+   SYNC HELPERS
    =============================== */
 function syncTranslate() {
     prevTranslate = -slideWidth * index;
@@ -679,34 +708,12 @@ function syncTranslate() {
 
 syncTranslate();
 
-/* Update sync on resize */
-window.addEventListener("resize", () => {
-    slideWidth = slides[0].clientWidth;
-    syncTranslate();
-});
-
 /* ===============================
-   PROGRESS BAR CONTROL
+   START
    =============================== */
-
-function resetProgressBars() {
-    const progresses = indicator.querySelectorAll(".progress");
-    progresses.forEach(bar => {
-        bar.style.animation = "none";
-        bar.offsetHeight; // force reflow
-        bar.style.animation = "";
-    });
-}
-
-function startProgressBar() {
-    const activeDot = indicator.querySelector(".dot.active .progress");
-    if (!activeDot) return;
-
-    activeDot.style.animationDuration = `${autoSlideTime}ms`;
-}
-
-
+startAutoSlide();
 </script>
+
 
     <!-- Home Hero Carousel End -->
 
