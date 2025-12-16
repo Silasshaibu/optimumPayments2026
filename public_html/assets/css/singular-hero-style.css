@@ -21,7 +21,7 @@
 .carousel-wrapper {
     top:0px;
     left:0px;
-    /* height: 80vh; */
+    height: 100%;
     position: absolute;
     width: calc(var(--slide-count) * 100vw); /* dynamic width based on slide count */
     display: flex; /* make slides line up horizontally */
