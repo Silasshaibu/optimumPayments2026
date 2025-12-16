@@ -31,12 +31,14 @@
     </div> 
 
     <style>
-      .slide{
-        background:url(../assets/images/hero/desktopHero_Tabit_2.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+      /*Show desktop image only on desktop*/
+        @media(min-width:768px){
+          .slide{
+          background:url(../assets/images/hero/desktopHero_Tabit_2.jpg);
+          
+        }
       }
+      
     </style>
 
     <!-- section -->
