@@ -52,8 +52,8 @@
     /* CAROUSEL WINDOW */
     .carousel-scrollbar-container {
         position: relative;
-        width: 100vw;
-        min-height:300px;
+        width: 100%;
+        height:332px;
         overflow-y: hidden;
         margin-bottom:100px;
         /* background-color: grey; */
@@ -65,10 +65,15 @@
         gap: 10px;
         overflow-x: auto;
         scroll-behavior: smooth;
+        /* background-color: red; */
+        position: absolute;
+        top:1rem;
+        /* left:4rem; */
+        
     }
 
     /* CAROUSEL ITEM */
-    .carousel-item {
+    .carousel-item{
         width: 230px;           /* Desktop width */
         flex-shrink: 0;
         position: relative;
