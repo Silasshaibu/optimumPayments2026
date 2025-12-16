@@ -60,7 +60,7 @@
     }
 
     /* CAROUSEL WRAPPER */
-    .carousel-wrapper {
+    .carousel-wrapper.microService {
         display: flex;
         gap: 10px;
         overflow-x: auto;

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <title>HeroCarousel2     
+    </title>
+
+<style>
+
+    /* Carousel Indicator */
+
+    .homeHero-carousel {
+    position: relative;
+}
+
+
+.homeHero-carousel .carousel-indicator {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.homeHero-carousel .carousel-indicator .dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.homeHero-carousel .carousel-indicator .dot.active {
+    width: 28px;           /* pill effect */
+    background: #fff;
+}
+
+
+    .homeHero-carousel .slide[data-bg="1"] {
+        background: url('../assets/images/hero/desktop-slide-1.jpg') no-repeat center/cover;
+        background: rgb(189, 189, 84);
+    }
+
+    .homeHero-carousel .slide[data-bg="2"] {
+        background: url('../assets/images/hero/desktop-slide-2.jpg') no-repeat center/cover;
+        background: rgba(189, 84, 166, 0.308);
+    }
+
+    .homeHero-carousel .slide[data-bg="3"] {
+        background: url('../assets/images/hero/desktop-slide-3.jpg') no-repeat center/cover;
+        background: rgb(138, 84, 189);
+    }
+
+    .homeHero-carousel .slide[data-bg="4"] {
+        background: url('../assets/images/hero/desktop-slide-4.jpg') no-repeat center/cover;
+        background: rgb(84, 126, 189);
+    }
+
+    .homeHero-carousel .slide[data-bg="5"] {
+        background: url('../assets/images/hero/desktop-slide-5.jpg') no-repeat center/cover;
+        background: rgb(84, 189, 136);
+    }
+
+ 
+
+.homeHero-carousel .carousel-window {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-height: 90vh;
+    min-height: 560px;
+}
+
+.homeHero-carousel .carousel-wrapper {
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    width: calc(var(--slide-count, 5) * 100vw);
+    display: flex;
+}
+
+.homeHero-carousel .slide {
+    width: 100vw;
+    flex-shrink: 0;
+    padding: 12px 32px;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    min-height: 300px;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: rgb(70, 69, 69);
+}
+
+/* Keep your layout rules but scoped */
+.homeHero-carousel .textInfo-wrapper,
+.homeHero-carousel .image-wrapper {
+    flex: 1;
+}
+
+.homeHero-carousel .image-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    transform: translate(0, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 400px;
+}
+
+.homeHero-carousel .textInfo-wrapper {
+    position: relative;
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    padding: 64px;
+}
+
+.homeHero-carousel .cta-container-hero{
+    padding-top: 52px;
+    /* padding-bottom:32px; */
+    display: flex;
+     gap:1rem;
+}
+
+
+.homeHero-carousel p.label-h1{
+    color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px; /* 120% */
+    min-height:16.8px;    
+}
+
+.homeHero-carousel p.display{
+    color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--line-height-18, 18px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-23_4, 23.4px); /* 130% */
+    width: 340px;
+    max-width: 28ch;
+}
+h1.heading.title{
+    width:14ch;
+    color: var(--us-store-bambulab-com-white, var(--color-white-solid, #FFF));
+    /* us.store.bambulab.com/Semantic/Heading 1 */
+    font-family: var(--font-family-Font-1, Manrope);
+    font-size: var(--font-size-40, 40px);
+    font-style: normal;
+    font-weight: var(--font-weight-700, 700);
+    line-height: var(--line-height-48, 48px); /* 120% */
+    text-transform: capitalize;
+}
+
+
+
+/*WE ARE USING DESKTOP FIRST APPROACH*/
+/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
+@media (max-width:768px) {
+
+    .homeHero-carousel .carousel-indicator {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 1%);
+    display: flex;
+    gap: 10px;
+    /* background-color: red; */
+    z-index: 5;
+}
+
+.homeHero-carousel .cta-container-hero{
+    padding-top:1.5rem;
+    padding-bottom:2rem;
+    display: flex;
+     gap:1rem;
+}
+
+.homeHero-carousel .carousel-indicator .dot{
+   background: rgba(122, 122, 122, 0.5);
+}
+
+.homeHero-carousel .carousel-indicator .dot.active{
+        background:rgb(128, 128, 128);
+}
+
+/* Progress Bar Inside Active Dot */
+.homeHero-carousel .carousel-indicator .dot {
+    position: relative;
+    overflow: hidden;
+}
+
+.homeHero-carousel .carousel-indicator .dot .progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: #fff;
+    border-radius: 50px;
+    transition: none;
+}
+
+/* Animate only active dot */
+.homeHero-carousel .carousel-indicator .dot.active .progress {
+    animation: fillProgress linear forwards;
+}
+
+/* Animation duration controlled via JS */
+@keyframes fillProgress {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+
+    .homeHero-carousel .slide {
+        background: none !important;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .homeHero-carousel .textInfo-wrapper {
+        width: 100%;
+        align-items: center;
+        padding: .5rem;
+    }
+
+    .homeHero-carousel p.display,
+    .homeHero-carousel h1.heading.title {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .homeHero-carousel .image-wrapper {
+        position: relative;
+        width: 500px;
+        height: 400px;
+        transform: none;
+        bottom: 0;
+    }
+
+      .homeHero-carousel .carousel-window.home-hero {
+        min-height: 614px;
+        height: auto;
+    }
+
+
+    .homeHero-carousel p.display{
+    color: var(--TypographyColors-Subtitle, #788289);
+    text-align: center;
+
+    /* BBu.Mobile.P1 */
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    }
+
+    .homeHero-carousel h1.heading.title{
+    color: var(--TypographyColors-Title, #18374E);
+    text-align: center;
+
+    /* Mobile.H1 */
+    font-family: Inter;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52.8px; /* 120% */
+    }
+
+  
+    .homeHero-carousel .slide {
+        background: none !important;
+    }
+
+    .homeHero-carousel .image-wrapper {
+        display: flex;
+    }
+}
+
+</style>
+
+</head>
+<body>
+    
+    <!-- Home Hero Carousel End -->
+    <div class="homeHero-carousel">
+        <!-- your carousel code -->
+
+
+        <!-- Home Hero Carousel Start -->
+        <div id="home-hero" class="carousel-window home-hero">
+
+            <div class="carousel-indicator">
+            <!-- dots will be generated by JS -->
+            </div>
+
+            <div class="carousel-wrapper">
+                <div class="slide" data-bg="1">
+                    <div class="textInfo-wrapper">
+                        <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                        <p class="label-h1">SOLUTIONS PROVIDER</p>
+                        <h1 class="heading title display">Optimum Payments</h1>
+                        <p class="display subtitle">A full proider of payment processing and business financing.</p>
+                        <div class="image-wrapper">
+                            <img src="../assets/images/hero/clover-mini.png" alt="" width="300px" height="fit-content" >
+                        </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Learn More</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                    
+                </div>
+                <div class="slide" data-bg="2">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">ROK</p>
+                        
+                        <h1 class="heading title display">Business Financing</h1>
+                        <p class="display subtitle">Get the funding your business deserves today.</p>
+                        <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                        </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Get Started</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                
+                </div>
+                <div class="slide" data-bg="3">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">OUR SERVICE</p>
+                            <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    
+                        <h1 class="heading title display">Payment Processing</h1>
+                        <p class="display subtitle">Our solutions are designed to meet unique needs.</p>
+                            <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                        </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Apply Now</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                
+                </div>
+                <div class="slide" data-bg="4">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">BECOME A MERCHANT</p>
+                            <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                    
+                        <h1 class="heading title display">Merchant Application</h1>
+                        <p class="display subtitle">Start accepting payments with confidence.</p>
+                            <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Fill The Form</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                
+                </div>
+                <div class="slide" data-bg="5">
+                    <div class="textInfo-wrapper">
+                        <p class="label-h1">Just For You</p>
+                            <!--Label can be empty and the height wil still be maintined ALSO you can include the height as well-->
+                        
+                        <h1 class="heading title display">Digital Creative Services</h1>
+                        <p class="display subtitle">Let's help you realize your imagination.</p>
+                            <div class="image-wrapper">
+                        <img src="../assets/images/hero/clover-mini.png" alt="" width="300px">
+                    </div>
+                        <div class="cta-container-hero">
+                            <button class="btn-primary">Fill The Form</button>
+                            <button class="btn-secondary">Learn More</button>
+                        </div>   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+        
+
+
+
+
+        <div class="carousel-wrapper-remote carousel-remote">
+            <button class="prev">
+                Left
+            </button>
+
+            <button class="next">
+                Right
+            </button>
+        </div>
+    </div>
+    
+   <script>
+/* ===============================
+   HOME HERO CAROUSEL SCRIPT
+   =============================== */
+
+const root = document.querySelector(".homeHero-carousel");
+const wrapper = root.querySelector(".carousel-wrapper");
+const indicator = root.querySelector(".carousel-indicator");
+
+let slides = root.querySelectorAll(".carousel-wrapper .slide");
+
+let index = 1;
+let interval = null;
+const autoSlideTime = 3000;
+
+/* ===============================
+   CLONE FIRST & LAST SLIDES
+   =============================== */
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+firstClone.classList.add("clone");
+lastClone.classList.add("clone");
+
+wrapper.appendChild(firstClone);
+wrapper.insertBefore(lastClone, slides[0]);
+
+// Re-query slides after cloning
+slides = root.querySelectorAll(".carousel-wrapper .slide");
+
+let slideWidth = slides[0].clientWidth;
+
+/* ===============================
+   INITIAL POSITION
+   =============================== */
+wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+
+/* ===============================
+   INDICATOR SETUP
+   =============================== */
+const realSlideCount = slides.length - 2; // exclude clones
+
+// Create dots
+for (let i = 0; i < realSlideCount; i++) {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.dataset.index = i + 1;
+
+    const progress = document.createElement("span");
+    progress.classList.add("progress");
+
+    dot.appendChild(progress);
+    indicator.appendChild(dot);
+}
+
+function updateIndicator() {
+    const dots = indicator.querySelectorAll(".dot");
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    let activeIndex = index - 1;
+    if (activeIndex < 0) activeIndex = realSlideCount - 1;
+    if (activeIndex >= realSlideCount) activeIndex = 0;
+
+    
+
+    dots[activeIndex].classList.add("active");
+    
+    resetProgressBars();
+    startProgressBar();
+
+}
+
+updateIndicator();
+
+/* ===============================
+   SLIDE FUNCTIONS
+   =============================== */
+function nextSlide() {
+    if (index >= slides.length - 1) return;
+    index++;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    updateIndicator();
+}
+
+function prevSlide() {
+    if (index <= 0) return;
+    index--;
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    updateIndicator();
+}
+
+/* ===============================
+   INFINITE LOOP FIX
+   =============================== */
+wrapper.addEventListener("transitionend", () => {
+    if (slides[index].classList.contains("clone")) {
+        wrapper.style.transition = "none";
+
+        if (index === 0) {
+            index = slides.length - 2;
+        } else if (index === slides.length - 1) {
+            index = 1;
+        }
+
+        wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+        updateIndicator();
+    }
+});
+
+/* ===============================
+   AUTOPLAY
+   =============================== */
+function startAutoSlide() {
+    interval = setInterval(nextSlide, autoSlideTime);
+}
+
+function stopAutoSlide() {
+    clearInterval(interval);
+}
+
+wrapper.addEventListener("mouseenter", stopAutoSlide);
+wrapper.addEventListener("mouseleave", startAutoSlide);
+
+/* ===============================
+   ARROW CONTROLS
+   =============================== */
+root.querySelector(".carousel-remote .next").addEventListener("click", () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+});
+
+root.querySelector(".carousel-remote .prev").addEventListener("click", () => {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+});
+
+/* ===============================
+   DOT CLICK NAVIGATION
+   =============================== */
+indicator.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("dot")) return;
+
+    stopAutoSlide();
+    index = Number(e.target.dataset.index);
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    updateIndicator();
+    startAutoSlide();
+});
+
+/* ===============================
+   RESPONSIVE RESIZE
+   =============================== */
+window.addEventListener("resize", () => {
+    slideWidth = slides[0].clientWidth;
+    wrapper.style.transition = "none";
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+});
+
+/* ===============================
+   START
+   =============================== */
+startAutoSlide();
+
+
+
+/* ===============================
+   DRAG / SWIPE SUPPORT
+   =============================== */
+
+let isDragging = false;
+let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID = null;
+
+const dragThreshold = slideWidth * 0.2;
+
+/* --- Helpers --- */
+function getPositionX(e) {
+    return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+}
+
+function setSliderPosition() {
+    wrapper.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+function animation() {
+    if (isDragging) {
+        setSliderPosition();
+        requestAnimationFrame(animation);
+    }
+}
+
+/* --- Drag Start --- */
+function dragStart(e) {
+    stopAutoSlide();
+    isDragging = true;
+    startX = getPositionX(e);
+    wrapper.style.transition = "none";
+    animationID = requestAnimationFrame(animation);
+}
+
+/* --- Drag Move --- */
+function dragMove(e) {
+    if (!isDragging) return;
+    const currentPosition = getPositionX(e);
+    currentTranslate = prevTranslate + currentPosition - startX;
+}
+
+/* --- Drag End --- */
+function dragEnd() {
+    cancelAnimationFrame(animationID);
+    isDragging = false;
+
+    const movedBy = currentTranslate - prevTranslate;
+
+    wrapper.style.transition = "transform 0.5s ease-in-out";
+
+    if (movedBy < -dragThreshold) {
+        index++;
+    } else if (movedBy > dragThreshold) {
+        index--;
+    }
+
+    wrapper.style.transform = `translateX(-${slideWidth * index}px)`;
+    prevTranslate = -slideWidth * index;
+
+    updateIndicator();
+    startAutoSlide();
+}
+
+/* ===============================
+   EVENT LISTENERS
+   =============================== */
+
+/* Mouse */
+wrapper.addEventListener("mousedown", dragStart);
+window.addEventListener("mousemove", dragMove);
+window.addEventListener("mouseup", dragEnd);
+
+/* Touch */
+wrapper.addEventListener("touchstart", dragStart, { passive: true });
+wrapper.addEventListener("touchmove", dragMove, { passive: true });
+wrapper.addEventListener("touchend", dragEnd);
+
+/* Prevent image drag */
+wrapper.querySelectorAll("img").forEach(img => {
+    img.addEventListener("dragstart", e => e.preventDefault());
+});
+
+/* ===============================
+   SYNC POSITION AFTER SLIDE CHANGE
+   =============================== */
+function syncTranslate() {
+    prevTranslate = -slideWidth * index;
+    currentTranslate = prevTranslate;
+}
+
+syncTranslate();
+
+/* Update sync on resize */
+window.addEventListener("resize", () => {
+    slideWidth = slides[0].clientWidth;
+    syncTranslate();
+});
+
+/* ===============================
+   PROGRESS BAR CONTROL
+   =============================== */
+
+function resetProgressBars() {
+    const progresses = indicator.querySelectorAll(".progress");
+    progresses.forEach(bar => {
+        bar.style.animation = "none";
+        bar.offsetHeight; // force reflow
+        bar.style.animation = "";
+    });
+}
+
+function startProgressBar() {
+    const activeDot = indicator.querySelector(".dot.active .progress");
+    if (!activeDot) return;
+
+    activeDot.style.animationDuration = `${autoSlideTime}ms`;
+}
+
+
+</script>
+
+    <!-- Home Hero Carousel End -->
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

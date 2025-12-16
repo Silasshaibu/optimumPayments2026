@@ -6,31 +6,19 @@
   <title>Customers Reviews</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/style-guide.css">
+  <link rel="stylesheet" href="../assets/css/review-section.css">
  
 </head>
 <body>
 
-  <style>
-    header.hero-section {
-      text-align: center;
-      padding: 2rem;
-      background-color: grey;
-      background-image: url("../assets/images/promo/HeroBanner1.jpg");
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-    }
-
-    .hero-title {
-      font-size: 3rem;
-      font-weight: 700;
-      margin: 0;
-    }
-  </style>
-    <!-- Header Section -->
+  
+    <!-- Review Header Section -->
   <header class="hero-section">
     <h1 class="hero-title"> Customers Reviews<h1>
   </header>
+
+
+  <!-- Reviews Body Section Start -->
   <section class="customer-review-section">
     <div>
           <h1 class="customer-review-section title">What people say about us</h1>
@@ -287,233 +275,11 @@
       </article>
     </div>
   </section>
+  <!-- Reviews Body Section Start -->
 
 </body>
 
- <style>
-
-
-.customer-review-section{
-	display: flex;
-	flex-direction: column;
-	gap:32px;
-	padding:1rem 10%;
-	width: 100%;
-	position: relative;
-	padding-bottom:4rem;
-}
-
-h1.customer-review-section.title{
-	display: flex;
-	padding-bottom: 12px;
-	flex-direction: column;
-	text-align: center;
-	}
-
-
-    /* Grid Container */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 20px;
-      padding: 20px;
-    }
-
-    /* Card Styles */
-    .card {
-      width: 100%;
-      background: white;
-      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      border-radius: 8px;
-      border-radius: 0px;
-      display: flex;
-      flex-direction: column;
-      font-family: Manrope, sans-serif;
-      position: relative;
-    }
-
-    /* Card Header */
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 16px;
-      position: relative;
-    }
-
-    .user-info {
-      display: flex;
-      gap: 12px;
-    }
-
-    .avatar-container {
-      margin: 0;
-    }
-
-    .avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-    }
-
-
-    .card-grid > :last-child {
-      grid-column: -3 / -2; /* spans 2 columns, centered */
-      justify-self: center;
-    }
-
-    .user-details {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .user-name {
-      font-weight: 500;
-      font-size: 14px;
-      color: #111827;
-      margin: 0;
-    }
-
-    .user-recommend {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-weight: 400;
-      font-size: 12px;
-      color: #374151;
-    }
-
-    .icon-stack {
-      position: relative;
-      width: 32px;
-      height: 25.59px;
-      display: inline-flex;
-    }
-
-    .icon-heart {
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #EE4C63;
-      font-size: 25.6px;
-      font-weight: 900;
-      text-align: center;
-    }
-
-    .icon-star {
-      position: absolute;
-      left: 0;
-      top: -1.5px;
-      color: white;
-      font-size: 9.6px;
-      font-weight: 900;
-      text-align: center;
-    }
-
-    .recommend-date {
-      font-size: 12px;
-      color: #6B7280;
-      margin-top: 2px;
-    }
-
-    .social-icon {
-      width: 24px;
-      height: 24px;
-      background: #3B5998;
-      border-radius: 4px;
-      border-radius:0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-      color: white;
-
-    }
-
-    /* Card Body */
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 0 16px 16px 16px;
-    }
-
-    .testimonial {
-      font-size: 16px;
-      color: #1F2937;
-      margin: 0;
-    }
-
-    .read-more {
-      font-size: 12px;
-      color: #0284C7;
-      text-decoration: underline;
-      align-self: flex-start;
-    }
-
-    /* Card Footer */
-    .card-footer {
-      height: 8px;
-      background: #3B5998;
-      position:absolute;
-      bottom:0;
-      left:0;
-      width: 100%;
-    }
-
-    .star-rating {
-    display: flex;
-    gap: 2px; /* spacing between stars */
-    font-size: 14px; /* adjust star size */
-    color: #D1D5DB; /* default gray for empty stars */
-    }
-
-    .star-rating .filled {
-    color: #FBBF24; /* yellow for filled stars */
-    }
-
-
-    /* Responsive Grid */
-    @media (max-width: 1024px) {
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-title {
-			font-size: 3rem;
-			}
-    }
-
-    @media (max-width: 768px) {
-      .card-grid {
-        display: flex;
-        flex-direction: column;
-        gap:2rem;
-      }
-
-      .hero-title {
-			font-size: 2.2rem;
-			}
-
-      .customer-review-section{
-      padding:1rem 1rem;
-      width: 100%;
-      gap:0px;
-      padding-bottom:4rem;
-    }
-
-    h1.customer-review-section.title{
-      display: flex;
-      padding-bottom: 12px;
-      flex-direction: column;
-      text-align: center;
-      font-size: 1.5rem;
-      }
-    }
-    
-</style>
+ 
 
 <style>
     .card.type-facebook .star-rating { display: none; }
