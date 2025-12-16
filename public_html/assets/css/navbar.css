@@ -16,6 +16,18 @@ a {
     color: inherit;
 }
 
+
+.one.mainMenu > li a:hover{
+text-decoration:none;
+
+}
+
+
+/* 
+.one > li a{
+border-bottom: 3px solid var(--blue-600);
+} */
+
 .mini-service-card a{
     color:var(--blue-400);
 }

@@ -13,8 +13,8 @@
     position: relative;
     width: 100%;
     overflow: hidden; /* hide overflow for carousel effect */
-    height: 90vh; 
-    min-height:560px;
+    height: 80vh; 
+    /* min-height:560px; */
     overflow: hidden;
 }
 
@@ -73,6 +73,9 @@
 .slide{
     padding:158px 45px;
     background-color: rgb(185, 184, 184);    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 p.label-h1{
