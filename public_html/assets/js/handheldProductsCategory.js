@@ -1,47 +1,195 @@
-// HANDHELD PRODUCTS CATEGORY SCRIPT
+/* ==========================================================
+   HANDHELD PRODUCT GRID + SUMMARY + HERO CAROUSEL
+   ========================================================== */
 
-        document.addEventListener("DOMContentLoaded", () => {
-        const wrapper = document.querySelector(".carouselwithProducts-wrapper");
-        const carouselWindow = document.querySelector(".carouselWindow");
-        const section = document.querySelector(".home-default-section");
-        const viewAllBtn = document.getElementById("viewAllBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-        if (!wrapper || !carouselWindow || !section || !viewAllBtn) return;
+  /* ==========================================================
+     SHARED HELPERS
+     ========================================================== */
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
 
-        let expanded = false;
+  /* ==========================================================
+     HANDHELD PRODUCT GRID TOGGLE
+     ========================================================== */
+  const section = document.querySelector(".handheld");
+  if (section) {
+    const productGrid = section.querySelector(".handheld__carousel.handheld__grid");
+    const toggleBtn = section.querySelector(".js-handheld-toggle");
 
-        viewAllBtn.addEventListener("click", () => {
-            expanded = !expanded;
+    if (productGrid && toggleBtn) {
+      const toggleLabel = toggleBtn.querySelector("span");
+      const items = Array.from(productGrid.querySelectorAll(".handheld__item"));
+      const summaries = document.querySelectorAll(".handheld-productSummary");
 
-            // Toggle grid styles
-            wrapper.classList.toggle("is-grid", expanded);
-            section.classList.toggle("is-grid", expanded);
+      let isExpanded = false;
 
-            viewAllBtn.childNodes[0].nodeValue = expanded ? "View less" : "View all";
-            viewAllBtn.setAttribute("aria-expanded", expanded);
+      const ITEM_COUNTS = {
+        desktop: { collapsed: 6, expanded: 8 },
+        mobile: { collapsed: 6, expanded: 8 }
+      };
 
-            if (expanded) {
-                /* ✅ GRID MODE (OUT OF CAROUSEL) */
-                carouselWindow.style.height = "auto";
-                wrapper.style.position = "relative";   // 🔑 KEY FIX
-                wrapper.style.transform = "none";
-            } else {
-                /* ✅ CAROUSEL MODE */
-                carouselWindow.style.height = "";
-                wrapper.style.position = "";           // restore default
-                wrapper.style.transform = "translateX(0)";
-            }
+      function setVisibleItems(count) {
+        items.forEach((item, index) => {
+          item.style.display = index < count ? "block" : "none";
         });
-    });
+      }
 
-   
-    // Truncates Product Summary Text on HandHeld Grid Section
-    document.addEventListener("DOMContentLoaded", () => {
-            const summaries = document.querySelectorAll("p.productSummary");
-            summaries.forEach(p => {
-                const text = p.textContent.trim();
-                if (text.length > 25) {
-                    p.textContent = text.substring(0, 25) + "...";
-                }
-            });
-    });
+      function applyGridColumns() {
+        productGrid.style.gridTemplateColumns = isMobile()
+          ? "repeat(2, 1fr)"
+          : isExpanded
+            ? "repeat(2, 1fr)"
+            : "repeat(3, 1fr)";
+      }
+
+      function applyCollapsed() {
+        isExpanded = false;
+        toggleLabel.textContent = "View all";
+        applyGridColumns();
+        setVisibleItems(ITEM_COUNTS[isMobile() ? "mobile" : "desktop"].collapsed);
+      }
+
+      function applyExpanded() {
+        isExpanded = true;
+        toggleLabel.textContent = "View less";
+        applyGridColumns();
+        setVisibleItems(ITEM_COUNTS[isMobile() ? "mobile" : "desktop"].expanded);
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        isExpanded ? applyCollapsed() : applyExpanded();
+      });
+
+      /* ==========================================================
+         SUMMARY TRUNCATION
+         ========================================================== */
+      function truncateSummaries() {
+        summaries.forEach(el => {
+          const fullText =
+            el.getAttribute("data-fulltext") || el.textContent.trim();
+
+          if (!el.hasAttribute("data-fulltext")) {
+            el.setAttribute("data-fulltext", fullText);
+          }
+
+          const maxLength = isMobile() ? 18 : 32;
+          el.textContent =
+            fullText.length > maxLength
+              ? fullText.slice(0, maxLength) + "…"
+              : fullText;
+        });
+      }
+
+      window.addEventListener("resize", () => {
+        isExpanded ? applyExpanded() : applyCollapsed();
+        truncateSummaries();
+      });
+
+      applyCollapsed();
+      truncateSummaries();
+    }
+  }
+
+  /* ==========================================================
+     HANDHELD HERO CAROUSEL (BANNER SLIDES)
+     ========================================================== */
+  document
+    .querySelectorAll("[data-carousel]")
+    .forEach(initHandheldCarousel);
+
+  function initHandheldCarousel(carouselEl) {
+    const track = carouselEl.querySelector(".handheld__track");
+    if (!track) return;
+
+    const section = carouselEl.closest(".handheld");
+    if (!section) return;
+
+    const prevBtn = section.querySelector(".js-handheld-prev");
+    const nextBtn = section.querySelector(".js-handheld-next");
+    if (!prevBtn || !nextBtn) return;
+
+    const slides = Array.from(track.children);
+    if (slides.length < 2) return;
+
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    track.insertBefore(lastClone, slides[0]);
+    track.appendChild(firstClone);
+
+    const allSlides = Array.from(track.children);
+
+    let index = 1;
+    let slideWidth = carouselEl.offsetWidth;
+    let isAnimating = false;
+    let autoSlideInterval;
+
+    const slideDuration = 1200;
+
+    function toggleArrows(enable) {
+      prevBtn.toggleAttribute("disabled", !enable);
+      nextBtn.toggleAttribute("disabled", !enable);
+    }
+
+    if (2 === 1) {
+      toggleArrows(true);
+    } else {
+      toggleArrows(false);
+      startAutoSlide();
+    }
+
+    function setPosition(noAnim = false) {
+      track.style.transition = noAnim
+        ? "none"
+        : `transform ${slideDuration}ms ease`;
+      track.style.transform = `translateX(-${slideWidth * index}px)`;
+    }
+
+    function updateWidth() {
+      slideWidth = carouselEl.offsetWidth;
+      setPosition(true);
+    }
+
+    window.addEventListener("resize", updateWidth);
+    setPosition(true);
+
+    function moveTo(newIndex) {
+      if (isAnimating) return;
+      isAnimating = true;
+      index = newIndex;
+      setPosition();
+
+      track.addEventListener(
+        "transitionend",
+        () => {
+          if (allSlides[index] === firstClone) {
+            index = 1;
+            setPosition(true);
+          }
+          if (allSlides[index] === lastClone) {
+            index = slides.length;
+            setPosition(true);
+          }
+          isAnimating = false;
+        },
+        { once: true }
+      );
+    }
+
+    prevBtn.addEventListener("click", () => moveTo(index - 1));
+    nextBtn.addEventListener("click", () => moveTo(index + 1));
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        moveTo(index + 1);
+      }, 4000);
+    }
+
+    carouselEl.addEventListener("mouseenter", () =>
+      clearInterval(autoSlideInterval)
+    );
+    carouselEl.addEventListener("mouseleave", startAutoSlide);
+  }
+});

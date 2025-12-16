@@ -4,532 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home-onlyHandHeldDevices</title>
+    <link rel="stylesheet" href="../assets/css/style-guide.css">
+    <link rel="stylesheet" href="../assets/css/category-handheld.css">
+    <script src="../assets/js/handheldProductsCategory.js"></script>
 </head>
 
-<style>
-    /*LINKED HANDHELD CSS STYLING*/
-.section.handheld-carousel-header {
-    padding-top: 4.375rem;
-}
-
-.handheld.btn-featured-products:hover{
-    color:white;
-}
-
-.handheld__controls.handheld.remoteControl{
-    display: none; /*We just hid the carousel arrow left and right button we can enable it when we set 2=1 back to 1=1 in the js script file so can revert to using this method*/
-
-}
-
-
-:root {
-    --handheld__slide-and-container-width-singularUnit: 83vw;
-    --handheld__slide-and-container-height: 400px;
-    /* controls the handheld__slide viewer width per handheld__slide*/
-    /*We are using 1200px or 83vw or 83%*/
-}
-
-.handheld-carousel-header, .handheld__carousel, .handheld-carousel-footer, .handheld__header.withRemote{
-    width: var(--handheld__slide-and-container-width-singularUnit);
-    margin:0 auto;
-}
-
-
-
-.handheld__carousel, .handheld__track, .handheld__slide{
-    height: var(--handheld__slide-and-container-height);
-}
-
-
-/*GRID SYSTEM TEMPLATE FOR REUSE*/
-.handheld__carousel.handheld__grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:1rem;
-    padding-top:1rem;
-    padding-bottom: 2rem;
-    position: relative;
-    height: fit-content;
-}
-  
-
-    .handheld__carousel.handheld__grid .handheld__item{
-        aspect-ratio: 18/25;
-       
-        /* position: absolute; */
-    }
-
-    .handheld__item{
-        position: relative;
-    }      
-
-    .handheld .handheld-productInfo{
-        position: absolute;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        /* gap:4rem; */
-        height:200px;
-        padding: 1.5rem 2rem;
-        bottom:0;
-    }
-
-    .handheld__carousel.productsGrid.handheld-grid > div > div.handheld-productInfo{
-        text-align: left;
-
-    }
-    .handheld .featured-product{
-        padding:4rem 2rem;
-    }
-
-    .handheld__featured--vp800{
-        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width:var(--handheld__slide-and-container-width-singularUnit);
-        height:var(--handheld__slide-and-container-height);
-    }
-
-    .handheld__featured--vp550{
-        background:url(../assets/images/products/handheldProducts/Banner-HandHeldDevices-VP550--1200x400.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width:var(--handheld__slide-and-container-width-singularUnit);
-        height:var(--handheld__slide-and-container-height);
-    }
-
-    .handheld__carousel {
-        position: relative;
-        width: var(--handheld__slide-and-container-width-singularUnit);
-        overflow: hidden; /* hide overflow for carousel effect */        
-        margin:0 auto;
-    }
-
-    .handheld__track {
-        top:0px;
-        left:0px;
-        position: absolute;
-        display: flex; /* make handheld__slides line up horizontally */
-        width: max-content; /* let JS or content determine total width */
-    }
-
-
-    .handheld__slide {
-        width: var(--handheld__slide-and-container-width-singularUnit) ; /* each handheld__slide takes full viewport width */
-        flex-shrink: 0; /* prevent shrinking */
-        padding:0rem;
-        flex-direction: row;
-        align-self: center;
-        min-height:200px; /*Placeholder can be changed where necessary */
-        align-items: center;
-        background-color: rgb(214, 213, 213);
-    }
-
-    .textInfo-wrapper, .image-wrapper{
-        flex:1;
-    }
-
-    .textInfo-wrapper{
-        position: relative;
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .handheld.cta-container-hero{
-        padding-top: 52px;
-        display: flex;
-        gap:1rem;
-    }
-
-
-    .handheld p.label-h1{
-        color: var(--us-store-bambulab-com-yellow-orange, var(--color-orange-63, #FFBA41));
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 16.8px; /* 120% */
-        min-height:16.8px;
-        
-    }
-
-    .handheld p.display{
-        color: var(--us-store-bambulab-com-alabaster, var(--color-grey-98, #FBFBFB));
-        font-size: var(--line-height-18, 18px);
-        font-style: normal;
-        font-weight: var(--font-weight-700, 700);
-        line-height: var(--line-height-23_4, 23.4px); /* 130% */
-        width: 340px;
-        max-width: 28ch;
-    }
-    
-    h1.producCategoryheading.title{
-    color: var(--us-store-bambulab-com-black-88, var(--color-black-88, rgba(0, 0, 0, 0.88)));
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: var(--font-weight-700, 700);
-    line-height: var(--line-height-44_2, 44.2px); /* 130% */
-    }
- 
-    .handheld-carousel-header.withRemote{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 36px;
-    }
-
-
-    .handheld__toggle{
-        color: #333;
-        border-radius:0px;
-        background-color: transparent;
-        padding:0;
-    }
-
-    .directionCarousel.handHeldDevice{
-        color: #333;
-        border-radius:0px;
-        background-color: transparent;
-        padding:0;
-        border:1px solid #ccc;
-        border:1px solid #656572;        
-        width: var(--circle-size, 32px);
-        height: var(--circle-size, 32px);
-        background: var(--circle-color);        
-        border-radius: 50%; /* makes it a perfect circle */
-    }
-
-
-  
-    .icon.rightArrowcaret, .handheld__toggle svg, .btn-featured-products.product-Btn-Desktop svg, .icon.rightArrow{
-        transform: translateY(3px);
-    }
-     
-    .handheld.btn-featured-products.product-Btn-Desktop:hover{
-        background-color: white;
-
-    }
-
-    .handheld.btn-featured-products.product-Btn-Desktop{
-        margin-top:.8rem;
-    }
-
-   
-
-    .handheld.product-title{
-        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
-        font-size: var(--line-height-18, 18px);
-        font-style: normal;
-        font-weight: var(--font-weight-700, 700);
-        line-height: var(--line-height-23_4, 23.4px); /* 130% */
-    }
-
-    .handheld.product-intro{
-        color: var(--us-store-bambulab-com-cod-gray, var(--color-grey-10, #1A1A1A));
-        font-size: 1.5rem;
-        font-style: normal;
-        font-weight: var(--font-weight-700, 700);
-        line-height: var(--line-height-28_8, 28.8px); /* 120% */
-        padding:.75rem 0rem;
-    }
-
-    a.handheld-productLink{
-        padding:1.5rem 0rem;   
-        cursor: pointer;                     
-    }
-
-   
-    .handheld__item.valorVP800 {
-        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-
-    .handheld__item.valorVL100 {
-        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-
-    .handheld__item.valorVL110 {
-        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-
-    .handheld__item.cloverFlex {
-        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-
-    .handheld__item.valorVP550 {
-        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-
-    .handheld__item.cloverGoPlus {
-        background:url(../assets/images/products/handheldProducts/HandHeldDevice-sample.jpg);
-        background-size: cover;
-        background-position: center;
-    }
-
-    .handheld-carousel-footer.withRemote .remoteControl{
-        display: flex;
-        justify-content: end;
-        gap:.5rem;
-    }
-
-    .handheld.remoteControl{
-        display: flex;
-        gap:.5rem;
-        
-    }
-    
-    .handheld__featured{
-        padding:4rem 2rem;
-    }
-    
-     .handheld__arrow{
-        color: #333;
-        border-radius: 0px;
-        background-color: transparent;
-        padding: 0;
-        border: 1px solid #656572;
-        width: var(--circle-size, 32px);
-        height: var(--circle-size, 32px);
-        background: var(--circle-color);
-        border-radius: 50%;
-    }
-
-    .handheld__arrow:hover{
-        background-color: #333;
-        color:#fff;
-    }
-   
-
-    .handheld.remoteControl.handheld__arrow:hover{
-        background-color: #333;
-        color:#fff;
-    } 
-
-    .handheld__carousel.productsGrid.handheld-grid{
-        display: grid;
-        gap:1rem;
-        padding-top:1rem;
-        padding-bottom: .5rem;
-    }
-
-    .handheld__carousel.productsGrid.handheld-grid .handheld__item{
-        aspect-ratio: 4/5;    
-    }
-
-    .handheld__item.is-hidden {
-    display: none;
-    }
-
-    .handheld__toggle{
-        border-bottom: 1px solid transparent;
-
-    }
-
-    .handheld__toggle:hover{
-        background: transparent;
-        color:var(--color-primary);
-        border-bottom:1px solid var(--color-primary);
-
-    }
-
-
-/*Handheld grid collapse and expand animation logic start*/
-.handheld-grid {
-  overflow: hidden;
-  transition: max-height 0.45s ease, grid-template-columns 0.3s ease;
-}
-
-.handheld__item {
-  transition:
-    opacity 0.35s ease,
-    transform 0.35s ease;
-}
-
-
-.handheld__item.is-hidden {
-  opacity: 0;
-  transform: translateY(12px);
-  pointer-events: none;
-}
-
-.handheld__header.withRemote{
-    position: relative;
-    padding-bottom:36px;
-}
-
-
-
-/*Handheld grid collapse and expand animation logic end*/
-
-.handheld-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.handheld-grid.grid-4-col {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-/* Force grid items to fill their grid cell */
-.handheld__carousel.handheld__grid {
-  position: relative;
-}
-
-.handheld__carousel.handheld__grid .handheld__item {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-.handheld__header.withRemote{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
- 
-.handheld__header.withRemote svg{
-    transform: translateY(3px);
-}
-        
-
-
-/*WE ARE USING DESKTOP FIRST APPROACH*/
-/*THE TABLE DEVICE*/
-@media (max-width:1024px) {
-    .handheld .handheld-productInfo{
-        
-        height:150px;
-        padding: 0.5rem 2rem;
-        bottom:0;
-    }
-
-    
-
-/*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
-@media (max-width:768px) {
-    :root{
-        --handheld__slide-and-container-width-singularUnit:94vw;
-    }
-
-    .handheld__slide{
-        /* margin:auto 0; */
-        background-color: #fff;
-        flex-direction: column;
-        
-    }
-
-    .handheld.featured-product{
-        padding:2rem 1rem;
-    }
-
-    
-
-   
-    .handheld .textInfo-wrapper{
-        align-items: center; 
-        padding:.5rem;
-    }
-
-    .handheld p.display, h1.heading.title{
-        width: 100%;
-    }
-        
-
-    .handheld p.display, h1.heading.title{
-        text-align: center;
-    }
-
-    h1.producCategoryheading.title{
-        font-size:1.25em;
-    }
-    .handheld.remoteControl button{
-        font-size:.9rem;
-
-    }
-        
-
-    .image-wrapper{
-        position: relative;
-        right:0;
-        bottom:0%;
-        transform:translate(0%, 0%);
-        border:1px solid white;
-        width:var(--handheld__slide-and-container-width-singularUnit); /*Image container width to cover in d esktop version*/
-        height:var(var(--handheld__slide-and-container-height)) ;
-        /* height: 100%; */
-    }
-
-  
-
-    p.display{
-        color: var(--TypographyColors-Subtitle, #788289);
-        text-align: center;
-
-        /* BBu.Mobile.P1 */
-        font-family: Manrope;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 30px; /* 150% */
-    }
-
-    h1.heading.title{
-    color: var(--TypographyColors-Title, #18374E);
-    text-align: center;
-
-    /* Mobile.H1 */
-    font-family: Inter;
-    font-size: 44px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 52.8px; /* 120% */
-    }
-
-    .handheld__carousel.handheld__grid{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        /* column-gap:0rem; */
-        gap:1rem;
-        padding-top:1rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .handheld.remoteControl{
-                display: flex;
-                /* justify-content: center; */
-    }
-
-
-}
-
-
-
-@media (max-width:550px){
-    .handheld .handheld-productInfo{
-       height: 110px;
-       padding:0.5rem 1rem;
-    }
-
-    a.handheld-productLink{
-        padding:0.5rem 0rem;
-    }
-}
-</style>
 <body>
     <!-- Replace navbar here -->
     <header class="site-header" role="banner">
@@ -553,15 +32,8 @@
     </header>
 
     <!-- Content body -->
-  
-    
-  
 
-
-
-
-
-<!-- HandHeld Devices Section Start -->
+    <!-- HandHeld Devices Section Start -->
     <section class="handheld js-handheld">
         <!-- Header with more Remote controls-->
          <div class="handheld__header withRemote">
@@ -640,87 +112,86 @@
 
         <!-- Body Product Container -->
         <!-- Updated Product Grid with 6 items -->
-    <div class="handheld__carousel handheld__grid">
-    <!-- 1: Valor VP800 -->
-    <div class="handheld__item js-handheld-item valorVP800">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Valor VP800</h3>
-            <p class="handheld-productSummary"> High‑performance portable device High‑performance portable deviceHigh‑performance portable device</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <div class="handheld__carousel handheld__grid">
+        <!-- 1: Valor VP800 -->
+        <div class="handheld__item js-handheld-item valorVP800">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Valor VP800</h3>
+                <p class="handheld-productSummary"> High‑performance portable device High‑performance portable deviceHigh‑performance portable device</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
-    <!-- 2: Valor VL100 -->
-    <div class="handheld__item valorVL100">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Valor VL100</h3>
-            <p class="handheld-productSummary">Compact and reliable solution</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <!-- 2: Valor VL100 -->
+        <div class="handheld__item valorVL100">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Valor VL100</h3>
+                <p class="handheld-productSummary">Compact and reliable solution</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
-    <!-- 3: Valor VL110 -->
-    <div class="handheld__item valorVL110">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Valor VL110</h3>
-            <p class="handheld-productSummary">Next‑gen portable accuracy</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <!-- 3: Valor VL110 -->
+        <div class="handheld__item valorVL110">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Valor VL110</h3>
+                <p class="handheld-productSummary">Next‑gen portable accuracy</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
-    <!-- 4: Clover Flex -->
-    <div class="handheld__item cloverFlex">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Clover Flex</h3>
-            <p class="handheld-productSummary">Light and flexible payment solution</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <!-- 4: Clover Flex -->
+        <div class="handheld__item cloverFlex">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Clover Flex</h3>
+                <p class="handheld-productSummary">Light and flexible payment solution</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
-    <!-- 5: Clover Mini -->
-    <div class="handheld__item valorVP550">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Valor VP550</h3>
-            <p class="handheld-productSummary">Small footprint, big capability</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <!-- 5: Clover Mini -->
+        <div class="handheld__item valorVP550">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Valor VP550</h3>
+                <p class="handheld-productSummary">Small footprint, big capability</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
-    
+        
 
 
-    <!-- 6: Random Product C -->
-    <div class="handheld__item cloverGoPlus">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Clover Go Plus</h3>
-            <p class="handheld-productSummary">Portable and versatile on‑the‑go system</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <!-- 6: Random Product C -->
+        <div class="handheld__item cloverGoPlus">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Clover Go Plus</h3>
+                <p class="handheld-productSummary">Portable and versatile on‑the‑go system</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
-      <!-- 7: Union -->
-    <div class="handheld__item cloverGoPlus">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Union POS</h3>
-            <p class="handheld-productSummary">Portable and versatile on‑the‑go system</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <!-- 7: Union -->
+        <div class="handheld__item cloverGoPlus">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Union POS</h3>
+                <p class="handheld-productSummary">Portable and versatile on‑the‑go system</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
-      <!-- 8: Swipe Simple -->
-    <div class="handheld__item cloverGoPlus">
-        <div class="handheld-productInfo">
-            <h3 class="handheld-productTitle">Swipe Simple</h3>
-            <p class="handheld-productSummary">Portable and versatile on‑the‑go system</p>
-            <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+        <!-- 8: Swipe Simple -->
+        <div class="handheld__item cloverGoPlus">
+            <div class="handheld-productInfo">
+                <h3 class="handheld-productTitle">Swipe Simple</h3>
+                <p class="handheld-productSummary">Portable and versatile on‑the‑go system</p>
+                <a class="handheld-productLink">View Product <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon rightArrow"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></span></a>
+            </div>
         </div>
-    </div>
 
 
 
 
-    </div>
-
+        </div>
        
         <!-- Footer with Fewer Remote Controls -->
         <div class="handheld-carousel-footer withRemote">
@@ -733,280 +204,8 @@
               
                 </button>
             </div>
-        </div>
-
-        
-    </div>
-<!-- HandHeld Devices Section End -->
-
-
-
-
-
-
-    <!-- All necessary css stylings -->
-   
-    
-    <link rel="stylesheet" href="../assets/css/style-guide.css">     
-
-    <!-- All necessary associated js scripts   -->
-   
-<script>
-    /* ==========================================================
-   HANDHELD HERO CAROUSEL (BANNER SLIDES)
-   ========================================================== */
-
-document.querySelectorAll("[data-carousel]").forEach(initHandheldCarousel);
-
-function initHandheldCarousel(carouselEl) {
-  const track = carouselEl.querySelector(".handheld__track");
-  if (!track) return;
-
-  const section = carouselEl.closest(".handheld");
-  if (!section) return;
-
-  const prevBtn = section.querySelector(".js-handheld-prev");
-  const nextBtn = section.querySelector(".js-handheld-next");
-
-  if (!prevBtn || !nextBtn) return;
-
-  const slides = Array.from(track.children);
-  if (slides.length < 2) return;
-
-  /* Clone first & last for infinite loop */
-  const firstClone = slides[0].cloneNode(true);
-  const lastClone = slides[slides.length - 1].cloneNode(true);
-
-  track.insertBefore(lastClone, slides[0]);
-  track.appendChild(firstClone);
-
-  const allSlides = Array.from(track.children);
-
-  let index = 1;
-  let slideWidth = carouselEl.offsetWidth;
-  let isAnimating = false;
-  let autoSlideInterval;
-
-  // Default duration for the slide animation
-  const slideDuration = 1200; // Duration in milliseconds (adjust to make the slide slower or faster)
-  
-  // Function to enable or disable the arrows based on the condition
-  function toggleArrows(enable) {
-    if (enable) {
-      prevBtn.removeAttribute('disabled');
-      nextBtn.removeAttribute('disabled');
-    } else {
-      prevBtn.setAttribute('disabled', 'true');
-      nextBtn.setAttribute('disabled', 'true');
-    }
-  }
-
-  // Enable the arrows based on your condition (for example, if 2 == 1)
-  if (2 === 1) {
-    toggleArrows(true);
-  } else {
-    toggleArrows(false);  // Disable arrows
-    startAutoSlide();      // Start automatic slide
-  }
-
-  // Set the position of the carousel slides
-  function setPosition(noAnim = false) {
-    track.style.transition = noAnim ? "none" : `transform ${slideDuration}ms ease`;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
-
-  function updateWidth() {
-    slideWidth = carouselEl.offsetWidth;
-    setPosition(true);
-  }
-
-  window.addEventListener("resize", updateWidth);
-  setPosition(true);
-
-  function moveTo(newIndex) {
-    if (isAnimating) return;
-    isAnimating = true;
-    index = newIndex;
-    setPosition();
-
-    track.addEventListener(
-      "transitionend",
-      () => {
-        if (allSlides[index] === firstClone) {
-          index = 1;
-          setPosition(true);
-        }
-        if (allSlides[index] === lastClone) {
-          index = slides.length;
-          setPosition(true);
-        }
-        isAnimating = false;
-      },
-      { once: true }
-    );
-  }
-
-  // Enable arrows to move manually
-  prevBtn.addEventListener("click", () => moveTo(index - 1));
-  nextBtn.addEventListener("click", () => moveTo(index + 1));
-
-  // Automatically move to the next slide every 4 seconds (adjust as needed)
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(() => {
-      moveTo(index + 1);
-    }, 4000); // Change interval to suit your needs
-  }
-
-  // Optional: If you want to stop auto-sliding on hover, you can add this:
-  carouselEl.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-  carouselEl.addEventListener('mouseleave', startAutoSlide);
-
-  // Optional: If you want to stop the automatic sliding when arrows are enabled, use this:
-  if (2 === 1) {  // Example condition, replace with your condition
-    clearInterval(autoSlideInterval);
-  }
-}
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-/* ==========================================================
-   HANDHELD PRODUCT SUMMARY TRUNCATION (RESPONSIVE)
-   ========================================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const summaries = document.querySelectorAll(".handheld-productSummary");
-
-  function isMobile() {
-    return window.innerWidth < 768;
-  }
-
-  function truncateSummaries() {
-    summaries.forEach(el => {
-      const fullText = el.getAttribute("data-fulltext") || el.textContent.trim();
-
-      // Store original text once
-      if (!el.hasAttribute("data-fulltext")) {
-        el.setAttribute("data-fulltext", fullText);
-      }
-
-      const maxLength = isMobile() ? 18 : 32;
-
-      el.textContent =
-        fullText.length > maxLength
-          ? fullText.slice(0, maxLength) + "…"
-          : fullText;
-    });
-  }
-
-  truncateSummaries();
-  window.addEventListener("resize", truncateSummaries);
-});
-</script>
-
-
-<script>
-/* ==========================================================
-   HANDHELD PRODUCT GRID TOGGLE (FINAL LOGIC)
-   ========================================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const section = document.querySelector(".handheld");
-  if (!section) return;
-
-  const productGrid = section.querySelector(".handheld__carousel.handheld__grid");
-  const toggleBtn = section.querySelector(".js-handheld-toggle");
-  const toggleLabel = toggleBtn.querySelector("span");
-  const items = Array.from(productGrid.querySelectorAll(".handheld__item"));
-
-  if (!productGrid || !toggleBtn || items.length === 0) return;
-
-  let isExpanded = false;
-
-  const ITEM_COUNTS = {
-    desktop: { collapsed: 6, expanded: 8 },
-    mobile: { collapsed: 6, expanded: 8 }
-  };
-
-  function isMobile() {
-    return window.innerWidth < 768;
-  }
-
-  function setVisibleItems(count) {
-    items.forEach((item, index) => {
-      item.style.display = index < count ? "block" : "none";
-    });
-  }
-
-  function applyGridColumns() {
-    if (isMobile()) {
-      productGrid.style.gridTemplateColumns = "repeat(2, 1fr)";
-    } else {
-      productGrid.style.gridTemplateColumns = isExpanded
-        ? "repeat(2, 1fr)"
-        : "repeat(3, 1fr)";
-    }
-  }
-
-  /* ===============================
-     COLLAPSED (View all shown)
-     =============================== */
-  function applyCollapsed() {
-    isExpanded = false;
-    toggleLabel.textContent = "View all";
-
-    productGrid.style.display = "grid";
-    productGrid.style.overflow = "hidden";
-
-    applyGridColumns();
-    setVisibleItems(ITEM_COUNTS[isMobile() ? "mobile" : "desktop"].collapsed);
-  }
-
-  /* ===============================
-     EXPANDED (View less shown)
-     =============================== */
-  function applyExpanded() {
-    isExpanded = true;
-    toggleLabel.textContent = "View less";
-
-    productGrid.style.display = "grid";
-    productGrid.style.overflow = "visible";
-
-    applyGridColumns();
-    setVisibleItems(ITEM_COUNTS[isMobile() ? "mobile" : "desktop"].expanded);
-  }
-
-  /* ===============================
-     EVENTS
-     =============================== */
-  toggleBtn.addEventListener("click", () => {
-    isExpanded ? applyCollapsed() : applyExpanded();
-  });
-
-  window.addEventListener("resize", () => {
-    isExpanded ? applyExpanded() : applyCollapsed();
-  });
-
-  /* ===============================
-     INIT
-     =============================== */
-  applyCollapsed();
-});
-</script>
-
+        </div>       
+    </section>
     
 </body>
 </html>
