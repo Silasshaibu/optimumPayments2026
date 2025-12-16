@@ -63,33 +63,31 @@
 
     /* Home Hero The First - Loads of POS - Supplies And Bank Image */
     .homeHero-carousel .slide[data-bg="1"] {
-        background: url('../assets/images/hero/optimum-payments-desktopHomeHero.jpg') no-repeat center/cover;
-        /* background: rgb(189, 189, 84); */
+        background: url('../images/hero/optimum-payments-desktopHomeHero.jpg') no-repeat center/cover;
+        
     }
 
     /* Rok Business Financing*/
-    .homeHero-carousel .slide[data-bg="2"] {
-        background: url('../assets/images/hero/desktop-slide-2.jpg') no-repeat center/cover;
-        background: rgba(189, 84, 166, 0.308);
-        background: url('../assets/images/hero/desktopHero_Tabit_2-BizFinancing-Desktop.jpg') no-repeat center/cover;
+    .homeHero-carousel .slide[data-bg="2"] {       
+        background: url('../images/hero/desktopHero_Tabit_2-BizFinancing-Desktop.jpg') no-repeat center/cover;
     }
 
      /*  Payment Processing */
      
     .homeHero-carousel .slide[data-bg="3"] {
-        background: url('../assets/images/hero/paymentProcessing_HeroDesktop.png') no-repeat center/cover;
+        background: url('../images/hero/paymentProcessing_HeroDesktop.png') no-repeat center/cover;
         
     }
 
    /* Merchant Application - Become A Merchant*/
     .homeHero-carousel .slide[data-bg="4"] {
         background: rgb(189, 189, 84);
-        background: url('../assets/images/hero/hero-full-bleed-dark.jpg') no-repeat center/cover;
+        background: url('../images/hero/hero-full-bleed-dark.jpg') no-repeat center/cover;
     }
 
     /* DigitalService Slide Image; */
     .homeHero-carousel .slide[data-bg="5"] {
-        background: url('../assets/images/hero/DigitalService--desktop-HomeHero.jpg') no-repeat center/cover;
+        background: url('../images/hero/DigitalService--desktop-HomeHero.jpg') no-repeat center/cover;
         
     }
 
