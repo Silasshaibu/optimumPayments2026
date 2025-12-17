@@ -7,6 +7,13 @@
     box-sizing: border-box;
 }
 
+body {
+  /* scroll-padding-top: 100px;  */
+  /* match header height */
+}
+
+
+
 li {
     list-style: none;
 }
@@ -117,7 +124,7 @@ body {
     background-color: #efefef;
     padding: 1rem 2rem;
     display: none;
-    z-index:1;
+    z-index:2;
 }
 
 .searchFieldBoxAndResults {
@@ -167,8 +174,11 @@ button {
 }
 
 
-.nav-hover-zone {
-  position: relative; /* anchor */
+.nav-hover-zone {  
+  position: sticky;
+  top: 0;
+  z-index: 1500;   /* above page content, below mobile menu */
+  background: #fff;
 }
 
 .BigDropDown-Tray,

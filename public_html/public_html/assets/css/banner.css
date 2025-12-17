@@ -8,8 +8,8 @@
             --slide-count: 2;
 
             /* Carousel Heights */
-            --carousel-window-height: 120px;
-            --carousel-window-height-mobile: 50px;
+            --carousel-window-height: 80px;
+            --carousel-window-height-mobile: 80px;
         }
 
         /* ============================================================

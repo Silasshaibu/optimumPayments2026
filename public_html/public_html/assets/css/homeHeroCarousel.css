@@ -17,7 +17,7 @@
     transform: translate(-50%, -20%);
     display: flex;
     gap: 10px;
-    z-index: 5;
+    z-index: 1;
 }
 
 .homeHero-carousel .carousel-indicator .dot {
@@ -129,7 +129,7 @@
     display: flex;
     position: relative;
     flex-direction: row;
-    min-height: 300px;
+    height:auto;
     align-items: center;
     overflow: hidden;
     box-sizing: border-box;
@@ -208,7 +208,6 @@ h1.heading.title{
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
 @media (max-width:768px) {
-
     .homeHero-carousel .carousel-indicator {
     position: absolute;
     bottom: 0%;
@@ -216,11 +215,25 @@ h1.heading.title{
     transform: translate(-50%, 1%);
     display: flex;
     gap: 10px;
-    /* background-color: red; */
     z-index: 5;
-
-    
 }
+
+.homeHero-carousel .slide {
+    padding: 1rem 2rem;
+    max-height:80%;
+}
+
+.image-wrapper img{
+    max-height:300px; /*Height of Image Container in Mobile View*/
+    width:fit-content;
+
+
+}
+
+.homeHero-carousel .carousel-indicator{
+    bottom:5%;
+}
+
 .carousel-wrapper.homeHero{
     gap:0px;
 }
@@ -232,11 +245,7 @@ h1.heading.title{
      gap:1rem;
 }
 
-.image-wrapper{
-    background-color: red;
-    height:300px !important;
 
-}
 
 .homeHero-carousel .carousel-indicator .dot{
    background: rgba(122, 122, 122, 0.5);
@@ -297,7 +306,6 @@ h1.heading.title{
     .homeHero-carousel .image-wrapper {
         position: relative;
         width: 500px;
-        height: 400px;
         transform: none;
         bottom: 0;
     }
@@ -305,7 +313,9 @@ h1.heading.title{
       .homeHero-carousel .carousel-window.home-hero {
         min-height: 614px;
         height: auto;
+
     }
+
 
 
     .homeHero-carousel p.display{
@@ -335,5 +345,9 @@ h1.heading.title{
 
     .homeHero-carousel .image-wrapper {
         display: flex;
+    }
+
+    .homeHero-carousel .image-wrapper{
+        border:none;
     }
 }
