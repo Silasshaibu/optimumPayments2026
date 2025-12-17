@@ -271,6 +271,18 @@
         background-position: center;
     }
 
+     .handheld__item.UnionPOS {
+        background:url(../images/products/handheldProducts/Desktop_HandHeldDevice_LeftAngled_VP550.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .handheld__item.SwipeSimple {
+        background:url(../images/products/handheldProducts/Desktop_HandHeldDevice_LeftAngled_Clover_Go.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
     .handheld-carousel-footer.withRemote .remoteControl{
         display: flex;
         justify-content: end;
