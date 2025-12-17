@@ -353,7 +353,10 @@
     @media (max-width:1024px) {
         :root{
             --slide-and-container-width-singularUnit:94vw;
+             --Supplies-slide-and-container-height: 250px;
         }
+
+   
 
         .carousel-window, .carousel-body.productsGrid.supplies-grid, .slide, .slide div.featured-product, .carousel-footer, .carousel-header, .carousel-body{
             width: var(--slide-and-container-width-singularUnit);            

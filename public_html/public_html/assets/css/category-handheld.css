@@ -421,6 +421,14 @@
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 /*THE TABLE DEVICE*/
 @media (max-width:1024px) {
+
+    
+    :root {
+        --handheld__slide-and-container-width-singularUnit: 94vw;
+        --handheld__slide-and-container-height: 250px;
+        /* controls the handheld__slide viewer width per handheld__slide*/
+        /*We are using 1200px or 83vw or 83%*/
+    }
     .handheld .handheld-productInfo{
         
         height:150px;
@@ -428,14 +436,7 @@
         bottom:0;
     }
 
-    .handheld__header.withRemote, .handheld__carousel{   
-    width:94vw;
-    }
-
-    .handheld__slide{
-    width:94vw;
-    }
-
+    
     
 
     
