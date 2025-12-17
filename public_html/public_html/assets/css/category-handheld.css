@@ -109,7 +109,10 @@
 
 
     .handheld__slide {
-        width: var(--handheld__slide-and-container-width-singularUnit) ; /* each handheld__slide takes full viewport width */
+        width: var(--handheld__slide-and-container-width-singularUnit) ; 
+        /* width: 100%; */
+        
+        /* each handheld__slide takes full viewport width */
         flex-shrink: 0; /* prevent shrinking */
         padding:0rem;
         flex-direction: row;
@@ -410,6 +413,10 @@
 }
         
 
+.handheld.js-handheld{
+    margin:0 auto;
+}
+
 
 /*WE ARE USING DESKTOP FIRST APPROACH*/
 /*THE TABLE DEVICE*/
@@ -420,6 +427,19 @@
         padding: 0.5rem 2rem;
         bottom:0;
     }
+
+    .handheld__header.withRemote, .handheld__carousel{   
+    width:94vw;
+    }
+
+    .handheld__slide{
+    width:94vw;
+    }
+
+    
+
+    
+
 
 } 
 

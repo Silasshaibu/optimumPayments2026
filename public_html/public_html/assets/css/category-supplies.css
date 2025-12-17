@@ -376,7 +376,16 @@
         padding: 1rem;
         bottom:0px;
         }
+
+
+        .handheld.js-handheld{
+            width:94vw;
+            /* background-color: red; */
+        }
     }
+
+
+    
 
     /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
     @media (max-width:768px) {      
