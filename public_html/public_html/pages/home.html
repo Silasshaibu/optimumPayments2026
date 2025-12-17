@@ -26,7 +26,9 @@
     <script src="../assets/js/handheldProductsCategory.js" defer></script>
     <script src="../assets/js/topSellingProductsCategory.js" defer></script>
     <script src="../assets/js/suppliesCategory.js" defer></script>
-    
+
+    <script src="../assets/js/banner-core.js" defer></script>
+    <script src="../assets/js/banner-auto.js" defer></script>
 
 </head>
 
@@ -35,52 +37,50 @@
 
     <!-- Add banner here -->
     <!-- ============================================================
-     BANNER CAROUSEL
+        BANNER CAROUSEL
     ============================================================ -->
-    <div id="banner-carousel" class="carousel-window promo-banner">
+    <section>
+        <div class="banner-carousel">
 
-        <!-- Navigation Arrows -->
-        <button id="banner-prev" class="banner-btn prev">‹</button>
-        <button id="banner-next" class="banner-btn next">›</button>
+            <!-- Navigation -->
+            <button class="banner-btn banner-prev" aria-label="Previous slide">‹</button>
+            <button class="banner-btn banner-next" aria-label="Next slide">›</button>
 
-        <!-- Slides Wrapper -->
-        <div id="banner-wrapper">
+            <!-- Slides -->
+            <div class="banner-wrapper">
 
-            <!-- SLIDE 1 -->
-            <div class="slide banner">
-                <div class="container">
-
-                    <div class="media">
-                        <img class="advert" src="../assets/images/hero/2021-02-03-station-solo-Merchant_Facing-Left_Parallel-Register-np-removebg-preview.webp" width="50px" alt="Advert"/>
-                        <button>GET ACCESS NOW</button>
+                <div class="banner-slide">
+                <div class="banner-container">
+                    <div class="banner-media">
+                    <img class="banner-advert"
+                        src="../assets/images/hero/2021-02-03-station-solo-Merchant_Facing-Left_Parallel-Register-np-removebg-preview.webp"
+                        alt="Advert">
+                    <button class="banner-cta">GET ACCESS NOW</button>
                     </div>
-
-                    <div class="text-description">
-                        <!-- <p>Want to eliminate up to 100% of your proecssing fees?</p> -->
-                    </div>
-
                 </div>
-            </div>
-
-            <!-- SLIDE 2 -->
-            <div class="slide banner">
-                <div class="container">
-
-                    <div class="media">
-                        <img class="advert" src="." alt="Advert"/>
-                        <button>CLAIM OFFER NOW</button>
-                    </div>
-
-                    <div class="text-description">
-                        <!-- <p>Own a business or know someone who does? Get up to 100% off new equipment*</p> -->
-                    </div>
-
                 </div>
+
+                <div class="banner-slide">
+                <div class="banner-container">
+                    <div class="banner-media">
+                    <button class="banner-cta">CLAIM OFFER NOW</button>
+                    </div>
+                </div>
+                </div>
+
             </div>
+        
+        </div> 
+        
 
-        </div>
-    </div>
 
+
+
+    </section>
+
+
+
+  
     <!-- Replace navbar here -->
     <!-- NAVIGATION MENU COMPLETE FULL start-->
     <div class="nav-hover-zone">
@@ -2331,7 +2331,7 @@
     <!-- special styling for only home page section of the our partners section -->
         <style>
             .partners{
-                padding:0px 24px;
+                padding:0px 2rem;
             }
 
             .partners-grid{

@@ -257,7 +257,7 @@ body.menu-open {
         justify-content: flex-end;
     }
 
-    .icon {
+    .mobile-Section .icon {
         width: 24px;
         height: 24px;
     }
