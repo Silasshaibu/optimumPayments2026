@@ -384,7 +384,7 @@
 
         :root {
         --slide-and-container-width-singularUnit: 94vw;
-        --Supplies-slide-and-container-height: 150px;
+        --Supplies-slide-and-container-height: 200px;
         /* controls the slide viewer width per slide*/
         /*We are using 1200px or 83vw or 83%*/
             }
