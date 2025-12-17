@@ -8,7 +8,7 @@
   
     :root {
         --slide-and-container-width-singularUnit: 83vw;
-        --slide-and-container-height: 400px;
+        --Supplies-slide-and-container-height: 400px;
         /* controls the slide viewer width per slide*/
         /*We are using 1200px or 83vw or 83%*/
     }
@@ -27,7 +27,7 @@
     }
 
     .carousel-window, .carousel-wrapper, .slide{
-        height: var(--slide-and-container-height);
+        height: var(--Supplies-slide-and-container-height);
     }
 
 
@@ -379,6 +379,15 @@
 
     /*THE LAST AND SMALLEST DEVICE WILL BE 768PX*/
     @media (max-width:768px) {      
+
+
+        :root {
+        --slide-and-container-width-singularUnit: 94vw;
+        --Supplies-slide-and-container-height: 200px;
+        /* controls the slide viewer width per slide*/
+        /*We are using 1200px or 83vw or 83%*/
+            }
+
         .carousel-body.productsGrid.supplies-grid{
             grid-template-columns: repeat(2, 1fr);
             gap:1rem;
@@ -386,6 +395,9 @@
             padding-bottom: 2rem;
         }
 
+        .carousel-wrapper.supplies{
+            gap:0px;
+        }
 
         .slide{
             /* margin:auto 0; */
@@ -428,7 +440,7 @@
             transform:translate(0%, 0%);
             border:1px solid white;
             width:var(--slide-and-container-width-singularUnit); /*Image container width to cover in d esktop version*/
-            max-height:var(var(--slide-and-container-height)) ;
+            max-height:var(var(--Supplies-slide-and-container-height)) ;
             /* height: 100%; */
         }
 
