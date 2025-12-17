@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style-guide.css">
     <title>Banner Carousel</title>
-
     
 </head>
 
@@ -59,10 +58,327 @@
     </div>
 
     <link rel="stylesheet" href="../assets/css/style-guide.css">
-    <link rel="stylesheet" href="../assets/css/banner.css">
+    <!-- <link rel="stylesheet" href="../assets/css/banner.css"> -->
      <script src="../assets/js/banner.js"></script>
 
 
 
 </body>
+
+<style>
+     
+        /* ============================================================
+           GLOBAL RESET + VARIABLES
+        ============================================================ */
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        :root {
+            --slide-count: 2;
+
+            /* Carousel Heights */
+            --carousel-window-height: 80px;
+            --carousel-window-height-mobile: 80px;
+        }
+
+        /* ============================================================
+           CAROUSEL WINDOW
+        ============================================================ */
+        .carousel-window.promo-banner {
+            position: relative;
+            width:100%;
+            overflow:hidden;            
+            max-height: var(--carousel-window-height);
+        }
+
+        #banner-carousel {
+            position: relative;
+            overflow:hidden;
+            height: var(--carousel-window-height);
+            min-height: var(--carousel-window-height);
+        }
+
+        /* ============================================================
+           SLIDES WRAPPER
+        ============================================================ */
+        #banner-wrapper {
+            position:absolute;
+            top:0; left:0;
+            display:flex;
+            width: calc(var(--slide-count) * 100vw);
+            transition: transform .45s ease-in-out;
+        }
+
+        /* ============================================================
+           INDIVIDUAL SLIDE
+        ============================================================ */
+        .slide.banner {
+            width:100vw;
+            
+            flex-shrink:0;
+            padding:0 1.5rem;
+
+            display:flex;
+            align-items:center;
+            flex-direction:row;
+
+            min-height: var(--carousel-window-height);
+            height: fit-content;
+            background:#efefef;
+            background-image: url(../images/promo/Meeting_Banner_LAT_MF.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ============================================================
+           CONTENT AREAS
+        ============================================================ */
+        .textInfo-wrapper,
+        .image-wrapper {
+            flex:1;
+        }
+
+        .textInfo-wrapper {
+            position: relative;
+            width:100%;
+            padding:0 64px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+        }
+
+        /* ============================================================
+           ARROW BUTTONS
+        ============================================================ */
+        #banner-carousel .banner-btn {
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            z-index:50;
+
+            width:48px;
+            height:48px;
+            border-radius:50%;
+            border:none;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-size:32px;
+            font-weight:700;
+            color:white;
+
+            background:transparent;
+            cursor:pointer;
+            backdrop-filter:blur(4px);
+        }
+
+        #banner-prev { left:12px; }
+        #banner-next { right:12px; }
+
+        #banner-carousel .banner-btn:hover {
+            background:rgba(0,0,0,0.7);
+        }
+
+        .hidden {
+            opacity:0;
+            pointer-events:none;
+        }
+
+        /* ============================================================
+           INNER CUSTOM LAYOUT
+        ============================================================ */
+        .container {
+            display:flex;
+            width:100%;
+            flex-direction:row;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .media {
+            display:flex;
+            flex-direction:column;
+        }
+
+        .advert {
+            width:fit-content;
+            height:50px;
+            padding:1rem 0;
+        }
+
+        .text-description {
+            width:100%;
+            flex:1;
+            text-align:center;
+        }
+
+        /* ============================================================
+           RESPONSIVE (MOBILE)
+        ============================================================ */
+        @media (max-width:768px) {
+
+            .carousel-window.promo-banner,
+            #banner-carousel {              
+                max-height: var(--carousel-window-height-mobile);
+            }
+
+            /*MOBILE SLIDE BACKGROUND*/
+            .slide {
+                flex-direction:column;
+                background:#fff;
+                max-height: var(--carousel-window-height-mobile);
+                background-image:url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
+                background-size: contain;
+                background-position: center;
+                background-repeat:no-repeat;
+            }
+
+            .textInfo-wrapper {
+                align-items:center;
+                width:100%;
+                padding:.5rem;
+            }
+
+            .image-wrapper {
+                width:100%;
+                height:auto;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE (DESKTOP)
+        ============================================================ */
+        @media (min-width:768px) {
+
+            .container {
+                flex-direction:column;
+                padding:1rem 0;
+            }
+
+            .media {
+                order:1;
+            }
+
+            .advert {
+                display:none; /* Desktop hides advert image */
+            }
+        }
+</style>
+
+<script>
+    (function initBannerCarousel() {
+
+  const wrapper = document.querySelector("#banner-wrapper");
+  const slides  = wrapper ? Array.from(wrapper.children) : [];
+  const btnPrev = document.querySelector("#banner-prev");
+  const btnNext = document.querySelector("#banner-next");
+
+  if (!wrapper || slides.length < 2) return;
+
+  /* ===============================
+     CONFIG
+  =============================== */
+  const AUTO_AND_MANUAL = (1 === 1); // 🔁 change condition here
+  const SLIDE_DURATION = 900;        // ms
+  const AUTO_INTERVAL  = 6000;       // ms
+
+  /* ===============================
+     CLONE SLIDES FOR INFINITE LOOP
+  =============================== */
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone  = slides[slides.length - 1].cloneNode(true);
+
+  wrapper.insertBefore(lastClone, slides[0]);
+  wrapper.appendChild(firstClone);
+
+  const allSlides = Array.from(wrapper.children);
+
+  /* ===============================
+     STATE
+  =============================== */
+  let index = 1;
+  let slideWidth = slides[0].clientWidth;
+  let isAnimating = false;
+  let autoTimer = null;
+
+  /* ===============================
+     CORE FUNCTIONS
+  =============================== */
+  function setPosition(noAnim = false) {
+    wrapper.style.transition = noAnim
+      ? "none"
+      : `transform ${SLIDE_DURATION}ms ease-in-out`;
+
+    wrapper.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  function updateWidth() {
+    slideWidth = slides[0].clientWidth;
+    setPosition(true);
+  }
+
+  function moveTo(newIndex) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    index = newIndex;
+    setPosition();
+
+    wrapper.addEventListener(
+      "transitionend",
+      () => {
+        if (allSlides[index] === firstClone) {
+          index = 1;
+          setPosition(true);
+        }
+
+        if (allSlides[index] === lastClone) {
+          index = slides.length;
+          setPosition(true);
+        }
+
+        isAnimating = false;
+      },
+      { once: true }
+    );
+  }
+
+  /* ===============================
+     MANUAL CONTROLS (ALWAYS ALLOWED)
+  =============================== */
+  btnNext?.addEventListener("click", () => moveTo(index + 1));
+  btnPrev?.addEventListener("click", () => moveTo(index - 1));
+
+  /* ===============================
+     AUTO SLIDE (CONDITIONAL)
+  =============================== */
+  function startAuto() {
+    autoTimer = setInterval(() => {
+      moveTo(index + 1);
+    }, AUTO_INTERVAL);
+  }
+
+  function stopAuto() {
+    clearInterval(autoTimer);
+  }
+
+  if (AUTO_AND_MANUAL) {
+    startAuto();
+
+    // Pause on hover (desktop UX polish)
+    wrapper.addEventListener("mouseenter", stopAuto);
+    wrapper.addEventListener("mouseleave", startAuto);
+  }
+
+  /* ===============================
+     INIT
+  =============================== */
+  window.addEventListener("resize", updateWidth);
+  setPosition(true);
+
+})();
+
+</script>
 </html>
