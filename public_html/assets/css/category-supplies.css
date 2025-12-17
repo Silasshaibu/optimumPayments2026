@@ -369,9 +369,10 @@
         position: absolute;
         width: 100%;
         display: flex;
+        align-items: center;
         flex-direction: column;
         height: auto;
-        text-align: center;
+        
         padding: 1rem;
         bottom:0px;
         }
@@ -383,11 +384,25 @@
 
         :root {
         --slide-and-container-width-singularUnit: 94vw;
-        --Supplies-slide-and-container-height: 200px;
+        --Supplies-slide-and-container-height: 150px;
         /* controls the slide viewer width per slide*/
         /*We are using 1200px or 83vw or 83%*/
             }
 
+            .slide.supplies-product{
+                padding:0rem;
+                height: 100%;
+
+            }
+
+            
+            .slide.supplies-product div.supplies-product{
+                padding-right:20%;
+            }
+
+            .btn-featured-products.product-Btn-Desktop{
+                margin-top:0.2rem;
+            }
         .carousel-body.productsGrid.supplies-grid{
             grid-template-columns: repeat(2, 1fr);
             gap:1rem;
@@ -409,6 +424,10 @@
         .supplies-product{
             padding:2rem 1rem;
         }    
+
+        .carousel-header.withRemote{
+            padding-bottom:.5rem;
+        }
 
     
         .textInfo-wrapper{
@@ -508,6 +527,14 @@
         }
 
 
+    }
+
+    @media (max-width:550px) {     
+        .product-grid-item.cloverBarcodeScanner .productInfo{
+                align-items: flex-start;
+                display: flex;
+            }
+           
     }
 
                
