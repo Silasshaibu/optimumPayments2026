@@ -23,11 +23,6 @@ text-decoration:none;
 }
 
 
-/* 
-.one > li a{
-border-bottom: 3px solid var(--blue-600);
-} */
-
 .mini-service-card a{
     color:var(--blue-400);
 }
@@ -224,3 +219,5 @@ button {
     border-bottom-left-radius: 6px;
    }
 }
+
+
