@@ -1,0 +1,225 @@
+
+/* Basic styling */
+nav.main-menu {
+    width: 100%;
+    /* max-width: 350px; */
+    font-family: Manrope, sans-serif;
+    
+}
+
+nav.main-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.main-menu li {
+    border: 1px solid #E5E7EB;
+    margin-bottom: 0; 
+    position: relative;
+    border-bottom: none;
+}
+
+nav.main-menu li:last-child {
+    border-bottom:1px solid #E5E7EB;
+}
+
+ul.child-dropdowns li{
+    border:none;
+    background-color: #efefef;
+    border-bottom:1px solid rgb(188, 188, 188);
+}
+
+ul.child-dropdowns li:hover{
+    background-color: #d6d6d6;
+    border-bottom:1px solid rgb(188, 188, 188);
+}
+
+nav.main-menu a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Caret rotation for top-level */
+.caret-icon {
+    transition: transform 0.3s ease;
+    font-size: 14px;
+}
+
+.open > .top-caret {
+    transform: rotate(180deg);
+}
+
+/* Nested dropdowns & animations */
+ul.child-dropdowns,
+ul.service-cards {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    padding-left: 0;
+    margin: 0;
+}
+
+ul.child-dropdowns li.child-dropdown a{
+    font-size: 0.9rem;
+    padding-left:2.5rem;
+}
+
+/* Center single card in singular service-cards */
+.service-cards.singular {
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    overflow-x: visible;      /* no horizontal scroll needed */
+    gap: 0;                   /* no gap needed for single item */
+}
+
+.service-cards.singular li {
+    flex: 0 0 auto;           /* keep the card width natural */
+    max-width: 200px;         /* optional */
+}
+
+/* Show when open */
+ul.child-dropdowns.show,
+ul.service-cards.show {
+    max-height: 1000px; /* large enough to fit content */
+    opacity: 1;
+}
+
+/* Horizontal scroll for service cards */
+ul.service-cards {
+    display: flex;
+    flex-wrap: nowrap;          /* Prevent wrapping */
+    overflow-x: auto;           /* Enable horizontal scroll */
+    overflow-y: hidden;
+    gap: 16px;                  /* Space between items */
+    padding: 12px 8px;
+    scroll-behavior: smooth;    /* Smooth scroll */
+    background-color: #efefef;  /* Background for service cards */
+}
+
+ul.service-cards::-webkit-scrollbar {
+    height: 8px;                /* Hide scrollbar for Chrome */
+    display: none;
+}
+
+ul.service-cards li {
+    flex: 0 0 70%;          /* Each card ~70% width -> 2.5 cards visible */
+    max-width: 200px;       /* Optional max width */
+}
+
+ul.service-cards li a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+ul.service-cards li img {
+    width: 100%;
+    height: 128px;
+    object-fit: contain;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+ul.service-cards li h3 {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #4B5563;
+    margin-top: 8px;
+}
+
+ul.service-cards li p {
+    font-size: 14px;
+    color: #4B5563;
+    margin: 4px 0 8px;
+    line-height: 20px;
+}
+
+ul.service-cards li .cta {
+    font-size: 14px;
+    font-weight: 600;
+    color: #63A0CF;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 500px) {
+    ul.service-cards li {
+        flex: 0 0 70%;
+    }
+}
+
+/* Plus/Minus icons for nested children */
+.child-toggle .plus-icon,
+.child-toggle .minus-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.child-toggle .minus-icon {
+    opacity: 0;
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.child-toggle.active .plus-icon {
+    opacity: 0;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.child-toggle.active .minus-icon {
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+}
+
+/* Keep the original caret for top-level menus */
+.top-caret {
+    /* display: inline-block; */
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* Footer and social icons */
+.social-icon-set{
+    display: flex;
+    justify-content: center;        
+} 
+
+.copyright-foot-mobileMenu{
+    margin:0 auto;
+    text-align: center;
+    font-size: .7rem;
+    padding: 12px;
+}
+
+.service-cards.rok, .service-cards.about-us{
+    display: grid;
+}
+
+.mobileMenu-service-card{
+    width: 163px; /*Width of mobile Card*/
+}
+
+li.child-dropdown a{
+    position: relative;
+}
+
+
+
+/* Mobile dropdown shows when active */
+main-menu.mobileDropDown.active {
+  display: flex; /* or block depending on layout */
+}
+
