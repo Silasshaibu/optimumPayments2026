@@ -15,9 +15,9 @@
         /* ============================================================
            CAROUSEL WINDOW
         ============================================================ */
-        .carousel-window {
+        .carousel-window.promo-banner {
             position: relative;
-            width:100vw;
+            width:100%;
             overflow:hidden;            
             max-height: var(--carousel-window-height);
         }
@@ -43,8 +43,9 @@
         /* ============================================================
            INDIVIDUAL SLIDE
         ============================================================ */
-        .slide {
+        .slide.banner {
             width:100vw;
+            
             flex-shrink:0;
             padding:0 1.5rem;
 
@@ -55,7 +56,7 @@
             min-height: var(--carousel-window-height);
             height: fit-content;
             background:#efefef;
-            background-image: url(../assets/images/promo/Meeting_Banner_LAT_MF.webp);
+            background-image: url(../images/promo/Meeting_Banner_LAT_MF.webp);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -150,7 +151,7 @@
         ============================================================ */
         @media (max-width:768px) {
 
-            .carousel-window,
+            .carousel-window.promo-banner,
             #banner-carousel {              
                 max-height: var(--carousel-window-height-mobile);
             }

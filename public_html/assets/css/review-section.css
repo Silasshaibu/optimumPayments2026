@@ -47,7 +47,7 @@ h1.customer-review-section.title{
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-gap: 1.5rem;
+      grid-gap: 1rem;
       /* padding: 20px; */
     }
 
