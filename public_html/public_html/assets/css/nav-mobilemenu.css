@@ -149,6 +149,10 @@ ul.service-cards li .cta {
     color: #63A0CF;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 500px) {
     ul.service-cards li {
