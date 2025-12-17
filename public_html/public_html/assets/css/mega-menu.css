@@ -224,8 +224,24 @@ nav.main-menu.mobileDropDown.active {
   margin-top: auto;
   font-weight: bold;
   text-decoration: none;
-  color: #000;
 }
+
+.mini-service-card a{
+color:var(--color-primary);
+}
+
+.mini-service-card a:hover{
+color:var(--blue-700);
+
+}
+
+.mini-service-card svg.icon.dash-right-arrow{
+  width:12px !important;
+  height:12px !important;
+  background-color: red;
+
+}
+
 
 ul.service-cards li p.mobileMenu--special-link{
     color: var(--TypographyColors-Link, #63A0CF);
