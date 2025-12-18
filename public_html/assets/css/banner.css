@@ -5,6 +5,8 @@
 :root{
     --bannerHeight:50px;
     --caret-radius:50px;
+
+    --banner-carousel:80px;
 }
     .banner-btn{
         width:var(--caret-radius);
@@ -19,10 +21,11 @@
         /* color: #333   ; */
     }
 
+   
 .banner-carousel {
   position: relative;
   width: 100%;
-  min-height: 80px;
+  max-height: var(--banner-carousel);
   height: var(--banner-carousel);
   overflow: hidden;
 }
@@ -117,4 +120,26 @@
         max-height: 30px;
 
     }
+
+     .banner-btn.banner-prev{
+      display: none; /*Marketing strategy to allow them not hesitate*/
+    }
+
+    .banner-next{
+      right:0px;
+    }
+
+    
+
+    p.banner-message{
+      padding:1rem;
+
+
+    }
+
+    span.bannerDirectionalArrow-CTA{
+      display: none;
+
+    }
+
 }

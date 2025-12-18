@@ -160,14 +160,17 @@
     width: 560px;
     display: flex;
     flex-direction: column;
-    padding: 64px;
+    padding:2%;
+    padding: 4rem;
 }
 
 .homeHero-carousel .cta-container-hero{
     padding-top: 52px;
     /* padding-bottom:32px; */
     display: flex;
-     gap:1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap:1rem;
 }
 
 
@@ -203,6 +206,14 @@ h1.heading.title{
     text-transform: capitalize;
 }
 
+@media (max-width:1024px) {
+.homeHero-carousel .textInfo-wrapper {
+  
+    padding:2rem;
+    
+}
+
+}
 
 
 /*WE ARE USING DESKTOP FIRST APPROACH*/
@@ -218,16 +229,26 @@ h1.heading.title{
     z-index: 5;
 }
 
+   
+
+
+
 .homeHero-carousel .slide {
     padding: 1rem 2rem;
     max-height:80%;
 }
 
-.image-wrapper img{
-    max-height:300px; /*Height of Image Container in Mobile View*/
+:root{
+    --mobileHeroImageHeight:200px;
+}
+
+.image-wrapper img{   
     width:fit-content;
+    height:var(--mobileHeroImageHeight);
+}
 
-
+.image-wrapper{
+    overflow: hidden;
 }
 
 .homeHero-carousel .carousel-indicator{
@@ -239,10 +260,11 @@ h1.heading.title{
 }
 
 .homeHero-carousel .cta-container-hero{
-    /* padding-top:1.5rem; */
-    /* padding-bottom:2rem; */
-    display: flex;
+    padding-top:0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
      gap:1rem;
+
 }
 
 
@@ -308,12 +330,12 @@ h1.heading.title{
         width: 500px;
         transform: none;
         bottom: 0;
+        max-height:200px;
     }
 
       .homeHero-carousel .carousel-window.home-hero {
         min-height: 614px;
         height: auto;
-
     }
 
 
