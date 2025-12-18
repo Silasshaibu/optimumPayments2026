@@ -1170,7 +1170,7 @@ Earn <span><strong>$500</strong></span> and get up to 100% off new equipment* <s
 
         </script>
 
-        <script>
+        <!-- <script>
             document.addEventListener("DOMContentLoaded", () => {
 
             /* ================================
@@ -1266,7 +1266,127 @@ Earn <span><strong>$500</strong></span> and get up to 100% off new equipment* <s
 
         });
 
-        </script>
+        </script> -->
+        
+        <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================================
+     BODY SCROLL LOCK HELPERS
+  ================================= */
+  function lockBodyScroll() {
+    document.body.classList.add("menu-open");
+  }
+
+  function unlockBodyScroll() {
+    document.body.classList.remove("menu-open");
+  }
+
+  /* ================================
+     MOBILE MENU OPEN / CLOSE
+  ================================= */
+  const hamburger = document.querySelector("svg.icon.hamburger");
+  const closeIcon = document.querySelector("svg.icon.close-MobileDropDownMenu");
+  const mobileMenu = document.querySelector("nav.main-menu.mobileDropDown");
+
+  if (hamburger && closeIcon && mobileMenu) {
+
+    // Default state
+    hamburger.classList.add("active");
+    closeIcon.classList.remove("active");
+    mobileMenu.classList.remove("active");
+    unlockBodyScroll();
+
+    function toggleMobileMenu() {
+      const isOpen = mobileMenu.classList.contains("active");
+
+      mobileMenu.classList.toggle("active", !isOpen);
+      hamburger.classList.toggle("active", isOpen);
+      closeIcon.classList.toggle("active", !isOpen);
+
+      if (!isOpen) {
+        lockBodyScroll();
+      } else {
+        unlockBodyScroll();
+      }
+    }
+
+    hamburger.addEventListener("click", toggleMobileMenu);
+    closeIcon.addEventListener("click", toggleMobileMenu);
+
+    // ESC key closes menu
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        mobileMenu.classList.remove("active");
+        hamburger.classList.add("active");
+        closeIcon.classList.remove("active");
+        unlockBodyScroll();
+      }
+    });
+  }
+
+  /* ================================
+     MOBILE ACCORDION MENU
+  ================================= */
+
+  // Parent accordion
+  document.querySelectorAll(".parent-toggle").forEach(parent => {
+    parent.addEventListener("click", () => {
+      const parentLi = parent.parentElement;
+      const childUl = parentLi.querySelector("ul");
+
+      if (!childUl) return;
+
+      const isOpen = childUl.classList.contains("show");
+
+      // Close all other parents
+      document.querySelectorAll(".parent-toggle").forEach(p => {
+        if (p !== parent) {
+          p.classList.remove("open");
+          const li = p.parentElement;
+          li.querySelectorAll("ul").forEach(ul => ul.classList.remove("show"));
+          li.querySelectorAll(".child-toggle").forEach(c => c.classList.remove("active"));
+        }
+      });
+
+      parent.classList.toggle("open", !isOpen);
+      childUl.classList.toggle("show", !isOpen);
+    });
+  });
+
+  // Child accordion
+  document.querySelectorAll(".child-toggle").forEach(child => {
+    child.addEventListener("click", e => {
+      e.stopPropagation();
+
+      const childLi = child.parentElement;
+      const childUl = childLi.querySelector("ul");
+
+      if (!childUl) return;
+
+      const isActive = child.classList.contains("active");
+
+      // Close siblings
+      childLi.parentElement.querySelectorAll(".child-toggle").forEach(sib => {
+        if (sib !== child) {
+          sib.classList.remove("active");
+          const ul = sib.parentElement.querySelector("ul");
+          if (ul) ul.classList.remove("show");
+        }
+      });
+
+      child.classList.toggle("active", !isActive);
+      childUl.classList.toggle("show", !isActive);
+    });
+  });
+
+});
+</script>
+
+        
+        
+        
+        
         <!-- NAVIGATION MENU COMPLETE FULL END-->
 
     
