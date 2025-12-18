@@ -39,6 +39,9 @@
     <!-- ============================================================
         BANNER CAROUSEL
     ============================================================ -->
+
+       
+
     <section>
         <div class="banner-carousel">
 
@@ -49,29 +52,51 @@
             <!-- Slides -->
             <div class="banner-wrapper">
 
-                <div class="banner-slide">
-                <div class="banner-container">
-                    <div class="banner-media">
-                    <img class="banner-advert"
-                        src="../assets/images/hero/2021-02-03-station-solo-Merchant_Facing-Left_Parallel-Register-np-removebg-preview.webp"
-                        alt="Advert">
-                    <button class="banner-cta">GET ACCESS NOW</button>
+                <div class="banner-slide promo" data-link="./promo.html">
+                    <div class="banner-container">
+                       
+                            <div class="banner-media promo">
+                                <img style="display:none;" class="banner-advert"
+                                    src="../assets/images/hero/2021-02-03-station-solo-Merchant_Facing-Left_Parallel-Register-np-removebg-preview.webp"
+                                    alt="Advert" width="100px">
+                                <button style="display:none;" class="banner-cta">GET ACCESS NOW</button>
+                            </div>
+                        
                     </div>
-                </div>
                 </div>
 
-                <div class="banner-slide">
-                <div class="banner-container">
-                    <div class="banner-media">
-                    <button class="banner-cta">CLAIM OFFER NOW</button>
+                <div class="banner-slide merchant-apply-form" data-link="./merchant-application.html">
+                        
+                            <div class="banner-media merchant-apply-form">
+                                <button style="display:none;" class="banner-cta">CLAIM OFFER NOW</button>
+                            </div>
+                        
                     </div>
-                </div>
                 </div>
 
             </div>
         
         </div> 
-        
+
+        <!-- Add banner image here  -->
+        <style>
+            .banner-slide.promo{
+                background: red ;
+            }
+
+            .banner-slide.merchant-apply-form{
+                background: orange ;
+            }
+        </style>
+
+         <script>
+                    document.querySelectorAll('.banner-slide').forEach(slide => {
+        slide.addEventListener('click', () => {
+            window.location.href = slide.dataset.link;
+        });
+        });
+
+        </script>
 
 
 
