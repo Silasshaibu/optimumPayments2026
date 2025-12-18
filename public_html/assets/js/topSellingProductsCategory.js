@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const topCategoryViewAllBtn =
         document.getElementById("topCategoryViewAll");
 
-
     if (!topCategoryWrapper || !topCategoryProducts.length || !topCategoryViewAllBtn) {
         return;
     }
@@ -32,47 +31,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentIndex = 0;
 
+    /* ===============================
+       TOUCH ACTION HANDLER (🔥 FIX)
+    =============================== */
+
+    function updateMobileTouchAction() {
+        const isMobile = window.innerWidth <= 550;
+        const isGrid = topCategorySection.classList.contains("is-grid");
+
+        if (isMobile && isGrid) {
+            // Mobile + grid (1 column) → allow page scroll
+            topCategoryWrapper.style.touchAction = "auto";
+        } else {
+            // Carousel mode → horizontal swipe only
+            topCategoryWrapper.style.touchAction = "pan-x";
+        }
+    }
+
+    /* ===============================
+       ARROW STATE
+    =============================== */
+
+    function getVisibleItems() {
+        return window.innerWidth <= 550 ? 1 : 2;
+    }
+
     function updateArrowState() {
-    const visibleItems = getVisibleItems();
-    const maxIndex = topCategoryProducts.length - visibleItems;
+        const visibleItems = getVisibleItems();
+        const maxIndex = topCategoryProducts.length - visibleItems;
 
-    const leftBtn = topCategoryLeftArrow?.parentElement;
-    const rightBtn = topCategoryRightArrow?.parentElement;
+        const leftBtn = topCategoryLeftArrow?.parentElement;
+        const rightBtn = topCategoryRightArrow?.parentElement;
 
-    // If grid mode → lock both arrows
-    if (topCategorySection.classList.contains("is-grid")) {
-        leftBtn?.classList.add("is-disabled");
-        rightBtn?.classList.add("is-disabled");
-        return;
+        // Grid mode → disable arrows
+        if (topCategorySection.classList.contains("is-grid")) {
+            leftBtn?.classList.add("is-disabled");
+            rightBtn?.classList.add("is-disabled");
+            return;
+        }
+
+        if (currentIndex <= 0) {
+            leftBtn?.classList.add("is-disabled");
+        } else {
+            leftBtn?.classList.remove("is-disabled");
+        }
+
+        if (currentIndex >= maxIndex) {
+            rightBtn?.classList.add("is-disabled");
+        } else {
+            rightBtn?.classList.remove("is-disabled");
+        }
     }
-
-    // Lock left arrow at start
-    if (currentIndex <= 0) {
-        leftBtn?.classList.add("is-disabled");
-    } else {
-        leftBtn?.classList.remove("is-disabled");
-    }
-
-    // Lock right arrow at end
-    if (currentIndex >= maxIndex) {
-        rightBtn?.classList.add("is-disabled");
-    } else {
-        rightBtn?.classList.remove("is-disabled");
-    }
-}
-
-function loadProductBackground(product) {
-    if (product.dataset.loaded === "true") return;
-
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const { bgDesktop, bgMobile } = product.dataset;
-
-    product.style.backgroundImage =
-        `url(${isMobile ? bgMobile : bgDesktop})`;
-
-    product.dataset.loaded = "true";
-}
-
 
     /* ===============================
        CAROUSEL HELPERS
@@ -86,12 +95,8 @@ function loadProductBackground(product) {
         return firstCard.offsetWidth + gap;
     }
 
-    function getVisibleItems() {
-        return window.innerWidth <= 550 ? 1 : 2;
-    }
-
     function updateTopCategoryCarousel() {
-        // 🚫 Do nothing in grid mode
+        // Do nothing in grid mode
         if (topCategorySection.classList.contains("is-grid")) return;
 
         const maxIndex =
@@ -103,7 +108,7 @@ function loadProductBackground(product) {
             `translateX(-${currentIndex * getSlideWidth()}px)`;
 
         topCategoryWrapper.style.transition = "transform 0.5s ease";
-        updateArrowState(); // 🔑
+        updateArrowState();
     }
 
     /* ===============================
@@ -120,12 +125,6 @@ function loadProductBackground(product) {
         updateTopCategoryCarousel();
     });
 
-    window.addEventListener("resize", () => {
-        updateTopCategoryCarousel();
-        updateTopCategoryBackgrounds();
-        updateArrowState(); // 🔑
-    });
-
     /* ===============================
        VIEW ALL / VIEW LESS TOGGLE
     =============================== */
@@ -134,7 +133,7 @@ function loadProductBackground(product) {
         const isGrid =
             topCategorySection.classList.toggle("is-grid");
 
-        // Button always shows the NEXT action
+        // Button always shows NEXT action
         topCategoryViewAllLabel.textContent =
             isGrid ? "View less" : "View all";
 
@@ -148,11 +147,13 @@ function loadProductBackground(product) {
             currentIndex = 0;
             updateTopCategoryCarousel();
         }
-        updateArrowState(); // 🔑
+
+        updateArrowState();
+        updateMobileTouchAction(); // 🔑
     });
 
     /* ===============================
-       RESPONSIVE BACKGROUND IMAGES
+       RESPONSIVE BACKGROUNDS
     =============================== */
 
     function updateTopCategoryBackgrounds() {
@@ -185,10 +186,23 @@ function loadProductBackground(product) {
     });
 
     /* ===============================
+       RESIZE HANDLER
+    =============================== */
+
+    window.addEventListener("resize", () => {
+        updateTopCategoryCarousel();
+        updateTopCategoryBackgrounds();
+        updateArrowState();
+        updateMobileTouchAction(); // 🔑
+    });
+
+    /* ===============================
        INIT
     =============================== */
 
     updateTopCategoryCarousel();
     updateTopCategoryBackgrounds();
+    updateArrowState();
+    updateMobileTouchAction(); // 🔑
 
 });
