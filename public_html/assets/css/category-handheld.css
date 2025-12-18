@@ -541,11 +541,40 @@
 
 @media (max-width:550px){
     .handheld .handheld-productInfo{
-       height: 110px;
-       padding:0.5rem 1rem;
+       height: 85px;
+       height:110px;
+       padding:0.5rem .5rem;
     }
 
     a.handheld-productLink{
         padding:0.5rem 0rem;
+    }
+
+    .handheld-productSummary{
+        /* display: none; */
+
+    }
+
+    .handheld__carousel.handheld__grid .handheld__item{
+        aspect-ratio: unset;
+        height:300px;
+    }
+
+    .handheld__featured{
+        padding:1.5rem 1rem;
+    }
+
+    .handheld.product-intro{
+        font-size:1rem;
+        font-weight:400;
+        
+
+    }
+
+   
+    .supplies-product p.product-intro{
+        padding:0rem;
+        font-size:1rem;
+        font-weight:400;
     }
 }

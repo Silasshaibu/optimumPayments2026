@@ -409,7 +409,7 @@
 
             
             .slide.supplies-product div.supplies-product{
-                padding-right:20%;
+                padding-right:1rem;
             }
 
             .btn-featured-products.product-Btn-Desktop{
@@ -434,8 +434,15 @@
         }
 
         .supplies-product{
-            padding:2rem 1rem;
+            padding:1rem 1rem;
+            /* background:red; */
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: space-between;
         }    
+
+        
 
         .carousel-header.withRemote{
             padding-bottom:.5rem;
@@ -513,9 +520,7 @@
                     /* justify-content: center; */
         }
 
-        .supplies-product{
-                padding: 2rem 1rem;
-        }
+        
 
         .product-intro{
             /* text-align: center;   */
@@ -546,7 +551,28 @@
                 align-items: flex-start;
                 display: flex;
             }
-           
+
+             .supplies-product p.product-intro{
+                padding:0rem;
+                font-size:1rem;
+                font-weight:400;
+            }
+
+            .btn-featured-products.product-Btn-Desktop.cta-shopforsupplies-buynow{
+                margin-top:1rem;
+            }
+
+            .carousel-body.productsGrid.supplies-grid div.product-grid-item{
+                /* background-color: red; */
+                min-height:250px;
+                /* aspect-ratio: unset; */
+                /* height:800px; */
+            }
+
+            .carousel-body.productsGrid.supplies-grid .productTitle, .carousel-body.productsGrid.supplies-grid p.productSummary{
+                text-align: left;
+            }
+                
     }
 
                
