@@ -150,15 +150,14 @@
     align-self: flex-start;
     font-weight: bold;
     font-family: Manrope, sans-serif;
-    min-width: 200px;
+    min-width: 250px;
+    max-width: 300px;
     background: url(../images/products/storeProducts/shopBanner-Revamp.jpg);
-    height: 80vh;
+    
     min-height: 80vh;
-    background-size: contain;
     background-size: cover;
     background-repeat: no-repeat;
-    height: fit-content;
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
 }
 
@@ -235,6 +234,7 @@
     .product-container{        
         margin:0 auto;
         padding:0px 8%;
+        padding-left:2%;
 
     }
 
