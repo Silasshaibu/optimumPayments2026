@@ -207,8 +207,7 @@ h1.heading.title{
 }
 
 @media (max-width:1024px) {
-.homeHero-carousel .textInfo-wrapper {
-  
+.homeHero-carousel .textInfo-wrapper {  
     padding:2rem;
     
 }

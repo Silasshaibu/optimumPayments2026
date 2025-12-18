@@ -382,7 +382,7 @@ p {
   align-items: center;
   background-color: transparent;
   height: 100%;
-  color:#fff;
+  color:var(--Primary-Btn);
   padding: 13px 33px;
   border-radius: 8px;
   outline: 2px solid transparent; /* Primary button color */
