@@ -199,7 +199,7 @@ button {
 
 .main-menu.mobileDropDown {
   position: fixed;          /* overlay on mobile */
-  top: calc(var(--nav-height) + var(--banner-carousel)) + 50px; /*calc banner height + header height*/
+  top: calc(var(--nav-height) + var(--banner-carousel)); 
   left: 0;
   width: 100%;
   height: calc(100vh - var(--banner-carousel) - var(--nav-height));          
@@ -311,6 +311,10 @@ body.menu-open {
    .searchFieldInput{
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+   }
+
+   .mobileMenu-service-card.singular.about-us-description {
+    width:80vw;
    }
 }
 
