@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../assets/css/style-guide.css">
     <link rel="stylesheet" href="../assets/css/banner.css">
     <title>Banner Carousel</title>
+
     
 </head>
 
@@ -14,6 +15,7 @@
     <!-- ============================================================
         BANNER CAROUSEL
     ============================================================ -->
+   
     <section>
         <div class="banner-carousel">
 
@@ -24,182 +26,45 @@
             <!-- Slides -->
             <div class="banner-wrapper">
 
-                <div class="banner-slide">
-                <div class="banner-container">
-                    <div class="banner-media">
-                    <img class="banner-advert"
-                        src="../assets/images/hero/2021-02-03-station-solo-Merchant_Facing-Left_Parallel-Register-np-removebg-preview.webp"
-                        alt="Advert">
-                    <button class="banner-cta">GET ACCESS NOW</button>
+                <div class="banner-slide promo" data-link="./promo.html">
+                    <div class="banner-container">
+                       
+                            <div class="banner-media promo">
+                                <p class="banner-message" style="color:#353232">Own a business or know someone that does?
+Earn <span><strong>$500</strong></span> and get up to 100% off new equipment* <span class="bannerDirectionalArrow-CTA"> -> </span> <a href="./promo.html"><strong>Claim Offer Now!</strong>  </a></p>
+                                <button style="display:none;" class="banner-cta">GET ACCESS NOW</button>
+                            </div>
+                        
                     </div>
-                </div>
                 </div>
 
-                <div class="banner-slide">
-                <div class="banner-container">
-                    <div class="banner-media">
-                    <button class="banner-cta">CLAIM OFFER NOW</button>
+                <div class="banner-slide merchant-apply-form" data-link="./merchant-application.html">
+                        
+                            <div class="banner-media merchant-apply-form">
+                                <p class="banner-message" style="color:#353232">Want to eliminate up to 100% of your processing fees ? <span class="bannerDirectionalArrow-CTA"> -> </span><a href="./merchant-application.html"><strong>Click Here!</strong>  </a></p>
+                                
+                                <button style="display:none;" class="banner-cta">CLAIM OFFER NOW</button>
+                            </div>
+                        
                     </div>
-                </div>
                 </div>
 
             </div>
         
-        </div>
+        </div> 
+
+        <!-- Add banner image here  -->
+      
+
+     
 
 
-        <link rel="stylesheet" href="../assets/css/style-guide.css">
-        <link rel="stylesheet" href="../assets/css/banner.css">
+
     </section>
 
 
-
-
+    <script src="../assets/js/banner-auto.js"></script>
+    <script src="../assets/js/banner-core.js"></script>
 </body>
-
-
-
-
-<script>
-    (function initBannerCarousel() {
-
-  document.querySelectorAll(".banner-carousel").forEach(carousel => {
-
-    const wrapper = carousel.querySelector(".banner-wrapper");
-    const slides  = Array.from(wrapper.children);
-    const prevBtn = carousel.querySelector(".banner-prev");
-    const nextBtn = carousel.querySelector(".banner-next");
-
-    if (slides.length < 2) return;
-
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone  = slides[slides.length - 1].cloneNode(true);
-
-    wrapper.prepend(lastClone);
-    wrapper.append(firstClone);
-
-    let index = 1;
-    let width = slides[0].offsetWidth;
-    let isAnimating = false;
-
-    function setPosition(noAnim = false) {
-      wrapper.style.transition = noAnim ? "none" : "transform 0.45s ease-in-out";
-      wrapper.style.transform = `translateX(-${index * width}px)`;
-    }
-
-    function moveTo(newIndex) {
-      if (isAnimating) return;
-      isAnimating = true;
-
-      index = newIndex;
-      setPosition();
-
-      wrapper.addEventListener("transitionend", () => {
-
-        if (index === 0) {
-          index = slides.length;
-          setPosition(true);
-        }
-
-        if (index === slides.length + 1) {
-          index = 1;
-          setPosition(true);
-        }
-
-        isAnimating = false;
-      }, { once: true });
-    }
-
-    nextBtn?.addEventListener("click", () => moveTo(index + 1));
-    prevBtn?.addEventListener("click", () => moveTo(index - 1));
-
-    window.addEventListener("resize", () => {
-      width = slides[0].offsetWidth;
-      setPosition(true);
-    });
-
-    setPosition(true);
-  });
-
-})();
-
-</script>
-
-
-<script>
-(function bannerAutoFadeBezier() {
-
-  const AUTO_INTERVAL = 5000;
-  const FADE_DURATION = 900; // MUST match CSS opacity duration
-
-  document.querySelectorAll(".banner-carousel").forEach(carousel => {
-
-    const wrapper = carousel.querySelector(".banner-wrapper");
-    const slides  = wrapper ? Array.from(wrapper.children) : [];
-
-    if (!wrapper || slides.length < 2) return;
-
-    let index = 0;
-    let width = slides[0].offsetWidth;
-    let timer = null;
-
-    function setPosition(noAnim = false) {
-      wrapper.style.transition = noAnim
-        ? "none"
-        : "transform 0.45s ease-in-out, opacity 0.6s cubic-bezier(0.4, 0.0, 0.2, 1)";
-
-      wrapper.style.transform = `translateX(-${index * width}px)`;
-    }
-
-    function fadeReset() {
-      wrapper.classList.add("is-fading");
-
-      setTimeout(() => {
-        index = 0;
-        setPosition(true);
-
-        requestAnimationFrame(() => {
-          wrapper.classList.remove("is-fading");
-        });
-
-      }, FADE_DURATION);
-    }
-
-    function nextSlide() {
-      index++;
-
-      if (index >= slides.length) {
-        fadeReset();
-        return;
-      }
-
-      setPosition();
-    }
-
-    function startAuto() {
-      timer = setInterval(nextSlide, AUTO_INTERVAL);
-    }
-
-    function stopAuto() {
-      clearInterval(timer);
-    }
-
-    carousel.addEventListener("mouseenter", stopAuto);
-    carousel.addEventListener("mouseleave", startAuto);
-
-    window.addEventListener("resize", () => {
-      width = slides[0].offsetWidth;
-      setPosition(true);
-    });
-
-    setPosition(true);
-    startAuto();
-
-  });
-
-})();
-</script>
-
-
 
 </html>

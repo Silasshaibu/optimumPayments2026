@@ -114,6 +114,16 @@
   opacity: 0;
 }
 
+ 
+            .banner-slide.promo{
+                background: rgb(204, 204, 204) ;
+            }
+
+            .banner-slide.merchant-apply-form{
+                background: orange ;
+            }
+      
+
 @media(max-width:768px){
     .banner-advert{
         display: flex;

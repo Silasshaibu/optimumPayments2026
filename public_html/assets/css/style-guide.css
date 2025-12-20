@@ -380,7 +380,7 @@ p {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: transparent;
+  background-color: #ffffff71;
   height: 100%;
   color:var(--Primary-Btn);
   padding: 13px 33px;
