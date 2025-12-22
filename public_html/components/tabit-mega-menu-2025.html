@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tabit Products</title>
-<!-- <link rel="stylesheet" href="../assets/css/style-guide.css"> -->
 
 <style>
 /* ===========================
@@ -14,12 +13,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* body {
+body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #ffffff;
   color: #0b3b3b;
-} */
+}
 
 /* ===========================
    VIEW PRODUCTS BUTTON
@@ -49,7 +48,6 @@ html {
   display: block;
 }
 
-/* Close button */
 .tabit-mega-menu__close {
   position: absolute;
   top: 12px;
@@ -61,7 +59,7 @@ html {
 }
 
 /* ===========================
-   PRODUCT GRID (MEGA MENU)
+   MEGA MENU GRID
 =========================== */
 .tabit-mega-menu__grid {
   display: grid;
@@ -72,12 +70,11 @@ html {
 
 .tabit-mega-menu__item {
   display: flex;
-  align-items: center;
   gap: 14px;
-  text-decoration: none;
-  color: inherit;
   padding: 14px;
   border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
   transition: background 0.25s ease;
 }
 
@@ -104,7 +101,7 @@ html {
 }
 
 /* ===========================
-   TARGET SECTIONS GRID
+   SECTIONS GRID
 =========================== */
 .tabit-sections {
   max-width: 1100px;
@@ -115,7 +112,6 @@ html {
   gap: 40px;
 }
 
-/* Card */
 .tabit-section {
   background: #fff;
   border-radius: 16px;
@@ -129,7 +125,6 @@ html {
   box-shadow: 0 18px 40px rgba(0,0,0,0.08);
 }
 
-/* Image */
 .tabit-card-image img {
   width: 100%;
   height: 220px;
@@ -137,7 +132,6 @@ html {
   display: block;
 }
 
-/* Text */
 .tabit-section h2 {
   margin: 20px 20px 8px;
   font-size: 20px;
@@ -158,15 +152,9 @@ html {
 }
 
 @keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(48,108,148,0.45);
-  }
-  70% {
-    box-shadow: 0 0 0 18px rgba(48,108,148,0);
-  }
-  100% {
-    box-shadow: none;
-  }
+  0% { box-shadow: 0 0 0 0 rgba(48,108,148,0.45); }
+  70% { box-shadow: 0 0 0 18px rgba(48,108,148,0); }
+  100% { box-shadow: none; }
 }
 
 /* ===========================
@@ -190,80 +178,70 @@ html {
 
 <body>
 
-<!-- ===========================
-     TOGGLE BUTTON
-=========================== -->
 <button id="tabitMegaMenuToggle" aria-expanded="false">
   View Products
 </button>
 
-<!-- ===========================
-     MEGA MENU
-=========================== -->
 <div id="tabitMegaMenu" class="tabit-mega-menu">
   <button class="tabit-mega-menu__close" aria-label="Close menu">×</button>
-
-  <div class="tabit-mega-menu__grid">
-    <a href="#tabit-analytics" class="tabit-mega-menu__item">
-      <div class="tabit-mega-menu__icon"></div>
-      <div>
-        <div class="tabit-mega-menu__label">Tabit Analytics</div>
-        <div class="tabit-mega-menu__slug">Business insights</div>
-      </div>
-    </a>
-
-    <a href="#tabit-hotels" class="tabit-mega-menu__item">
-      <div class="tabit-mega-menu__icon"></div>
-      <div>
-        <div class="tabit-mega-menu__label">Tabit Hotels</div>
-        <div class="tabit-mega-menu__slug">Hotel integrations</div>
-      </div>
-    </a>
-
-    <a href="#tabit-shift" class="tabit-mega-menu__item">
-      <div class="tabit-mega-menu__icon"></div>
-      <div>
-        <div class="tabit-mega-menu__label">Tabit Shift</div>
-        <div class="tabit-mega-menu__slug">Staff scheduling</div>
-      </div>
-    </a>
-  </div>
+  <div class="tabit-mega-menu__grid"></div>
 </div>
 
-<!-- ===========================
-     TARGET SECTIONS
-=========================== -->
-<section class="tabit-sections">
-
-  <div id="tabit-analytics" class="tabit-section">
-    <div class="tabit-card-image">
-      <img src="https://picsum.photos/600/400?1" alt="Analytics">
-    </div>
-    <h2>Tabit Analytics</h2>
-    <p>The latest analytic, big data, and machine learning capabilities highlighting key insights.</p>
-  </div>
-
-  <div id="tabit-hotels" class="tabit-section">
-    <div class="tabit-card-image">
-      <img src="https://picsum.photos/600/400?2" alt="Hotels">
-    </div>
-    <h2>Tabit Hotels</h2>
-    <p>Integrate with your hotel PMS to deliver contactless in-room and on-site dining.</p>
-  </div>
-
-  <div id="tabit-shift" class="tabit-section">
-    <div class="tabit-card-image">
-      <img src="https://picsum.photos/600/400?3" alt="Shift">
-    </div>
-    <h2>Tabit Shift</h2>
-    <p>Manage employee work time and scheduling from one easy system.</p>
-  </div>
-
-</section>
+<section class="tabit-sections"></section>
 
 <script>
 /* ===========================
-   MEGA MENU LOGIC
+   PRODUCT DATA (1–12)
+=========================== */
+const tabitProducts = [
+  { id:"tabit-pad", name:"Tabit PAD", slug:"Point of sale tablet", img:10, desc:"Tablet-based POS designed for fast service." },
+  { id:"tabit-chef", name:"Tabit Chef", slug:"Kitchen display", img:11, desc:"Real-time kitchen order management." },
+  { id:"tabit-guest", name:"Tabit Guest", slug:"Guest experience", img:4, desc:"Digital menus, payments, and loyalty." },
+  { id:"tabit-analytics", name:"Tabit Analytics", slug:"Business insights", img:1, desc:"Advanced analytics and reporting tools." },
+  { id:"tabit-shift", name:"Tabit Shift", slug:"Staff scheduling", img:3, desc:"Employee time and shift management." },
+  { id:"tabit-hotels", name:"Tabit Hotels", slug:"Hotel integrations", img:2, desc:"Contactless hotel dining experiences." },
+  { id:"tabit-order", name:"Tabit Order", slug:"Digital ordering", img:5, desc:"Flexible ordering across all channels." },
+  { id:"tabit-wheels", name:"Tabit Wheels", slug:"Delivery management", img:6, desc:"In-house delivery operations." },
+  { id:"tabit-kiosk", name:"Tabit Kiosk", slug:"Self-service kiosks", img:7, desc:"Reduce lines with self-order kiosks." },
+  { id:"tabit-gift-cards", name:"Tabit Gift Cards", slug:"Gift card sales", img:8, desc:"Sell digital & physical gift cards." },
+  { id:"tabit-kitchen", name:"Tabit Kitchen", slug:"Kitchen ops", img:12, desc:"Optimize prep and kitchen workflows." },
+  { id:"tabit-feedback", name:"Tabit Feedback", slug:"Customer insights", img:9, desc:"Collect real-time guest feedback." }
+];
+
+/* ===========================
+   RENDER MENU + SECTIONS
+=========================== */
+const menuGrid = document.querySelector(".tabit-mega-menu__grid");
+const sections = document.querySelector(".tabit-sections");
+
+tabitProducts.forEach(p => {
+  menuGrid.insertAdjacentHTML("beforeend", `
+    <a href="#${p.id}" class="tabit-mega-menu__item">
+      <div class="tabit-mega-menu__icon"></div>
+      <div>
+        <div class="tabit-mega-menu__label">${p.name}</div>
+        <div class="tabit-mega-menu__slug">${p.slug}</div>
+      </div>
+    </a>
+  `);
+
+  sections.insertAdjacentHTML("beforeend", `
+    <div id="${p.id}" class="tabit-section">
+      <div class="tabit-card-image">
+        <img 
+          src="https://picsum.photos/600/400?${p.img}" 
+          alt="${p.name}"
+          loading="lazy"
+        >
+      </div>
+      <h2>${p.name}</h2>
+      <p>${p.desc}</p>
+    </div>
+  `);
+});
+
+/* ===========================
+   MEGA MENU TOGGLE
 =========================== */
 const toggle = document.getElementById("tabitMegaMenuToggle");
 const menu = document.getElementById("tabitMegaMenu");
@@ -280,23 +258,20 @@ closeBtn.addEventListener("click", () => {
 });
 
 /* ===========================
-   SCROLL + PULSE HIGHLIGHT
+   SCROLL + PULSE
 =========================== */
-document.querySelectorAll(".tabit-mega-menu__item").forEach(link => {
-  link.addEventListener("click", () => {
-   
+document.addEventListener("click", e => {
+  const link = e.target.closest(".tabit-mega-menu__item");
+  if (!link) return;
 
-    const target = document.querySelector(link.getAttribute("href"));
-    if (!target) return;
+  const target = document.querySelector(link.getAttribute("href"));
+  if (!target) return;
 
-    document.querySelectorAll(".tabit-section").forEach(sec =>
-      sec.classList.remove("pulse")
-    );
+  document.querySelectorAll(".tabit-section").forEach(sec =>
+    sec.classList.remove("pulse")
+  );
 
-    setTimeout(() => {
-      target.classList.add("pulse");
-    }, 600);
-  });
+  setTimeout(() => target.classList.add("pulse"), 600);
 });
 </script>
 
