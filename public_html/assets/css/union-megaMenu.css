@@ -1,0 +1,174 @@
+
+/* =====================
+   BUTTON
+===================== */
+#unionMegaMenuToggle {
+  padding: 10px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* button icon toggle */
+.unionMegaMenu-icon.arrow-long-right {
+  display: none;
+}
+
+#unionMegaMenuToggle[aria-expanded="true"] .arrow-right {
+  display: none;
+}
+
+#unionMegaMenuToggle[aria-expanded="true"] .arrow-long-right {
+  display: inline-flex;
+}
+
+/* =====================
+   MEGA MENU
+===================== */
+.union-mega-menu {
+  display: none;
+  position: relative;
+  margin-top: 12px;
+  width: 900px;
+  background: #0f0b2d;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.union-mega-menu.open {
+  display: flex;
+}
+
+/* Close button */
+.union-mega-menu__close {
+  position: absolute;
+  top: -25px;
+  right: -22px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #0f0b2d85;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.union-mega-menu__close svg {
+  color: black;
+}
+
+/* Columns */
+.union-mega-menu__left {
+  width: 35%;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  padding-right: 1rem;
+}
+
+.union-mega-menu__right {
+  width: 65%;
+  padding-left: 20px;
+}
+
+/* Parent items */
+.union-mega-menu__nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0.8rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.union-mega-menu__nav-item:hover  {
+  background: rgba(255,255,255,0.06);
+}
+
+.union-mega-menu__nav-item.active {
+  background: rgba(255,255,255,0.12);
+}
+
+.union-mega-menu__nav-text {
+  max-width: 85%;
+}
+
+.union-mega-menu__nav-title {
+  font-weight: bold;
+}
+
+.union-mega-menu__nav-slug {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+.union-mega-menu__caret {
+  margin-left: 10px;
+}
+
+/* Children */
+.union-mega-menu__children {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+}
+
+.union-mega-menu__child-item {
+  background: rgba(255,255,255,0.05);
+  padding: 12px;
+  border-radius: 4px;
+}
+
+button:hover svg{    
+    color:#fff;
+}
+
+
+button.union-mega-menu__close:hover{       
+    background-color: black;
+}
+.union-mega-menu__child-item:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.union-mega-menu__child-item a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+/* Icons */
+.icon.unionMegaMenu {
+  width: 24px;
+  height: 24px;
+}
+
+.icon.unionMegaMenu.arrow-right, .unionMegaMenu-icon.arrow-long-right{
+    transform: translateY(1px);
+
+}
+
+
+@media(max-width: 1024px){
+    
+}
+
+
+@media(max-width: 768px){
+
+}
+
+
+@media(max-width: 550px){
+
+}

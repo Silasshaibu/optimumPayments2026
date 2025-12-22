@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tabit Products</title>
+<!-- <link rel="stylesheet" href="../assets/css/style-guide.css"> -->
+
+<style>
+/* ===========================
+   GLOBAL
+=========================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #0b3b3b;
+} */
+
+/* ===========================
+   VIEW PRODUCTS BUTTON
+=========================== */
+#tabitMegaMenuToggle {
+  margin: 20px;
+  padding: 12px 18px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ===========================
+   MEGA MENU CONTAINER
+=========================== */
+.tabit-mega-menu {
+  display: none;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid #e6e6e6;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.tabit-mega-menu.open {
+  display: block;
+}
+
+/* Close button */
+.tabit-mega-menu__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===========================
+   PRODUCT GRID (MEGA MENU)
+=========================== */
+.tabit-mega-menu__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.tabit-mega-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  padding: 14px;
+  border-radius: 10px;
+  transition: background 0.25s ease;
+}
+
+.tabit-mega-menu__item:hover {
+  background: #f3f8f8;
+}
+
+.tabit-mega-menu__icon {
+  width: 36px;
+  height: 36px;
+  background: #306C94;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.tabit-mega-menu__label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.tabit-mega-menu__slug {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ===========================
+   TARGET SECTIONS GRID
+=========================== */
+.tabit-sections {
+  max-width: 1100px;
+  margin: 100px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* Card */
+.tabit-section {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tabit-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+/* Image */
+.tabit-card-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text */
+.tabit-section h2 {
+  margin: 20px 20px 8px;
+  font-size: 20px;
+}
+
+.tabit-section p {
+  margin: 0 20px 26px;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ===========================
+   PULSE HIGHLIGHT
+=========================== */
+.tabit-section.pulse {
+  animation: pulseGlow 1.4s ease-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(48,108,148,0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(48,108,148,0);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1024px) {
+  .tabit-mega-menu__grid,
+  .tabit-sections {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .tabit-mega-menu__grid,
+  .tabit-sections {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===========================
+     TOGGLE BUTTON
+=========================== -->
+<button id="tabitMegaMenuToggle" aria-expanded="false">
+  View Products
+</button>
+
+<!-- ===========================
+     MEGA MENU
+=========================== -->
+<div id="tabitMegaMenu" class="tabit-mega-menu">
+  <button class="tabit-mega-menu__close" aria-label="Close menu">×</button>
+
+  <div class="tabit-mega-menu__grid">
+    <a href="#tabit-analytics" class="tabit-mega-menu__item">
+      <div class="tabit-mega-menu__icon"></div>
+      <div>
+        <div class="tabit-mega-menu__label">Tabit Analytics</div>
+        <div class="tabit-mega-menu__slug">Business insights</div>
+      </div>
+    </a>
+
+    <a href="#tabit-hotels" class="tabit-mega-menu__item">
+      <div class="tabit-mega-menu__icon"></div>
+      <div>
+        <div class="tabit-mega-menu__label">Tabit Hotels</div>
+        <div class="tabit-mega-menu__slug">Hotel integrations</div>
+      </div>
+    </a>
+
+    <a href="#tabit-shift" class="tabit-mega-menu__item">
+      <div class="tabit-mega-menu__icon"></div>
+      <div>
+        <div class="tabit-mega-menu__label">Tabit Shift</div>
+        <div class="tabit-mega-menu__slug">Staff scheduling</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ===========================
+     TARGET SECTIONS
+=========================== -->
+<section class="tabit-sections">
+
+  <div id="tabit-analytics" class="tabit-section">
+    <div class="tabit-card-image">
+      <img src="https://picsum.photos/600/400?1" alt="Analytics">
+    </div>
+    <h2>Tabit Analytics</h2>
+    <p>The latest analytic, big data, and machine learning capabilities highlighting key insights.</p>
+  </div>
+
+  <div id="tabit-hotels" class="tabit-section">
+    <div class="tabit-card-image">
+      <img src="https://picsum.photos/600/400?2" alt="Hotels">
+    </div>
+    <h2>Tabit Hotels</h2>
+    <p>Integrate with your hotel PMS to deliver contactless in-room and on-site dining.</p>
+  </div>
+
+  <div id="tabit-shift" class="tabit-section">
+    <div class="tabit-card-image">
+      <img src="https://picsum.photos/600/400?3" alt="Shift">
+    </div>
+    <h2>Tabit Shift</h2>
+    <p>Manage employee work time and scheduling from one easy system.</p>
+  </div>
+
+</section>
+
+<script>
+/* ===========================
+   MEGA MENU LOGIC
+=========================== */
+const toggle = document.getElementById("tabitMegaMenuToggle");
+const menu = document.getElementById("tabitMegaMenu");
+const closeBtn = menu.querySelector(".tabit-mega-menu__close");
+
+toggle.addEventListener("click", () => {
+  const open = menu.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", open);
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove("open");
+  toggle.setAttribute("aria-expanded", "false");
+});
+
+/* ===========================
+   SCROLL + PULSE HIGHLIGHT
+=========================== */
+document.querySelectorAll(".tabit-mega-menu__item").forEach(link => {
+  link.addEventListener("click", () => {
+   
+
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+
+    document.querySelectorAll(".tabit-section").forEach(sec =>
+      sec.classList.remove("pulse")
+    );
+
+    setTimeout(() => {
+      target.classList.add("pulse");
+    }, 600);
+  });
+});
+</script>
+
+</body>
+</html>
