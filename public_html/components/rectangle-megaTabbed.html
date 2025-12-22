@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tabbed Section</title>
+  <link rel="stylesheet" href="../assets/css/style-guide.css">
+
+  <style>
+  
+
+    /* Tabs container */
+    .tabs {
+      display: flex;
+      background: #ffffff;
+      border-bottom: 2px solid #dcdcdc;
+    }
+
+    .tab {
+      padding: 14px 24px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #555;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .tab:hover {
+      background: #f1f3f5;
+    }
+
+    .tab.active {
+      color: #0b4da2;
+      border-bottom-color: #0b4da2;
+    }
+
+    /* Content area */
+    .tab-panels {
+      padding: 24px;
+      background: #ffffff;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .card {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab" data-tab="engagement">Patient Engagement</div>
+    <div class="tab" data-tab="payments">Payments & Financing</div>
+    <div class="tab active" data-tab="compliance">Compliance</div>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-panels">
+
+    <div class="panel" id="engagement">
+      <h1>Patient Engagement</h1>
+      <div class="card">
+        Tools and workflows for engaging patients.
+      </div>
+    </div>
+
+    <div class="panel" id="payments">
+      <h1>Payments & Financing</h1>
+      <div class="card">
+        Payment plans, billing, and financing options.
+      </div>
+    </div>
+
+    <div class="panel active" id="compliance">
+      <h1>Create Injury and Illness Report</h1>
+      <div class="card">
+        Employee information and compliance reporting form goes here.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const panels = document.querySelectorAll(".panel");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Activate selected tab
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        // Show matching panel
+        const target = tab.dataset.tab;
+        panels.forEach(panel => {
+          panel.classList.toggle("active", panel.id === target);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
