@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clover Review Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../assets/css/style-guide.css">
+
+  <style>
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      background: #fff;
+      display: flex;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .left {
+      width: 50%;
+      padding: 40px;
+      background: #e8f4e3;
+    }
+
+    .price {
+      color: var(--color-primary);
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .fee strong {
+      font-size: 28px;
+      display: block;
+      color: var(--color-primary);
+    }
+
+    .right {
+      width: 50%;
+      padding: 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    /* STAR RATING */
+    .stars {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .star {
+      width: 32px;
+      height: 32px;
+      fill: #ccc;
+      transition: fill 0.2s;
+    }
+
+    .star.active,
+    .star.hover {
+      fill: var(--color-primary);
+    }
+
+    /* .checkbox {
+      display: flex;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .checkbox input {
+      margin-right: 10px;
+      margin-top: 3px;
+    } */
+
+    button {
+      background: var(--color-primary);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .left, .right {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT -->
+  <div class="left">
+    <div class="price">£9.99 <span>per month</span></div>
+    <div class="fee">
+      <strong>Up to 1.49%</strong>
+      transaction fee
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <h1>Enjoy our service and products?</h1>
+    <p>Please leave a <strong>review</strong> below.</p>
+
+    <form id="contactForm">
+
+      <!-- STAR RATING -->
+      <label>Your overall rating</label>
+      <div class="stars" id="starRating">
+        <svg class="star" data-value="1" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        <svg class="star" data-value="2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        <svg class="star" data-value="3" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        <svg class="star" data-value="4" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        <svg class="star" data-value="5" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      </div>
+
+      <input type="hidden" id="rating" required>
+
+      <!-- REVIEW -->
+      <label>Your review</label>
+      <textarea required></textarea>
+
+      <!-- NAME -->
+      <label>Your name</label>
+      <input type="text" required>
+
+      <!-- EMAIL -->
+      <label>Your email</label>
+      <input type="email" required>
+
+      <div class="checkbox">
+        <input type="checkbox" required>
+        <label>I agree to the Privacy Notice</label>
+      </div>
+
+      <button class="btn-primary" type="submit">Submit Review → </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const stars = document.querySelectorAll('.star');
+  const ratingInput = document.getElementById('rating');
+  let selectedRating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      highlightStars(star.dataset.value);
+    });
+
+    star.addEventListener('mouseout', () => {
+      highlightStars(selectedRating);
+    });
+
+    star.addEventListener('click', () => {
+      selectedRating = star.dataset.value;
+      ratingInput.value = selectedRating;
+    });
+  });
+
+  function highlightStars(value) {
+    stars.forEach(star => {
+      star.classList.toggle('active', star.dataset.value <= value);
+    });
+  }
+
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!ratingInput.value) {
+      alert('Please select a rating');
+      return;
+    }
+    alert('Review submitted successfully!');
+    e.target.reset();
+    highlightStars(0);
+  });
+</script>
+
+</body>
+</html>
