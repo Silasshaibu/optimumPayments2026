@@ -46,6 +46,9 @@
       flex-direction: column;
     }
     
+    .review-intro{
+        color:var(--color-primary);
+    }
 
     textarea {
       resize: none;
@@ -78,20 +81,25 @@
     }
 
     .form.reviewSection label{
-        padding-top:.5rem;
         padding-top:14px;
+        padding-bottom:4px;
+    }
+    
+    .terms-checkbox{
+      font-size: 13px;
     }
 
      .checkbox {
       display: flex;
       font-size: 13px;
-      /* background-color: red; */
+      padding-top:7px;
       padding-bottom: 1.5rem;
     }
 
+   
+
     .checkbox input {
       margin-right: .5rem;
-      background-color: blue;
     } 
 
    
@@ -125,15 +133,15 @@
 
   <!-- RIGHT -->
   <div class="right">
-    <h1>Enjoy our service and products?</h1>
-    <p>Please leave a <strong>review</strong> below.</p>
+    <h1 class="review-intro">Enjoy our service and products?</h1>
+    <p>Please leave a <strong class="review-accent">review</strong> below.</p>
 
     <form id="contactForm" class="reviewSection">
     
     
     <div class="form reviewSection">
         <!-- STAR RATING -->
-      <label>Your overall rating</label>
+      <label>Your overall rating*</label>
       <div class="stars" id="starRating">
         <svg class="star" data-value="1" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
         <svg class="star" data-value="2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
@@ -145,23 +153,23 @@
       <input type="hidden" id="rating" required>
 
       <!-- REVIEW -->
-      <label>Your review</label>
+      <label>Your review* </label>
       <textarea required placeholder="Tell people your review"></textarea>
 
       <!-- NAME -->
-      <label>Your name</label>
+      <label>Your name*</label>
       <input type="text" placeholder="Tell us your name" required>
 
       <!-- EMAIL -->
-      <label>Your email</label>
+      <label>Your email*</label>
       <input type="email" placeholder="example@email.com" required>
 
       <div class="checkbox">
         <input type="checkbox" required>
-        <label>I agree to <a href="#">Optimum-Payments Privacy</a> Notice</label>
+        <label class="terms-checkbox"><p class="subtle">I agree to <a href="#">Optimum-Payments Privacy</a> Notice</p></label>
       </div>
 
-      <button class="btn-primary" type="submit">Submit Review → </button>
+      <button class="btn-primary btn-fullwidth type="submit">Submit Review → </button>
     </div>
       
     </form>
