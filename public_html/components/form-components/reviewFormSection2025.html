@@ -20,25 +20,25 @@
 
     .left {
       width: 50%;
-      padding: 40px;
+      padding: 2.5rem;
       background: #e8f4e3;
     }
 
     .price {
       color: var(--color-primary);
-      font-size: 36px;
-      font-weight: bold;
+      font-size: 2.5rem;
+      font-weight: 700;
     }
 
     .fee strong {
-      font-size: 28px;
+      font-size: 1.75rem;
       display: block;
       color: var(--color-primary);
     }
 
     .right {
       width: 50%;
-      padding: 40px;
+      padding: 2rem;
     }
 
     form {
@@ -56,7 +56,7 @@
     .stars {
       display: flex;
       gap: 8px;
-      margin-bottom: 20px;
+      /* margin-bottom: 20px; */
       cursor: pointer;
     }
 
@@ -69,29 +69,32 @@
 
     .star.active,
     .star.hover {
-      fill: var(--color-primary);
+      fill: #f36b7f;
     }
 
-    /* .checkbox {
+    form.reviewSection{
+        padding:0px;
+        padding-top:1.5rem;
+    }
+
+    .form.reviewSection label{
+        padding-top:.5rem;
+        padding-top:14px;
+    }
+
+     .checkbox {
       display: flex;
       font-size: 13px;
-      margin-bottom: 20px;
+      /* background-color: red; */
+      padding-bottom: 1.5rem;
     }
 
     .checkbox input {
-      margin-right: 10px;
-      margin-top: 3px;
-    } */
+      margin-right: .5rem;
+      background-color: blue;
+    } 
 
-    button {
-      background: var(--color-primary);
-      color: #fff;
-      border: none;
-      padding: 14px;
-      font-size: 16px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+   
 
     button:hover {
       background: var(--color-primary);
@@ -125,9 +128,11 @@
     <h1>Enjoy our service and products?</h1>
     <p>Please leave a <strong>review</strong> below.</p>
 
-    <form id="contactForm">
-
-      <!-- STAR RATING -->
+    <form id="contactForm" class="reviewSection">
+    
+    
+    <div class="form reviewSection">
+        <!-- STAR RATING -->
       <label>Your overall rating</label>
       <div class="stars" id="starRating">
         <svg class="star" data-value="1" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
@@ -141,22 +146,24 @@
 
       <!-- REVIEW -->
       <label>Your review</label>
-      <textarea required></textarea>
+      <textarea required placeholder="Tell people your review"></textarea>
 
       <!-- NAME -->
       <label>Your name</label>
-      <input type="text" required>
+      <input type="text" placeholder="Tell us your name" required>
 
       <!-- EMAIL -->
       <label>Your email</label>
-      <input type="email" required>
+      <input type="email" placeholder="example@email.com" required>
 
       <div class="checkbox">
         <input type="checkbox" required>
-        <label>I agree to the Privacy Notice</label>
+        <label>I agree to <a href="#">Optimum-Payments Privacy</a> Notice</label>
       </div>
 
       <button class="btn-primary" type="submit">Submit Review → </button>
+    </div>
+      
     </form>
   </div>
 </div>
