@@ -8,32 +8,29 @@
   <link rel="stylesheet" href="../../assets/css/style-guide.css">
 
   <style>
-    .container {
+    :root {
+      --primary-rgb: 54, 116, 168;
+    }
+
+    .review-Section {
+      width: 100%;
+      padding: 2%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .review-container {
       max-width: 1000px;
       width: 100%;
-      background: #fff;
       display: flex;
-      border-radius: 6px;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     .left {
       width: 50%;
+      background: #e8f4e3 url(../../assets/images/hero/ReivewCard-DisplayPictures01.png) no-repeat center/cover;
       padding: 2.5rem;
-      background: #e8f4e3;
-    }
-
-    .price {
-      color: var(--color-primary);
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-
-    .fee strong {
-      font-size: 1.75rem;
-      display: block;
-      color: var(--color-primary);
     }
 
     .right {
@@ -45,9 +42,9 @@
       display: flex;
       flex-direction: column;
     }
-    
-    .review-intro{
-        color:var(--color-primary);
+
+    .review-intro {
+      color: var(--color-primary);
     }
 
     textarea {
@@ -55,164 +52,282 @@
       height: 120px;
     }
 
-    /* STAR RATING */
     .stars {
       display: flex;
       gap: 8px;
-      /* margin-bottom: 20px; */
       cursor: pointer;
     }
 
-    .star {
+    .reviewStar {
       width: 32px;
       height: 32px;
       fill: #ccc;
       transition: fill 0.2s;
     }
 
-    .star.active,
-    .star.hover {
+    .reviewStar.active,
+    .reviewStar.hover {
       fill: #f36b7f;
     }
 
-    form.reviewSection{
-        padding:0px;
-        padding-top:1.5rem;
+    form.reviewSection {
+      padding: 0;
     }
 
-    .form.reviewSection label{
-        padding-top:14px;
-        padding-bottom:4px;
+    .form.reviewSection label {
+      padding: 14px 0 4px;
     }
-    
-    .terms-checkbox{
+
+    .terms-checkbox {
       font-size: 13px;
     }
 
-     .checkbox {
+    .checkbox {
       display: flex;
       font-size: 13px;
-      padding-top:7px;
-      padding-bottom: 1.5rem;
+      padding: 7px 0 1.5rem;
     }
-
-   
 
     .checkbox input {
       margin-right: .5rem;
-    } 
-
-   
+    }
 
     button:hover {
       background: var(--color-primary);
     }
 
     @media (max-width: 768px) {
-      .container {
+      .review-container {
         flex-direction: column;
       }
-      .left, .right {
+      .left,
+      .right {
         width: 100%;
       }
     }
+
+    /* FEEDBACK BUTTON */
+    .feedbackToReviewSection {
+      background-color: green;
+      width: 14ch;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 200px;
+      right: -5ch;
+      padding: .5rem 1.2rem;
+      display: flex;
+      gap: .5rem;
+      border-radius: 6px;
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+      transform: rotate(270deg);
+      color: #fff;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+
+    .feedbackToReviewSection:hover {
+      background-color: rgb(3, 54, 3);
+    }
+
+    .feedbackToReviewSection.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: rotate(270deg) translateY(0);
+    }
+
+    .feedback-icon-svg {
+      width: 1rem;
+      transform: translate(0px, 2px) rotate(90deg);
+    }
+
+    /* PULSE EFFECT */
+    .review-container.review-pulse {
+      position: relative;
+      overflow: visible;
+      animation: reviewPulse 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes reviewPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0),
+                    0 0 0 0 rgba(var(--primary-rgb), 0);
+      }
+      40% {
+        box-shadow: 0 0 0 6px rgba(var(--primary-rgb), 0.35),
+                    0 0 30px 12px rgba(var(--primary-rgb), 0.45);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0.18),
+                    0 0 45px 20px rgba(var(--primary-rgb), 0.25);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0),
+                    0 0 0 0 rgba(var(--primary-rgb), 0);
+      }
+    }
+
+    .review-container.review-pulse::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 40px rgba(var(--primary-rgb), 0.25);
+      pointer-events: none;
+    }
   </style>
 </head>
+
 <body>
 
-<div class="container">
+  <div class="review-Section">
+    <div class="review-container">
+      <div class="left">
+        <img class="review-logo"
+             src="../../assets/images/logo/logo-optimum-payment_optimized_sm.png"
+             width="110"
+             alt="Optimum-Payments">
+      </div>
 
-  <!-- LEFT -->
-  <div class="left">
-    <div class="price">£9.99 <span>per month</span></div>
-    <div class="fee">
-      <strong>Up to 1.49%</strong>
-      transaction fee
+      <div class="right">
+        <h1 class="review-intro">Enjoy our service and products?</h1>
+        <p>Please leave a <strong class="review-accent">review</strong> below.</p>
+
+        <form id="reviewForm" class="reviewSection">
+          <div class="form reviewSection">
+
+            <label>Your overall rating*</label>
+            <div class="stars" id="starRating">
+              <svg class="reviewStar" data-value="1" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg class="reviewStar" data-value="2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg class="reviewStar" data-value="3" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg class="reviewStar" data-value="4" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg class="reviewStar" data-value="5" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+
+            <input type="hidden" id="rating" required>
+
+            <label>Your review*</label>
+            <textarea required placeholder="Tell people your review"></textarea>
+
+            <label>Your name*</label>
+            <input type="text" placeholder="Tell us your name" required>
+
+            <label>Your email*</label>
+            <input type="email" placeholder="example@email.com" required>
+
+            <div class="checkbox">
+              <input type="checkbox" required>
+              <label class="terms-checkbox">
+                <p class="subtle">I agree to <a href="#">Optimum-Payments Privacy</a> Notice</p>
+              </label>
+            </div>
+
+            <button class="btn-primary btn-fullwidth" type="submit">
+              Submit Review →
+            </button>
+
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
-  <!-- RIGHT -->
-  <div class="right">
-    <h1 class="review-intro">Enjoy our service and products?</h1>
-    <p>Please leave a <strong class="review-accent">review</strong> below.</p>
-
-    <form id="contactForm" class="reviewSection">
-    
-    
-    <div class="form reviewSection">
-        <!-- STAR RATING -->
-      <label>Your overall rating*</label>
-      <div class="stars" id="starRating">
-        <svg class="star" data-value="1" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg class="star" data-value="2" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg class="star" data-value="3" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg class="star" data-value="4" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg class="star" data-value="5" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      </div>
-
-      <input type="hidden" id="rating" required>
-
-      <!-- REVIEW -->
-      <label>Your review* </label>
-      <textarea required placeholder="Tell people your review"></textarea>
-
-      <!-- NAME -->
-      <label>Your name*</label>
-      <input type="text" placeholder="Tell us your name" required>
-
-      <!-- EMAIL -->
-      <label>Your email*</label>
-      <input type="email" placeholder="example@email.com" required>
-
-      <div class="checkbox">
-        <input type="checkbox" required>
-        <label class="terms-checkbox"><p class="subtle">I agree to <a href="#">Optimum-Payments Privacy</a> Notice</p></label>
-      </div>
-
-      <button class="btn-primary btn-fullwidth type="submit">Submit Review → </button>
-    </div>
-      
-    </form>
+  <div id="feedbackToReviewSection" class="feedbackToReviewSection">
+    <span class="feedback-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="feedback-icon-svg" viewBox="0 0 24 22">
+        <path fill="#fdfdfe" fill-rule="evenodd"
+          d="M22.362.827C21.72.5 20.88.5 19.2.5H3.3C1.755.5.983.5.575.819A1.5 1.5 0 000 1.969c-.01.517.453 1.135 1.38 2.371l1.14 1.52C2.7 6.856 3 7.003 3 7.3v9.4c0 1.68 0 2.52.327 3.162a3 3 0 001.311 1.311c.642.327 1.482.327 3.162.327h11.4c1.68 0 2.52 0 3.162-.327a3 3 0 001.311-1.311C24 19.22 24 18.38 24 16.7V5.3c0-1.68 0-2.52-.327-3.162a3 3 0 00-1.31-1.311z"/>
+      </svg>
+    </span>
+    Feedback
   </div>
-</div>
 
-<script>
-  const stars = document.querySelectorAll('.star');
-  const ratingInput = document.getElementById('rating');
-  let selectedRating = 0;
+  <script>
+    (function () {
+      const feedbackBtn = document.querySelector('.feedbackToReviewSection');
+      const reviewCard = document.querySelector('.review-container');
+      const reviewSection = document.querySelector('.review-Section');
 
-  stars.forEach(star => {
-    star.addEventListener('mouseover', () => {
-      highlightStars(star.dataset.value);
-    });
+      if (!feedbackBtn || !reviewCard || !reviewSection) return;
 
-    star.addEventListener('mouseout', () => {
-      highlightStars(selectedRating);
-    });
+      function handleScroll() {
+        const scrollY = window.scrollY;
+        const reviewRect = reviewCard.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
 
-    star.addEventListener('click', () => {
-      selectedRating = star.dataset.value;
-      ratingInput.value = selectedRating;
-    });
-  });
+        let visibleRatio = Math.min(
+          Math.max((viewportHeight - reviewRect.top) / reviewRect.height, 0),
+          1
+        );
 
-  function highlightStars(value) {
+        const fullyPast = reviewRect.bottom < 0;
+
+        if ((scrollY > 100 && visibleRatio < 0.3) || fullyPast) {
+          feedbackBtn.classList.add('is-visible');
+        } else {
+          feedbackBtn.classList.remove('is-visible');
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+
+      feedbackBtn.addEventListener('click', () => {
+        reviewSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        reviewCard.classList.remove('review-pulse');
+        void reviewCard.offsetWidth;
+        reviewCard.classList.add('review-pulse');
+
+        setTimeout(() => reviewCard.classList.remove('review-pulse'), 1800);
+        setTimeout(() => feedbackBtn.classList.remove('is-visible'), 2000);
+      });
+    })();
+  </script>
+
+  <script>
+    const stars = document.querySelectorAll('.reviewStar');
+    const ratingInput = document.getElementById('rating');
+    let selectedRating = 0;
+
     stars.forEach(star => {
-      star.classList.toggle('active', star.dataset.value <= value);
-    });
-  }
+      star.addEventListener('mouseover', () => {
+        highlightStars(star.dataset.value);
+      });
 
-  document.getElementById('contactForm').addEventListener('submit', e => {
-    e.preventDefault();
-    if (!ratingInput.value) {
-      alert('Please select a rating');
-      return;
+      star.addEventListener('mouseout', () => {
+        highlightStars(selectedRating);
+      });
+
+      star.addEventListener('click', () => {
+        selectedRating = star.dataset.value;
+        ratingInput.value = selectedRating;
+      });
+    });
+
+    function highlightStars(value) {
+      stars.forEach(star => {
+        star.classList.toggle('active', star.dataset.value <= value);
+      });
     }
-    alert('Review submitted successfully!');
-    e.target.reset();
-    highlightStars(0);
-  });
-</script>
+
+    document.getElementById('reviewForm').addEventListener('submit', e => {
+      e.preventDefault();
+
+      if (!ratingInput.value) {
+        alert('Please select a rating');
+        return;
+      }
+
+      alert('Review submitted successfully!');
+      e.target.reset();
+      highlightStars(0);
+    });
+  </script>
 
 </body>
 </html>
