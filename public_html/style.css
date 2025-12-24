@@ -11,6 +11,9 @@
     line-height: 22.75px
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 p.policy{
